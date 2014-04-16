@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3BD85B19-41A2-4659-9A16-80AB977A94B8}</ProjectGuid>
+    <ProjectGuid>{AFBB32B1-D913-4504-823A-5F4177D016A3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Terre_Natale_Calculateur</RootNamespace>
