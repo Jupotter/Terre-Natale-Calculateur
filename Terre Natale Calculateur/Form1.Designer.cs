@@ -30,7 +30,6 @@ namespace Terre_Natale_Calculateur
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.characterName = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Stats = new System.Windows.Forms.TabPage();
@@ -38,8 +37,6 @@ namespace Terre_Natale_Calculateur
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.bar_discretion = new System.Windows.Forms.ProgressBar();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.TalentsM = new System.Windows.Forms.TabPage();
@@ -94,7 +91,6 @@ namespace Terre_Natale_Calculateur
             this.Stats.SuspendLayout();
             this.TalentsG.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -178,7 +174,6 @@ namespace Terre_Natale_Calculateur
             // 
             // bar_discretion
             // 
-            this.bar_discretion.ContextMenuStrip = this.contextMenuStrip1;
             this.bar_discretion.Location = new System.Drawing.Point(110, 11);
             this.bar_discretion.MarqueeAnimationSpeed = 1;
             this.bar_discretion.Name = "bar_discretion";
@@ -186,19 +181,6 @@ namespace Terre_Natale_Calculateur
             this.bar_discretion.Step = 1;
             this.bar_discretion.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.bar_discretion.TabIndex = 0;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(92, 26);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(91, 22);
-            this.toolStripMenuItem2.Text = "1/5";
             // 
             // button2
             // 
@@ -721,7 +703,6 @@ namespace Terre_Natale_Calculateur
             this.TalentsG.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -747,8 +728,6 @@ namespace Terre_Natale_Calculateur
         private ProgressBar bar_discretion;
         private Button button2;
         private Button button1;
-        private ContextMenuStrip contextMenuStrip1;
-        private ToolStripMenuItem toolStripMenuItem2;
         private Button button4;
         private Button button3;
         private TextBox Experience;
