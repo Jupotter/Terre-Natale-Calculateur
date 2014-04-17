@@ -38,6 +38,33 @@ namespace Terre_Natale_Calculateur
             }
         }
 
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(ExperienceRestante.Text) < 0)
+            {
+                ExperienceRestante.ForeColor = System.Drawing.Color.Red;
+            }
+            else { ExperienceRestante.ForeColor = System.Drawing.Color.Black; }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Experience.Text =Convert.ToString ( (Convert.ToInt32(Experience.Text) + XpToAdd.Value));
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (((Convert.ToInt32(Experience.Text) - XpToAdd.Value) >= 0))
+            {
+                Experience.Text = Convert.ToString((Convert.ToInt32(Experience.Text) - XpToAdd.Value)); 
+            }
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
        
     }
 }
