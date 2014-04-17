@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AFBB32B1-D913-4504-823A-5F4177D016A3}</ProjectGuid>
+    <ProjectGuid>{3BD85B19-41A2-4659-9A16-80AB977A94B8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Terre_Natale_Calculateur</RootNamespace>
@@ -55,6 +55,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Talent.cs" />
+    <Compile Include="TalentBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="TalentsFactory.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
