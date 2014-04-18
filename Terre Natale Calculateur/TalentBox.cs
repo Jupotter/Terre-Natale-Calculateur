@@ -8,14 +8,12 @@ namespace Terre_Natale_Calculateur
 {
     [HelpKeyword(typeof(UserControl))]
     [ToolboxItem("System.Windows.Forms.Design.AutoSizeToolboxItem,System.Design")]
-    class TalentBox : UserControl
+    internal class TalentBox : UserControl
     {
         private readonly Label _label;
-        private readonly Button _plusButton;
         private readonly Button _minusButton;
+        private readonly Button _plusButton;
         private readonly ProgressBar _progress;
-
-        public event EventHandler TextModified;
 
         public TalentBox()
         {
@@ -64,10 +62,31 @@ namespace Terre_Natale_Calculateur
             TextModified = OnTextModified;
         }
 
-        private void OnTextModified(object sender, EventArgs eventArgs)
+        public event EventHandler TextModified;
+
+        [Browsable(true)]
+        [Category("Appearance")]
+        public override string Text
         {
-            _label.Text = Text;
-            ChangeSize();
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+                TextModified.Invoke(this, new EventArgs());
+            }
+        }
+
+        private void _minusButton_Click(object sender, System.EventArgs e)
+        {
+            _progress.Value -= 20;
+        }
+
+        private void _plusButton_Click(object sender, System.EventArgs e)
+        {
+            _progress.Value += 20;
         }
 
         private void ChangeSize()
@@ -83,29 +102,10 @@ namespace Terre_Natale_Calculateur
             Width = _plusButton.Right;
         }
 
-        void _minusButton_Click(object sender, System.EventArgs e)
+        private void OnTextModified(object sender, EventArgs eventArgs)
         {
-            _progress.Value -= 20;
-        }
-
-        void _plusButton_Click(object sender, System.EventArgs e)
-        {
-            _progress.Value += 20;
-        }
-
-        [Browsable(true)]
-        [Category("Appearance")]
-        public override string Text
-        {
-            get
-            {
-                return base.Text;
-            }
-            set
-            {
-                base.Text = value;
-                TextModified.Invoke(this, new EventArgs());
-            }
+            _label.Text = Text;
+            ChangeSize();
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,11 +6,8 @@ namespace Terre_Natale_Calculateur
 {
     internal class Character
     {
-        private readonly IDictionary<String, Talent> _talents;
         private readonly IDictionary<Aspect, int> _aspectPoint;
-
-        public event EventHandler PAchanged;
-
+        private readonly IDictionary<String, Talent> _talents;
         public Character(string name, TalentsFactory talentsFactory)
         {
             Name = name;
@@ -27,16 +23,12 @@ namespace Terre_Natale_Calculateur
             };
         }
 
+        public event EventHandler PAchanged;
         public string Name { get; set; }
 
         public IEnumerable<Talent> Talents
         {
             get { return _talents.Values; }
-        }
-
-        public Talent GetTalent(String name)
-        {
-            return _talents[name];
         }
 
         public int GetAspectPoint(Aspect aspect)
@@ -49,13 +41,17 @@ namespace Terre_Natale_Calculateur
             int n = 0;
             for (int i = 1; i <= 10; i++)
             {
-                n += i*10;
+                n += i * 10;
                 if (_aspectPoint[aspect] < n)
                     return i;
             }
             return 10;
         }
 
+        public Talent GetTalent(String name)
+        {
+            return _talents[name];
+        }
         private void RecomputePA()
         {
             foreach (var pair in _aspectPoint)
@@ -71,8 +67,8 @@ namespace Terre_Natale_Calculateur
                 }
                 else
                 {
-                    _aspectPoint[talent.PrimaryAspect] += talent.XPCost/2;
-                    _aspectPoint[talent.SecondaryAspect] += talent.XPCost/2;
+                    _aspectPoint[talent.PrimaryAspect] += talent.XPCost / 2;
+                    _aspectPoint[talent.SecondaryAspect] += talent.XPCost / 2;
                 }
             }
 

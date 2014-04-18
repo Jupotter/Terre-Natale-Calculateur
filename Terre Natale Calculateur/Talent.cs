@@ -14,6 +14,8 @@
             _secondaryAspect = secondaryAspect;
         }
 
+        public int Level { get; set; }
+
         public string Name
         {
             get { return _name; }
@@ -24,21 +26,20 @@
             get { return _primaryAspect; }
         }
 
+        public Aspect SecondaryAspect
+        {
+            get { return _secondaryAspect; }
+        }
+
         public int XPCost
         {
             get
             {
                 int ret = 0;
                 for (int i = 1; i <= Level; i++)
-                    ret += 10*i;
+                    ret += 10 * i;
                 return ret;
             }
-        }
-
-        public int Increment(int number = 1)
-        {
-            Level += number;
-            return XPCost;
         }
 
         public int Decrement(int number = 1)
@@ -46,11 +47,10 @@
             return Increment(-number);
         }
 
-        public Aspect SecondaryAspect
+        public int Increment(int number = 1)
         {
-            get { return _secondaryAspect; }
+            Level += number;
+            return XPCost;
         }
-
-        public int Level { get; set; }
     }
 }
