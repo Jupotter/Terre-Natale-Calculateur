@@ -51,6 +51,6 @@
             get { return _secondaryAspect; }
         }
 
-        public int Level { get; private set; }
+        public int Level { get; set; }
     }
 }

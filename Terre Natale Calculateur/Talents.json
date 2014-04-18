@@ -1,0 +1,33 @@
+﻿/*
+** Valeur des aspects:
+** 0 = Aucun
+** 1 = Eau
+** 2 = Feu
+** 3 = Vent
+** 4 = Terre
+** 5 = Arcane
+** 6 = Acier
+*/
+[
+	{
+		"Name":"Discretion",
+		"PrimaryAspect":1,
+		"XPCost":30,
+		"SecondaryAspect":0,
+		"Level":2
+	},
+	{
+		"Name":"Intimidation",
+		"PrimaryAspect":2,
+		"XPCost":0,
+		"SecondaryAspect":0,
+		"Level":0
+	},
+	{
+		"Name":"Arme à Distance",
+		"PrimaryAspect":6,
+		"XPCost":0,
+		"SecondaryAspect":3,
+		"Level":0
+	}
+]
