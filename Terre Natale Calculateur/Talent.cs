@@ -35,11 +35,22 @@
             }
         }
 
+        public int Increment(int number = 1)
+        {
+            Level += number;
+            return XPCost;
+        }
+
+        public int Decrement(int number = 1)
+        {
+            return Increment(-number);
+        }
+
         public Aspect SecondaryAspect
         {
             get { return _secondaryAspect; }
         }
 
-        public int Level { get; set; }
+        public int Level { get; private set; }
     }
 }
