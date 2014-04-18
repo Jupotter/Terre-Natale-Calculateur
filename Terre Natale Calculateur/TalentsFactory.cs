@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Terre_Natale_Calculateur
 {
     internal class TalentsFactory
     {
-        public ICollection<Talent> CreateSet()
+        public IDictionary<string, Talent> CreateSet()
         {
-            var ret = new HashSet<Talent>();
-            ret.Add(new Talent("Discretion", Aspect.Eau) {Level = 2});
-            ret.Add(new Talent("Intimidation", Aspect.Feu));
-            ret.Add(new Talent("Arme à Distance", Aspect.Acier, Aspect.Vent));
+            var ret = new Dictionary<String, Talent>();
+            ret.Add("Discretion", new Talent("Discretion", Aspect.Eau) {Level = 2});
+            ret.Add("Intimidation", new Talent("Intimidation", Aspect.Feu));
+            ret.Add("Arme à Distance", new Talent("Arme à Distance", Aspect.Acier, Aspect.Vent));
             return ret;
         }
     }

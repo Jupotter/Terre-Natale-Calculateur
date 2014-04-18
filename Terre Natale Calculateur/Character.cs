@@ -5,7 +5,7 @@ namespace Terre_Natale_Calculateur
 {
     internal class Character
     {
-        private ICollection<Talent> _talents; 
+        private readonly IDictionary<String, Talent> _talents;
 
         public Character(string name, TalentsFactory talentsFactory)
         {
@@ -17,7 +17,12 @@ namespace Terre_Natale_Calculateur
 
         public IEnumerable<Talent> Talents
         {
-            get { return _talents; }
+            get { return _talents.Values; }
+        }
+
+        public Talent GetTalent(String name)
+        {
+            return _talents[name];
         }
     }
 }
