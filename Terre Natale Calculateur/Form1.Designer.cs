@@ -69,11 +69,6 @@ namespace Terre_Natale_Calculateur
             this.Experience = new System.Windows.Forms.TextBox();
             this.ExperienceLabel = new System.Windows.Forms.Label();
             this.TalentsG = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.bar_discretion = new System.Windows.Forms.ProgressBar();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.TalentsM = new System.Windows.Forms.TabPage();
             this.TalentsA = new System.Windows.Forms.TabPage();
             this.Global_Personnalité = new System.Windows.Forms.TabPage();
@@ -87,13 +82,15 @@ namespace Terre_Natale_Calculateur
             this.label15 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.flowLayoutTalentG = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutTalentsM = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.TalentsG.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.TalentsM.SuspendLayout();
             this.Global_Personnalité.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -489,7 +486,7 @@ namespace Terre_Natale_Calculateur
             // 
             // TalentsG
             // 
-            this.TalentsG.Controls.Add(this.groupBox1);
+            this.TalentsG.Controls.Add(this.flowLayoutTalentG);
             this.TalentsG.Location = new System.Drawing.Point(4, 22);
             this.TalentsG.Name = "TalentsG";
             this.TalentsG.Padding = new System.Windows.Forms.Padding(3);
@@ -498,59 +495,9 @@ namespace Terre_Natale_Calculateur
             this.TalentsG.Text = "Talents Generaux";
             this.TalentsG.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.bar_discretion);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(8, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(247, 42);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "discretion";
-            // 
-            // bar_discretion
-            // 
-            this.bar_discretion.Location = new System.Drawing.Point(110, 11);
-            this.bar_discretion.MarqueeAnimationSpeed = 1;
-            this.bar_discretion.Name = "bar_discretion";
-            this.bar_discretion.Size = new System.Drawing.Size(100, 23);
-            this.bar_discretion.Step = 1;
-            this.bar_discretion.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.bar_discretion.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(216, 11);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(24, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "+";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(80, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "-";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // TalentsM
             // 
+            this.TalentsM.Controls.Add(this.flowLayoutTalentsM);
             this.TalentsM.Location = new System.Drawing.Point(4, 22);
             this.TalentsM.Name = "TalentsM";
             this.TalentsM.Size = new System.Drawing.Size(585, 401);
@@ -680,6 +627,23 @@ namespace Terre_Natale_Calculateur
             this.label14.Text = "Don";
             this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
+            // flowLayoutTalentG
+            // 
+            this.flowLayoutTalentG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutTalentG.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutTalentG.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutTalentG.Name = "flowLayoutTalentG";
+            this.flowLayoutTalentG.Size = new System.Drawing.Size(579, 395);
+            this.flowLayoutTalentG.TabIndex = 0;
+            // 
+            // flowLayoutTalentsM
+            // 
+            this.flowLayoutTalentsM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutTalentsM.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutTalentsM.Name = "flowLayoutTalentsM";
+            this.flowLayoutTalentsM.Size = new System.Drawing.Size(585, 401);
+            this.flowLayoutTalentsM.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -698,8 +662,7 @@ namespace Terre_Natale_Calculateur
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.TalentsG.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.TalentsM.ResumeLayout(false);
             this.Global_Personnalité.ResumeLayout(false);
             this.Global_Personnalité.PerformLayout();
             this.ResumeLayout(false);
@@ -715,11 +678,6 @@ namespace Terre_Natale_Calculateur
         private TabPage TalentsG;
         private TabPage TalentsM;
         private TabPage TalentsA;
-        private GroupBox groupBox1;
-        private Label label1;
-        private ProgressBar bar_discretion;
-        private Button button2;
-        private Button button1;
         private Button button4;
         private Button button3;
         private TextBox Experience;
@@ -766,6 +724,8 @@ namespace Terre_Natale_Calculateur
         private TextBox textBox1;
         private TextBox Equilibre;
         private Label label19;
+        private FlowLayoutPanel flowLayoutTalentG;
+        private FlowLayoutPanel flowLayoutTalentsM;
     }
 }
 

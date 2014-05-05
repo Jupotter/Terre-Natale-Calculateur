@@ -60,6 +60,8 @@ namespace Terre_Natale_Calculateur
             _plusButton.Click += _plusButton_Click;
             _minusButton.Click += _minusButton_Click;
             TextModified = OnTextModified;
+            AutoSize = true;
+            Margin = new Padding(0);
         }
 
         public event EventHandler TextModified;
