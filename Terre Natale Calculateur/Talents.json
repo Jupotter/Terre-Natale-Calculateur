@@ -20,30 +20,26 @@
 	{
 		"Name":"Discretion",
 		"PrimaryAspect":1,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
 	},
 	{
 		"Name":"Plagia",
 		"PrimaryAspect":1,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
 	},
 	{
 		"Name":"Eloquence",
 		"PrimaryAspect":1,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
 	},
 	{
 		"Name":"Discipline",
 		"PrimaryAspect":1,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
 	},
 
 	/*
@@ -52,30 +48,26 @@
 	{
 		"Name":"Intimidation",
 		"PrimaryAspect":2,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
 	},
 	{
 		"Name":"Volonté",
 		"PrimaryAspect":2,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
 	},
 	{
 		"Name":"Provocation",
 		"PrimaryAspect":2,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
 	},
 	{
 		"Name":"Parade",
 		"PrimaryAspect":2,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
 	},
 
 	/*
@@ -84,30 +76,26 @@
 	{
 		"Name":"Perception",
 		"PrimaryAspect":4,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
 	},
 	{
 		"Name":"Empathie",
 		"PrimaryAspect":4,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
 	},
 	{
 		"Name":"Survie",
 		"PrimaryAspect":4,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
 	},
 	{
 		"Name":"Dressage",
 		"PrimaryAspect":4,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
 	},
 
 	/*
@@ -116,30 +104,33 @@
 	{
 		"Name":"Sabotage",
 		"PrimaryAspect":3,
-		"XPCost":0,
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
+
 	},
 	{
 		"Name":"Acrobatie",
 		"PrimaryAspect":3,
-		"XPCost":0,
+
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
+
 	},
 	{
 		"Name":"Conduite",
 		"PrimaryAspect":3,
-		"XPCost":0,
+
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
+
 	},
 	{
 		"Name":"Esquive",
 		"PrimaryAspect":3,
-		"XPCost":0,
+
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
+
 	},
 
 	/*
@@ -148,30 +139,34 @@
 	{
 		"Name":"Athléthisme",
 		"PrimaryAspect":6,
-		"XPCost":0,
+
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
+
 	},
 	{
 		"Name":"Musculation",
 		"PrimaryAspect":6,
-		"XPCost":0,
+
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
+
 	},
 	{
 		"Name":"Escalade",
 		"PrimaryAspect":6,
-		"XPCost":0,
+
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
+
 	},
 	{
 		"Name":"Endurance",
 		"PrimaryAspect":6,
-		"XPCost":0,
+
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
+
 	},
 
 	/*
@@ -180,30 +175,34 @@
 	{
 		"Name":"Savoir",
 		"PrimaryAspect":5,
-		"XPCost":0,
+
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
+
 	},
 	{
 		"Name":"Médecine",
 		"PrimaryAspect":5,
-		"XPCost":0,
+
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
+
 	},
 	{
 		"Name":"Artisanat",
 		"PrimaryAspect":5,
-		"XPCost":0,
+
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
+
 	},
 	{
 		"Name":"Alchimie",
 		"PrimaryAspect":5,
-		"XPCost":0,
+
 		"SecondaryAspect":0,
-		"Level":0
+		"Type":0,
+
 	},
 
 /*
@@ -217,58 +216,66 @@
 	{
 		"Name":"Destruction",
 		"PrimaryAspect":5,
-		"XPCost":0,
+
 		"SecondaryAspect":2,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Maléfice",
 		"PrimaryAspect":5,
-		"XPCost":0,
+
 		"SecondaryAspect":3,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Guérison",
 		"PrimaryAspect":5,
-		"XPCost":0,
+
 		"SecondaryAspect":1,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Enchantement",
 		"PrimaryAspect":5,
-		"XPCost":0,
+
 		"SecondaryAspect":4,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Convocation",
 		"PrimaryAspect":5,
-		"XPCost":0,
+
 		"SecondaryAspect":4,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Conjuration",
 		"PrimaryAspect":5,
-		"XPCost":0,
+
 		"SecondaryAspect":3,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Abjuration",
 		"PrimaryAspect":5,
-		"XPCost":0,
+
 		"SecondaryAspect":2,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Illusion",
 		"PrimaryAspect":5,
-		"XPCost":0,
+
 		"SecondaryAspect":1,
-		"Level":0
+		"Type":1,
+
 	},
 
 	/*
@@ -277,57 +284,65 @@
 	{
 		"Name":"Arme à distance",
 		"PrimaryAspect":6,
-		"XPCost":0,
+
 		"SecondaryAspect":3,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Sans arme / Improvisé",
 		"PrimaryAspect":6,
-		"XPCost":0,
+
 		"SecondaryAspect":4,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Arme légère",
 		"PrimaryAspect":6,
-		"XPCost":0,
+
 		"SecondaryAspect":1,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Arme intermédiaire",
 		"PrimaryAspect":6,
-		"XPCost":0,
+
 		"SecondaryAspect":3,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Arme Lourde",
 		"PrimaryAspect":6,
-		"XPCost":0,
+
 		"SecondaryAspect":2,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Sans Armure",
-		"PrimaryAspect":4,
-		"XPCost":0,
+		"PrimaryAspect":6,
+
 		"SecondaryAspect":3,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Armure légère",
 		"PrimaryAspect":6,
-		"XPCost":0,
+
 		"SecondaryAspect":1,
-		"Level":0
+		"Type":1,
+
 	},
 	{
 		"Name":"Armure Lourde",
 		"PrimaryAspect":6,
-		"XPCost":0,
+
 		"SecondaryAspect":2,
-		"Level":0
+		"Type":1,
+
 	},
 ]

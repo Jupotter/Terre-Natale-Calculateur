@@ -69,7 +69,9 @@ namespace Terre_Natale_Calculateur
             this.Experience = new System.Windows.Forms.TextBox();
             this.ExperienceLabel = new System.Windows.Forms.Label();
             this.TalentsG = new System.Windows.Forms.TabPage();
+            this.flowLayoutTalentG = new System.Windows.Forms.FlowLayoutPanel();
             this.TalentsM = new System.Windows.Forms.TabPage();
+            this.flowLayoutTalentsM = new System.Windows.Forms.FlowLayoutPanel();
             this.TalentsA = new System.Windows.Forms.TabPage();
             this.Global_Personnalité = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
@@ -82,8 +84,6 @@ namespace Terre_Natale_Calculateur
             this.label15 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.flowLayoutTalentG = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutTalentsM = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -495,6 +495,14 @@ namespace Terre_Natale_Calculateur
             this.TalentsG.Text = "Talents Generaux";
             this.TalentsG.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutTalentG
+            // 
+            this.flowLayoutTalentG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutTalentG.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutTalentG.Name = "flowLayoutTalentG";
+            this.flowLayoutTalentG.Size = new System.Drawing.Size(579, 395);
+            this.flowLayoutTalentG.TabIndex = 0;
+            // 
             // TalentsM
             // 
             this.TalentsM.Controls.Add(this.flowLayoutTalentsM);
@@ -504,6 +512,14 @@ namespace Terre_Natale_Calculateur
             this.TalentsM.TabIndex = 2;
             this.TalentsM.Text = "Talents Martiaux";
             this.TalentsM.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutTalentsM
+            // 
+            this.flowLayoutTalentsM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutTalentsM.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutTalentsM.Name = "flowLayoutTalentsM";
+            this.flowLayoutTalentsM.Size = new System.Drawing.Size(585, 401);
+            this.flowLayoutTalentsM.TabIndex = 0;
             // 
             // TalentsA
             // 
@@ -626,23 +642,6 @@ namespace Terre_Natale_Calculateur
             this.label14.TabIndex = 0;
             this.label14.Text = "Don";
             this.label14.Click += new System.EventHandler(this.label14_Click);
-            // 
-            // flowLayoutTalentG
-            // 
-            this.flowLayoutTalentG.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutTalentG.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutTalentG.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutTalentG.Name = "flowLayoutTalentG";
-            this.flowLayoutTalentG.Size = new System.Drawing.Size(579, 395);
-            this.flowLayoutTalentG.TabIndex = 0;
-            // 
-            // flowLayoutTalentsM
-            // 
-            this.flowLayoutTalentsM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutTalentsM.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutTalentsM.Name = "flowLayoutTalentsM";
-            this.flowLayoutTalentsM.Size = new System.Drawing.Size(585, 401);
-            this.flowLayoutTalentsM.TabIndex = 0;
             // 
             // Form1
             // 

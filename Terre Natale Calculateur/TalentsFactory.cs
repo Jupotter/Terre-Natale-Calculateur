@@ -11,9 +11,9 @@ namespace Terre_Natale_Calculateur
         public static void GenerateJSON()
         {
             var ret = new Dictionary<String, Talent>();
-            ret.Add("Discretion", new Talent("Discretion", Aspect.Eau) { Level = 2 });
-            ret.Add("Intimidation", new Talent("Intimidation", Aspect.Feu));
-            ret.Add("Arme à Distance", new Talent("Arme à Distance", Aspect.Acier, Aspect.Vent));
+            ret.Add("Discretion", new Talent("Discretion", TalentType.General, Aspect.Eau) { Level = 2 });
+            ret.Add("Intimidation", new Talent("Intimidation", TalentType.General, Aspect.Feu));
+            ret.Add("Arme à Distance", new Talent("Arme à Distance", TalentType.General, Aspect.Acier, secondaryAspect: Aspect.Vent));
             String json = JsonConvert.SerializeObject(ret.Values);
             Console.Write(json);
         }

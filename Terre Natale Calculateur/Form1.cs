@@ -14,15 +14,24 @@ namespace Terre_Natale_Calculateur
 
             character = new Character("Name", new TalentsFactory());
 
-            foreach (var box in (from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
+            FlowLayoutPanel box;
+            foreach (var aspect in from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
                                  where aspect != Aspect.None
-                                 select aspect).Select(CreateAspectBox))
+                                 select aspect)
             {
+                Aspect aspect1 = aspect;
+                box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect1,
+                    String.Format("Talents de {0}", aspect));
                 flowLayoutTalentG.Controls.Add(box);
             }
+
+            box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Acier, "Talents d'Acier");
+            flowLayoutTalentsM.Controls.Add(box);
+            box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Arcane, "Talents d'Arcane");
+            flowLayoutTalentsM.Controls.Add(box);
         }
 
-        private FlowLayoutPanel CreateAspectBox(Aspect aspect)
+        private FlowLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)
         {
             var box = new FlowLayoutPanel
             {
@@ -31,11 +40,10 @@ namespace Terre_Natale_Calculateur
                 WrapContents = false,
                 BorderStyle = BorderStyle.FixedSingle
             };
-            box.Controls.Add(new Label { Text = String.Format("Talents de {0}", aspect) });
-            Aspect aspect1 = aspect;
+            box.Controls.Add(new Label { Text = name });
             foreach (TalentBox tbox in
                 from talent in character.Talents
-                where talent.SecondaryAspect == Aspect.None && talent.PrimaryAspect == aspect1
+                where predicate(talent)
                 select new TalentBox { Text = talent.Name })
             {
                 tbox.Margin = new Padding(0);

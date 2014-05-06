@@ -1,17 +1,21 @@
-﻿namespace Terre_Natale_Calculateur
+﻿using System;
+
+namespace Terre_Natale_Calculateur
 {
     internal class Talent
     {
         private readonly string _name;
         private readonly Aspect _primaryAspect;
         private readonly Aspect _secondaryAspect;
+        private readonly TalentType _type;
 
-        public Talent(string name, Aspect primaryAspect, Aspect secondaryAspect = Aspect.None)
+        public Talent(string name, TalentType type, Aspect primaryAspect, Aspect secondaryAspect = Aspect.None)
         {
             Level = 0;
             _name = name;
             _primaryAspect = primaryAspect;
             _secondaryAspect = secondaryAspect;
+            _type = type;
         }
 
         public int Level { get; set; }
@@ -40,6 +44,11 @@
                     ret += 10 * i;
                 return ret;
             }
+        }
+
+        public TalentType Type
+        {
+            get { return _type; }
         }
 
         public int Decrement(int number = 1)
