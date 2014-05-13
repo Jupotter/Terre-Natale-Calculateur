@@ -29,6 +29,8 @@ namespace Terre_Natale_Calculateur
             flowLayoutTalentsM.Controls.Add(box);
             box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Arcane, "Talents d'Arcane");
             flowLayoutTalentsM.Controls.Add(box);
+
+            characterName.Text = character.Name;
         }
 
         private FlowLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)
@@ -44,7 +46,7 @@ namespace Terre_Natale_Calculateur
             foreach (TalentBox tbox in
                 from talent in character.Talents
                 where predicate(talent)
-                select new TalentBox { Text = talent.Name })
+                select new TalentBox { LinkedTalent = talent })
             {
                 tbox.Margin = new Padding(0);
                 box.Controls.Add(tbox);

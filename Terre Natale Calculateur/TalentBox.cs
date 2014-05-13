@@ -14,6 +14,7 @@ namespace Terre_Natale_Calculateur
         private readonly Button _minusButton;
         private readonly Button _plusButton;
         private readonly ProgressBar _progress;
+        private Talent _linkedTalent;
 
         public TalentBox()
         {
@@ -64,6 +65,12 @@ namespace Terre_Natale_Calculateur
             Margin = new Padding(0);
         }
 
+        public override sealed bool AutoSize
+        {
+            get { return base.AutoSize; }
+            set { base.AutoSize = value; }
+        }
+
         public event EventHandler TextModified;
 
         [Browsable(true)]
@@ -81,14 +88,31 @@ namespace Terre_Natale_Calculateur
             }
         }
 
-        private void _minusButton_Click(object sender, System.EventArgs e)
+        public Talent LinkedTalent
         {
-            _progress.Value -= 20;
+            set
+            {
+                _linkedTalent = value;
+                Text = value.Name;
+                value.LevelChanged += talent_LevelChanged;
+            }
         }
 
-        private void _plusButton_Click(object sender, System.EventArgs e)
+        void talent_LevelChanged(object sender, EventArgs e)
         {
-            _progress.Value += 20;
+            _progress.Value = Math.Max(0, Math.Min(100, _linkedTalent.Level*100/5));
+        }
+
+        private void _minusButton_Click(object sender, EventArgs e)
+        {
+            if (_linkedTalent != null)
+                _linkedTalent.Decrement();
+        }
+
+        private void _plusButton_Click(object sender, EventArgs e)
+        {
+            if (_linkedTalent != null)
+                _linkedTalent.Increment();
         }
 
         private void ChangeSize()

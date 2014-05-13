@@ -6,12 +6,16 @@ namespace Terre_Natale_Calculateur
 {
     internal class Character
     {
-        private readonly IDictionary<Aspect, int> _aspectPoint;
-        private readonly IDictionary<String, Talent> _talents;
+        private IDictionary<Aspect, int> _aspectPoint;
+        private IDictionary<String, Talent> _talents;
         public Character(string name, TalentsFactory talentsFactory)
         {
             Name = name;
             _talents = talentsFactory.CreateSet();
+            foreach (var talent in _talents.Values)
+            {
+                talent.LevelChanged += (sender, args) => RecomputePA();
+            }
             _aspectPoint = new Dictionary<Aspect, int>()
             {
                 {Aspect.Acier, 30},
@@ -23,7 +27,14 @@ namespace Terre_Natale_Calculateur
             };
         }
 
-        public event EventHandler PAchanged;
+        public event EventHandler PAChanged;
+
+        protected virtual void OnPAchanged()
+        {
+            EventHandler handler = PAChanged;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
         public string Name { get; set; }
 
         public IEnumerable<Talent> Talents
@@ -54,10 +65,15 @@ namespace Terre_Natale_Calculateur
         }
         private void RecomputePA()
         {
-            foreach (var pair in _aspectPoint)
+            _aspectPoint = new Dictionary<Aspect, int>(6)
             {
-                _aspectPoint[pair.Key] = 30;
-            }
+                {Aspect.Acier, 30},
+                {Aspect.Arcane, 30},
+                {Aspect.Eau, 30},
+                {Aspect.Feu, 30},
+                {Aspect.Terre, 30},
+                {Aspect.Vent, 30},
+            };
 
             foreach (var talent in _talents.Select(talentPair => talentPair.Value))
             {
@@ -72,7 +88,7 @@ namespace Terre_Natale_Calculateur
                 }
             }
 
-            PAchanged.Invoke(this, null);
+            OnPAchanged();
         }
     }
 }

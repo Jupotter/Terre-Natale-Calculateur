@@ -8,6 +8,7 @@ namespace Terre_Natale_Calculateur
         private readonly Aspect _primaryAspect;
         private readonly Aspect _secondaryAspect;
         private readonly TalentType _type;
+        private int _level;
 
         public Talent(string name, TalentType type, Aspect primaryAspect, Aspect secondaryAspect = Aspect.None)
         {
@@ -18,7 +19,23 @@ namespace Terre_Natale_Calculateur
             _type = type;
         }
 
-        public int Level { get; set; }
+        public event EventHandler LevelChanged;
+
+        protected virtual void OnLevelChanged()
+        {
+            EventHandler handler = LevelChanged;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        public int Level
+        {
+            get { return _level; }
+            set
+            {
+                _level = value;
+                OnLevelChanged();
+            }
+        }
 
         public string Name
         {
@@ -58,7 +75,8 @@ namespace Terre_Natale_Calculateur
 
         public int Increment(int number = 1)
         {
-            Level += number;
+            if (Level + number >= 0 && Level + number <= 5)
+                Level += number;
             return XPCost;
         }
     }
