@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace Terre_Natale_Calculateur
 {
@@ -8,7 +9,23 @@ namespace Terre_Natale_Calculateur
     {
         private int _equilibre = 4;
         private IDictionary<Aspect, int> _aspectPoint;
-        private IDictionary<String, Talent> _talents;
+        private readonly IDictionary<String, Talent> _talents;
+
+        public Character(SerializableCharacter serializableCharacter)
+        {
+            Name = serializableCharacter.Name;
+            _talents = serializableCharacter.Talents.ToDictionary(talent => talent.Name);
+            _aspectPoint = new Dictionary<Aspect, int>()
+            {
+                {Aspect.Acier, 30},
+                {Aspect.Arcane, 30},
+                {Aspect.Eau, 30},
+                {Aspect.Feu, 30},
+                {Aspect.Terre, 30},
+                {Aspect.Vent, 30},
+            };
+        }
+
         public Character(string name, TalentsFactory talentsFactory)
         {
             Name = name;
@@ -58,6 +75,15 @@ namespace Terre_Natale_Calculateur
                     return i;
             }
             return 10;
+        }
+
+        public SerializableCharacter GetSerializableCharacter()
+        {
+            return new SerializableCharacter()
+            {
+                Name = Name,
+                Talents = Talents,
+            };
         }
 
         public Talent GetTalent(String name)

@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializableCharacter.cs" />
     <Compile Include="Talent.cs" />
     <Compile Include="TalentBox.cs">
       <SubType>UserControl</SubType>

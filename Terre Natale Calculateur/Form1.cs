@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -6,18 +7,27 @@ namespace Terre_Natale_Calculateur
 {
     public partial class Form1 : Form
     {
-        private Character character;
+        private Character _character;
+        private string _currentFilename = null;
 
         public Form1()
         {
             InitializeComponent();
 
-            character = CharacterManager.Instance.Create("Name");
+            //SetCharacter(CharacterManager.Instance.Create("Name"));
+
+            //CharacterManager.Instance.Save(_character, "Name");
+        }
+
+        private void CreateTalentBoxes()
+        {
+            flowLayoutTalentG.Controls.Clear();
+            flowLayoutTalentsM.Controls.Clear();
 
             FlowLayoutPanel box;
-            foreach (var aspect in from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
-                                 where aspect != Aspect.None
-                                 select aspect)
+            foreach (var aspect in from aspect in (Aspect[]) Enum.GetValues(typeof (Aspect))
+                where aspect != Aspect.None
+                select aspect)
             {
                 Aspect aspect1 = aspect;
                 box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect1,
@@ -29,12 +39,16 @@ namespace Terre_Natale_Calculateur
             flowLayoutTalentsM.Controls.Add(box);
             box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Arcane, "Talents d'Arcane");
             flowLayoutTalentsM.Controls.Add(box);
+        }
 
-            this.Text = character.Name;
-            character.PAChanged += PAChangedHandler;
+        private void SetCharacter(Character character)
+        {
+            _character = character;
+            Text = String.Format("Terre Natale – {0}", _character.Name);
 
-
-            CharacterManager.Instance.Save(character, "Name");
+            CreateTalentBoxes();
+            UpdateAspects();
+            _character.PAChanged += PAChangedHandler;
         }
 
         private FlowLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)
@@ -48,12 +62,13 @@ namespace Terre_Natale_Calculateur
             };
             box.Controls.Add(new Label { Text = name });
             foreach (TalentBox tbox in
-                from talent in character.Talents
+                from talent in _character.Talents
                 where predicate(talent)
                 select new TalentBox { LinkedTalent = talent })
             {
                 tbox.Margin = new Padding(0);
                 box.Controls.Add(tbox);
+                tbox.UpdateValue();
             }
             return box;
         }
@@ -85,11 +100,9 @@ namespace Terre_Natale_Calculateur
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(ExperienceRestante.Text) < 0)
-            {
-                ExperienceRestante.ForeColor = System.Drawing.Color.Red;
-            }
-            else { ExperienceRestante.ForeColor = System.Drawing.Color.Black; }
+            ExperienceRestante.ForeColor = Convert.ToInt32(ExperienceRestante.Text) < 0 
+                ? System.Drawing.Color.Red 
+                : System.Drawing.Color.Black;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -109,18 +122,18 @@ namespace Terre_Natale_Calculateur
         {
         }
 
-        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        private void nouveauToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            SetCharacter(CharacterManager.Instance.Create("name"));
+            _currentFilename = null;
         }
 
-        private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ouvrirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
             openFileDialog1.ShowDialog();
-
         }
 
-        private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void enregistrersousToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.ShowDialog();
         }
@@ -133,7 +146,28 @@ namespace Terre_Natale_Calculateur
             Karma.Text = character.Karma.ToString();
             Endurance.Text = character.Endurance.ToString();
             Santé.Text = "4";
-            
+        }
+        private void enregistrerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (_currentFilename != null)
+                CharacterManager.Instance.Save(_character, _currentFilename);
+            else
+                saveFileDialog1.ShowDialog();
+        }
+
+        private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string name = saveFileDialog1.FileName;
+            CharacterManager.Instance.Save(_character, name);
+            _currentFilename = name;
+        }
+
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Activate();
+            string name = openFileDialog1.FileName;
+            SetCharacter(CharacterManager.Instance.Load(name));
+            _currentFilename = name;
         }
     }
 }

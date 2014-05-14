@@ -98,7 +98,12 @@ namespace Terre_Natale_Calculateur
             }
         }
 
-        void talent_LevelChanged(object sender, EventArgs e)
+        private void talent_LevelChanged(object sender, EventArgs e)
+        {
+            UpdateValue();
+        }
+
+        public void UpdateValue()
         {
             _progress.Value = Math.Max(0, Math.Min(100, _linkedTalent.Level*100/5));
         }
