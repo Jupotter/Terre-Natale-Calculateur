@@ -12,7 +12,7 @@ namespace Terre_Natale_Calculateur
         {
             InitializeComponent();
 
-            character = new Character("Name", new TalentsFactory());
+            character = CharacterManager.Instance.Create("Name");
 
             FlowLayoutPanel box;
             foreach (var aspect in from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
@@ -33,6 +33,8 @@ namespace Terre_Natale_Calculateur
             this.Text = character.Name;
             character.PAChanged += PAChangedHandler;
 
+
+            CharacterManager.Instance.Save(character, "Name");
         }
 
         private FlowLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)

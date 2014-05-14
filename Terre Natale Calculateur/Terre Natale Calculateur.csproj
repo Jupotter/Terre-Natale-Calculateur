@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Aspect.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="CharacterSaver.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
