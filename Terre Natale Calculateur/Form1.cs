@@ -71,6 +71,7 @@ namespace Terre_Natale_Calculateur
             Terre.Text = character.GetAspectValue(Aspect.Terre).ToString();
             Feu.Text = character.GetAspectValue(Aspect.Feu).ToString();
             Vent.Text = character.GetAspectValue(Aspect.Vent).ToString();
+            actualiseStats();
         }
 
 
@@ -118,6 +119,17 @@ namespace Terre_Natale_Calculateur
         private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.ShowDialog();
+        }
+
+        void actualiseStats()
+        {
+            Fatigue.Text = character.Fatigue.ToString();
+            Chi.Text = character.Chi.ToString();
+            Mana.Text = character.Mana.ToString();
+            Karma.Text = character.Karma.ToString();
+            Endurance.Text = character.Endurance.ToString();
+            Santé.Text = "4";
+            
         }
     }
 }

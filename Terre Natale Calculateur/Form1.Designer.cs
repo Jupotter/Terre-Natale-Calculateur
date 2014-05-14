@@ -595,7 +595,7 @@ namespace Terre_Natale_Calculateur
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(7, 53);
+            this.label11.Location = new System.Drawing.Point(13, 53);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 30;

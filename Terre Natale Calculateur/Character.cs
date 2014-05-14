@@ -6,6 +6,7 @@ namespace Terre_Natale_Calculateur
 {
     internal class Character
     {
+        private int _equilibre = 4;
         private IDictionary<Aspect, int> _aspectPoint;
         private IDictionary<String, Talent> _talents;
         public Character(string name, TalentsFactory talentsFactory)
@@ -63,6 +64,7 @@ namespace Terre_Natale_Calculateur
         {
             return _talents[name];
         }
+
         private void RecomputePA()
         {
             _aspectPoint = new Dictionary<Aspect, int>(6)
@@ -89,6 +91,67 @@ namespace Terre_Natale_Calculateur
             }
 
             OnPAchanged();
+        }
+
+        public int Fatigue
+        {
+            get
+            {
+               
+                int maxTalent = 0;
+                foreach (var item in _talents.Values)
+                {
+                    if (item.Type == TalentType.Aptitude && item.PrimaryAspect == Aspect.Acier)
+                        maxTalent = Math.Max(maxTalent, item.Level);
+                }
+                return Math.Max(GetAspectValue( Aspect.Feu),GetAspectValue( Aspect.Acier)) + _equilibre + maxTalent * 2;
+            }
+        }
+
+        public int Mana
+        {
+            get
+            {
+                int maxTalent = 0;
+                foreach (var item in _talents.Values)
+                {
+                    if (item.Type == TalentType.Aptitude || item.Type == TalentType.Martial && item.PrimaryAspect == Aspect.Arcane)
+                        maxTalent = Math.Max(maxTalent, item.Level);
+                }
+
+                return Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Terre)) + _equilibre + GetAspectValue(Aspect.Arcane)+maxTalent*2;
+            }
+        }
+
+        public int Endurance
+        {
+            get
+            {
+                return  GetAspectValue(Aspect.Acier) + _equilibre+ 5 + GetTalent("Endurance").Level;
+            }
+        }
+
+        public int Karma
+        {
+            get
+            {
+                return _equilibre;
+            }
+        }
+
+        public int Chi
+        {
+            get
+            {
+                int maxTalent = 0;
+                foreach (var item in _talents.Values)
+                {
+                    if (item.Type == TalentType.Aptitude && item.PrimaryAspect != Aspect.Acier && item.PrimaryAspect != Aspect.Arcane)
+                        maxTalent = Math.Max(maxTalent, item.Level);
+                }
+
+                return Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent)) + _equilibre +maxTalent*2;
+            }
         }
     }
 }
