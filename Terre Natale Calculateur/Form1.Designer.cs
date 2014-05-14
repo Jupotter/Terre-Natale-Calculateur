@@ -4,10 +4,138 @@ namespace Terre_Natale_Calculateur
 {
     partial class Form1
     {
+        private TextBox Acier;
+
+        private TextBox Arcane;
+
+        private Button button3;
+
+        private Button button4;
+
+        private TextBox Chi;
+
+        private ComboBox comboBox1;
+
         /// <summary>
         /// Variable nécessaire au concepteur.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+
+        private TextBox Eau;
+
+        private TextBox Endurance;
+
+        private ToolStripMenuItem enregistrersousToolStripMenuItem;
+
+        private ToolStripMenuItem enregistrerToolStripMenuItem1;
+
+        private TextBox Equilibre;
+
+        private TextBox Experience;
+
+        private Label ExperienceLabel;
+
+        private TextBox ExperienceRestante;
+
+        private TextBox Fatigue;
+
+        private TextBox Feu;
+
+        private ToolStripMenuItem fichierToolStripMenuItem1;
+
+        private FlowLayoutPanel flowLayoutTalentG;
+
+        private FlowLayoutPanel flowLayoutTalentsM;
+
+        private TabPage Global_Personnalité;
+
+        private GroupBox groupBox2;
+
+        private GroupBox groupBox3;
+
+        private TextBox Karma;
+
+        private Label label;
+
+        private Label label10;
+
+        private Label label11;
+
+        private Label label12;
+
+        private Label label13;
+
+        private Label label14;
+
+        private Label label15;
+
+        private Label label16;
+
+        private Label label17;
+
+        private Label label18;
+
+        private Label label19;
+
+        private Label label2;
+
+        private Label label3;
+
+        private Label label4;
+
+        private Label label5;
+
+        private Label label6;
+
+        private Label label7;
+
+        private Label label8;
+
+        private Label label9;
+
+        private TextBox Mana;
+
+        private MenuStrip menuStrip1;
+
+        private ToolStripMenuItem nouveauToolStripMenuItem1;
+
+        private OpenFileDialog openFileDialog1;
+
+        private ToolStripMenuItem ouvrirToolStripMenuItem1;
+
+        private ToolStripMenuItem quitterToolStripMenuItem;
+
+        private TextBox Santé;
+
+        private SaveFileDialog saveFileDialog1;
+
+        private TabPage Stats;
+
+        private TabControl tabControl1;
+
+        private TabPage TalentsA;
+
+        private TabPage TalentsG;
+
+        private TabPage TalentsM;
+
+        private TextBox Terre;
+
+        private TextBox textBox1;
+
+        private TextBox textBox2;
+
+        private TextBox textBox3;
+
+        private TextBox textBox4;
+
+        private ToolStripSeparator toolStripSeparator;
+
+        private ToolStripSeparator toolStripSeparator1;
+
+        private TextBox Vent;
+
+        private NumericUpDown XpToAdd;
 
         /// <summary>
         /// Nettoyage des ressources utilisées.
@@ -770,71 +898,6 @@ namespace Terre_Natale_Calculateur
         }
 
         #endregion
-
-        private TabControl tabControl1;
-        private TabPage TalentsG;
-        private TabPage TalentsM;
-        private TabPage TalentsA;
-        private TabPage Global_Personnalité;
-        private Label label14;
-        private Label label18;
-        private ComboBox comboBox1;
-        private TextBox textBox4;
-        private Label label17;
-        private TextBox textBox3;
-        private Label label16;
-        private TextBox textBox2;
-        private Label label15;
-        private TextBox textBox1;
-        private FlowLayoutPanel flowLayoutTalentG;
-        private FlowLayoutPanel flowLayoutTalentsM;
-        private TabPage Stats;
-        private NumericUpDown XpToAdd;
-        private GroupBox groupBox3;
-        private TextBox Karma;
-        private Label label13;
-        private Label label11;
-        private TextBox Fatigue;
-        private Label label12;
-        private TextBox Endurance;
-        private TextBox Chi;
-        private Label label;
-        private TextBox Mana;
-        private Label label10;
-        private TextBox Santé;
-        private Label label9;
-        private GroupBox groupBox2;
-        private TextBox Equilibre;
-        private Label label19;
-        private TextBox Acier;
-        private Label label8;
-        private TextBox Arcane;
-        private Label label7;
-        private TextBox Feu;
-        private TextBox Terre;
-        private TextBox Eau;
-        private TextBox Vent;
-        private Label label6;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private TextBox ExperienceRestante;
-        private Label label2;
-        private Button button4;
-        private Button button3;
-        private TextBox Experience;
-        private Label ExperienceLabel;
-        private MenuStrip menuStrip1;
-        private SaveFileDialog saveFileDialog1;
-        private OpenFileDialog openFileDialog1;
-        private ToolStripMenuItem fichierToolStripMenuItem1;
-        private ToolStripMenuItem nouveauToolStripMenuItem1;
-        private ToolStripMenuItem ouvrirToolStripMenuItem1;
-        private ToolStripSeparator toolStripSeparator;
-        private ToolStripMenuItem enregistrerToolStripMenuItem1;
-        private ToolStripMenuItem enregistrersousToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator1;
-        private ToolStripMenuItem quitterToolStripMenuItem;
     }
 }
 

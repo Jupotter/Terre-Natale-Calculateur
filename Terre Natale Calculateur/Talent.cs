@@ -1,19 +1,20 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System;
+using Terre_Natale_Calculateur.Annotations;
 
 namespace Terre_Natale_Calculateur
 {
     internal class Talent
     {
+        private int _level;
         private string _name;
         private Aspect _primaryAspect;
         private Aspect _secondaryAspect;
         private TalentType _type;
-        private int _level;
 
+        [UsedImplicitly]
         public Talent()
         {
-            
         }
 
         public Talent(string name, TalentType type, Aspect primaryAspect, Aspect secondaryAspect = Aspect.None)
@@ -26,12 +27,6 @@ namespace Terre_Natale_Calculateur
         }
 
         public event EventHandler LevelChanged;
-
-        private void OnLevelChanged()
-        {
-            EventHandler handler = LevelChanged;
-            if (handler != null) handler(this, EventArgs.Empty);
-        }
 
         public int Level
         {
@@ -61,6 +56,12 @@ namespace Terre_Natale_Calculateur
             set { _secondaryAspect = value; }
         }
 
+        public TalentType Type
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
+
         [JsonIgnore]
         public int XPCost
         {
@@ -73,12 +74,6 @@ namespace Terre_Natale_Calculateur
             }
         }
 
-        public TalentType Type
-        {
-            get { return _type; }
-            set { _type = value;  }
-        }
-
         public int Decrement(int number = 1)
         {
             return Increment(-number);
@@ -89,6 +84,13 @@ namespace Terre_Natale_Calculateur
             if (Level + number >= 0 && Level + number <= 5)
                 Level += number;
             return XPCost;
+        }
+
+        private void OnLevelChanged()
+        {
+            EventHandler handler = LevelChanged;
+            if (handler != null)
+                handler(this, EventArgs.Empty);
         }
     }
 }

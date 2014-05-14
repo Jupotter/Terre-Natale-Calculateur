@@ -8,7 +8,7 @@ namespace Terre_Natale_Calculateur
     public partial class Form1 : Form
     {
         private Character _character;
-        private string _currentFilename = null;
+        private string _currentFilename;
 
         public Form1()
         {
@@ -19,36 +19,27 @@ namespace Terre_Natale_Calculateur
             //CharacterManager.Instance.Save(_character, "Name");
         }
 
-        private void CreateTalentBoxes()
+        private void ActualiseStats()
         {
-            flowLayoutTalentG.Controls.Clear();
-            flowLayoutTalentsM.Controls.Clear();
-
-            FlowLayoutPanel box;
-            foreach (var aspect in from aspect in (Aspect[]) Enum.GetValues(typeof (Aspect))
-                where aspect != Aspect.None
-                select aspect)
-            {
-                Aspect aspect1 = aspect;
-                box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect1,
-                    String.Format("Talents de {0}", aspect));
-                flowLayoutTalentG.Controls.Add(box);
-            }
-
-            box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Acier, "Talents d'Acier");
-            flowLayoutTalentsM.Controls.Add(box);
-            box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Arcane, "Talents d'Arcane");
-            flowLayoutTalentsM.Controls.Add(box);
+            Fatigue.Text = _character.Fatigue.ToString(CultureInfo.InvariantCulture);
+            Chi.Text = _character.Chi.ToString(CultureInfo.InvariantCulture);
+            Mana.Text = _character.Mana.ToString(CultureInfo.InvariantCulture);
+            Karma.Text = _character.Karma.ToString(CultureInfo.InvariantCulture);
+            Endurance.Text = _character.Endurance.ToString(CultureInfo.InvariantCulture);
+            Santé.Text = @"4";
         }
 
-        private void SetCharacter(Character character)
+        private void button3_Click(object sender, EventArgs e)
         {
-            _character = character;
-            Text = String.Format("Terre Natale – {0}", _character.Name);
+            Experience.Text = Convert.ToString((Convert.ToInt32(Experience.Text) + XpToAdd.Value));
+        }
 
-            CreateTalentBoxes();
-            UpdateAspects();
-            _character.PAChanged += PAChangedHandler;
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (((Convert.ToInt32(Experience.Text) - XpToAdd.Value) >= 0))
+            {
+                Experience.Text = Convert.ToString((Convert.ToInt32(Experience.Text) - XpToAdd.Value));
+            }
         }
 
         private FlowLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)
@@ -73,49 +64,43 @@ namespace Terre_Natale_Calculateur
             return box;
         }
 
-        private void resizeHandler(object sender, EventArgs eventArgs)
+        private void CreateTalentBoxes()
         {
-            PerformAutoScale();
-            PerformLayout();
+            flowLayoutTalentG.Controls.Clear();
+            flowLayoutTalentsM.Controls.Clear();
+
+            FlowLayoutPanel box;
+            foreach (var aspect in from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
+                                   where aspect != Aspect.None
+                                   select aspect)
+            {
+                Aspect aspect1 = aspect;
+                box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect1,
+                    String.Format("Talents de {0}", aspect));
+                flowLayoutTalentG.Controls.Add(box);
+            }
+
+            box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Acier, "Talents d'Acier");
+            flowLayoutTalentsM.Controls.Add(box);
+            box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Arcane, "Talents d'Arcane");
+            flowLayoutTalentsM.Controls.Add(box);
         }
 
-        void PAChangedHandler(object sender, EventArgs e)
+        private void enregistrersousToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateAspects();
+            saveFileDialog1.ShowDialog();
         }
 
-            Acier.Text = character.GetAspectValue(Aspect.Acier).ToString();
-            Arcane.Text = character.GetAspectValue(Aspect.Arcane).ToString();
-            Eau.Text = character.GetAspectValue(Aspect.Eau).ToString();
-            Terre.Text = character.GetAspectValue(Aspect.Terre).ToString();
-            Feu.Text = character.GetAspectValue(Aspect.Feu).ToString();
-            Vent.Text = character.GetAspectValue(Aspect.Vent).ToString();
-            actualiseStats();
+        private void enregistrerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (_currentFilename != null)
+                CharacterManager.Instance.Save(_character, _currentFilename);
+            else
+                saveFileDialog1.ShowDialog();
         }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            ExperienceRestante.ForeColor = Convert.ToInt32(ExperienceRestante.Text) < 0 
-                ? System.Drawing.Color.Red 
-                : System.Drawing.Color.Black;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Experience.Text = Convert.ToString((Convert.ToInt32(Experience.Text) + XpToAdd.Value));
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (((Convert.ToInt32(Experience.Text) - XpToAdd.Value) >= 0))
-            {
-                Experience.Text = Convert.ToString((Convert.ToInt32(Experience.Text) - XpToAdd.Value));
-            }
         }
 
         private void label14_Click(object sender, EventArgs e)
@@ -128,31 +113,22 @@ namespace Terre_Natale_Calculateur
             _currentFilename = null;
         }
 
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Activate();
+            string name = openFileDialog1.FileName;
+            SetCharacter(CharacterManager.Instance.Load(name));
+            _currentFilename = name;
+        }
+
         private void ouvrirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
         }
 
-        private void enregistrersousToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PAChangedHandler(object sender, EventArgs e)
         {
-            saveFileDialog1.ShowDialog();
-        }
-
-        void actualiseStats()
-        {
-            Fatigue.Text = character.Fatigue.ToString();
-            Chi.Text = character.Chi.ToString();
-            Mana.Text = character.Mana.ToString();
-            Karma.Text = character.Karma.ToString();
-            Endurance.Text = character.Endurance.ToString();
-            Santé.Text = "4";
-        }
-        private void enregistrerToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            if (_currentFilename != null)
-                CharacterManager.Instance.Save(_character, _currentFilename);
-            else
-                saveFileDialog1.ShowDialog();
+            UpdateAspects();
         }
 
         private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
@@ -162,12 +138,32 @@ namespace Terre_Natale_Calculateur
             _currentFilename = name;
         }
 
-        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        private void SetCharacter(Character character)
         {
-            Activate();
-            string name = openFileDialog1.FileName;
-            SetCharacter(CharacterManager.Instance.Load(name));
-            _currentFilename = name;
+            _character = character;
+            Text = String.Format("Terre Natale – {0}", _character.Name);
+
+            CreateTalentBoxes();
+            UpdateAspects();
+            _character.PAChanged += PAChangedHandler;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            ExperienceRestante.ForeColor = Convert.ToInt32(ExperienceRestante.Text) < 0
+                ? System.Drawing.Color.Red
+                : System.Drawing.Color.Black;
+        }
+
+        private void UpdateAspects()
+        {
+            Acier.Text = _character.GetAspectValue(Aspect.Acier).ToString(CultureInfo.InvariantCulture);
+            Arcane.Text = _character.GetAspectValue(Aspect.Arcane).ToString(CultureInfo.InvariantCulture);
+            Eau.Text = _character.GetAspectValue(Aspect.Eau).ToString(CultureInfo.InvariantCulture);
+            Terre.Text = _character.GetAspectValue(Aspect.Terre).ToString(CultureInfo.InvariantCulture);
+            Feu.Text = _character.GetAspectValue(Aspect.Feu).ToString(CultureInfo.InvariantCulture);
+            Vent.Text = _character.GetAspectValue(Aspect.Vent).ToString(CultureInfo.InvariantCulture);
+            ActualiseStats();
         }
     }
 }

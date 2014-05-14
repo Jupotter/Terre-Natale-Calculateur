@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 
 namespace Terre_Natale_Calculateur
 {
@@ -24,6 +23,7 @@ namespace Terre_Natale_Calculateur
                 {Aspect.Terre, 30},
                 {Aspect.Vent, 30},
             };
+            RecomputePA();
         }
 
         public Character(string name, TalentsFactory talentsFactory)
@@ -50,7 +50,8 @@ namespace Terre_Natale_Calculateur
         protected virtual void OnPAchanged()
         {
             EventHandler handler = PAChanged;
-            if (handler != null) handler(this, EventArgs.Empty);
+            if (handler != null)
+                handler(this, EventArgs.Empty);
         }
 
         public string Name { get; set; }
@@ -123,14 +124,13 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-               
                 int maxTalent = 0;
                 foreach (var item in _talents.Values)
                 {
                     if (item.Type == TalentType.Aptitude && item.PrimaryAspect == Aspect.Acier)
                         maxTalent = Math.Max(maxTalent, item.Level);
                 }
-                return Math.Max(GetAspectValue( Aspect.Feu),GetAspectValue( Aspect.Acier)) + _equilibre + maxTalent * 2;
+                return Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Acier)) + _equilibre + maxTalent * 2;
             }
         }
 
@@ -145,7 +145,7 @@ namespace Terre_Natale_Calculateur
                         maxTalent = Math.Max(maxTalent, item.Level);
                 }
 
-                return Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Terre)) + _equilibre + GetAspectValue(Aspect.Arcane)+maxTalent*2;
+                return Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Terre)) + _equilibre + GetAspectValue(Aspect.Arcane) + maxTalent * 2;
             }
         }
 
@@ -153,7 +153,7 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                return  GetAspectValue(Aspect.Acier) + _equilibre+ 5 + GetTalent("Endurance").Level;
+                return GetAspectValue(Aspect.Acier) + _equilibre + 5 + GetTalent("Endurance").Level;
             }
         }
 
@@ -176,7 +176,7 @@ namespace Terre_Natale_Calculateur
                         maxTalent = Math.Max(maxTalent, item.Level);
                 }
 
-                return Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent)) + _equilibre +maxTalent*2;
+                return Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent)) + _equilibre + maxTalent * 2;
             }
         }
     }

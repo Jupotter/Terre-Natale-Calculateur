@@ -65,13 +65,22 @@ namespace Terre_Natale_Calculateur
             Margin = new Padding(0);
         }
 
+        public event EventHandler TextModified;
+
         public override sealed bool AutoSize
         {
             get { return base.AutoSize; }
             set { base.AutoSize = value; }
         }
-
-        public event EventHandler TextModified;
+        public Talent LinkedTalent
+        {
+            set
+            {
+                _linkedTalent = value;
+                Text = value.Name;
+                value.LevelChanged += talent_LevelChanged;
+            }
+        }
 
         [Browsable(true)]
         [Category("Appearance")]
@@ -88,24 +97,9 @@ namespace Terre_Natale_Calculateur
             }
         }
 
-        public Talent LinkedTalent
-        {
-            set
-            {
-                _linkedTalent = value;
-                Text = value.Name;
-                value.LevelChanged += talent_LevelChanged;
-            }
-        }
-
-        private void talent_LevelChanged(object sender, EventArgs e)
-        {
-            UpdateValue();
-        }
-
         public void UpdateValue()
         {
-            _progress.Value = Math.Max(0, Math.Min(100, _linkedTalent.Level*100/5));
+            _progress.Value = Math.Max(0, Math.Min(100, _linkedTalent.Level * 100 / 5));
         }
 
         private void _minusButton_Click(object sender, EventArgs e)
@@ -137,6 +131,11 @@ namespace Terre_Natale_Calculateur
         {
             _label.Text = Text;
             ChangeSize();
+        }
+
+        private void talent_LevelChanged(object sender, EventArgs e)
+        {
+            UpdateValue();
         }
     }
 }
