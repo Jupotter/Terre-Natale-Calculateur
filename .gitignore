@@ -33,6 +33,7 @@ $RECYCLE.BIN/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
+[Dd]eploy/
 x64/
 build/
 bld/
