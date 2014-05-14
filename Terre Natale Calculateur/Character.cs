@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Terre_Natale_Calculateur
 {
-    internal class Character
+    internal sealed class Character
     {
         private int _equilibre = 4;
         private IDictionary<Aspect, int> _aspectPoint;
@@ -14,7 +14,7 @@ namespace Terre_Natale_Calculateur
         {
             Name = serializableCharacter.Name;
             _talents = serializableCharacter.Talents.ToDictionary(talent => talent.Name);
-            _aspectPoint = new Dictionary<Aspect, int>()
+            _aspectPoint = new Dictionary<Aspect, int>
             {
                 {Aspect.Acier, 30},
                 {Aspect.Arcane, 30},
@@ -34,7 +34,7 @@ namespace Terre_Natale_Calculateur
             {
                 talent.LevelChanged += (sender, args) => RecomputePA();
             }
-            _aspectPoint = new Dictionary<Aspect, int>()
+            _aspectPoint = new Dictionary<Aspect, int>
             {
                 {Aspect.Acier, 30},
                 {Aspect.Arcane, 30},
@@ -47,7 +47,7 @@ namespace Terre_Natale_Calculateur
 
         public event EventHandler PAChanged;
 
-        protected virtual void OnPAchanged()
+        private void OnPAchanged()
         {
             EventHandler handler = PAChanged;
             if (handler != null)
@@ -80,7 +80,7 @@ namespace Terre_Natale_Calculateur
 
         public SerializableCharacter GetSerializableCharacter()
         {
-            return new SerializableCharacter()
+            return new SerializableCharacter
             {
                 Name = Name,
                 Talents = Talents,
@@ -124,12 +124,9 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                int maxTalent = 0;
-                foreach (var item in _talents.Values)
-                {
-                    if (item.Type == TalentType.Aptitude && item.PrimaryAspect == Aspect.Acier)
-                        maxTalent = Math.Max(maxTalent, item.Level);
-                }
+                int maxTalent = (from item in _talents.Values 
+                                 where item.Type == TalentType.Aptitude && item.PrimaryAspect == Aspect.Acier 
+                                 select item.Level).Concat(new[] {0}).Max();
                 return Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Acier)) + _equilibre + maxTalent * 2;
             }
         }
@@ -138,12 +135,9 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                int maxTalent = 0;
-                foreach (var item in _talents.Values)
-                {
-                    if (item.Type == TalentType.Aptitude || item.Type == TalentType.Martial && item.PrimaryAspect == Aspect.Arcane)
-                        maxTalent = Math.Max(maxTalent, item.Level);
-                }
+                int maxTalent = (from item in _talents.Values 
+                                 where item.Type == TalentType.Aptitude || item.Type == TalentType.Martial && item.PrimaryAspect == Aspect.Arcane 
+                                 select item.Level).Concat(new[] {0}).Max();
 
                 return Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Terre)) + _equilibre + GetAspectValue(Aspect.Arcane) + maxTalent * 2;
             }
@@ -169,12 +163,9 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                int maxTalent = 0;
-                foreach (var item in _talents.Values)
-                {
-                    if (item.Type == TalentType.Aptitude && item.PrimaryAspect != Aspect.Acier && item.PrimaryAspect != Aspect.Arcane)
-                        maxTalent = Math.Max(maxTalent, item.Level);
-                }
+                int maxTalent = (from item in _talents.Values 
+                                 where item.Type == TalentType.Aptitude && item.PrimaryAspect != Aspect.Acier && item.PrimaryAspect != Aspect.Arcane 
+                                 select item.Level).Concat(new[] {0}).Max();
 
                 return Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent)) + _equilibre + maxTalent * 2;
             }
