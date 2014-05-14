@@ -66,6 +66,8 @@ namespace Terre_Natale_Calculateur
 
         void PAChangedHandler(object sender, EventArgs e)
         {
+            UpdateAspects();
+        }
 
             Acier.Text = character.GetAspectValue(Aspect.Acier).ToString();
             Arcane.Text = character.GetAspectValue(Aspect.Arcane).ToString();
