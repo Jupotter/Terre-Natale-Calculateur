@@ -30,7 +30,9 @@ namespace Terre_Natale_Calculateur
             box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Arcane, "Talents d'Arcane");
             flowLayoutTalentsM.Controls.Add(box);
 
-            characterName.Text = character.Name;
+            this.Text = character.Name;
+            character.PAChanged += PAChangedHandler;
+
         }
 
         private FlowLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)
@@ -59,6 +61,18 @@ namespace Terre_Natale_Calculateur
             PerformAutoScale();
             PerformLayout();
         }
+
+        void PAChangedHandler(object sender, EventArgs e)
+        {
+
+            Acier.Text = character.GetAspectValue(Aspect.Acier).ToString();
+            Arcane.Text = character.GetAspectValue(Aspect.Arcane).ToString();
+            Eau.Text = character.GetAspectValue(Aspect.Eau).ToString();
+            Terre.Text = character.GetAspectValue(Aspect.Terre).ToString();
+            Feu.Text = character.GetAspectValue(Aspect.Feu).ToString();
+            Vent.Text = character.GetAspectValue(Aspect.Vent).ToString();
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -92,6 +106,18 @@ namespace Terre_Natale_Calculateur
 
         private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
         {
+        }
+
+        private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            openFileDialog1.ShowDialog();
+
+        }
+
+        private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.ShowDialog();
         }
     }
 }
