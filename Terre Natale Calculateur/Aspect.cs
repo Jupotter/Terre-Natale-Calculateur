@@ -9,5 +9,6 @@
         Terre = 4,
         Arcane = 5,
         Acier = 6,
+        Equilibre = 7,
     }
 }

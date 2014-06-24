@@ -92,13 +92,13 @@ namespace Terre_Natale_Calculateur
             flowLayoutTalentsA.Controls.Add(box);
 
             foreach (var aspect in from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
-                                   where aspect != Aspect.None
+                                   where aspect != Aspect.None && aspect != Aspect.Equilibre
                                    select aspect)
             {
                 Aspect aspect1 = aspect;
                 box = CreateAspectBox(t => t.Type == TalentType.Prouesse && t.PrimaryAspect == aspect1,
                     String.Format("Prouesse de {0}", aspect));
-                //flowLayoutTalentsP.Controls.Add(box);
+               flowLayoutTalentsP.Controls.Add(box);
             }
         }
 

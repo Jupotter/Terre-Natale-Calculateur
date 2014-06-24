@@ -7,6 +7,7 @@
 ** 4 = Terre
 ** 5 = Arcane
 ** 6 = Acier
+** 7 = Equilibre
 */
 [
 /*
@@ -345,4 +346,237 @@
 		"Type":1,
 
 	},
+	{
+		"Name":"Tranchant",
+		"PrimaryAspect":6,
+
+		"SecondaryAspect":2,
+		"Type":2,
+
+	},
+	{
+		"Name":"Perforant",
+		"PrimaryAspect":6,
+
+		"SecondaryAspect":3,
+		"Type":2,
+
+	},
+	{
+		"Name":"Contondant",
+		"PrimaryAspect":6,
+
+		"SecondaryAspect":4,
+		"Type":2,
+
+	},
+	{
+		"Name":"Flexible",
+		"PrimaryAspect":6,
+
+		"SecondaryAspect":1,
+		"Type":2,
+
+	},
+	{
+		"Name":"Archerie",
+		"PrimaryAspect":6,
+
+		"SecondaryAspect":3,
+		"Type":2,
+
+	},
+	{
+		"Name":"Projectile",
+		"PrimaryAspect":6,
+
+		"SecondaryAspect":2,
+		"Type":2,
+
+	},
+	{
+		"Name":"Arme a feu",
+		"PrimaryAspect":6,
+
+		"SecondaryAspect":1,
+		"Type":2,
+
+	},
+	{
+		"Name":"Mystique",
+		"PrimaryAspect":6,
+
+		"SecondaryAspect":4,
+		"Type":2,
+
+	},
+	{
+		"Name":"Feu",
+		"PrimaryAspect":5,
+
+		"SecondaryAspect":2,
+		"Type":2,
+
+	},
+	{
+		"Name":"Terre",
+		"PrimaryAspect":5,
+
+		"SecondaryAspect":4,
+		"Type":2,
+
+	},
+	{
+		"Name":"Eau",
+		"PrimaryAspect":5,
+
+		"SecondaryAspect":1,
+		"Type":2,
+
+	},
+	{
+		"Name":"Vent",
+		"PrimaryAspect":5,
+
+		"SecondaryAspect":3,
+		"Type":2,
+
+	},
+	{
+		"Name":"Arcane",
+		"PrimaryAspect":5,
+
+		"SecondaryAspect":5,
+		"Type":2,
+
+	},
+	{
+		"Name":"Chaos",
+		"PrimaryAspect":5,
+
+		"SecondaryAspect":5,
+		"Type":2,
+
+	},
+	{
+		"Name":"Loi",
+		"PrimaryAspect":5,
+
+		"SecondaryAspect":5,
+		"Type":2,
+
+	},
+	{
+		"Name":"Defense",
+		"PrimaryAspect":3,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Célérité",
+		"PrimaryAspect":3,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Elan",
+		"PrimaryAspect":3,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Adoration",
+		"PrimaryAspect":4,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Symbiose",
+		"PrimaryAspect":4,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Vision",
+		"PrimaryAspect":4,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Convergence",
+		"PrimaryAspect":4,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Finesse",
+		"PrimaryAspect":1,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Furtivité",
+		"PrimaryAspect":1,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Inspiration",
+		"PrimaryAspect":1,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Persistance",
+		"PrimaryAspect":2,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Puissance",
+		"PrimaryAspect":2,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Presence",
+		"PrimaryAspect":2,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Corruption",
+		"PrimaryAspect":5,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Profession",
+		"PrimaryAspect":5,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+	{
+		"Name":"Temperance",
+		"PrimaryAspect":6,
+		"SecondaryAspect":7,
+		"Type":3,
+
+	},
+
 ]

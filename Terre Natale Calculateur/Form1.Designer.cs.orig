@@ -201,7 +201,6 @@ namespace Terre_Natale_Calculateur
             this.TalentsM = new System.Windows.Forms.TabPage();
             this.flowLayoutTalentsM = new System.Windows.Forms.FlowLayoutPanel();
             this.TalentsA = new System.Windows.Forms.TabPage();
-            this.flowLayoutTalentsA = new System.Windows.Forms.FlowLayoutPanel();
             this.Global_Personnalité = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -224,8 +223,12 @@ namespace Terre_Natale_Calculateur
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+<<<<<<< HEAD
             this.TalentsP = new System.Windows.Forms.TabPage();
             this.flowLayoutTalentsP = new System.Windows.Forms.FlowLayoutPanel();
+=======
+            this.flowLayoutTalentsA = new System.Windows.Forms.FlowLayoutPanel();
+>>>>>>> 5466c41688d0488e6bf55b25797978d8de6c6625
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -256,6 +259,7 @@ namespace Terre_Natale_Calculateur
             this.tabControl1.TabIndex = 1;
             // 
             // Stats
+<<<<<<< HEAD
             // 
             this.Stats.Controls.Add(this.XpToAdd);
             this.Stats.Controls.Add(this.groupBox3);
@@ -366,6 +370,118 @@ namespace Terre_Natale_Calculateur
             this.Chi.Text = "0";
             this.Chi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+=======
+            // 
+            this.Stats.Controls.Add(this.XpToAdd);
+            this.Stats.Controls.Add(this.groupBox3);
+            this.Stats.Controls.Add(this.groupBox2);
+            this.Stats.Controls.Add(this.ExperienceRestante);
+            this.Stats.Controls.Add(this.label2);
+            this.Stats.Controls.Add(this.button4);
+            this.Stats.Controls.Add(this.button3);
+            this.Stats.Controls.Add(this.Experience);
+            this.Stats.Controls.Add(this.ExperienceLabel);
+            this.Stats.Location = new System.Drawing.Point(4, 22);
+            this.Stats.Name = "Stats";
+            this.Stats.Padding = new System.Windows.Forms.Padding(3);
+            this.Stats.Size = new System.Drawing.Size(585, 390);
+            this.Stats.TabIndex = 0;
+            this.Stats.Text = "Stats";
+            this.Stats.UseVisualStyleBackColor = true;
+            // 
+            // XpToAdd
+            // 
+            this.XpToAdd.Location = new System.Drawing.Point(188, 58);
+            this.XpToAdd.Name = "XpToAdd";
+            this.XpToAdd.Size = new System.Drawing.Size(53, 20);
+            this.XpToAdd.TabIndex = 31;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.Karma);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.Fatigue);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.Endurance);
+            this.groupBox3.Controls.Add(this.Chi);
+            this.groupBox3.Controls.Add(this.label);
+            this.groupBox3.Controls.Add(this.Mana);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.Santé);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Location = new System.Drawing.Point(329, 121);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(147, 190);
+            this.groupBox3.TabIndex = 30;
+            this.groupBox3.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.Location = new System.Drawing.Point(25, 150);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 23);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Karma :";
+            // 
+            // Karma
+            // 
+            this.Karma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Karma.Location = new System.Drawing.Point(69, 150);
+            this.Karma.Name = "Karma";
+            this.Karma.Size = new System.Drawing.Size(42, 20);
+            this.Karma.TabIndex = 28;
+            this.Karma.Text = "0";
+            this.Karma.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(13, 53);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 13);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "PE :";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Fatigue
+            // 
+            this.Fatigue.Location = new System.Drawing.Point(69, 125);
+            this.Fatigue.Name = "Fatigue";
+            this.Fatigue.Size = new System.Drawing.Size(42, 20);
+            this.Fatigue.TabIndex = 31;
+            this.Fatigue.Text = "0";
+            this.Fatigue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(21, 128);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 13);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Fatigue :";
+            // 
+            // Endurance
+            // 
+            this.Endurance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.Endurance.Location = new System.Drawing.Point(69, 50);
+            this.Endurance.Name = "Endurance";
+            this.Endurance.Size = new System.Drawing.Size(42, 20);
+            this.Endurance.TabIndex = 24;
+            this.Endurance.Text = "0";
+            this.Endurance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Chi
+            // 
+            this.Chi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Chi.Location = new System.Drawing.Point(69, 100);
+            this.Chi.Name = "Chi";
+            this.Chi.Size = new System.Drawing.Size(42, 20);
+            this.Chi.TabIndex = 22;
+            this.Chi.Text = "0";
+            this.Chi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+>>>>>>> 5466c41688d0488e6bf55b25797978d8de6c6625
             // label
             // 
             this.label.AutoSize = true;
@@ -587,6 +703,7 @@ namespace Terre_Natale_Calculateur
             this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Experience disponible :";
+<<<<<<< HEAD
             // 
             // button4
             // 
@@ -647,6 +764,68 @@ namespace Terre_Natale_Calculateur
             // 
             // TalentsM
             // 
+=======
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(247, 58);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(20, 20);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "-";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(162, 58);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(20, 20);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "+";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // Experience
+            // 
+            this.Experience.Enabled = false;
+            this.Experience.Location = new System.Drawing.Point(109, 58);
+            this.Experience.Name = "Experience";
+            this.Experience.Size = new System.Drawing.Size(45, 20);
+            this.Experience.TabIndex = 1;
+            this.Experience.Text = "0";
+            // 
+            // ExperienceLabel
+            // 
+            this.ExperienceLabel.AutoSize = true;
+            this.ExperienceLabel.Location = new System.Drawing.Point(37, 61);
+            this.ExperienceLabel.Name = "ExperienceLabel";
+            this.ExperienceLabel.Size = new System.Drawing.Size(66, 13);
+            this.ExperienceLabel.TabIndex = 0;
+            this.ExperienceLabel.Text = "Experience :";
+            // 
+            // TalentsG
+            // 
+            this.TalentsG.Controls.Add(this.flowLayoutTalentG);
+            this.TalentsG.Location = new System.Drawing.Point(4, 22);
+            this.TalentsG.Name = "TalentsG";
+            this.TalentsG.Padding = new System.Windows.Forms.Padding(3);
+            this.TalentsG.Size = new System.Drawing.Size(585, 390);
+            this.TalentsG.TabIndex = 1;
+            this.TalentsG.Text = "Talents Generaux";
+            this.TalentsG.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutTalentG
+            // 
+            this.flowLayoutTalentG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutTalentG.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutTalentG.Name = "flowLayoutTalentG";
+            this.flowLayoutTalentG.Size = new System.Drawing.Size(579, 384);
+            this.flowLayoutTalentG.TabIndex = 0;
+            // 
+            // TalentsM
+            // 
+>>>>>>> 5466c41688d0488e6bf55b25797978d8de6c6625
             this.TalentsM.Controls.Add(this.flowLayoutTalentsM);
             this.TalentsM.Location = new System.Drawing.Point(4, 22);
             this.TalentsM.Name = "TalentsM";
@@ -654,6 +833,7 @@ namespace Terre_Natale_Calculateur
             this.TalentsM.TabIndex = 2;
             this.TalentsM.Text = "Talents Martiaux";
             this.TalentsM.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
             // 
             // flowLayoutTalentsM
             // 
@@ -665,21 +845,12 @@ namespace Terre_Natale_Calculateur
             // 
             // TalentsA
             // 
-            this.TalentsA.Controls.Add(this.flowLayoutTalentsA);
             this.TalentsA.Location = new System.Drawing.Point(4, 22);
             this.TalentsA.Name = "TalentsA";
             this.TalentsA.Size = new System.Drawing.Size(585, 390);
             this.TalentsA.TabIndex = 3;
             this.TalentsA.Text = "Talents Aptitudes";
             this.TalentsA.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutTalentsA
-            // 
-            this.flowLayoutTalentsA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutTalentsA.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutTalentsA.Name = "flowLayoutTalentsA";
-            this.flowLayoutTalentsA.Size = new System.Drawing.Size(585, 390);
-            this.flowLayoutTalentsA.TabIndex = 0;
             // 
             // Global_Personnalité
             // 
@@ -750,6 +921,131 @@ namespace Terre_Natale_Calculateur
             this.textBox3.Location = new System.Drawing.Point(48, 137);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(146, 20);
+            this.textBox3.TabIndex = 5;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(99, 121);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(40, 13);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Qualité";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(351, 54);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(146, 20);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(399, 38);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(51, 13);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Faiblesse";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(48, 54);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(146, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label14
+            // 
+=======
+            // 
+            // flowLayoutTalentsM
+            // 
+            this.flowLayoutTalentsM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutTalentsM.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutTalentsM.Name = "flowLayoutTalentsM";
+            this.flowLayoutTalentsM.Size = new System.Drawing.Size(585, 390);
+            this.flowLayoutTalentsM.TabIndex = 0;
+            // 
+            // TalentsA
+            // 
+            this.TalentsA.Controls.Add(this.flowLayoutTalentsA);
+            this.TalentsA.Location = new System.Drawing.Point(4, 22);
+            this.TalentsA.Name = "TalentsA";
+            this.TalentsA.Size = new System.Drawing.Size(585, 390);
+            this.TalentsA.TabIndex = 3;
+            this.TalentsA.Text = "Talents Aptitudes";
+            this.TalentsA.UseVisualStyleBackColor = true;
+            // 
+            // Global_Personnalité
+            // 
+            this.Global_Personnalité.Controls.Add(this.label18);
+            this.Global_Personnalité.Controls.Add(this.comboBox1);
+            this.Global_Personnalité.Controls.Add(this.textBox4);
+            this.Global_Personnalité.Controls.Add(this.label17);
+            this.Global_Personnalité.Controls.Add(this.textBox3);
+            this.Global_Personnalité.Controls.Add(this.label16);
+            this.Global_Personnalité.Controls.Add(this.textBox2);
+            this.Global_Personnalité.Controls.Add(this.label15);
+            this.Global_Personnalité.Controls.Add(this.textBox1);
+            this.Global_Personnalité.Controls.Add(this.label14);
+            this.Global_Personnalité.Location = new System.Drawing.Point(4, 22);
+            this.Global_Personnalité.Name = "Global_Personnalité";
+            this.Global_Personnalité.Padding = new System.Windows.Forms.Padding(3);
+            this.Global_Personnalité.Size = new System.Drawing.Size(585, 390);
+            this.Global_Personnalité.TabIndex = 4;
+            this.Global_Personnalité.Text = "Global - Personnalité";
+            this.Global_Personnalité.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(246, 201);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(59, 13);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "Alignement";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Neutre - Neutre",
+            "Bon - Neutre",
+            "Mauvais - Neutre",
+            "Neutre - Loyal",
+            "Neutre - Chaotique",
+            "Bon - Loyal",
+            "Bon - Chaotique",
+            "Mauvais - Loyal",
+            "Mauvais - Chaotique"});
+            this.comboBox1.Location = new System.Drawing.Point(216, 217);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 8;
+            this.comboBox1.Text = "Neutre - Neutre";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(351, 137);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(146, 20);
+            this.textBox4.TabIndex = 7;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(408, 121);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(39, 13);
+            this.label17.TabIndex = 6;
+            this.label17.Text = "Défaut";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(0, 0);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 10;
             // 
             // label16
@@ -786,6 +1082,7 @@ namespace Terre_Natale_Calculateur
             // 
             // label14
             // 
+>>>>>>> 5466c41688d0488e6bf55b25797978d8de6c6625
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(103, 38);
             this.label14.Name = "label14";
@@ -820,6 +1117,11 @@ namespace Terre_Natale_Calculateur
             // 
             // nouveauToolStripMenuItem1
             // 
+<<<<<<< HEAD
+            this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
+            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.nouveauToolStripMenuItem.Text = "Nouveau";
+=======
             this.nouveauToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("nouveauToolStripMenuItem1.Image")));
             this.nouveauToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.nouveauToolStripMenuItem1.Name = "nouveauToolStripMenuItem1";
@@ -827,9 +1129,16 @@ namespace Terre_Natale_Calculateur
             this.nouveauToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
             this.nouveauToolStripMenuItem1.Text = "&Nouveau";
             this.nouveauToolStripMenuItem1.Click += new System.EventHandler(this.nouveauToolStripMenuItem1_Click);
+>>>>>>> 5466c41688d0488e6bf55b25797978d8de6c6625
             // 
             // ouvrirToolStripMenuItem1
             // 
+<<<<<<< HEAD
+            this.ouvrirToolStripMenuItem.Name = "ouvrirToolStripMenuItem";
+            this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.ouvrirToolStripMenuItem.Text = "Ouvrir";
+            this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.ouvrirToolStripMenuItem_Click);
+=======
             this.ouvrirToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("ouvrirToolStripMenuItem1.Image")));
             this.ouvrirToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ouvrirToolStripMenuItem1.Name = "ouvrirToolStripMenuItem1";
@@ -837,9 +1146,16 @@ namespace Terre_Natale_Calculateur
             this.ouvrirToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
             this.ouvrirToolStripMenuItem1.Text = "&Ouvrir";
             this.ouvrirToolStripMenuItem1.Click += new System.EventHandler(this.ouvrirToolStripMenuItem1_Click);
+>>>>>>> 5466c41688d0488e6bf55b25797978d8de6c6625
             // 
             // toolStripSeparator
             // 
+<<<<<<< HEAD
+            this.enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
+            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.enregistrerToolStripMenuItem.Text = "Enregistrer";
+            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
+=======
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(167, 6);
             // 
@@ -870,6 +1186,7 @@ namespace Terre_Natale_Calculateur
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.quitterToolStripMenuItem.Text = "&Quitter";
+>>>>>>> 5466c41688d0488e6bf55b25797978d8de6c6625
             // 
             // saveFileDialog1
             // 
@@ -881,11 +1198,20 @@ namespace Terre_Natale_Calculateur
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // flowLayoutTalentsA
+            // 
+            this.flowLayoutTalentsA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutTalentsA.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutTalentsA.Name = "flowLayoutTalentsA";
+            this.flowLayoutTalentsA.Size = new System.Drawing.Size(585, 390);
+            this.flowLayoutTalentsA.TabIndex = 0;
+            // 
             // TalentsP
             // 
             this.TalentsP.Controls.Add(this.flowLayoutTalentsP);
             this.TalentsP.Location = new System.Drawing.Point(4, 22);
             this.TalentsP.Name = "TalentsP";
+            this.TalentsP.Padding = new System.Windows.Forms.Padding(3);
             this.TalentsP.Size = new System.Drawing.Size(585, 390);
             this.TalentsP.TabIndex = 5;
             this.TalentsP.Text = "Talents Prouesse";
@@ -894,9 +1220,9 @@ namespace Terre_Natale_Calculateur
             // flowLayoutTalentsP
             // 
             this.flowLayoutTalentsP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutTalentsP.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutTalentsP.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutTalentsP.Name = "flowLayoutTalentsP";
-            this.flowLayoutTalentsP.Size = new System.Drawing.Size(585, 390);
+            this.flowLayoutTalentsP.Size = new System.Drawing.Size(579, 384);
             this.flowLayoutTalentsP.TabIndex = 0;
             // 
             // Form1
@@ -932,9 +1258,72 @@ namespace Terre_Natale_Calculateur
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutTalentsA;
+<<<<<<< HEAD
+        private TabControl tabControl1;
+        private TabPage TalentsG;
+        private TabPage TalentsM;
+        private TabPage TalentsA;
+        private TabPage Global_Personnalité;
+        private Label label14;
+        private Label label18;
+        private ComboBox comboBox1;
+        private TextBox textBox4;
+        private Label label17;
+        private TextBox textBox3;
+        private Label label16;
+        private TextBox textBox2;
+        private Label label15;
+        private TextBox textBox1;
+        private FlowLayoutPanel flowLayoutTalentG;
+        private FlowLayoutPanel flowLayoutTalentsM;
+        private TabPage Stats;
+        private NumericUpDown XpToAdd;
+        private GroupBox groupBox3;
+        private TextBox Karma;
+        private Label label13;
+        private Label label11;
+        private TextBox Fatigue;
+        private Label label12;
+        private TextBox Endurance;
+        private TextBox Chi;
+        private Label label;
+        private TextBox Mana;
+        private Label label10;
+        private TextBox Santé;
+        private Label label9;
+        private GroupBox groupBox2;
+        private TextBox Equilibre;
+        private Label label19;
+        private TextBox Acier;
+        private Label label8;
+        private TextBox Arcane;
+        private Label label7;
+        private TextBox Feu;
+        private TextBox Terre;
+        private TextBox Eau;
+        private TextBox Vent;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private TextBox ExperienceRestante;
+        private Label label2;
+        private Button button4;
+        private Button button3;
+        private TextBox Experience;
+        private Label ExperienceLabel;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fichierToolStripMenuItem;
+        private ToolStripMenuItem nouveauToolStripMenuItem;
+        private ToolStripMenuItem ouvrirToolStripMenuItem;
+        private ToolStripMenuItem enregistrerToolStripMenuItem;
+        private SaveFileDialog saveFileDialog1;
+        private OpenFileDialog openFileDialog1;
         private TabPage TalentsP;
         private FlowLayoutPanel flowLayoutTalentsP;
+=======
+        private FlowLayoutPanel flowLayoutTalentsA;
+>>>>>>> 5466c41688d0488e6bf55b25797978d8de6c6625
     }
 }
 
