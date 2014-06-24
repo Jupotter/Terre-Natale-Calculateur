@@ -5,5 +5,6 @@
         General,
         Martial,
         Aptitude,
+        Prouesse,
     }
 }
