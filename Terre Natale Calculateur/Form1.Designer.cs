@@ -213,8 +213,6 @@ namespace Terre_Natale_Calculateur
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.fichierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nouveauToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ouvrirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -223,6 +221,9 @@ namespace Terre_Natale_Calculateur
             this.enregistrersousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.flowLayoutTalentsA = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -230,6 +231,7 @@ namespace Terre_Natale_Calculateur
             this.groupBox2.SuspendLayout();
             this.TalentsG.SuspendLayout();
             this.TalentsM.SuspendLayout();
+            this.TalentsA.SuspendLayout();
             this.Global_Personnalité.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -315,7 +317,7 @@ namespace Terre_Natale_Calculateur
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(7, 53);
+            this.label11.Location = new System.Drawing.Point(13, 53);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 30;
@@ -659,6 +661,7 @@ namespace Terre_Natale_Calculateur
             // 
             // TalentsA
             // 
+            this.TalentsA.Controls.Add(this.flowLayoutTalentsA);
             this.TalentsA.Location = new System.Drawing.Point(4, 22);
             this.TalentsA.Name = "TalentsA";
             this.TalentsA.Size = new System.Drawing.Size(585, 390);
@@ -732,12 +735,10 @@ namespace Terre_Natale_Calculateur
             // 
             // textBox3
             // 
-            this.label11.Location = new System.Drawing.Point(13, 53);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 13);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "PE :";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.textBox3.Location = new System.Drawing.Point(0, 0);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 10;
             // 
             // label16
             // 
@@ -790,16 +791,6 @@ namespace Terre_Natale_Calculateur
             this.menuStrip1.Size = new System.Drawing.Size(593, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.Filter = "Feuille de personnage | *.chr";
-            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // fichierToolStripMenuItem1
             // 
@@ -868,6 +859,24 @@ namespace Terre_Natale_Calculateur
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.quitterToolStripMenuItem.Text = "&Quitter";
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Feuille de personnage | *.chr";
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // flowLayoutTalentsA
+            // 
+            this.flowLayoutTalentsA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutTalentsA.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutTalentsA.Name = "flowLayoutTalentsA";
+            this.flowLayoutTalentsA.Size = new System.Drawing.Size(585, 390);
+            this.flowLayoutTalentsA.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -888,6 +897,7 @@ namespace Terre_Natale_Calculateur
             this.groupBox2.PerformLayout();
             this.TalentsG.ResumeLayout(false);
             this.TalentsM.ResumeLayout(false);
+            this.TalentsA.ResumeLayout(false);
             this.Global_Personnalité.ResumeLayout(false);
             this.Global_Personnalité.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -898,6 +908,8 @@ namespace Terre_Natale_Calculateur
         }
 
         #endregion
+
+        private FlowLayoutPanel flowLayoutTalentsA;
     }
 }
 

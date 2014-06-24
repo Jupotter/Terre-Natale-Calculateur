@@ -68,6 +68,7 @@ namespace Terre_Natale_Calculateur
         {
             flowLayoutTalentG.Controls.Clear();
             flowLayoutTalentsM.Controls.Clear();
+            flowLayoutTalentsA.Controls.Clear();
 
             FlowLayoutPanel box;
             foreach (var aspect in from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
@@ -84,6 +85,11 @@ namespace Terre_Natale_Calculateur
             flowLayoutTalentsM.Controls.Add(box);
             box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Arcane, "Talents d'Arcane");
             flowLayoutTalentsM.Controls.Add(box);
+
+            box = CreateAspectBox(t => t.Type == TalentType.Aptitude && t.PrimaryAspect == Aspect.Acier, "Aptitude d'Acier");
+            flowLayoutTalentsA.Controls.Add(box);
+            box = CreateAspectBox(t => t.Type == TalentType.Aptitude && t.PrimaryAspect == Aspect.Arcane, "Aptitude d'Arcane");
+            flowLayoutTalentsA.Controls.Add(box);
         }
 
         private void enregistrersousToolStripMenuItem_Click(object sender, EventArgs e)

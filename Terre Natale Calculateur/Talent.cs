@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System;
-using Terre_Natale_Calculateur.Annotations;
 
 namespace Terre_Natale_Calculateur
 {
@@ -12,7 +11,6 @@ namespace Terre_Natale_Calculateur
         private Aspect _secondaryAspect;
         private TalentType _type;
 
-        [UsedImplicitly]
         public Talent()
         {
         }
