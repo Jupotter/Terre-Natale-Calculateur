@@ -8,8 +8,9 @@ namespace Terre_Natale_Calculateur
 {
     class Race
     {
-        public string name;
-        public string[] talents;
-        public Dictionary<Aspect, int> aspectBonus;
+        private int _id;
+        private string _name;
+        private IList<int> _talentsBonus;
+        private Dictionary<Aspect, int> _aspectBonus;
     }
 }

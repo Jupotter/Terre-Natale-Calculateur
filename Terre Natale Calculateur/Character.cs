@@ -10,6 +10,8 @@ namespace Terre_Natale_Calculateur
         private IDictionary<Aspect, int> _aspectPoint;
         private readonly IDictionary<int, Talent> _talents;
 
+        private Race _race;
+
         public Character(SerializableCharacter serializableCharacter)
         {
             Name = serializableCharacter.Name;
@@ -55,6 +57,12 @@ namespace Terre_Natale_Calculateur
         }
 
         public string Name { get; set; }
+
+        public Race Race
+        {
+            get { return _race; }
+            set { _race = value; }
+        }
 
         public IEnumerable<Talent> Talents
         {
