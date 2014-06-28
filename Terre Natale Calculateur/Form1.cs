@@ -181,5 +181,10 @@ namespace Terre_Natale_Calculateur
             Vent.Text = _character.GetAspectValue(Aspect.Vent).ToString(CultureInfo.InvariantCulture);
             ActualiseStats();
         }
+
+        private void dumpTalentsjsonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TalentsManager.Instance.DumpJSON();
+        }
     }
 }

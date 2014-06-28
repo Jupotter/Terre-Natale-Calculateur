@@ -79,6 +79,12 @@
     <Compile Include="Aspect.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CharacterManager.cs" />
+    <Compile Include="DumpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DumpForm.Designer.cs">
+      <DependentUpon>DumpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </Compile>
     <Compile Include="TalentsManager.cs" />
     <Compile Include="TalentType.cs" />
+    <EmbeddedResource Include="DumpForm.resx">
+      <DependentUpon>DumpForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
