@@ -15,568 +15,584 @@
 ** Talents généraux
 ** ================
 */
-	/*
-	** Eau
-	*/
-	{
-		"Name":"Discretion",
-		"PrimaryAspect":1,
-		"SecondaryAspect":0,
-		"Type":0,
-	},
-	{
-		"Name":"Plagia",
-		"PrimaryAspect":1,
-		"SecondaryAspect":0,
-		"Type":0,
-	},
-	{
-		"Name":"Eloquence",
-		"PrimaryAspect":1,
-		"SecondaryAspect":0,
-		"Type":0,
-	},
-	{
-		"Name":"Discipline",
-		"PrimaryAspect":1,
-		"SecondaryAspect":0,
-		"Type":0,
-	},
+    /*
+    ** Eau
+    */
+    {
+        "Name":"Discretion",
+        "PrimaryAspect":1,
+        "SecondaryAspect":0,
+        "Type":0,
+    },
+    {
+        "Name":"Plagia",
+        "PrimaryAspect":1,
+        "SecondaryAspect":0,
+        "Type":0,
+    },
+    {
+        "Name":"Eloquence",
+        "PrimaryAspect":1,
+        "SecondaryAspect":0,
+        "Type":0,
+    },
+    {
+        "Name":"Discipline",
+        "PrimaryAspect":1,
+        "SecondaryAspect":0,
+        "Type":0,
+    },
 
-	/*
-	** Feu
-	*/
-	{
-		"Name":"Intimidation",
-		"PrimaryAspect":2,
-		"SecondaryAspect":0,
-		"Type":0,
-	},
-	{
-		"Name":"Volonté",
-		"PrimaryAspect":2,
-		"SecondaryAspect":0,
-		"Type":0,
-	},
-	{
-		"Name":"Provocation",
-		"PrimaryAspect":2,
-		"SecondaryAspect":0,
-		"Type":0,
-	},
-	{
-		"Name":"Parade",
-		"PrimaryAspect":2,
-		"SecondaryAspect":0,
-		"Type":0,
-	},
+    /*
+    ** Feu
+    */
+    {
+        "Name":"Intimidation",
+        "PrimaryAspect":2,
+        "SecondaryAspect":0,
+        "Type":0,
+    },
+    {
+        "Name":"Volonté",
+        "PrimaryAspect":2,
+        "SecondaryAspect":0,
+        "Type":0,
+    },
+    {
+        "Name":"Provocation",
+        "PrimaryAspect":2,
+        "SecondaryAspect":0,
+        "Type":0,
+    },
+    {
+        "Name":"Parade",
+        "PrimaryAspect":2,
+        "SecondaryAspect":0,
+        "Type":0,
+    },
 
-	/*
-	** Terre
-	*/
-	{
-		"Name":"Perception",
-		"PrimaryAspect":4,
-		"SecondaryAspect":0,
-		"Type":0,
-	},
-	{
-		"Name":"Empathie",
-		"PrimaryAspect":4,
-		"SecondaryAspect":0,
-		"Type":0,
-	},
-	{
-		"Name":"Survie",
-		"PrimaryAspect":4,
-		"SecondaryAspect":0,
-		"Type":0,
-	},
-	{
-		"Name":"Dressage",
-		"PrimaryAspect":4,
-		"SecondaryAspect":0,
-		"Type":0,
-	},
+    /*
+    ** Terre
+    */
+    {
+        "Name":"Perception",
+        "PrimaryAspect":4,
+        "SecondaryAspect":0,
+        "Type":0,
+    },
+    {
+        "Name":"Empathie",
+        "PrimaryAspect":4,
+        "SecondaryAspect":0,
+        "Type":0,
+    },
+    {
+        "Name":"Survie",
+        "PrimaryAspect":4,
+        "SecondaryAspect":0,
+        "Type":0,
+    },
+    {
+        "Name":"Dressage",
+        "PrimaryAspect":4,
+        "SecondaryAspect":0,
+        "Type":0,
+    },
 
-	/*
-	** Vent
-	*/
-	{
-		"Name":"Sabotage",
-		"PrimaryAspect":3,
-		"SecondaryAspect":0,
-		"Type":0,
+    /*
+    ** Vent
+    */
+    {
+        "Name":"Sabotage",
+        "PrimaryAspect":3,
+        "SecondaryAspect":0,
+        "Type":0,
 
-	},
-	{
-		"Name":"Acrobatie",
-		"PrimaryAspect":3,
+    },
+    {
+        "Name":"Acrobatie",
+        "PrimaryAspect":3,
 
-		"SecondaryAspect":0,
-		"Type":0,
+        "SecondaryAspect":0,
+        "Type":0,
 
-	},
-	{
-		"Name":"Conduite",
-		"PrimaryAspect":3,
+    },
+    {
+        "Name":"Conduite",
+        "PrimaryAspect":3,
 
-		"SecondaryAspect":0,
-		"Type":0,
+        "SecondaryAspect":0,
+        "Type":0,
 
-	},
-	{
-		"Name":"Esquive",
-		"PrimaryAspect":3,
+    },
+    {
+        "Name":"Esquive",
+        "PrimaryAspect":3,
 
-		"SecondaryAspect":0,
-		"Type":0,
+        "SecondaryAspect":0,
+        "Type":0,
 
-	},
+    },
 
-	/*
-	** Acier
-	*/
-	{
-		"Name":"Athléthisme",
-		"PrimaryAspect":6,
+    /*
+    ** Acier
+    */
+    {
+        "Name":"Athléthisme",
+        "PrimaryAspect":6,
 
-		"SecondaryAspect":0,
-		"Type":0,
+        "SecondaryAspect":0,
+        "Type":0,
 
-	},
-	{
-		"Name":"Musculation",
-		"PrimaryAspect":6,
+    },
+    {
+        "Name":"Musculation",
+        "PrimaryAspect":6,
 
-		"SecondaryAspect":0,
-		"Type":0,
+        "SecondaryAspect":0,
+        "Type":0,
 
-	},
-	{
-		"Name":"Escalade",
-		"PrimaryAspect":6,
+    },
+    {
+        "Name":"Escalade",
+        "PrimaryAspect":6,
 
-		"SecondaryAspect":0,
-		"Type":0,
+        "SecondaryAspect":0,
+        "Type":0,
 
-	},
-	{
-		"Name":"Endurance",
-		"PrimaryAspect":6,
+    },
+    {
+        "Name":"Endurance",
+        "PrimaryAspect":6,
 
-		"SecondaryAspect":0,
-		"Type":0,
+        "SecondaryAspect":0,
+        "Type":0,
 
-	},
+    },
 
-	/*
-	** Arcane
-	*/
-	{
-		"Name":"Savoir",
-		"PrimaryAspect":5,
+    /*
+    ** Arcane
+    */
+    {
+        "Name":"Savoir",
+        "PrimaryAspect":5,
 
-		"SecondaryAspect":0,
-		"Type":0,
+        "SecondaryAspect":0,
+        "Type":0,
 
-	},
-	{
-		"Name":"Médecine",
-		"PrimaryAspect":5,
+    },
+    {
+        "Name":"Médecine",
+        "PrimaryAspect":5,
 
-		"SecondaryAspect":0,
-		"Type":0,
+        "SecondaryAspect":0,
+        "Type":0,
 
-	},
-	{
-		"Name":"Artisanat",
-		"PrimaryAspect":5,
+    },
+    {
+        "Name":"Artisanat",
+        "PrimaryAspect":5,
 
-		"SecondaryAspect":0,
-		"Type":0,
+        "SecondaryAspect":0,
+        "Type":0,
 
-	},
-	{
-		"Name":"Alchimie",
-		"PrimaryAspect":5,
+    },
+    {
+        "Name":"Alchimie",
+        "PrimaryAspect":5,
 
-		"SecondaryAspect":0,
-		"Type":0,
+        "SecondaryAspect":0,
+        "Type":0,
 
-	},
+    },
 
 /*
 ** ================
 ** Talents Martiaux
 ** ================
 */
-	/*
-	** Arcane
-	*/
-	{
-		"Name":"Destruction",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":2,
-		"Type":1,
-
-	},
-	{
-		"Name":"Maléfice",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":3,
-		"Type":1,
-
-	},
-	{
-		"Name":"Guérison",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":1,
-		"Type":1,
-
-	},
-	{
-		"Name":"Enchantement",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":4,
-		"Type":1,
-
-	},
-	{
-		"Name":"Convocation",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":4,
-		"Type":1,
-
-	},
-	{
-		"Name":"Conjuration",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":3,
-		"Type":1,
-
-	},
-	{
-		"Name":"Abjuration",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":2,
-		"Type":1,
-
-	},
-	{
-		"Name":"Illusion",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":1,
-		"Type":1,
-
-	},
-
-	/*
-	** Acier
-	*/
-	{
-		"Name":"Arme à distance",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":3,
-		"Type":1,
-
-	},
-	{
-		"Name":"Sans arme / Improvisé",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":4,
-		"Type":1,
-
-	},
-	{
-		"Name":"Arme légère",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":1,
-		"Type":1,
-
-	},
-	{
-		"Name":"Arme intermédiaire",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":3,
-		"Type":1,
-
-	},
-	{
-		"Name":"Arme Lourde",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":2,
-		"Type":1,
-
-	},
-	{
-		"Name":"Sans Armure",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":3,
-		"Type":1,
-
-	},
-	{
-		"Name":"Armure légère",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":1,
-		"Type":1,
-
-	},
-	{
-		"Name":"Armure Lourde",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":2,
-		"Type":1,
-
-	},
-	{
-		"Name":"Tranchant",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":2,
-		"Type":2,
-
-	},
-	{
-		"Name":"Perforant",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":3,
-		"Type":2,
-
-	},
-	{
-		"Name":"Contondant",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":4,
-		"Type":2,
-
-	},
-	{
-		"Name":"Flexible",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":1,
-		"Type":2,
-
-	},
-	{
-		"Name":"Archerie",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":3,
-		"Type":2,
-
-	},
-	{
-		"Name":"Projectile",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":2,
-		"Type":2,
-
-	},
-	{
-		"Name":"Arme a feu",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":1,
-		"Type":2,
-
-	},
-	{
-		"Name":"Mystique",
-		"PrimaryAspect":6,
-
-		"SecondaryAspect":4,
-		"Type":2,
-
-	},
-	{
-		"Name":"Feu",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":2,
-		"Type":2,
-
-	},
-	{
-		"Name":"Terre",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":4,
-		"Type":2,
-
-	},
-	{
-		"Name":"Eau",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":1,
-		"Type":2,
-
-	},
-	{
-		"Name":"Vent",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":3,
-		"Type":2,
-
-	},
-	{
-		"Name":"Arcane",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":5,
-		"Type":2,
-
-	},
-	{
-		"Name":"Chaos",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":5,
-		"Type":2,
-
-	},
-	{
-		"Name":"Loi",
-		"PrimaryAspect":5,
-
-		"SecondaryAspect":5,
-		"Type":2,
-
-	},
-	{
-		"Name":"Defense",
-		"PrimaryAspect":3,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Célérité",
-		"PrimaryAspect":3,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Elan",
-		"PrimaryAspect":3,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Adoration",
-		"PrimaryAspect":4,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Symbiose",
-		"PrimaryAspect":4,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Vision",
-		"PrimaryAspect":4,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Convergence",
-		"PrimaryAspect":4,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Finesse",
-		"PrimaryAspect":1,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Furtivité",
-		"PrimaryAspect":1,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Inspiration",
-		"PrimaryAspect":1,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Persistance",
-		"PrimaryAspect":2,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Puissance",
-		"PrimaryAspect":2,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Presence",
-		"PrimaryAspect":2,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Corruption",
-		"PrimaryAspect":5,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Profession",
-		"PrimaryAspect":5,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
-	{
-		"Name":"Temperance",
-		"PrimaryAspect":6,
-		"SecondaryAspect":7,
-		"Type":3,
-
-	},
+    /*
+    ** Arcane
+    */
+    {
+        "Name":"Destruction",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":2,
+        "Type":1,
+
+    },
+    {
+        "Name":"Maléfice",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":3,
+        "Type":1,
+
+    },
+    {
+        "Name":"Guérison",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":1,
+        "Type":1,
+
+    },
+    {
+        "Name":"Enchantement",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":4,
+        "Type":1,
+
+    },
+    {
+        "Name":"Convocation",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":4,
+        "Type":1,
+
+    },
+    {
+        "Name":"Conjuration",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":3,
+        "Type":1,
+
+    },
+    {
+        "Name":"Abjuration",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":2,
+        "Type":1,
+
+    },
+    {
+        "Name":"Illusion",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":1,
+        "Type":1,
+
+    },
+
+    /*
+    ** Acier
+    */
+    {
+        "Name":"Arme à distance",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":3,
+        "Type":1,
+
+    },
+    {
+        "Name":"Sans arme / Improvisé",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":4,
+        "Type":1,
+
+    },
+    {
+        "Name":"Arme légère",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":1,
+        "Type":1,
+
+    },
+    {
+        "Name":"Arme intermédiaire",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":3,
+        "Type":1,
+
+    },
+    {
+        "Name":"Arme Lourde",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":2,
+        "Type":1,
+
+    },
+    {
+        "Name":"Sans Armure",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":3,
+        "Type":1,
+
+    },
+    {
+        "Name":"Armure légère",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":1,
+        "Type":1,
+
+    },
+    {
+        "Name":"Armure Lourde",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":2,
+        "Type":1,
+
+    },
+/*
+** =================
+** Talents aptitudes
+** =================
+*/
+    /*
+    ** Acier
+    */
+    {
+        "Name":"Tranchant",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":2,
+        "Type":2,
+
+    },
+    {
+        "Name":"Perforant",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":3,
+        "Type":2,
+
+    },
+    {
+        "Name":"Contondant",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":4,
+        "Type":2,
+
+    },
+    {
+        "Name":"Flexible",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":1,
+        "Type":2,
+
+    },
+    {
+        "Name":"Archerie",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":3,
+        "Type":2,
+
+    },
+    {
+        "Name":"Projectile",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":2,
+        "Type":2,
+
+    },
+    {
+        "Name":"Arme a feu",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":1,
+        "Type":2,
+
+    },
+    /*
+    ** Arcane
+    */
+    {
+        "Name":"Mystique",
+        "PrimaryAspect":6,
+
+        "SecondaryAspect":4,
+        "Type":2,
+
+    },
+    {
+        "Name":"Feu",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":2,
+        "Type":2,
+
+    },
+    {
+        "Name":"Terre",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":4,
+        "Type":2,
+
+    },
+    {
+        "Name":"Eau",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":1,
+        "Type":2,
+
+    },
+    {
+        "Name":"Vent",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":3,
+        "Type":2,
+
+    },
+    {
+        "Name":"Arcane",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":5,
+        "Type":2,
+
+    },
+    {
+        "Name":"Chaos",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":5,
+        "Type":2,
+
+    },
+    {
+        "Name":"Loi",
+        "PrimaryAspect":5,
+
+        "SecondaryAspect":5,
+        "Type":2,
+
+    },
+/*
+** =================
+** Talents Prouesses
+** =================
+*/
+    {
+        "Name":"Defense",
+        "PrimaryAspect":3,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Célérité",
+        "PrimaryAspect":3,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Elan",
+        "PrimaryAspect":3,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Adoration",
+        "PrimaryAspect":4,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Symbiose",
+        "PrimaryAspect":4,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Vision",
+        "PrimaryAspect":4,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Convergence",
+        "PrimaryAspect":4,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Finesse",
+        "PrimaryAspect":1,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Furtivité",
+        "PrimaryAspect":1,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Inspiration",
+        "PrimaryAspect":1,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Persistance",
+        "PrimaryAspect":2,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Puissance",
+        "PrimaryAspect":2,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Presence",
+        "PrimaryAspect":2,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Corruption",
+        "PrimaryAspect":5,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Profession",
+        "PrimaryAspect":5,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
+    {
+        "Name":"Temperance",
+        "PrimaryAspect":6,
+        "SecondaryAspect":7,
+        "Type":3,
+
+    },
 
 ]
