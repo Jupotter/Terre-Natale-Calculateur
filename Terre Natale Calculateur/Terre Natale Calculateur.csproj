@@ -99,7 +99,7 @@
     <Compile Include="TalentBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TalentsFactory.cs" />
+    <Compile Include="TalentsManager.cs" />
     <Compile Include="TalentType.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

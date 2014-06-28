@@ -10,7 +10,7 @@ namespace Terre_Natale_Calculateur
         private static CharacterManager _instance;
 
         private readonly JsonSerializerSettings _serializerSettings;
-        private readonly TalentsFactory _talents;
+        private readonly TalentsManager _talents;
         private readonly ITraceWriter _traceWriter;
 
         private CharacterManager()
@@ -22,7 +22,8 @@ namespace Terre_Natale_Calculateur
                 Formatting = Formatting.Indented,
                 TraceWriter = _traceWriter,
             };
-            _talents = new TalentsFactory();
+            _talents = TalentsManager.Instance;
+            _talents.Initialize();
         }
 
         public static CharacterManager Instance

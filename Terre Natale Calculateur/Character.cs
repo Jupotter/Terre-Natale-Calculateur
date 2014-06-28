@@ -8,12 +8,12 @@ namespace Terre_Natale_Calculateur
     {
         private int _equilibre = 4;
         private IDictionary<Aspect, int> _aspectPoint;
-        private readonly IDictionary<String, Talent> _talents;
+        private readonly IDictionary<int, Talent> _talents;
 
         public Character(SerializableCharacter serializableCharacter)
         {
             Name = serializableCharacter.Name;
-            _talents = serializableCharacter.Talents.ToDictionary(talent => talent.Name);
+            _talents = serializableCharacter.Talents.ToDictionary(talent => talent.Id);
             _aspectPoint = new Dictionary<Aspect, int>
             {
                 {Aspect.Acier, 30},
@@ -26,10 +26,10 @@ namespace Terre_Natale_Calculateur
             RecomputePA();
         }
 
-        public Character(string name, TalentsFactory talentsFactory)
+        public Character(string name, TalentsManager talentsManager)
         {
             Name = name;
-            _talents = talentsFactory.CreateSet();
+            _talents = talentsManager.CreateSet();
             foreach (var talent in _talents.Values)
             {
                 talent.LevelChanged += (sender, args) => RecomputePA();
@@ -87,9 +87,10 @@ namespace Terre_Natale_Calculateur
             };
         }
 
+        [Obsolete]
         public Talent GetTalent(String name)
         {
-            return _talents[name];
+            return _talents.Values.First(talent => talent.Name == name);
         }
 
         private void RecomputePA()
@@ -104,7 +105,7 @@ namespace Terre_Natale_Calculateur
                 {Aspect.Vent, 30},
             };
 
-            foreach (var talent in _talents.Select(talentPair => talentPair.Value))
+            foreach (var talent in _talents.Values.Where(talent => talent.SecondaryAspect != Aspect.Equilibre))
             {
                 if (Aspect.None == talent.SecondaryAspect)
                 {

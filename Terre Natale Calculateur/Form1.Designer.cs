@@ -202,6 +202,8 @@ namespace Terre_Natale_Calculateur
             this.flowLayoutTalentsM = new System.Windows.Forms.FlowLayoutPanel();
             this.TalentsA = new System.Windows.Forms.TabPage();
             this.flowLayoutTalentsA = new System.Windows.Forms.FlowLayoutPanel();
+            this.TalentsP = new System.Windows.Forms.TabPage();
+            this.flowLayoutTalentsP = new System.Windows.Forms.FlowLayoutPanel();
             this.Global_Personnalité = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -224,8 +226,8 @@ namespace Terre_Natale_Calculateur
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.TalentsP = new System.Windows.Forms.TabPage();
-            this.flowLayoutTalentsP = new System.Windows.Forms.FlowLayoutPanel();
+            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outputTalentsjsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -234,9 +236,9 @@ namespace Terre_Natale_Calculateur
             this.TalentsG.SuspendLayout();
             this.TalentsM.SuspendLayout();
             this.TalentsA.SuspendLayout();
+            this.TalentsP.SuspendLayout();
             this.Global_Personnalité.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.TalentsP.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -681,6 +683,24 @@ namespace Terre_Natale_Calculateur
             this.flowLayoutTalentsA.Size = new System.Drawing.Size(585, 390);
             this.flowLayoutTalentsA.TabIndex = 0;
             // 
+            // TalentsP
+            // 
+            this.TalentsP.Controls.Add(this.flowLayoutTalentsP);
+            this.TalentsP.Location = new System.Drawing.Point(4, 22);
+            this.TalentsP.Name = "TalentsP";
+            this.TalentsP.Size = new System.Drawing.Size(585, 390);
+            this.TalentsP.TabIndex = 5;
+            this.TalentsP.Text = "Talents Prouesse";
+            this.TalentsP.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutTalentsP
+            // 
+            this.flowLayoutTalentsP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutTalentsP.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutTalentsP.Name = "flowLayoutTalentsP";
+            this.flowLayoutTalentsP.Size = new System.Drawing.Size(585, 390);
+            this.flowLayoutTalentsP.TabIndex = 0;
+            // 
             // Global_Personnalité
             // 
             this.Global_Personnalité.Controls.Add(this.label18);
@@ -797,7 +817,8 @@ namespace Terre_Natale_Calculateur
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fichierToolStripMenuItem1});
+            this.fichierToolStripMenuItem1,
+            this.debugToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(593, 24);
@@ -881,23 +902,19 @@ namespace Terre_Natale_Calculateur
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // TalentsP
+            // debugToolStripMenuItem
             // 
-            this.TalentsP.Controls.Add(this.flowLayoutTalentsP);
-            this.TalentsP.Location = new System.Drawing.Point(4, 22);
-            this.TalentsP.Name = "TalentsP";
-            this.TalentsP.Size = new System.Drawing.Size(585, 390);
-            this.TalentsP.TabIndex = 5;
-            this.TalentsP.Text = "Talents Prouesse";
-            this.TalentsP.UseVisualStyleBackColor = true;
+            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.outputTalentsjsonToolStripMenuItem});
+            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
+            this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.debugToolStripMenuItem.Text = "Debug";
             // 
-            // flowLayoutTalentsP
+            // outputTalentsjsonToolStripMenuItem
             // 
-            this.flowLayoutTalentsP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutTalentsP.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutTalentsP.Name = "flowLayoutTalentsP";
-            this.flowLayoutTalentsP.Size = new System.Drawing.Size(585, 390);
-            this.flowLayoutTalentsP.TabIndex = 0;
+            this.outputTalentsjsonToolStripMenuItem.Name = "outputTalentsjsonToolStripMenuItem";
+            this.outputTalentsjsonToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.outputTalentsjsonToolStripMenuItem.Text = "Output Talents.json";
             // 
             // Form1
             // 
@@ -920,11 +937,11 @@ namespace Terre_Natale_Calculateur
             this.TalentsG.ResumeLayout(false);
             this.TalentsM.ResumeLayout(false);
             this.TalentsA.ResumeLayout(false);
+            this.TalentsP.ResumeLayout(false);
             this.Global_Personnalité.ResumeLayout(false);
             this.Global_Personnalité.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.TalentsP.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -935,6 +952,8 @@ namespace Terre_Natale_Calculateur
         private FlowLayoutPanel flowLayoutTalentsA;
         private TabPage TalentsP;
         private FlowLayoutPanel flowLayoutTalentsP;
+        private ToolStripMenuItem debugToolStripMenuItem;
+        private ToolStripMenuItem outputTalentsjsonToolStripMenuItem;
     }
 }
 

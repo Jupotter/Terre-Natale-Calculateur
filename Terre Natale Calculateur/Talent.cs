@@ -3,8 +3,9 @@ using System;
 
 namespace Terre_Natale_Calculateur
 {
-    internal class Talent
+    internal class Talent : ICloneable
     {
+        private int _ID;
         private int _level;
         private string _name;
         private Aspect _primaryAspect;
@@ -60,6 +61,12 @@ namespace Terre_Natale_Calculateur
             set { _type = value; }
         }
 
+        public int Id
+        {
+            get { return _ID; }
+            set { _ID = value; }
+        }
+
         [JsonIgnore]
         public int XPCost
         {
@@ -89,6 +96,18 @@ namespace Terre_Natale_Calculateur
             EventHandler handler = LevelChanged;
             if (handler != null)
                 handler(this, EventArgs.Empty);
+        }
+
+        public object Clone()
+        {
+            return new Talent
+            {
+                _ID = Id,
+                _name = Name,
+                _primaryAspect = PrimaryAspect,
+                _secondaryAspect = SecondaryAspect,
+                _type = Type,
+            };
         }
     }
 }
