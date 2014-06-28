@@ -186,5 +186,11 @@ namespace Terre_Natale_Calculateur
         {
             TalentsManager.Instance.DumpJSON();
         }
+
+        private void talentsIdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DumpForm dumpy = new DumpForm();
+            dumpy.Show();
+        }
     }
 }

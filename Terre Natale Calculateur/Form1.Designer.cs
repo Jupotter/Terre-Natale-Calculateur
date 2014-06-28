@@ -224,10 +224,11 @@ namespace Terre_Natale_Calculateur
             this.enregistrersousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dumpTalentsjsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.talentsIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -892,20 +893,11 @@ namespace Terre_Natale_Calculateur
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.quitterToolStripMenuItem.Text = "&Quitter";
             // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.Filter = "Feuille de personnage | *.chr";
-            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
             // debugToolStripMenuItem
             // 
             this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dumpTalentsjsonToolStripMenuItem});
+            this.dumpTalentsjsonToolStripMenuItem,
+            this.talentsIdToolStripMenuItem});
             this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
             this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.debugToolStripMenuItem.Text = "Debug";
@@ -916,6 +908,23 @@ namespace Terre_Natale_Calculateur
             this.dumpTalentsjsonToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.dumpTalentsjsonToolStripMenuItem.Text = "Dump Talents.json";
             this.dumpTalentsjsonToolStripMenuItem.Click += new System.EventHandler(this.dumpTalentsjsonToolStripMenuItem_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Feuille de personnage | *.chr";
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // talentsIdToolStripMenuItem
+            // 
+            this.talentsIdToolStripMenuItem.Name = "talentsIdToolStripMenuItem";
+            this.talentsIdToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.talentsIdToolStripMenuItem.Text = "Talents Id";
+            this.talentsIdToolStripMenuItem.Click += new System.EventHandler(this.talentsIdToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -955,6 +964,7 @@ namespace Terre_Natale_Calculateur
         private FlowLayoutPanel flowLayoutTalentsP;
         private ToolStripMenuItem debugToolStripMenuItem;
         private ToolStripMenuItem dumpTalentsjsonToolStripMenuItem;
+        private ToolStripMenuItem talentsIdToolStripMenuItem;
     }
 }
 

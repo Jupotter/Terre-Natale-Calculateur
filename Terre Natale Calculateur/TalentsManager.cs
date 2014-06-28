@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json.Serialization;
-
+using System.Data;
 namespace Terre_Natale_Calculateur
 {
     internal class TalentsManager
@@ -70,6 +70,23 @@ namespace Terre_Natale_Calculateur
                 ret.Add(talent.Id, (Talent)talent.Clone());
             }
             return ret;
+        }
+        public DataTable GetTalents()
+        {
+            DataTable data = new DataTable();
+            DataColumn newone = new DataColumn("Id",typeof(Int32));
+            data.Columns.Add(newone);
+            newone = new DataColumn("Nom", typeof(string));
+            data.Columns.Add(newone);
+            foreach (var item in _talents.Values)
+            {
+                DataRow row = data.NewRow();
+                row["Id"] = item.Id;
+                row["Nom"] = item.Name;
+                data.Rows.Add(row);
+            }
+            return data;
+            
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Terre_Natale_Calculateur
 {
     public partial class DumpForm : Form
     {
+        Dictionary<int, string> talents;
         public DumpForm()
         {
             InitializeComponent();
@@ -19,7 +20,20 @@ namespace Terre_Natale_Calculateur
 
         public void setContent(String text)
         {
-            textBox1.Text = text;
+
+        }
+
+        private void DumpForm_Load(object sender, EventArgs e)
+        {
+           
+            dataGridView1.DataSource = TalentsManager.Instance.GetTalents();
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.Update();
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+         
         }
     }
 }
