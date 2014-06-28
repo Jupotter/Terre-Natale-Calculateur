@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Newtonsoft.Json.Serialization;
 
 namespace Terre_Natale_Calculateur
 {
@@ -19,13 +20,16 @@ namespace Terre_Natale_Calculateur
         private IDictionary<int, Talent> _talents;
         private int _nextId = 1;
         private readonly JsonSerializerSettings _serializerSettings;
+        private readonly ITraceWriter _traceWriter;
 
         private TalentsManager()
         {
+            _traceWriter = new MemoryTraceWriter();
             _serializerSettings = new JsonSerializerSettings()
             {
                 Error = (sender, args) => Console.Write(args.ErrorContext.Error),
                 Formatting = Formatting.Indented,
+                TraceWriter = _traceWriter
             };
         }
 
@@ -44,13 +48,17 @@ namespace Terre_Natale_Calculateur
                 talent.Id = _nextId++;
             }
             _talents = list.ToDictionary(talent => talent.Id);
+            sr.Close();
         }
 
-        public string DumpJSON()
+        public void DumpJSON()
         {
-            var ret = new Dictionary<String, Talent>();
-            String json = JsonConvert.SerializeObject(ret.Values.Count, _serializerSettings);
-            return json;
+            if (_talents == null)
+                return;
+            String json = JsonConvert.SerializeObject(_talents.Values, _serializerSettings);
+            var sw = new StreamWriter("TalentsDump.json", false);
+            sw.Write(json);
+            sw.Close();
         }
 
         public IDictionary<int, Talent> CreateSet()
