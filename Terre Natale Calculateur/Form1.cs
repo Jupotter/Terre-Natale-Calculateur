@@ -117,6 +117,7 @@ namespace Terre_Natale_Calculateur
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
         }
 
         private void label14_Click(object sender, EventArgs e)
@@ -126,7 +127,12 @@ namespace Terre_Natale_Calculateur
         private void nouveauToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             SetCharacter(CharacterManager.Instance.Create("name"));
+            RacesManager.Instance.CreateSet();
+            
+            NewCharacters nc = new NewCharacters();
+            nc.Show();
             _currentFilename = null;
+          
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)

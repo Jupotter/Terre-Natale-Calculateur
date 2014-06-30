@@ -7,22 +7,26 @@ using Newtonsoft.Json.Serialization;
 using System.Data;
 namespace Terre_Natale_Calculateur
 {
-    internal class TalentsManager
+
+    class RacesManager
     {
 
-        private static TalentsManager _instance;
 
-        public static TalentsManager Instance
+        private static RacesManager _instance;
+
+        public static RacesManager Instance
         {
-            get { return _instance ?? (_instance = new TalentsManager()); }
+            get { return _instance ?? (_instance = new RacesManager()); }
         }
 
-        private IDictionary<int, Talent> _talents;
+        private IDictionary<int, Race> _Races;
         private int _nextId = 1;
         private readonly JsonSerializerSettings _serializerSettings;
         private readonly ITraceWriter _traceWriter;
 
-        private TalentsManager()
+
+
+        private RacesManager()
         {
             _traceWriter = new MemoryTraceWriter();
             _serializerSettings = new JsonSerializerSettings()
@@ -35,8 +39,8 @@ namespace Terre_Natale_Calculateur
 
         public void Initialize()
         {
-            var sr = new StreamReader("Talents.json");
-            var list = JsonConvert.DeserializeObject<List<Talent>>(sr.ReadToEnd());
+            var sr = new StreamReader("Races.json");
+            var list = JsonConvert.DeserializeObject<List<Race>>(sr.ReadToEnd());
 
             foreach (var talent in list)
             {
@@ -47,51 +51,43 @@ namespace Terre_Natale_Calculateur
             {
                 talent.Id = _nextId++;
             }
-            _talents = list.ToDictionary(talent => talent.Id);
+            _Races = list.ToDictionary(talent => talent.Id);
             sr.Close();
         }
 
         public void DumpJSON()
         {
-            if (_talents == null)
+            if (_Races == null)
                 return;
-            String json = JsonConvert.SerializeObject(_talents.Values, _serializerSettings);
+            String json = JsonConvert.SerializeObject(_Races.Values, _serializerSettings);
             var sw = new StreamWriter("TalentsDump.json", false);
             sw.Write(json);
             sw.Close();
         }
 
-        public IDictionary<int, Talent> CreateSet()
+        public IDictionary<int, Race> CreateSet()
         {
-            IDictionary<int, Talent> ret = new Dictionary<int, Talent>();
+           // IDictionary<int, Talent> ret = new Dictionary<int, Talent>();
 
-            foreach (var talent in _talents.Values)
-            {
-                ret.Add(talent.Id, (Talent)talent.Clone());
-            }
-            return ret;
+           
+            return _Races;
         }
         public DataTable GetTalents()
         {
             DataTable data = new DataTable();
-            DataColumn newone = new DataColumn("Id",typeof(Int32));
+            DataColumn newone = new DataColumn("Id", typeof(Int32));
             data.Columns.Add(newone);
             newone = new DataColumn("Nom", typeof(string));
             data.Columns.Add(newone);
-            foreach (var item in _talents.Values)
+            foreach (var item in _Races.Values)
             {
                 DataRow row = data.NewRow();
-                row["Id"] = item.Id;
-                row["Nom"] = item.Name;
+             //   row["Id"] = item.Id;
+             //   row["Nom"] = item.Name;
                 data.Rows.Add(row);
             }
             return data;
-            
-        }
-        public Talent GetTalent(int id)
-        {
-            return _talents[id];
-        }
 
+        }
     }
 }
