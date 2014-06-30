@@ -9,10 +9,10 @@ namespace Terre_Natale_Calculateur
 {
     class Race
     {
-        public int Id = 0;
-        public string name;
-        public List<int> talents = new List<int>();
-        public Dictionary<Aspect, int> aspectBonus= new Dictionary<Aspect, int>();
+        private int _id;
+        private string _name;
+        private IList<int> _talentsBonus;
+        private Dictionary<Aspect, int> _aspectBonus;
 
         public Race()
         {
