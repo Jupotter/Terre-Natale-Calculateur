@@ -55,7 +55,7 @@ namespace Terre_Natale_Calculateur
             foreach (TalentBox tbox in
                 from talent in _character.Talents
                 where predicate(talent)
-                select new TalentBox(this) { LinkedTalent = talent })
+                select new TalentBox(_character) { LinkedTalent = talent })
             {
                 tbox.Margin = new Padding(0);
                 box.Controls.Add(tbox);
