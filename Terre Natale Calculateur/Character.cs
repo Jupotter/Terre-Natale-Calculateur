@@ -9,7 +9,8 @@ namespace Terre_Natale_Calculateur
         private int _equilibre = 4;
         private IDictionary<Aspect, int> _aspectPoint;
         private readonly IDictionary<int, Talent> _talents;
-
+        private Dictionary<Aspect, int> bonusaspect = new Dictionary<Aspect, int>();
+        private List<Talent> talentbonus = new List<Talent>();
         private Race _race;
 
         public Character(SerializableCharacter serializableCharacter)
@@ -30,6 +31,21 @@ namespace Terre_Natale_Calculateur
 
         public Character(string name, TalentsManager talentsManager)
         {
+            talentbonus = new List<Talent>()
+            {
+                new Talent(),
+                new Talent(),
+            };
+            bonusaspect = new Dictionary<Aspect, int>()
+            {
+                 {Aspect.Acier, 0},
+                {Aspect.Arcane, 0},
+                {Aspect.Eau, 0},
+                {Aspect.Feu, 0},
+                {Aspect.Terre, 0},
+                {Aspect.Vent, 0},
+                {Aspect.Equilibre, 0},
+            };
             Name = name;
             _talents = talentsManager.CreateSet();
             foreach (var talent in _talents.Values)
@@ -81,7 +97,7 @@ namespace Terre_Natale_Calculateur
             {
                 n += i * 10;
                 if (_aspectPoint[aspect] < n)
-                    return i;
+                    return i + bonusaspect[aspect];
             }
             return 10;
         }
@@ -178,6 +194,19 @@ namespace Terre_Natale_Calculateur
 
                 return Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent)) + _equilibre + maxTalent * 2;
             }
+        }
+
+        public void setBonus(Dictionary<Aspect, int> bonAspect, List<Talent> talbonus,Race r)
+        {
+            talentbonus = talbonus;
+            _race = r;
+            bonusaspect = bonAspect;
+            PAChanged(this, null);
+        }
+
+        public bool havebonus(Talent quest)
+        {
+            return (talentbonus[0] == quest || talentbonus[1] == quest);
         }
     }
 }

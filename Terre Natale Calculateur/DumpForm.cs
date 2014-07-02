@@ -25,7 +25,7 @@ namespace Terre_Natale_Calculateur
 
         private void DumpForm_Load(object sender, EventArgs e)
         {
-           
+
             dataGridView1.DataSource = TalentsManager.Instance.GetTalents();
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.Update();

@@ -15,9 +15,10 @@ namespace Terre_Natale_Calculateur
         private readonly Button _plusButton;
         private readonly ProgressBar _progress;
         private Talent _linkedTalent;
-
-        public TalentBox()
+        private Form1 parent;
+        public TalentBox(Form1 caller)
         {
+            parent = caller;
             SuspendLayout();
 
             _label = new Label
@@ -99,7 +100,14 @@ namespace Terre_Natale_Calculateur
 
         public void UpdateValue()
         {
-            _progress.Value = Math.Max(0, Math.Min(100, _linkedTalent.Level * 100 / 5));
+            if (parent.getCharacter().havebonus(_linkedTalent))
+            {
+                _progress.Value = _linkedTalent.Level * 20 + 20;
+            }
+            else
+            {
+                _progress.Value = _linkedTalent.Level * 20;
+            }
         }
 
         private void _minusButton_Click(object sender, EventArgs e)

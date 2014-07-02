@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace Terre_Natale_Calculateur
 {
-    public partial class Form1 : Form
+    internal partial class Form1 : Form
     {
         private Character _character;
         private string _currentFilename;
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -55,7 +55,7 @@ namespace Terre_Natale_Calculateur
             foreach (TalentBox tbox in
                 from talent in _character.Talents
                 where predicate(talent)
-                select new TalentBox { LinkedTalent = talent })
+                select new TalentBox(this) { LinkedTalent = talent })
             {
                 tbox.Margin = new Padding(0);
                 box.Controls.Add(tbox);
@@ -98,7 +98,7 @@ namespace Terre_Natale_Calculateur
                 Aspect aspect1 = aspect;
                 box = CreateAspectBox(t => t.Type == TalentType.Prouesse && t.PrimaryAspect == aspect1,
                     String.Format("Prouesse de {0}", aspect));
-               flowLayoutTalentsP.Controls.Add(box);
+                flowLayoutTalentsP.Controls.Add(box);
             }
         }
 
@@ -117,22 +117,24 @@ namespace Terre_Natale_Calculateur
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label14_Click(object sender, EventArgs e)
         {
+            SetCharacter(CharacterManager.Instance.Create("name"));
+            RacesManager.Instance.CreateSet();
         }
 
         private void nouveauToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             SetCharacter(CharacterManager.Instance.Create("name"));
             RacesManager.Instance.CreateSet();
-            
-            NewCharacters nc = new NewCharacters();
+
+            NewCharacters nc = new NewCharacters(_character, this);
             nc.Show();
             _currentFilename = null;
-          
+
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
@@ -197,6 +199,24 @@ namespace Terre_Natale_Calculateur
         {
             DumpForm dumpy = new DumpForm();
             dumpy.Show();
+        }
+
+        public Character getCharacter()
+        {
+            return _character;
+        }
+
+        public void newcharacterfinish()
+        {
+            UpdateAspects();
+            update_Talents();
+        }
+
+        public void update_Talents()
+        {
+            
+           
+            
         }
     }
 }

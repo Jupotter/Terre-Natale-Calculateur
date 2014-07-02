@@ -50,7 +50,23 @@ namespace Terre_Natale_Calculateur
             _talents = list.ToDictionary(talent => talent.Id);
             sr.Close();
         }
+        public DataTable GetTalents()
+        {
+            DataTable data = new DataTable();
+            DataColumn newone = new DataColumn("Id", typeof(Int32));
+            data.Columns.Add(newone);
+            newone = new DataColumn("Nom", typeof(string));
+            data.Columns.Add(newone);
+            foreach (var item in _talents.Values)
+            {
+                DataRow row = data.NewRow();
+                row["Id"] = item.Id;
+                row["Nom"] = item.Name;
+                data.Rows.Add(row);
+            }
+            return data;
 
+        }
         public void DumpJSON()
         {
             if (_talents == null)
@@ -71,23 +87,7 @@ namespace Terre_Natale_Calculateur
             }
             return ret;
         }
-        public DataTable GetTalents()
-        {
-            DataTable data = new DataTable();
-            DataColumn newone = new DataColumn("Id",typeof(Int32));
-            data.Columns.Add(newone);
-            newone = new DataColumn("Nom", typeof(string));
-            data.Columns.Add(newone);
-            foreach (var item in _talents.Values)
-            {
-                DataRow row = data.NewRow();
-                row["Id"] = item.Id;
-                row["Nom"] = item.Name;
-                data.Rows.Add(row);
-            }
-            return data;
-            
-        }
+       
         public Talent GetTalent(int id)
         {
             return _talents[id];
