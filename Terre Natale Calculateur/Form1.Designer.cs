@@ -226,9 +226,9 @@ namespace Terre_Natale_Calculateur
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dumpTalentsjsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.talentsIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.talentsIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -634,7 +634,6 @@ namespace Terre_Natale_Calculateur
             this.TalentsG.Controls.Add(this.flowLayoutTalentG);
             this.TalentsG.Location = new System.Drawing.Point(4, 22);
             this.TalentsG.Name = "TalentsG";
-            this.TalentsG.Padding = new System.Windows.Forms.Padding(3);
             this.TalentsG.Size = new System.Drawing.Size(585, 390);
             this.TalentsG.TabIndex = 1;
             this.TalentsG.Text = "Talents Generaux";
@@ -643,9 +642,9 @@ namespace Terre_Natale_Calculateur
             // flowLayoutTalentG
             // 
             this.flowLayoutTalentG.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutTalentG.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutTalentG.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutTalentG.Name = "flowLayoutTalentG";
-            this.flowLayoutTalentG.Size = new System.Drawing.Size(579, 384);
+            this.flowLayoutTalentG.Size = new System.Drawing.Size(585, 390);
             this.flowLayoutTalentG.TabIndex = 0;
             // 
             // TalentsM
@@ -909,6 +908,13 @@ namespace Terre_Natale_Calculateur
             this.dumpTalentsjsonToolStripMenuItem.Text = "Dump Talents.json";
             this.dumpTalentsjsonToolStripMenuItem.Click += new System.EventHandler(this.dumpTalentsjsonToolStripMenuItem_Click);
             // 
+            // talentsIdToolStripMenuItem
+            // 
+            this.talentsIdToolStripMenuItem.Name = "talentsIdToolStripMenuItem";
+            this.talentsIdToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.talentsIdToolStripMenuItem.Text = "Talents Id";
+            this.talentsIdToolStripMenuItem.Click += new System.EventHandler(this.talentsIdToolStripMenuItem_Click);
+            // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.Filter = "Feuille de personnage | *.chr";
@@ -918,13 +924,6 @@ namespace Terre_Natale_Calculateur
             // 
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
-            // talentsIdToolStripMenuItem
-            // 
-            this.talentsIdToolStripMenuItem.Name = "talentsIdToolStripMenuItem";
-            this.talentsIdToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.talentsIdToolStripMenuItem.Text = "Talents Id";
-            this.talentsIdToolStripMenuItem.Click += new System.EventHandler(this.talentsIdToolStripMenuItem_Click);
             // 
             // Form1
             // 

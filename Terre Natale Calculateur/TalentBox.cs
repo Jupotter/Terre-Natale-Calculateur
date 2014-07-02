@@ -63,7 +63,7 @@ namespace Terre_Natale_Calculateur
 
             ChangeSize();
 
-            _controlsWidth = _minusButton.Width + _progress.Width + _plusButton.Width;
+            _controlsWidth = _plusButton.Right - _minusButton.Left;
 
             _plusButton.Click += _plusButton_Click;
             _minusButton.Click += _minusButton_Click;
