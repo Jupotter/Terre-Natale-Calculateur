@@ -77,6 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aspect.cs" />
+    <Compile Include="AspectTalentBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AspectTalentBox.Designer.cs">
+      <DependentUpon>AspectTalentBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Character.cs" />
     <Compile Include="CharacterManager.cs" />
     <Compile Include="DumpForm.cs">

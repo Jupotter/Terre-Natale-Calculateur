@@ -16,6 +16,8 @@ namespace Terre_Natale_Calculateur
         private readonly ProgressBar _progress;
         private readonly Character _character;
         private Talent _linkedTalent;
+        private int _controlsWidth;
+
         public TalentBox(Character character)
         {
             _character = character;
@@ -26,6 +28,7 @@ namespace Terre_Natale_Calculateur
             {
                 AutoSize = true,
                 Anchor = AnchorStyles.Top | AnchorStyles.Left,
+                Margin = new Padding(2),
             };
             Controls.Add(_label);
 
@@ -60,11 +63,21 @@ namespace Terre_Natale_Calculateur
 
             ChangeSize();
 
+            _controlsWidth = _minusButton.Width + _progress.Width + _plusButton.Width;
+
             _plusButton.Click += _plusButton_Click;
             _minusButton.Click += _minusButton_Click;
             TextModified = OnTextModified;
             AutoSize = true;
             Margin = new Padding(0);
+        }
+
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+
+            _label.AutoSize = false;
+            _label.Width = Width - _controlsWidth - _label.Margin.Right;
         }
 
         public event EventHandler TextModified;
@@ -126,14 +139,19 @@ namespace Terre_Natale_Calculateur
         private void ChangeSize()
         {
             SuspendLayout();
+            ChangeLayout();
+            Width = _plusButton.Right;
+        }
+
+        private void ChangeLayout()
+        {
             _minusButton.Left = _label.Right;
             _progress.Left = _minusButton.Right;
             _plusButton.Left = _progress.Right;
 
             _label.Height = _progress.Height;
-            _label.Top = _progress.Height / 2 - _label.Height / 2;
-            _label.TextAlign = ContentAlignment.MiddleCenter;
-            Width = _plusButton.Right;
+            _label.Top = _progress.Height/2 - _label.Height/2;
+            _label.TextAlign = ContentAlignment.MiddleLeft;
         }
 
         private void OnTextModified(object sender, EventArgs eventArgs)

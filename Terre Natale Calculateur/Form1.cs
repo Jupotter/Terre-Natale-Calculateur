@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -44,24 +45,9 @@ namespace Terre_Natale_Calculateur
 
         private FlowLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)
         {
-            var box = new FlowLayoutPanel
-            {
-                FlowDirection = FlowDirection.TopDown,
-                AutoSize = true,
-                WrapContents = false,
-                BorderStyle = BorderStyle.FixedSingle
-            };
-            box.Controls.Add(new Label { Text = name });
-            foreach (TalentBox tbox in
-                from talent in _character.Talents
-                where predicate(talent)
-                select new TalentBox(_character) { LinkedTalent = talent })
-            {
-                tbox.Margin = new Padding(0);
-                box.Controls.Add(tbox);
-                tbox.UpdateValue();
-            }
-            return box;
+            var tpanel = new AspectTalentBox(_character);
+            tpanel.Initialize(predicate, name);
+            return tpanel;
         }
 
         private void CreateTalentBoxes()
@@ -69,6 +55,8 @@ namespace Terre_Natale_Calculateur
             flowLayoutTalentG.Controls.Clear();
             flowLayoutTalentsM.Controls.Clear();
             flowLayoutTalentsA.Controls.Clear();
+
+            int size = 0;
 
             FlowLayoutPanel box;
             foreach (var aspect in from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
@@ -78,7 +66,14 @@ namespace Terre_Natale_Calculateur
                 Aspect aspect1 = aspect;
                 box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect1,
                     String.Format("Talents de {0}", aspect));
+                if (box.Width > size)
+                    size = box.Width;
                 flowLayoutTalentG.Controls.Add(box);
+            }
+            foreach (AspectTalentBox aspectTalentBox in flowLayoutTalentG.Controls)
+            {
+                aspectTalentBox.AutoSize = false;
+                aspectTalentBox.Width = size;
             }
 
             box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Acier, "Talents d'Acier");
