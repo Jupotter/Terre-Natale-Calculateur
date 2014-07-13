@@ -62,7 +62,11 @@ namespace Terre_Natale_Calculateur
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (comboBox2.Text== "" || (comboBox3.Text)=="")
+            {
+                MessageBox.Show("Selectionnez un bonus.");
+                return;
+            }
              Dictionary<Aspect, int> resAsp = new Dictionary<Aspect, int>();
              resAsp.Add(Aspect.Feu,Convert.ToInt16(listBox1.Items[0].ToString().Split(':')[1].Trim()));
              resAsp.Add(Aspect.Eau,Convert.ToInt16(listBox1.Items[1].ToString().Split(':')[1].Trim()));
@@ -73,10 +77,13 @@ namespace Terre_Natale_Calculateur
              resAsp.Add(Aspect.Equilibre,Convert.ToInt16(listBox1.Items[6].ToString().Split(':')[1].Trim()));
             
              List<Talent> rsTal = new List<Talent>();
+             
              rsTal.Add(_character.GetTalent(comboBox2.Text));
              rsTal.Add(_character.GetTalent(comboBox3.Text));
-             _character.setBonus(resAsp, rsTal, races[comboBox1.SelectedIndex]);
+             _character.setBonus(resAsp, rsTal, races[comboBox1.SelectedIndex+1]);
+             
              parent.newcharacterfinish();
+
              this.Close();
         }
     }

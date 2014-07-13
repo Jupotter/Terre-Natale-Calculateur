@@ -60,6 +60,7 @@ namespace Terre_Natale_Calculateur
                 {Aspect.Feu, 30},
                 {Aspect.Terre, 30},
                 {Aspect.Vent, 30},
+                {Aspect.Equilibre,30},
             };
         }
 
@@ -127,6 +128,7 @@ namespace Terre_Natale_Calculateur
                 {Aspect.Feu, 30},
                 {Aspect.Terre, 30},
                 {Aspect.Vent, 30},
+                {Aspect.Equilibre, 30},
             };
 
             foreach (var talent in _talents.Values.Where(talent => talent.SecondaryAspect != Aspect.Equilibre))
@@ -149,10 +151,14 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                int maxTalent = (from item in _talents.Values 
-                                 where item.Type == TalentType.Aptitude && item.PrimaryAspect == Aspect.Acier 
-                                 select item.Level).Concat(new[] {0}).Max();
-                return Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Acier)) + _equilibre + maxTalent * 2;
+                List<int> maxTalent = (from item in _talents.Values 
+                                 where item.Type == TalentType.Aptitude && item.PrimaryAspect == Aspect.Acier
+                                   select item.Level).ToList() ;
+
+                maxTalent.Sort();
+                return Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Acier)) 
+                    + GetAspectValue(Aspect.Equilibre) 
+                    +( maxTalent[maxTalent.Count-1]+ maxTalent[maxTalent.Count-2]) * 2;
             }
         }
 
@@ -160,11 +166,13 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                int maxTalent = (from item in _talents.Values 
-                                 where item.Type == TalentType.Aptitude || item.Type == TalentType.Martial && item.PrimaryAspect == Aspect.Arcane 
-                                 select item.Level).Concat(new[] {0}).Max();
-
-                return Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Terre)) + _equilibre + GetAspectValue(Aspect.Arcane) + maxTalent * 2;
+                List<int> maxTalent = (from item in _talents.Values 
+                                 where item.Type == TalentType.Aptitude || item.Type == TalentType.Martial && item.PrimaryAspect == Aspect.Arcane
+                                       select item.Level).ToList();
+                maxTalent.Sort();
+                return Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Terre)) + GetAspectValue(Aspect.Arcane) 
+                    + GetAspectValue(Aspect.Equilibre)
+                    + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
             }
         }
 
@@ -172,7 +180,7 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                return GetAspectValue(Aspect.Acier) + _equilibre + 5 + GetTalent("Endurance").Level;
+                return GetAspectValue(Aspect.Acier) +   GetAspectValue(Aspect.Equilibre) + 5 + GetTalent("Endurance").Level;
             }
         }
 
@@ -180,7 +188,7 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                return _equilibre;
+                return GetAspectValue(Aspect.Equilibre);
             }
         }
 
@@ -188,11 +196,13 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                int maxTalent = (from item in _talents.Values 
-                                 where item.Type == TalentType.Aptitude && item.PrimaryAspect != Aspect.Acier && item.PrimaryAspect != Aspect.Arcane 
-                                 select item.Level).Concat(new[] {0}).Max();
-
-                return Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent)) + _equilibre + maxTalent * 2;
+                List<int> maxTalent = (from item in _talents.Values 
+                                 where item.Type == TalentType.Prouesse
+                                 select item.Level).ToList();
+                maxTalent.Sort();
+                return Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent)) 
+                    + GetAspectValue(Aspect.Equilibre)
+                    + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2; 
             }
         }
 
