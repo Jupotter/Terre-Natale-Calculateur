@@ -72,7 +72,7 @@ namespace Terre_Natale_Calculateur
             }
             foreach (AspectTalentBox aspectTalentBox in flowLayoutTalentG.Controls)
             {
-                aspectTalentBox.AutoSize = false;
+                //aspectTalentBox.AutoSize = false;
                 aspectTalentBox.Width = size;
             }
 

@@ -29,6 +29,7 @@ namespace Terre_Natale_Calculateur
         public void Initialize(Predicate<Talent> predicate, string name)
         {
             AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowOnly;
             Controls.Add(new Label {Text = name});
             foreach (TalentBox tbox in
                 from talent in _character.Talents
