@@ -147,6 +147,14 @@ namespace Terre_Natale_Calculateur
             OnPAchanged();
         }
 
+        public int TotalXP
+        {
+            get
+            {
+                return _talents.Values.Sum(talent => talent.XPCost);
+            }
+        }
+
         public int Fatigue
         {
             get

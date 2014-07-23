@@ -574,9 +574,9 @@ namespace Terre_Natale_Calculateur
             // 
             // ExperienceRestante
             // 
-            this.ExperienceRestante.Enabled = false;
             this.ExperienceRestante.Location = new System.Drawing.Point(398, 58);
             this.ExperienceRestante.Name = "ExperienceRestante";
+            this.ExperienceRestante.ReadOnly = true;
             this.ExperienceRestante.Size = new System.Drawing.Size(53, 20);
             this.ExperienceRestante.TabIndex = 5;
             this.ExperienceRestante.Text = "0";
@@ -613,9 +613,9 @@ namespace Terre_Natale_Calculateur
             // 
             // Experience
             // 
-            this.Experience.Enabled = false;
             this.Experience.Location = new System.Drawing.Point(109, 58);
             this.Experience.Name = "Experience";
+            this.Experience.ReadOnly = true;
             this.Experience.Size = new System.Drawing.Size(45, 20);
             this.Experience.TabIndex = 1;
             this.Experience.Text = "0";
