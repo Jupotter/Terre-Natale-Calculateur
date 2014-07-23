@@ -6,11 +6,10 @@ namespace Terre_Natale_Calculateur
 {
     internal sealed class Character
     {
-        private int _equilibre = 4;
         private IDictionary<Aspect, int> _aspectPoint;
         private readonly IDictionary<int, Talent> _talents;
-        private Dictionary<Aspect, int> bonusaspect = new Dictionary<Aspect, int>();
-        private List<Talent> talentbonus = new List<Talent>();
+        private Dictionary<Aspect, int> _bonusAspect = new Dictionary<Aspect, int>();
+        private List<Talent> _talentBonus = new List<Talent>();
         private Race _race;
 
         public Character(SerializableCharacter serializableCharacter)
@@ -31,12 +30,12 @@ namespace Terre_Natale_Calculateur
 
         public Character(string name, TalentsManager talentsManager)
         {
-            talentbonus = new List<Talent>()
+            _talentBonus = new List<Talent>
             {
                 new Talent(),
                 new Talent(),
             };
-            bonusaspect = new Dictionary<Aspect, int>()
+            _bonusAspect = new Dictionary<Aspect, int>
             {
                  {Aspect.Acier, 0},
                 {Aspect.Arcane, 0},
@@ -73,7 +72,7 @@ namespace Terre_Natale_Calculateur
                 handler(this, EventArgs.Empty);
         }
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         public Race Race
         {
@@ -98,7 +97,7 @@ namespace Terre_Natale_Calculateur
             {
                 n += i * 10;
                 if (_aspectPoint[aspect] < n)
-                    return i + bonusaspect[aspect];
+                    return i + _bonusAspect[aspect];
             }
             return 10;
         }
@@ -112,7 +111,6 @@ namespace Terre_Natale_Calculateur
             };
         }
 
-        [Obsolete]
         public Talent GetTalent(String name)
         {
             return _talents.Values.First(talent => talent.Name == name);
@@ -214,17 +212,17 @@ namespace Terre_Natale_Calculateur
             }
         }
 
-        public void setBonus(Dictionary<Aspect, int> bonAspect, List<Talent> talbonus,Race r)
+        public void SetBonus(Dictionary<Aspect, int> bonAspect, List<Talent> talbonus,Race r)
         {
-            talentbonus = talbonus;
+            _talentBonus = talbonus;
             _race = r;
-            bonusaspect = bonAspect;
+            _bonusAspect = bonAspect;
             PAChanged(this, null);
         }
 
-        public bool havebonus(Talent quest)
+        public bool HaveBonus(Talent quest)
         {
-            return (talentbonus[0] == quest || talentbonus[1] == quest);
+            return (_talentBonus[0] == quest || _talentBonus[1] == quest);
         }
     }
 }
