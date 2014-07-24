@@ -12,7 +12,8 @@ namespace Terre_Natale_Calculateur
         private Dictionary<Aspect, int> bonusaspect = new Dictionary<Aspect, int>();
         private List<Talent> talentbonus = new List<Talent>();
         private Race _race;
-
+        private int exp=0;
+        private int expUtilise = 0;
         public Character(SerializableCharacter serializableCharacter)
         {
             Name = serializableCharacter.Name;
@@ -218,5 +219,34 @@ namespace Terre_Natale_Calculateur
         {
             return (talentbonus[0] == quest || talentbonus[1] == quest);
         }
+
+        public void addExp(int value)
+        {
+            exp += value;
+        }
+        public int getExp()
+        {
+            return exp;
+        }
+        public int getExpRestant()
+        {
+            int tt = 0;
+            foreach (var item in _talents)
+            {
+                int expinvest = 0;
+                for (int i = 0; i <= item.Value.Level; i++)
+                {
+                    expinvest += 10 * i;
+                }
+                tt += expinvest;
+            }
+            return tt;
+        }
+
+        public bool canInvest(int value)
+        {
+            return exp >= expUtilise + value;
+        }
+        
     }
 }
