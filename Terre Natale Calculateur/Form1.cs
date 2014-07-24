@@ -22,6 +22,7 @@ namespace Terre_Natale_Calculateur
 
         private void ActualiseStats()
         {
+            ExperienceRestante.Text = (int.Parse(Experience.Text) - _character.TotalXP).ToString(CultureInfo.InvariantCulture);
             Fatigue.Text = _character.Fatigue.ToString(CultureInfo.InvariantCulture);
             Chi.Text = _character.Chi.ToString(CultureInfo.InvariantCulture);
             Mana.Text = _character.Mana.ToString(CultureInfo.InvariantCulture);
@@ -33,6 +34,7 @@ namespace Terre_Natale_Calculateur
         private void button3_Click(object sender, EventArgs e)
         {
             Experience.Text = Convert.ToString((Convert.ToInt32(Experience.Text) + XpToAdd.Value));
+            ExperienceRestante.Text = (int.Parse(Experience.Text) - _character.TotalXP).ToString(CultureInfo.InvariantCulture);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -40,6 +42,7 @@ namespace Terre_Natale_Calculateur
             if (((Convert.ToInt32(Experience.Text) - XpToAdd.Value) >= 0))
             {
                 Experience.Text = Convert.ToString((Convert.ToInt32(Experience.Text) - XpToAdd.Value));
+                ExperienceRestante.Text = (int.Parse(Experience.Text) - _character.TotalXP).ToString(CultureInfo.InvariantCulture);
             }
         }
 

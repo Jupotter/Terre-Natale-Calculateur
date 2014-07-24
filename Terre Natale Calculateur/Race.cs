@@ -10,19 +10,14 @@ namespace Terre_Natale_Calculateur
     class Race
     {
         public int Id;
-        public string name;
-        public List<int> talents = new List<int>();
-        public Dictionary<Aspect, int> aspectBonus = new Dictionary<Aspect,int>();
+        public readonly string Name;
+        public readonly List<int> Talents = new List<int>();
+        public readonly Dictionary<Aspect, int> AspectBonus = new Dictionary<Aspect,int>();
 
-        public Race()
+        public Race(string name)
         {
-           
-          
-
-            
+            Name = name;
         }
-
-
     }
 
     

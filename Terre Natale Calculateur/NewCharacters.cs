@@ -29,7 +29,7 @@ namespace Terre_Natale_Calculateur
             races = RacesManager.Instance.CreateSet();
             foreach (var item in races)
             {
-                comboBox1.Items.Add(item.Value.name);
+                comboBox1.Items.Add(item.Value.Name);
             }
             comboBox1.SelectedIndex = 0;
             
@@ -42,16 +42,16 @@ namespace Terre_Natale_Calculateur
            
             foreach (var item in races)
             {
-                if (item.Value.name == comboBox1.Text)
+                if (item.Value.Name == comboBox1.Text)
                 {
                     comboBox2.Items.Clear();
                     comboBox3.Items.Clear();
                     listBox1.Items.Clear();
-                    foreach (var stats in item.Value.aspectBonus)
+                    foreach (var stats in item.Value.AspectBonus)
                     {
                         listBox1.Items.Add(stats.Key + " : " + stats.Value);
                     }
-                    foreach (var talent in item.Value.talents)
+                    foreach (var talent in item.Value.Talents)
                     {
                         comboBox2.Items.Add(TalentsManager.Instance.GetTalent(talent).Name);
                         comboBox3.Items.Add(TalentsManager.Instance.GetTalent(talent).Name);
@@ -80,7 +80,7 @@ namespace Terre_Natale_Calculateur
              
              rsTal.Add(_character.GetTalent(comboBox2.Text));
              rsTal.Add(_character.GetTalent(comboBox3.Text));
-             _character.setBonus(resAsp, rsTal, races[comboBox1.SelectedIndex+1]);
+             _character.SetBonus(resAsp, rsTal, races[comboBox1.SelectedIndex+1]);
              
              parent.newcharacterfinish();
 
