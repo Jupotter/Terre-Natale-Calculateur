@@ -177,7 +177,7 @@ namespace Terre_Natale_Calculateur
                 : System.Drawing.Color.Black;
         }
 
-        private void UpdateAspects()
+        public void UpdateAspects()
         {
             Acier.Text = _character.GetAspectValue(Aspect.Acier).ToString(CultureInfo.InvariantCulture);
             Arcane.Text = _character.GetAspectValue(Aspect.Arcane).ToString(CultureInfo.InvariantCulture);
@@ -216,6 +216,12 @@ namespace Terre_Natale_Calculateur
             
            
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StatsBonusForm sbf = new StatsBonusForm(this);
+            sbf.ShowDialog();
         }
     }
 }

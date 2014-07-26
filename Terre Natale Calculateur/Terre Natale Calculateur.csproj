@@ -110,6 +110,12 @@
     <Compile Include="Race.cs" />
     <Compile Include="RacesManager.cs" />
     <Compile Include="SerializableCharacter.cs" />
+    <Compile Include="StatsBonusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatsBonusForm.Designer.cs">
+      <DependentUpon>StatsBonusForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Talent.cs" />
     <Compile Include="TalentBox.cs">
       <SubType>UserControl</SubType>
@@ -135,6 +141,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StatsBonusForm.resx">
+      <DependentUpon>StatsBonusForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\TalentsManager.datasource" />
     <None Include="Properties\Settings.settings">

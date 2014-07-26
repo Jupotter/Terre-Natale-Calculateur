@@ -13,6 +13,11 @@ namespace Terre_Natale_Calculateur
         private Race _race;
         private int exp=0;
         private int expUtilise = 0;
+        private Aspect aspectBonus;
+        private Aspect aspectMalus;
+
+
+
         public Character(SerializableCharacter serializableCharacter)
         {
             Name = serializableCharacter.Name;
@@ -98,7 +103,19 @@ namespace Terre_Natale_Calculateur
             {
                 n += i * 10;
                 if (_aspectPoint[aspect] < n)
-                    return i + _bonusAspect[aspect];
+                    if(aspectBonus == aspect)
+                    {
+                        return i +1 + _bonusAspect[aspect]; 
+                    }
+                    else if (aspectMalus == aspect)
+                    {
+                        return i - 1 + _bonusAspect[aspect];
+                    }
+                    else
+                    {
+                        return i + _bonusAspect[aspect]; 
+                    }
+                    
             }
             return 10;
         }
@@ -252,6 +269,12 @@ namespace Terre_Natale_Calculateur
         public bool canInvest(int value)
         {
             return exp >= expUtilise + value;
+        }
+
+        public void setBonusMalus(Aspect bonus , Aspect malus)
+        {
+            aspectBonus = bonus;
+            aspectMalus = malus;
         }
         
     }

@@ -229,6 +229,7 @@ namespace Terre_Natale_Calculateur
             this.talentsIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -421,6 +422,7 @@ namespace Terre_Natale_Calculateur
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.Equilibre);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.Acier);
@@ -925,6 +927,16 @@ namespace Terre_Natale_Calculateur
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(220, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(50, 23);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Bonus";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -964,6 +976,7 @@ namespace Terre_Natale_Calculateur
         private ToolStripMenuItem debugToolStripMenuItem;
         private ToolStripMenuItem dumpTalentsjsonToolStripMenuItem;
         private ToolStripMenuItem talentsIdToolStripMenuItem;
+        private Button button1;
     }
 }
 
