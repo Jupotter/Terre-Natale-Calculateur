@@ -118,14 +118,9 @@ namespace Terre_Natale_Calculateur
 
         }
 
-        private void label14_Click(object sender, EventArgs e)
-        {
-            SetCharacter(CharacterManager.Instance.Create("name"));
-            RacesManager.Instance.CreateSet();
-        }
-
         private void nouveauToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            RacesManager.Instance.Initialize();
             SetCharacter(CharacterManager.Instance.Create("name"));
             RacesManager.Instance.CreateSet();
 
@@ -137,10 +132,12 @@ namespace Terre_Natale_Calculateur
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Activate();
+            RacesManager.Instance.Initialize();
             string name = openFileDialog1.FileName;
             SetCharacter(CharacterManager.Instance.Load(name));
             _currentFilename = name;
+            PAChangedHandler(this, null);
+            
         }
 
         private void ouvrirToolStripMenuItem1_Click(object sender, EventArgs e)

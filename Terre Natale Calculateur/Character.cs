@@ -21,15 +21,12 @@ namespace Terre_Natale_Calculateur
         {
             Name = serializableCharacter.Name;
             _talents = serializableCharacter.Talents.ToDictionary(talent => talent.Id);
-            _aspectPoint = new Dictionary<Aspect, int>
-            {
-                {Aspect.Acier, 30},
-                {Aspect.Arcane, 30},
-                {Aspect.Eau, 30},
-                {Aspect.Feu, 30},
-                {Aspect.Terre, 30},
-                {Aspect.Vent, 30},
-            };
+            _aspectBonus = serializableCharacter.AspectBonus;
+            _aspectMalus = serializableCharacter.AspectMalus;
+            _race = RacesManager.Instance.GetRace(serializableCharacter.Race);
+
+            _bonusAspect = _race.AspectBonus;
+
             RecomputePA();
         }
 
@@ -110,6 +107,9 @@ namespace Terre_Natale_Calculateur
             {
                 Name = Name,
                 Talents = Talents,
+                AspectBonus = _aspectBonus,
+                AspectMalus = _aspectMalus,
+                Race = _race.Id,
             };
         }
 

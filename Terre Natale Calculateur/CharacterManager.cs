@@ -43,7 +43,7 @@ namespace Terre_Natale_Calculateur
             var character = JsonConvert.DeserializeObject<SerializableCharacter>(sr.ReadToEnd(),
                 _serializerSettings);
 #if DEBUG
-            Console.WriteLine(_traceWriter);
+            //Console.WriteLine(_traceWriter);
 #endif
             return new Character(character);
         }

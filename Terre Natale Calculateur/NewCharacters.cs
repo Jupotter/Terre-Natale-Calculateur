@@ -25,7 +25,6 @@ namespace Terre_Natale_Calculateur
         private void NewCharacters_Load(object sender, EventArgs e )
         {
            
-            RacesManager.Instance.Initialize();
             races = RacesManager.Instance.CreateSet();
             foreach (var item in races)
             {

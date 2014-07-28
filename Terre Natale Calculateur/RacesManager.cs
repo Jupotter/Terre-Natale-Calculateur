@@ -19,7 +19,7 @@ namespace Terre_Natale_Calculateur
             get { return _instance ?? (_instance = new RacesManager()); }
         }
 
-        private IDictionary<int, Race> _Races;
+        private IDictionary<int, Race> _races;
         private int _nextId = 1;
         private readonly JsonSerializerSettings _serializerSettings;
         private readonly ITraceWriter _traceWriter;
@@ -51,18 +51,23 @@ namespace Terre_Natale_Calculateur
             {
                 talent.Id = _nextId++;
             }
-            _Races = list.ToDictionary(talent => talent.Id);
+            _races = list.ToDictionary(talent => talent.Id);
             sr.Close();
         }
 
         public void DumpJSON()
         {
-            if (_Races == null)
+            if (_races == null)
                 return;
-            String json = JsonConvert.SerializeObject(_Races.Values, _serializerSettings);
+            String json = JsonConvert.SerializeObject(_races.Values, _serializerSettings);
             var sw = new StreamWriter("TalentsDump.json", false);
             sw.Write(json);
             sw.Close();
+        }
+
+        public Race GetRace(int Id)
+        {
+            return _races[Id];
         }
 
         public IDictionary<int, Race> CreateSet()
@@ -70,7 +75,7 @@ namespace Terre_Natale_Calculateur
            // IDictionary<int, Talent> ret = new Dictionary<int, Talent>();
 
            
-            return _Races;
+            return _races;
         }
         public DataTable GetTalents()
         {
@@ -79,7 +84,7 @@ namespace Terre_Natale_Calculateur
             data.Columns.Add(newone);
             newone = new DataColumn("Nom", typeof(string));
             data.Columns.Add(newone);
-            foreach (var item in _Races.Values)
+            foreach (var item in _races.Values)
             {
                 DataRow row = data.NewRow();
              //   row["Id"] = item.Id;

@@ -847,7 +847,6 @@ namespace Terre_Natale_Calculateur
             this.label14.Size = new System.Drawing.Size(27, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Don";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // menuStrip1
             // 
