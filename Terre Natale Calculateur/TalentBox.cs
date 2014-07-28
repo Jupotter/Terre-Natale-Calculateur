@@ -114,14 +114,7 @@ namespace Terre_Natale_Calculateur
 
         public void UpdateValue()
         {
-            if (_character.HaveBonus(_linkedTalent))
-            {
-                _progress.Value = Math.Min(100, _linkedTalent.Level * 20 + 20);
-            }
-            else
-            {
                 _progress.Value = _linkedTalent.Level * 20;
-            }
         }
 
         private void _minusButton_Click(object sender, EventArgs e)

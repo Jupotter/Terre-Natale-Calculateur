@@ -9,12 +9,11 @@ namespace Terre_Natale_Calculateur
         private IDictionary<Aspect, int> _aspectPoint;
         private readonly IDictionary<int, Talent> _talents;
         private Dictionary<Aspect, int> _bonusAspect = new Dictionary<Aspect, int>();
-        private List<Talent> _talentBonus = new List<Talent>();
         private Race _race;
-        private int exp=0;
-        private int expUtilise = 0;
-        private Aspect aspectBonus;
-        private Aspect aspectMalus;
+        private int _exp;
+        private int _expUtilise = 0;
+        private Aspect _aspectBonus;
+        private Aspect _aspectMalus;
 
 
 
@@ -36,11 +35,6 @@ namespace Terre_Natale_Calculateur
 
         public Character(string name, TalentsManager talentsManager)
         {
-            _talentBonus = new List<Talent>
-            {
-                new Talent(),
-                new Talent(),
-            };
             _bonusAspect = new Dictionary<Aspect, int>
             {
                  {Aspect.Acier, 0},
@@ -137,14 +131,14 @@ namespace Terre_Natale_Calculateur
                 {Aspect.Equilibre, 30},
             };
 
-            if(aspectBonus != null)
+            if(_aspectBonus != Aspect.None)
             {
-                _aspectPoint[aspectBonus] = 60;
+                _aspectPoint[_aspectBonus] = 60;
             }
 
-            if (aspectMalus != null)
+            if (_aspectMalus != Aspect.None)
             {
-                _aspectPoint[aspectMalus] = 10;
+                _aspectPoint[_aspectMalus] = 10;
             }
             foreach (var talent in _talents.Values.Where(talent => talent.SecondaryAspect != Aspect.Equilibre))
             {
@@ -166,7 +160,7 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                return _talents.Values.Sum(talent => talent.XPCost);
+                return _talents.Values.Sum(talent => talent.XPCost) - 20;
             }
         }
 
@@ -231,24 +225,22 @@ namespace Terre_Natale_Calculateur
 
         public void SetBonus(Dictionary<Aspect, int> bonAspect, List<Talent> talbonus,Race r)
         {
-            _talentBonus = talbonus;
+            foreach (var talent in talbonus)
+            {
+                _talents[talent.Id].HaveBonus = true;
+            }
             _race = r;
             _bonusAspect = bonAspect;
             PAChanged(this, null);
         }
 
-        public bool HaveBonus(Talent quest)
-        {
-            return (_talentBonus[0] == quest || _talentBonus[1] == quest);
-        }
-
         public void addExp(int value)
         {
-            exp += value;
+            _exp += value;
         }
         public int getExp()
         {
-            return exp;
+            return _exp;
         }
         public int getExpRestant()
         {
@@ -267,13 +259,13 @@ namespace Terre_Natale_Calculateur
 
         public bool canInvest(int value)
         {
-            return exp >= expUtilise + value;
+            return _exp >= _expUtilise + value;
         }
 
-        public void setBonusMalus(Aspect bonus , Aspect malus)
+        public void SetBonusMalus(Aspect bonus , Aspect malus)
         {
-            aspectBonus = bonus;
-            aspectMalus = malus;
+            _aspectBonus = bonus;
+            _aspectMalus = malus;
             RecomputePA();
         }
         

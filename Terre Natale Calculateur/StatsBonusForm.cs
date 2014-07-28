@@ -49,7 +49,7 @@ namespace Terre_Natale_Calculateur
             if (comboBox1.Text != "" || (comboBox2.Text) != "")
             {
 
-                parent.getCharacter().setBonusMalus((Aspect)Enum.Parse(typeof(Aspect), comboBox1.Text, false), (Aspect)Enum.Parse(typeof(Aspect), comboBox2.Text, false));
+                parent.getCharacter().SetBonusMalus((Aspect)Enum.Parse(typeof(Aspect), comboBox1.Text, false), (Aspect)Enum.Parse(typeof(Aspect), comboBox2.Text, false));
                 parent.UpdateAspects();
                 this.Close();
             }

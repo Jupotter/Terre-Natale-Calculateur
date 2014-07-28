@@ -11,6 +11,7 @@ namespace Terre_Natale_Calculateur
         private Aspect _primaryAspect;
         private Aspect _secondaryAspect;
         private TalentType _type;
+        private bool _haveBonus = false;
 
         public Talent()
         {
@@ -86,7 +87,8 @@ namespace Terre_Natale_Calculateur
 
         public int Increment(int number = 1)
         {
-            if (Level + number >= 0 && Level + number <= 5)
+            if (Level + number >= (_haveBonus ? 1 : 0) 
+                && Level + number <= 5)
                 Level += number;
             return XPCost;
         }
@@ -108,6 +110,16 @@ namespace Terre_Natale_Calculateur
                 _secondaryAspect = SecondaryAspect,
                 _type = Type,
             };
+        }
+
+        public bool HaveBonus
+        {
+            get { return _haveBonus; }
+            set
+            {
+                _haveBonus = value;
+                Increment(_haveBonus ? 1 : -1);
+            }
         }
     }
 }
