@@ -310,6 +310,14 @@
         "Name":"Arme intermédiaire",
         "PrimaryAspect":6,
 
+        "SecondaryAspect":6,
+        "Type":1,
+
+    },
+	{
+        "Name":"Ambidextrie",
+        "PrimaryAspect":6,
+
         "SecondaryAspect":3,
         "Type":1,
 

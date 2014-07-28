@@ -223,5 +223,28 @@ namespace Terre_Natale_Calculateur
             StatsBonusForm sbf = new StatsBonusForm(this);
             sbf.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listBox1.Visible == false)
+            {
+                listBox1.Items.Clear();
+                foreach (Aspect item in Enum.GetValues(typeof(Aspect)).Cast<Aspect>())
+                {
+                    if (item != Aspect.None)
+                    {
+                        listBox1.Items.Add(item.ToString() + ":" + _character.GetAspectPoint(item));
+                    }
+                }
+                button2.Text = "Masquer les PA";
+                listBox1.Visible = true;
+            }
+            else
+            {
+                listBox1.Items.Clear();
+                button2.Text = "Afficher les PA";
+                listBox1.Visible = false;
+            }
+        }
     }
 }

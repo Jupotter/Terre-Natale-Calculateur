@@ -99,22 +99,12 @@ namespace Terre_Natale_Calculateur
         public int GetAspectValue(Aspect aspect)
         {
             int n = 0;
-            for (int i = 1; i <= 10; i++)
+            for (int i = 0; i <= 10; i++)
             {
                 n += i * 10;
-                if (_aspectPoint[aspect] < n)
-                    if(aspectBonus == aspect)
-                    {
-                        return i +1 + _bonusAspect[aspect]; 
-                    }
-                    else if (aspectMalus == aspect)
-                    {
-                        return i - 1 + _bonusAspect[aspect];
-                    }
-                    else
-                    {
-                        return i + _bonusAspect[aspect]; 
-                    }
+                if (_aspectPoint[aspect] >= n && _aspectPoint[aspect]< (i+1)*10+n)
+                return i + _bonusAspect[aspect]; 
+                    
                     
             }
             return 10;
@@ -147,6 +137,15 @@ namespace Terre_Natale_Calculateur
                 {Aspect.Equilibre, 30},
             };
 
+            if(aspectBonus != null)
+            {
+                _aspectPoint[aspectBonus] = 60;
+            }
+
+            if (aspectMalus != null)
+            {
+                _aspectPoint[aspectMalus] = 10;
+            }
             foreach (var talent in _talents.Values.Where(talent => talent.SecondaryAspect != Aspect.Equilibre))
             {
                 if (Aspect.None == talent.SecondaryAspect)
@@ -275,6 +274,7 @@ namespace Terre_Natale_Calculateur
         {
             aspectBonus = bonus;
             aspectMalus = malus;
+            RecomputePA();
         }
         
     }
