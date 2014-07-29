@@ -80,7 +80,7 @@ namespace Terre_Natale_Calculateur
              rsTal.Add(_character.GetTalent(comboBox2.Text));
              rsTal.Add(_character.GetTalent(comboBox3.Text));
              _character.SetBonus(resAsp, rsTal, races[comboBox1.SelectedIndex+1]);
-             
+             _character.Name = NameC.Text;
              parent.newcharacterfinish();
 
              this.Close();

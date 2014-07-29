@@ -117,8 +117,15 @@ namespace Terre_Natale_Calculateur
             get { return _haveBonus; }
             set
             {
+                if(HaveBonus==true && value==false)
+                {
+                    Decrement();
+                }
+                else if (HaveBonus == false && value == true)
+                {
+                    Increment();
+                }
                 _haveBonus = value;
-                Increment(_haveBonus ? 1 : -1);
             }
         }
     }

@@ -137,6 +137,7 @@ namespace Terre_Natale_Calculateur
             SetCharacter(CharacterManager.Instance.Load(name));
             _currentFilename = name;
             PAChangedHandler(this, null);
+          
             
         }
 
@@ -165,6 +166,8 @@ namespace Terre_Natale_Calculateur
             CreateTalentBoxes();
             UpdateAspects();
             _character.PAChanged += PAChangedHandler;
+
+            newcharacterfinish();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -205,14 +208,16 @@ namespace Terre_Natale_Calculateur
         public void newcharacterfinish()
         {
             UpdateAspects();
-            update_Talents();
+            updateData();
         }
 
-        public void update_Talents()
+        private void updateData()
         {
-            
-           
-            
+            if (_character.Name != null && _character.Race != null)
+            {
+                lab_name.Text = _character.Name;
+                lab_Race.Text = _character.Race.Name;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

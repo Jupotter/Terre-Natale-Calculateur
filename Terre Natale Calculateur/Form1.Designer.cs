@@ -232,6 +232,10 @@ namespace Terre_Natale_Calculateur
             this.talentsIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lab_name = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lab_Race = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -263,6 +267,10 @@ namespace Terre_Natale_Calculateur
             // 
             // Stats
             // 
+            this.Stats.Controls.Add(this.lab_Race);
+            this.Stats.Controls.Add(this.label20);
+            this.Stats.Controls.Add(this.lab_name);
+            this.Stats.Controls.Add(this.label1);
             this.Stats.Controls.Add(this.listBox1);
             this.Stats.Controls.Add(this.button2);
             this.Stats.Controls.Add(this.XpToAdd);
@@ -959,6 +967,41 @@ namespace Terre_Natale_Calculateur
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(37, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Nom :";
+            // 
+            // lab_name
+            // 
+            this.lab_name.AutoSize = true;
+            this.lab_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_name.Location = new System.Drawing.Point(109, 26);
+            this.lab_name.Name = "lab_name";
+            this.lab_name.Size = new System.Drawing.Size(0, 13);
+            this.lab_name.TabIndex = 35;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(278, 26);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(39, 13);
+            this.label20.TabIndex = 36;
+            this.label20.Text = "Race :";
+            // 
+            // lab_Race
+            // 
+            this.lab_Race.AutoSize = true;
+            this.lab_Race.Location = new System.Drawing.Point(324, 26);
+            this.lab_Race.Name = "lab_Race";
+            this.lab_Race.Size = new System.Drawing.Size(0, 13);
+            this.lab_Race.TabIndex = 37;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1001,6 +1044,10 @@ namespace Terre_Natale_Calculateur
         private Button button1;
         private ListBox listBox1;
         private Button button2;
+        private Label lab_Race;
+        private Label label20;
+        private Label lab_name;
+        private Label label1;
     }
 }
 

@@ -18,9 +18,23 @@ namespace Terre_Natale_Calculateur
 
 
         public Character(SerializableCharacter serializableCharacter)
+            : this(serializableCharacter.Name, TalentsManager.Instance)
         {
-            Name = serializableCharacter.Name;
-            _talents = serializableCharacter.Talents.ToDictionary(talent => talent.Id);
+
+
+
+            foreach (var item in serializableCharacter.Talents)
+            {
+                if (item.bonus)
+                {
+                    GetTalent(item.id).Increment(item.level - 1);
+                }
+                else
+                {
+                   GetTalent(item.id).Increment(item.level);
+                }
+                GetTalent(item.id).HaveBonus = item.bonus;
+            }
             _aspectBonus = serializableCharacter.AspectBonus;
             _aspectMalus = serializableCharacter.AspectMalus;
             _race = RacesManager.Instance.GetRace(serializableCharacter.Race);
@@ -69,7 +83,7 @@ namespace Terre_Natale_Calculateur
                 handler(this, EventArgs.Empty);
         }
 
-        public string Name { get; private set; }
+        public string Name { get;  set; }
 
         public Race Race
         {
@@ -101,12 +115,33 @@ namespace Terre_Natale_Calculateur
             return 10;
         }
 
+
+        private List<SerialisableTalent> getSerialisableListTalent()
+        {
+            List<SerialisableTalent> res = new List<SerialisableTalent>();
+            foreach (var tal in _talents.Values)
+            {
+                if (tal.Level > 0)
+                {
+                    res.Add
+                        (new SerialisableTalent
+                    {
+                        id=tal.Id,
+                        level = tal.Level,
+                        bonus = tal.HaveBonus,
+                    }
+                        );
+                }
+            }
+            return res;
+        }
+
         public SerializableCharacter GetSerializableCharacter()
         {
             return new SerializableCharacter
             {
                 Name = Name,
-                Talents = Talents,
+                Talents = getSerialisableListTalent(),
                 AspectBonus = _aspectBonus,
                 AspectMalus = _aspectMalus,
                 Race = _race.Id,
@@ -117,6 +152,13 @@ namespace Terre_Natale_Calculateur
         {
             return _talents.Values.First(talent => talent.Name == name);
         }
+
+
+        public Talent GetTalent(int id)
+        {
+            return _talents.Where(talent => talent.Value.Id == id).First().Value;
+        }
+
 
         private void RecomputePA()
         {
