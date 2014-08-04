@@ -119,13 +119,15 @@ namespace Terre_Natale_Calculateur
 
         private void _minusButton_Click(object sender, EventArgs e)
         {
-            if (_linkedTalent != null)
+            if (_linkedTalent != null && _character != null)
+            {
                 _linkedTalent.Decrement();
+            }
         }
 
         private void _plusButton_Click(object sender, EventArgs e)
         {
-            if (_linkedTalent != null)
+            if (_linkedTalent != null && _character != null)
                 _linkedTalent.Increment();
         }
 

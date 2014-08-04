@@ -10,7 +10,7 @@ namespace Terre_Natale_Calculateur
         private readonly IDictionary<int, Talent> _talents;
         private Dictionary<Aspect, int> _bonusAspect = new Dictionary<Aspect, int>();
         private Race _race;
-        private int _exp;
+        private int _experienceAvailable;
         private int _expUtilise = 0;
         private Aspect _aspectBonus;
         private Aspect _aspectMalus;
@@ -265,6 +265,22 @@ namespace Terre_Natale_Calculateur
             }
         }
 
+        public int ExperienceAvailable
+        {
+            get { return _experienceAvailable; }
+            set
+            {
+                _experienceAvailable = value;
+                if (_experienceAvailable < 0)
+                    _experienceAvailable = 0;
+            }
+        }
+
+        public int ExperienceRemaining
+        {
+            get { return _experienceAvailable - TotalXP; }
+        }
+
         public void SetBonus(Dictionary<Aspect, int> bonAspect, List<Talent> talbonus,Race r)
         {
             foreach (var talent in talbonus)
@@ -276,14 +292,6 @@ namespace Terre_Natale_Calculateur
             PAChanged(this, null);
         }
 
-        public void addExp(int value)
-        {
-            _exp += value;
-        }
-        public int getExp()
-        {
-            return _exp;
-        }
         public int getExpRestant()
         {
             int tt = 0;
@@ -297,11 +305,6 @@ namespace Terre_Natale_Calculateur
                 tt += expinvest;
             }
             return tt;
-        }
-
-        public bool canInvest(int value)
-        {
-            return _exp >= _expUtilise + value;
         }
 
         public void SetBonusMalus(Aspect bonus , Aspect malus)

@@ -33,17 +33,16 @@ namespace Terre_Natale_Calculateur
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Experience.Text = Convert.ToString((Convert.ToInt32(Experience.Text) + XpToAdd.Value));
-            ExperienceRestante.Text = (int.Parse(Experience.Text) - _character.TotalXP).ToString(CultureInfo.InvariantCulture);
+            _character.ExperienceAvailable += (int)XpToAdd.Value;
+            Experience.Text = _character.ExperienceAvailable.ToString(CultureInfo.InvariantCulture);
+            ExperienceRestante.Text = _character.ExperienceRemaining.ToString(CultureInfo.InvariantCulture);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (((Convert.ToInt32(Experience.Text) - XpToAdd.Value) >= 0))
-            {
-                Experience.Text = Convert.ToString((Convert.ToInt32(Experience.Text) - XpToAdd.Value));
-                ExperienceRestante.Text = (int.Parse(Experience.Text) - _character.TotalXP).ToString(CultureInfo.InvariantCulture);
-            }
+            _character.ExperienceAvailable -= (int) XpToAdd.Value;
+            Experience.Text = _character.ExperienceAvailable.ToString(CultureInfo.InvariantCulture);
+            ExperienceRestante.Text = _character.ExperienceRemaining.ToString(CultureInfo.InvariantCulture);
         }
 
         private FlowLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)
