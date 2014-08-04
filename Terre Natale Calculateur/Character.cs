@@ -6,20 +6,17 @@ namespace Terre_Natale_Calculateur
 {
     internal sealed class Character
     {
-        private IDictionary<Aspect, int> _aspectPoint;
         private readonly IDictionary<int, Talent> _talents;
-        private Dictionary<Aspect, int> _bonusAspect = new Dictionary<Aspect, int>();
         private Race _race;
-        private int _experienceAvailable;
-        private int _expUtilise = 0;
         private Aspect _aspectBonus;
         private Aspect _aspectMalus;
+        private IDictionary<Aspect, int> _aspectPoint;
+        private Dictionary<Aspect, int> _bonusAspect = new Dictionary<Aspect, int>();
+        private int _experienceAvailable;
+
         public Character(SerializableCharacter serializableCharacter)
             : this(serializableCharacter.Name, TalentsManager.Instance)
         {
-
-
-
             foreach (var item in serializableCharacter.Talents)
             {
                 if (item.bonus)
@@ -28,7 +25,7 @@ namespace Terre_Natale_Calculateur
                 }
                 else
                 {
-                   GetTalent(item.id).Increment(item.level);
+                    GetTalent(item.id).Increment(item.level);
                 }
                 GetTalent(item.id).HaveBonus = item.bonus;
             }
@@ -75,25 +72,134 @@ namespace Terre_Natale_Calculateur
 
         public event EventHandler PAChanged;
 
-        private void OnPAchanged()
-        {
-            EventHandler handler = PAChanged;
-            if (handler != null)
-                handler(this, EventArgs.Empty);
-        }
-
-        public string Name { get;  set; }
-
-        public Race Race
-        {
-            get { return _race; }
-            set { _race = value; }
-        }
-
         public IEnumerable<Talent> Talents
         {
             get { return _talents.Values; }
         }
+
+        public string Name { get; set; }
+
+        public Race Race
+        {
+            get { return _race; }
+        }
+
+        public int ExperienceAvailable
+        {
+            get { return _experienceAvailable; }
+            set
+            {
+                _experienceAvailable = value;
+                if (_experienceAvailable < 0)
+                    _experienceAvailable = 0;
+                    
+                ExperienceChanged.Invoke(this, null);
+            }
+        }
+
+        public int ExperienceRemaining
+        {
+            get { return _experienceAvailable - ExperienceUsed; }
+        }
+
+        public int ExperienceUsed
+        {
+            get
+            {
+                if (!_totalXpStore.HasValue)
+                    _totalXpStore = _talents.Values.Sum(talent => talent.XPCost) - 20;
+                return _totalXpStore.Value;
+            }
+        }
+
+        #region Ressources
+
+        private int? _chiStore;
+        private int? _enduranceStore;
+        private int? _fatigueStore;
+        private int? _karmaStore;
+        private int? _manaStore;
+        private int? _totalXpStore;
+
+        public int Chi
+        {
+            get
+            {
+                if (!_chiStore.HasValue)
+                {
+                    List<int> maxTalent = (from item in _talents.Values
+                                           where item.Type == TalentType.Prouesse
+                                           select item.Level).ToList();
+                    maxTalent.Sort();
+                    _chiStore = Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent))
+                           + GetAspectValue(Aspect.Equilibre)
+                           + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
+                }
+                return _chiStore.Value;
+            }
+        }
+
+        public int Endurance
+        {
+            get
+            {
+                if (!_enduranceStore.HasValue)
+                    _enduranceStore = GetAspectValue(Aspect.Acier) + GetAspectValue(Aspect.Equilibre) + 5 + GetTalent("Endurance").Level;
+                return _enduranceStore.Value;
+            }
+        }
+
+        public int Fatigue
+        {
+            get
+            {
+                if (!_fatigueStore.HasValue)
+                {
+                    List<int> maxTalent = (from item in _talents.Values
+                                           where item.Type == TalentType.Aptitude && item.PrimaryAspect == Aspect.Acier
+                                           select item.Level).ToList();
+
+                    maxTalent.Sort();
+                    _fatigueStore = Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Acier))
+                                    + GetAspectValue(Aspect.Equilibre)
+                                    + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
+                }
+                return _fatigueStore.Value;
+            }
+        }
+
+        public int Karma
+        {
+            get
+            {
+                if (!_karmaStore.HasValue)
+                    _karmaStore = GetAspectValue(Aspect.Equilibre);
+                return _karmaStore.Value;
+            }
+        }
+
+        public int Mana
+        {
+            get
+            {
+                if (!_manaStore.HasValue)
+                {
+                    List<int> maxTalent = (from item in _talents.Values
+                                           where
+                                               item.Type == TalentType.Aptitude ||
+                                               item.Type == TalentType.Martial && item.PrimaryAspect == Aspect.Arcane
+                                           select item.Level).ToList();
+                    maxTalent.Sort();
+                    _manaStore = Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Terre)) +
+                                 GetAspectValue(Aspect.Arcane)
+                                 + GetAspectValue(Aspect.Equilibre)
+                                 + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
+                }
+                return _manaStore.Value;
+            }
+        }
+
+        #endregion
 
         public int GetAspectPoint(Aspect aspect)
         {
@@ -106,43 +212,10 @@ namespace Terre_Natale_Calculateur
             for (int i = 0; i <= 10; i++)
             {
                 n += i * 10;
-                if (_aspectPoint[aspect] >= n && _aspectPoint[aspect]< (i+1)*10+n)
-                return i + _bonusAspect[aspect];
+                if (_aspectPoint[aspect] >= n && _aspectPoint[aspect] < (i + 1) * 10 + n)
+                    return i + _bonusAspect[aspect];
             }
             return 10;
-        }
-
-
-        private List<SerialisableTalent> getSerialisableListTalent()
-        {
-            List<SerialisableTalent> res = new List<SerialisableTalent>();
-            foreach (var tal in _talents.Values)
-            {
-                if (tal.Level > 0)
-                {
-                    res.Add
-                        (new SerialisableTalent
-                    {
-                        id=tal.Id,
-                        level = tal.Level,
-                        bonus = tal.HaveBonus,
-                    }
-                        );
-                }
-            }
-            return res;
-        }
-
-        public SerializableCharacter GetSerializableCharacter()
-        {
-            return new SerializableCharacter
-            {
-                Name = Name,
-                Talents = getSerialisableListTalent(),
-                AspectBonus = _aspectBonus,
-                AspectMalus = _aspectMalus,
-                Race = _race.Id,
-            };
         }
 
         public Talent GetTalent(String name)
@@ -150,12 +223,36 @@ namespace Terre_Natale_Calculateur
             return _talents.Values.First(talent => talent.Name == name);
         }
 
-
+        // ReSharper disable once MemberCanBePrivate.Global
         public Talent GetTalent(int id)
         {
             return _talents.First(talent => talent.Value.Id == id).Value;
         }
 
+        public void SetBonus(Dictionary<Aspect, int> bonAspect, IEnumerable<Talent> talbonus, Race r)
+        {
+            foreach (var talent in talbonus)
+            {
+                _talents[talent.Id].HaveBonus = true;
+            }
+            _race = r;
+            _bonusAspect = bonAspect;
+            PAChanged(this, null);
+        }
+
+        public void SetBonusMalus(Aspect bonus, Aspect malus)
+        {
+            _aspectBonus = bonus;
+            _aspectMalus = malus;
+            RecomputePA();
+        }
+
+        private void OnPAchanged()
+        {
+            EventHandler handler = PAChanged;
+            if (handler != null)
+                handler(this, EventArgs.Empty);
+        }
 
         private void RecomputePA()
         {
@@ -177,7 +274,7 @@ namespace Terre_Natale_Calculateur
                 {Aspect.Equilibre, 30},
             };
 
-            if(_aspectBonus != Aspect.None)
+            if (_aspectBonus != Aspect.None)
             {
                 _aspectPoint[_aspectBonus] = 60;
             }
@@ -202,136 +299,35 @@ namespace Terre_Natale_Calculateur
             OnPAchanged();
         }
 
-        private int? _totalXpStore;
+        #region Serialization
 
-        public int TotalXP
+        public SerializableCharacter GetSerializableCharacter()
         {
-            get
+            return new SerializableCharacter
             {
-                if (!_totalXpStore.HasValue)
-                    _totalXpStore = _talents.Values.Sum(talent => talent.XPCost) - 20;
-                return _totalXpStore.Value;
-            }
+                Name = Name,
+                Talents = GetSerialisableListTalent(),
+                AspectBonus = _aspectBonus,
+                AspectMalus = _aspectMalus,
+                Race = _race.Id,
+            };
         }
 
-        private int? _fatigueStore;
-
-        public int Fatigue
+        private IEnumerable<SerialisableTalent> GetSerialisableListTalent()
         {
-            get
-            {
-                if (!_fatigueStore.HasValue)
-                {
-                    List<int> maxTalent = (from item in _talents.Values
-                        where item.Type == TalentType.Aptitude && item.PrimaryAspect == Aspect.Acier
-                        select item.Level).ToList();
-
-                    maxTalent.Sort();
-                    _fatigueStore = Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Acier))
-                                    + GetAspectValue(Aspect.Equilibre)
-                                    + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*2;
-                }
-                return _fatigueStore.Value;
-            }
+            return (from tal in _talents.Values
+                    where tal.Level > 0
+                    select new SerialisableTalent
+                    {
+                        id = tal.Id,
+                        level = tal.Level,
+                        bonus = tal.HaveBonus,
+                    }).ToList();
         }
 
-        private int? _manaStore;
+        #endregion Serialization
 
-        public int Mana
-        {
-            get
-            {
-                if (!_manaStore.HasValue)
-                {
-                    List<int> maxTalent = (from item in _talents.Values
-                        where
-                            item.Type == TalentType.Aptitude ||
-                            item.Type == TalentType.Martial && item.PrimaryAspect == Aspect.Arcane
-                        select item.Level).ToList();
-                    maxTalent.Sort();
-                    _manaStore = Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Terre)) +
-                                 GetAspectValue(Aspect.Arcane)
-                                 + GetAspectValue(Aspect.Equilibre)
-                                 + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*2;
-                }
-                return _manaStore.Value;
-            }
-        }
-
-        private int? _enduranceStore;
-
-        public int Endurance
-        {
-            get
-            {
-                if (!_enduranceStore.HasValue)
-                    _enduranceStore = GetAspectValue(Aspect.Acier) +   GetAspectValue(Aspect.Equilibre) + 5 + GetTalent("Endurance").Level;
-                return _enduranceStore.Value;
-            }
-        }
-
-        private int? _karmaStore;
-
-        public int Karma
-        {
-            get
-            {
-                if (!_karmaStore.HasValue)
-                    _karmaStore = GetAspectValue(Aspect.Equilibre);
-                return _karmaStore.Value;
-            }
-        }
-
-        private int? _chiStore;
-
-        public int Chi
-        {
-            get
-            {
-                if (!_chiStore.HasValue)
-                {
-                    List<int> maxTalent = (from item in _talents.Values
-                        where item.Type == TalentType.Prouesse
-                        select item.Level).ToList();
-                    maxTalent.Sort();
-                    _chiStore = Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent))
-                           + GetAspectValue(Aspect.Equilibre)
-                           + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*2;
-                }
-                return _chiStore.Value;
-            }
-        }
-
-        public int ExperienceAvailable
-        {
-            get { return _experienceAvailable; }
-            set
-            {
-               
-                _experienceAvailable = value;
-                if (_experienceAvailable < 0)
-                    _experienceAvailable = 0;
-
-                ExperienceChanged.Invoke(this, null);
-            }
-        }
-
-        public int ExperienceRemaining
-        {
-            get { return _experienceAvailable - TotalXP; }
-        }
-
-        public void SetBonus(Dictionary<Aspect, int> bonAspect, List<Talent> talbonus,Race r)
-        {
-            foreach (var talent in talbonus)
-            {
-                _talents[talent.Id].HaveBonus = true;
-            }
-            _race = r;
-            _bonusAspect = bonAspect;
-            PAChanged(this, null);
-        }
-
+        /*
         public int getExpRestant()
         {
             int tt = 0;
@@ -346,13 +342,6 @@ namespace Terre_Natale_Calculateur
             }
             return tt;
         }
-
-        public void SetBonusMalus(Aspect bonus , Aspect malus)
-        {
-            _aspectBonus = bonus;
-            _aspectMalus = malus;
-            RecomputePA();
-        }
-        
+*/
     }
 }

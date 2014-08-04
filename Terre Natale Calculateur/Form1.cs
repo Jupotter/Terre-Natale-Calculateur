@@ -22,7 +22,7 @@ namespace Terre_Natale_Calculateur
 
         private void ActualiseStats()
         {
-            ExperienceRestante.Text = (int.Parse(Experience.Text) - _character.TotalXP).ToString(CultureInfo.InvariantCulture);
+            ExperienceRestante.Text = (int.Parse(Experience.Text) - _character.ExperienceUsed).ToString(CultureInfo.InvariantCulture);
             Fatigue.Text = _character.Fatigue.ToString(CultureInfo.InvariantCulture);
             Chi.Text = _character.Chi.ToString(CultureInfo.InvariantCulture);
             Mana.Text = _character.Mana.ToString(CultureInfo.InvariantCulture);
