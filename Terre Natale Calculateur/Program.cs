@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.ExceptionServices;
 using System.Windows.Forms;
 
 namespace Terre_Natale_Calculateur
@@ -21,7 +22,7 @@ namespace Terre_Natale_Calculateur
             catch (Exception e)
             {
                 Log.Logger.WriteException(e);
-                throw;
+                ExceptionDispatchInfo.Capture(e).Throw();
             }
         }
     }
