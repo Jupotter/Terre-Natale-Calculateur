@@ -93,6 +93,14 @@ namespace Terre_Natale_Calculateur
             return XPCost;
         }
 
+        public int GetXpNeeded()
+        {
+            int ret = 0;
+            for (int i = 1; i <= Level + 1; i++)
+                ret += 10*i;
+            return ret;
+        }
+
         private void OnLevelChanged()
         {
             EventHandler handler = LevelChanged;
