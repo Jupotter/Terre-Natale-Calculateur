@@ -15,7 +15,7 @@ namespace Terre_Natale_Calculateur
         private Aspect _aspectBonus;
         private Aspect _aspectMalus;
 
-
+        public event EventHandler ExperienceChanged;
 
         public Character(SerializableCharacter serializableCharacter)
             : this(serializableCharacter.Name, TalentsManager.Instance)
@@ -270,9 +270,12 @@ namespace Terre_Natale_Calculateur
             get { return _experienceAvailable; }
             set
             {
+               
                 _experienceAvailable = value;
                 if (_experienceAvailable < 0)
                     _experienceAvailable = 0;
+
+                ExperienceChanged.Invoke(this, null);
             }
         }
 

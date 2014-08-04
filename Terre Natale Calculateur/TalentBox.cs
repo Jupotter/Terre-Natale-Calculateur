@@ -21,6 +21,7 @@ namespace Terre_Natale_Calculateur
         public TalentBox(Character character)
         {
             _character = character;
+            _character.ExperienceChanged += _character_ExperienceChanged;
             _character.PAChanged += talent_LevelChanged;
             SuspendLayout();
 
@@ -70,6 +71,12 @@ namespace Terre_Natale_Calculateur
             TextModified = OnTextModified;
             AutoSize = true;
             Margin = new Padding(0);
+            
+        }
+
+        void _character_ExperienceChanged(object sender, EventArgs e)
+        {
+            actuButton();
         }
 
         protected override void OnSizeChanged(EventArgs e)
@@ -128,7 +135,12 @@ namespace Terre_Natale_Calculateur
         private void _plusButton_Click(object sender, EventArgs e)
         {
             if (_linkedTalent != null && _character != null)
-                _linkedTalent.Increment();
+            {
+                
+                    _linkedTalent.Increment();
+                
+            }
+            actuButton();
         }
 
         private void ChangeSize()
@@ -157,7 +169,36 @@ namespace Terre_Natale_Calculateur
 
         private void talent_LevelChanged(object sender, EventArgs e)
         {
+
+
+            
             UpdateValue();
+            actuButton();
+        }
+
+        private void actuButton()
+        {
+            if( (_linkedTalent.Level >1 && _linkedTalent.HaveBonus))
+            {
+                _minusButton.Enabled=true;
+            }
+            else if(_linkedTalent.Level > 0)
+            {
+                _minusButton.Enabled=true;
+            }else
+            {
+                _minusButton.Enabled=false;
+            }
+
+            int val = _linkedTalent.GetXpNeeded()-_linkedTalent.XPCost;
+            if (_character.ExperienceRemaining >= val )
+            {
+                _plusButton.Enabled = true;
+            }
+            else
+            {
+                _plusButton.Enabled = false;
+            }
         }
     }
 }
