@@ -1,22 +1,24 @@
 ﻿using Newtonsoft.Json;
 using System;
+using Terre_Natale_Calculateur.Annotations;
 
 namespace Terre_Natale_Calculateur
 {
     internal class Talent : ICloneable
     {
-        private int _ID;
+        private bool _haveBonus;
+        private int _id;
         private int _level;
         private string _name;
         private Aspect _primaryAspect;
         private Aspect _secondaryAspect;
         private TalentType _type;
-        private bool _haveBonus = false;
-
+// ReSharper disable MemberCanBePrivate.Global
         public Talent()
         {
         }
 
+        [UsedImplicitly]
         public Talent(string name, TalentType type, Aspect primaryAspect, Aspect secondaryAspect = Aspect.None)
         {
             Level = 0;
@@ -25,13 +27,37 @@ namespace Terre_Natale_Calculateur
             _secondaryAspect = secondaryAspect;
             _type = type;
         }
+// ReSharper restore MemberCanBePrivate.Global
 
         public event EventHandler LevelChanged;
+
+        public bool HaveBonus
+        {
+            get { return _haveBonus; }
+            set
+            {
+                if (HaveBonus && value == false)
+                {
+                    Decrement();
+                }
+                else if (HaveBonus == false && value)
+                {
+                    Increment();
+                }
+                _haveBonus = value;
+            }
+        }
+
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
 
         public int Level
         {
             get { return _level; }
-            set
+            private set
             {
                 _level = value;
                 OnLevelChanged();
@@ -42,6 +68,12 @@ namespace Terre_Natale_Calculateur
         {
             get { return _name; }
             set { _name = value; }
+        }
+
+        public TalentType Type
+        {
+            get { return _type; }
+            set { _type = value; }
         }
 
         public Aspect PrimaryAspect
@@ -55,18 +87,7 @@ namespace Terre_Natale_Calculateur
             get { return _secondaryAspect; }
             set { _secondaryAspect = value; }
         }
-
-        public TalentType Type
-        {
-            get { return _type; }
-            set { _type = value; }
-        }
-
-        public int Id
-        {
-            get { return _ID; }
-            set { _ID = value; }
-        }
+        #region Experience
 
         private int? _xpStore;
 
@@ -79,11 +100,33 @@ namespace Terre_Natale_Calculateur
                 {
                     int ret = 0;
                     for (int i = 1; i <= Level; i++)
-                        ret += 10*i;
+                        ret += 10 * i;
                     _xpStore = ret;
                 }
                 return _xpStore.Value;
             }
+        }
+
+        public int GetXpNeeded()
+        {
+            int ret = 0;
+            for (int i = 1; i <= Level + 1; i++)
+                ret += 10 * i;
+            return ret;
+        }
+
+        #endregion
+
+        public object Clone()
+        {
+            return new Talent
+            {
+                _id = Id,
+                _name = Name,
+                _primaryAspect = PrimaryAspect,
+                _secondaryAspect = SecondaryAspect,
+                _type = Type,
+            };
         }
 
         public int Decrement(int number = 1)
@@ -93,55 +136,18 @@ namespace Terre_Natale_Calculateur
 
         public int Increment(int number = 1)
         {
-            _xpStore = null;
-            if (Level + number >= (_haveBonus ? 1 : 0) 
+            if (Level + number >= (_haveBonus ? 1 : 0)
                 && Level + number <= 5)
                 Level += number;
             return XPCost;
         }
 
-        public int GetXpNeeded()
-        {
-            int ret = 0;
-            for (int i = 1; i <= Level + 1; i++)
-                ret += 10*i;
-            return ret;
-        }
-
         private void OnLevelChanged()
         {
+            _xpStore = null;
             EventHandler handler = LevelChanged;
             if (handler != null)
                 handler(this, EventArgs.Empty);
-        }
-
-        public object Clone()
-        {
-            return new Talent
-            {
-                _ID = Id,
-                _name = Name,
-                _primaryAspect = PrimaryAspect,
-                _secondaryAspect = SecondaryAspect,
-                _type = Type,
-            };
-        }
-
-        public bool HaveBonus
-        {
-            get { return _haveBonus; }
-            set
-            {
-                if(HaveBonus==true && value==false)
-                {
-                    Decrement();
-                }
-                else if (HaveBonus == false && value == true)
-                {
-                    Increment();
-                }
-                _haveBonus = value;
-            }
         }
     }
 }
