@@ -14,9 +14,6 @@ namespace Terre_Natale_Calculateur
         private int _expUtilise = 0;
         private Aspect _aspectBonus;
         private Aspect _aspectMalus;
-
-        public event EventHandler ExperienceChanged;
-
         public Character(SerializableCharacter serializableCharacter)
             : this(serializableCharacter.Name, TalentsManager.Instance)
         {
@@ -74,6 +71,8 @@ namespace Terre_Natale_Calculateur
             };
         }
 
+        public event EventHandler ExperienceChanged;
+
         public event EventHandler PAChanged;
 
         private void OnPAchanged()
@@ -108,9 +107,7 @@ namespace Terre_Natale_Calculateur
             {
                 n += i * 10;
                 if (_aspectPoint[aspect] >= n && _aspectPoint[aspect]< (i+1)*10+n)
-                return i + _bonusAspect[aspect]; 
-                    
-                    
+                return i + _bonusAspect[aspect];
             }
             return 10;
         }
@@ -156,12 +153,19 @@ namespace Terre_Natale_Calculateur
 
         public Talent GetTalent(int id)
         {
-            return _talents.Where(talent => talent.Value.Id == id).First().Value;
+            return _talents.First(talent => talent.Value.Id == id).Value;
         }
 
 
         private void RecomputePA()
         {
+            _chiStore = null;
+            _enduranceStore = null;
+            _fatigueStore = null;
+            _karmaStore = null;
+            _manaStore = null;
+            _totalXpStore = null;
+
             _aspectPoint = new Dictionary<Aspect, int>(6)
             {
                 {Aspect.Acier, 30},
@@ -198,70 +202,103 @@ namespace Terre_Natale_Calculateur
             OnPAchanged();
         }
 
+        private int? _totalXpStore;
+
         public int TotalXP
         {
             get
             {
-                return _talents.Values.Sum(talent => talent.XPCost) - 20;
+                if (!_totalXpStore.HasValue)
+                    _totalXpStore = _talents.Values.Sum(talent => talent.XPCost) - 20;
+                return _totalXpStore.Value;
             }
         }
+
+        private int? _fatigueStore;
 
         public int Fatigue
         {
             get
             {
-                List<int> maxTalent = (from item in _talents.Values 
-                                 where item.Type == TalentType.Aptitude && item.PrimaryAspect == Aspect.Acier
-                                   select item.Level).ToList() ;
+                if (!_fatigueStore.HasValue)
+                {
+                    List<int> maxTalent = (from item in _talents.Values
+                        where item.Type == TalentType.Aptitude && item.PrimaryAspect == Aspect.Acier
+                        select item.Level).ToList();
 
-                maxTalent.Sort();
-                return Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Acier)) 
-                    + GetAspectValue(Aspect.Equilibre) 
-                    +( maxTalent[maxTalent.Count-1]+ maxTalent[maxTalent.Count-2]) * 2;
+                    maxTalent.Sort();
+                    _fatigueStore = Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Acier))
+                                    + GetAspectValue(Aspect.Equilibre)
+                                    + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*2;
+                }
+                return _fatigueStore.Value;
             }
         }
+
+        private int? _manaStore;
 
         public int Mana
         {
             get
             {
-                List<int> maxTalent = (from item in _talents.Values 
-                                 where item.Type == TalentType.Aptitude || item.Type == TalentType.Martial && item.PrimaryAspect == Aspect.Arcane
-                                       select item.Level).ToList();
-                maxTalent.Sort();
-                return Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Terre)) + GetAspectValue(Aspect.Arcane) 
-                    + GetAspectValue(Aspect.Equilibre)
-                    + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
+                if (!_manaStore.HasValue)
+                {
+                    List<int> maxTalent = (from item in _talents.Values
+                        where
+                            item.Type == TalentType.Aptitude ||
+                            item.Type == TalentType.Martial && item.PrimaryAspect == Aspect.Arcane
+                        select item.Level).ToList();
+                    maxTalent.Sort();
+                    _manaStore = Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Terre)) +
+                                 GetAspectValue(Aspect.Arcane)
+                                 + GetAspectValue(Aspect.Equilibre)
+                                 + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*2;
+                }
+                return _manaStore.Value;
             }
         }
+
+        private int? _enduranceStore;
 
         public int Endurance
         {
             get
             {
-                return GetAspectValue(Aspect.Acier) +   GetAspectValue(Aspect.Equilibre) + 5 + GetTalent("Endurance").Level;
+                if (!_enduranceStore.HasValue)
+                    _enduranceStore = GetAspectValue(Aspect.Acier) +   GetAspectValue(Aspect.Equilibre) + 5 + GetTalent("Endurance").Level;
+                return _enduranceStore.Value;
             }
         }
+
+        private int? _karmaStore;
 
         public int Karma
         {
             get
             {
-                return GetAspectValue(Aspect.Equilibre);
+                if (!_karmaStore.HasValue)
+                    _karmaStore = GetAspectValue(Aspect.Equilibre);
+                return _karmaStore.Value;
             }
         }
+
+        private int? _chiStore;
 
         public int Chi
         {
             get
             {
-                List<int> maxTalent = (from item in _talents.Values 
-                                 where item.Type == TalentType.Prouesse
-                                 select item.Level).ToList();
-                maxTalent.Sort();
-                return Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent)) 
-                    + GetAspectValue(Aspect.Equilibre)
-                    + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2; 
+                if (!_chiStore.HasValue)
+                {
+                    List<int> maxTalent = (from item in _talents.Values
+                        where item.Type == TalentType.Prouesse
+                        select item.Level).ToList();
+                    maxTalent.Sort();
+                    _chiStore = Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent))
+                           + GetAspectValue(Aspect.Equilibre)
+                           + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*2;
+                }
+                return _chiStore.Value;
             }
         }
 
