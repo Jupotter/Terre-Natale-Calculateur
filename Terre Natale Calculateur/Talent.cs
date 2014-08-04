@@ -68,15 +68,21 @@ namespace Terre_Natale_Calculateur
             set { _ID = value; }
         }
 
+        private int? _xpStore;
+
         [JsonIgnore]
         public int XPCost
         {
             get
             {
-                int ret = 0;
-                for (int i = 1; i <= Level; i++)
-                    ret += 10 * i;
-                return ret;
+                if (!_xpStore.HasValue)
+                {
+                    int ret = 0;
+                    for (int i = 1; i <= Level; i++)
+                        ret += 10*i;
+                    _xpStore = ret;
+                }
+                return _xpStore.Value;
             }
         }
 
@@ -87,6 +93,7 @@ namespace Terre_Natale_Calculateur
 
         public int Increment(int number = 1)
         {
+            _xpStore = null;
             if (Level + number >= (_haveBonus ? 1 : 0) 
                 && Level + number <= 5)
                 Level += number;
