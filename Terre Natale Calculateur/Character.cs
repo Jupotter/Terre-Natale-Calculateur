@@ -7,36 +7,12 @@ namespace Terre_Natale_Calculateur
     internal sealed class Character
     {
         private readonly IDictionary<int, Talent> _talents;
-        private Race _race;
         private Aspect _aspectBonus;
         private Aspect _aspectMalus;
         private IDictionary<Aspect, int> _aspectPoint;
         private Dictionary<Aspect, int> _bonusAspect = new Dictionary<Aspect, int>();
         private int _experienceAvailable;
-
-        public Character(SerializableCharacter serializableCharacter)
-            : this(serializableCharacter.Name, TalentsManager.Instance)
-        {
-            foreach (var item in serializableCharacter.Talents)
-            {
-                if (item.bonus)
-                {
-                    GetTalent(item.id).Increment(item.level - 1);
-                }
-                else
-                {
-                    GetTalent(item.id).Increment(item.level);
-                }
-                GetTalent(item.id).HaveBonus = item.bonus;
-            }
-            _aspectBonus = serializableCharacter.AspectBonus;
-            _aspectMalus = serializableCharacter.AspectMalus;
-            _race = RacesManager.Instance.GetRace(serializableCharacter.Race);
-
-            _bonusAspect = _race.AspectBonus;
-
-            RecomputePA();
-        }
+        private Race _race;
 
         public Character(string name, TalentsManager talentsManager)
         {
@@ -68,21 +44,27 @@ namespace Terre_Natale_Calculateur
             };
         }
 
+        #region Events
+
         public event EventHandler ExperienceChanged;
 
         public event EventHandler PAChanged;
 
-        public IEnumerable<Talent> Talents
+        private void OnExperienceChanged()
         {
-            get { return _talents.Values; }
+            EventHandler handler = ExperienceChanged;
+            if (handler != null)
+                handler(this, EventArgs.Empty);
         }
 
-        public string Name { get; set; }
-
-        public Race Race
+        private void OnPAchanged()
         {
-            get { return _race; }
+            EventHandler handler = PAChanged;
+            if (handler != null)
+                handler(this, EventArgs.Empty);
         }
+
+        #endregion Events
 
         public int ExperienceAvailable
         {
@@ -92,8 +74,8 @@ namespace Terre_Natale_Calculateur
                 _experienceAvailable = value;
                 if (_experienceAvailable < 0)
                     _experienceAvailable = 0;
-                    
-                ExperienceChanged.Invoke(this, null);
+
+                OnExperienceChanged();
             }
         }
 
@@ -110,6 +92,64 @@ namespace Terre_Natale_Calculateur
                     _totalXpStore = _talents.Values.Sum(talent => talent.XPCost) - 20;
                 return _totalXpStore.Value;
             }
+        }
+
+        public string Name { get; set; }
+
+        public Race Race
+        {
+            get { return _race; }
+        }
+
+        public IEnumerable<Talent> Talents
+        {
+            get { return _talents.Values; }
+        }
+
+        public int GetAspectPoint(Aspect aspect)
+        {
+            return _aspectPoint[aspect];
+        }
+
+        public int GetAspectValue(Aspect aspect)
+        {
+            int n = 0;
+            for (int i = 0; i <= 10; i++)
+            {
+                n += i * 10;
+                if (_aspectPoint[aspect] >= n && _aspectPoint[aspect] < (i + 1) * 10 + n)
+                    return i + _bonusAspect[aspect];
+            }
+            return 10;
+        }
+
+        public Talent GetTalent(String name)
+        {
+            return _talents.Values.First(talent => talent.Name == name);
+        }
+
+        // ReSharper disable once MemberCanBePrivate.Global
+        public Talent GetTalent(int id)
+        {
+            return _talents.First(talent => talent.Value.Id == id).Value;
+        }
+
+        public void SetBonus(Dictionary<Aspect, int> bonAspect, IEnumerable<Talent> talbonus, Race r)
+        {
+            foreach (var talent in talbonus)
+            {
+                _talents[talent.Id].HaveBonus = true;
+            }
+            _race = r;
+            _bonusAspect = bonAspect;
+            PAChanged(this, null);
+        }
+
+        public void SetBonusMalus(Aspect bonus, Aspect malus)
+        {
+            _aspectBonus = bonus;
+            _aspectMalus = malus;
+            RecomputePA();
         }
 
         #region Ressources
@@ -199,60 +239,7 @@ namespace Terre_Natale_Calculateur
             }
         }
 
-        #endregion
-
-        public int GetAspectPoint(Aspect aspect)
-        {
-            return _aspectPoint[aspect];
-        }
-
-        public int GetAspectValue(Aspect aspect)
-        {
-            int n = 0;
-            for (int i = 0; i <= 10; i++)
-            {
-                n += i * 10;
-                if (_aspectPoint[aspect] >= n && _aspectPoint[aspect] < (i + 1) * 10 + n)
-                    return i + _bonusAspect[aspect];
-            }
-            return 10;
-        }
-
-        public Talent GetTalent(String name)
-        {
-            return _talents.Values.First(talent => talent.Name == name);
-        }
-
-        // ReSharper disable once MemberCanBePrivate.Global
-        public Talent GetTalent(int id)
-        {
-            return _talents.First(talent => talent.Value.Id == id).Value;
-        }
-
-        public void SetBonus(Dictionary<Aspect, int> bonAspect, IEnumerable<Talent> talbonus, Race r)
-        {
-            foreach (var talent in talbonus)
-            {
-                _talents[talent.Id].HaveBonus = true;
-            }
-            _race = r;
-            _bonusAspect = bonAspect;
-            PAChanged(this, null);
-        }
-
-        public void SetBonusMalus(Aspect bonus, Aspect malus)
-        {
-            _aspectBonus = bonus;
-            _aspectMalus = malus;
-            RecomputePA();
-        }
-
-        private void OnPAchanged()
-        {
-            EventHandler handler = PAChanged;
-            if (handler != null)
-                handler(this, EventArgs.Empty);
-        }
+        #endregion Ressources
 
         private void RecomputePA()
         {
@@ -301,6 +288,32 @@ namespace Terre_Natale_Calculateur
 
         #region Serialization
 
+        public Character(SerializableCharacter serializableCharacter)
+            : this(serializableCharacter.Name, TalentsManager.Instance)
+        {
+            foreach (var item in serializableCharacter.Talents)
+            {
+                if (item.bonus)
+                {
+                    GetTalent(item.id).Increment(item.level - 1);
+                }
+                else
+                {
+                    GetTalent(item.id).Increment(item.level);
+                }
+                GetTalent(item.id).HaveBonus = item.bonus;
+            }
+            _aspectBonus = serializableCharacter.AspectBonus;
+            _aspectMalus = serializableCharacter.AspectMalus;
+            _race = RacesManager.Instance.GetRace(serializableCharacter.Race);
+
+            ExperienceAvailable = serializableCharacter.Experience;
+
+            _bonusAspect = _race.AspectBonus;
+
+            RecomputePA();
+        }
+
         public SerializableCharacter GetSerializableCharacter()
         {
             return new SerializableCharacter
@@ -310,6 +323,7 @@ namespace Terre_Natale_Calculateur
                 AspectBonus = _aspectBonus,
                 AspectMalus = _aspectMalus,
                 Race = _race.Id,
+                Experience = ExperienceAvailable,
             };
         }
 

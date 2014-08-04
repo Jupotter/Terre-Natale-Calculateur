@@ -10,5 +10,6 @@ namespace Terre_Natale_Calculateur
         public Aspect AspectBonus;
         public Aspect AspectMalus;
         public int Race;
+        public int Experience;
     }
 }
