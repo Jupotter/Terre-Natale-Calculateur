@@ -7,8 +7,8 @@ namespace Terre_Natale_Calculateur
     {
         public String Name;
         public IEnumerable<SerialisableTalent> Talents;
-        public Aspect AspectBonus;
-        public Aspect AspectMalus;
+        public List<Aspect> AspectBonus;
+        public List<Aspect> AspectMalus;
         public int Race;
         public int Experience;
     }

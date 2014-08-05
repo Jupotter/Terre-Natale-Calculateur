@@ -28,6 +28,8 @@ namespace Terre_Natale_Calculateur
 
             comboBox1.Items.Clear();
             comboBox2.Items.Clear();
+            comboBox3.Items.Clear();
+            comboBox4.Items.Clear();
 
             comboBox1.Items.Add(Aspect.Acier);
             comboBox1.Items.Add(Aspect.Arcane);
@@ -42,6 +44,21 @@ namespace Terre_Natale_Calculateur
             comboBox2.Items.Add(Aspect.Feu);
             comboBox2.Items.Add(Aspect.Terre);
             comboBox2.Items.Add(Aspect.Vent);
+
+
+            comboBox3.Items.Add(Aspect.Acier);
+            comboBox3.Items.Add(Aspect.Arcane);
+            comboBox3.Items.Add(Aspect.Eau);
+            comboBox3.Items.Add(Aspect.Feu);
+            comboBox3.Items.Add(Aspect.Terre);
+            comboBox3.Items.Add(Aspect.Vent);
+
+            comboBox4.Items.Add(Aspect.Acier);
+            comboBox4.Items.Add(Aspect.Arcane);
+            comboBox4.Items.Add(Aspect.Eau);
+            comboBox4.Items.Add(Aspect.Feu);
+            comboBox4.Items.Add(Aspect.Terre);
+            comboBox4.Items.Add(Aspect.Vent);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,7 +66,11 @@ namespace Terre_Natale_Calculateur
             if (comboBox1.Text != "" || (comboBox2.Text) != "")
             {
 
-                parent.getCharacter().SetBonusMalus((Aspect)Enum.Parse(typeof(Aspect), comboBox1.Text, false), (Aspect)Enum.Parse(typeof(Aspect), comboBox2.Text, false));
+                parent.getCharacter().SetBonusMalus(
+                    (Aspect)Enum.Parse(typeof(Aspect), comboBox1.Text, false),
+                    (Aspect)Enum.Parse(typeof(Aspect), comboBox2.Text, false), 
+                    (Aspect)Enum.Parse(typeof(Aspect),comboBox3.Text, false),
+                    (Aspect)Enum.Parse(typeof(Aspect), comboBox4.Text, false));
                 parent.UpdateAspects();
                 this.Close();
             }

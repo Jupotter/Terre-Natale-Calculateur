@@ -7,8 +7,8 @@ namespace Terre_Natale_Calculateur
     internal sealed class Character
     {
         private readonly IDictionary<int, Talent> _talents;
-        private Aspect _aspectBonus;
-        private Aspect _aspectMalus;
+        private List<Aspect> _aspectBonus = new List<Aspect>();
+        private List<Aspect> _aspectMalus= new List<Aspect>();
         private IDictionary<Aspect, int> _aspectPoint;
         private Dictionary<Aspect, int> _bonusAspect = new Dictionary<Aspect, int>();
         private int _experienceAvailable;
@@ -145,10 +145,13 @@ namespace Terre_Natale_Calculateur
             PAChanged(this, null);
         }
 
-        public void SetBonusMalus(Aspect bonus, Aspect malus)
+        public void SetBonusMalus(Aspect bonus, Aspect malus, Aspect bonus2, Aspect malus2)
         {
-            _aspectBonus = bonus;
-            _aspectMalus = malus;
+            _aspectBonus.Add(bonus);
+            _aspectMalus.Add(malus);
+
+            _aspectBonus.Add(bonus2);
+            _aspectMalus.Add(malus2);
             RecomputePA();
         }
 
@@ -261,15 +264,29 @@ namespace Terre_Natale_Calculateur
                 {Aspect.Equilibre, 30},
             };
 
-            if (_aspectBonus != Aspect.None)
+            if (_aspectBonus.Count > 0 && _aspectMalus.Count > 0)
             {
-                _aspectPoint[_aspectBonus] = 60;
+                if (_aspectBonus.First() != Aspect.None)
+                {
+                    _aspectPoint[_aspectBonus.First()] = 60;
+                }
+
+                if (_aspectMalus.First() != Aspect.None)
+                {
+                    _aspectPoint[_aspectMalus.First()] = 10;
+                }
+                if (_aspectBonus.Last() != Aspect.None)
+                {
+                    _aspectPoint[_aspectBonus.Last()] = 60;
+                }
+
+                if (_aspectMalus.Last() != Aspect.None)
+                {
+                    _aspectPoint[_aspectMalus.Last()] = 10;
+                }
+
             }
 
-            if (_aspectMalus != Aspect.None)
-            {
-                _aspectPoint[_aspectMalus] = 10;
-            }
             foreach (var talent in _talents.Values.Where(talent => talent.SecondaryAspect != Aspect.Equilibre))
             {
                 if (Aspect.None == talent.SecondaryAspect)
