@@ -287,7 +287,7 @@ namespace Terre_Natale_Calculateur
 
             }
 
-            foreach (var talent in _talents.Values.Where(talent => talent.SecondaryAspect != Aspect.Equilibre))
+            foreach (var talent in _talents.Values)
             {
                 if (Aspect.None == talent.SecondaryAspect)
                 {
