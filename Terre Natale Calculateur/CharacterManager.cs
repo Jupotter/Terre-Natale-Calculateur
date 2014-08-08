@@ -12,6 +12,7 @@ namespace Terre_Natale_Calculateur
         private readonly JsonSerializerSettings _serializerSettings;
         private readonly TalentsManager _talents;
         private readonly ITraceWriter _traceWriter;
+        private readonly ClassManager _classes;
 
         private CharacterManager()
         {
@@ -24,12 +25,16 @@ namespace Terre_Natale_Calculateur
             };
             _talents = TalentsManager.Instance;
             _talents.Initialize();
+            _classes = ClassManager.Instance;
+            _classes.Initialize();
         }
 
         public static CharacterManager Instance
         {
             get { return _instance ?? (_instance = new CharacterManager()); }
         }
+
+       
 
         public Character Create(String name)
         {

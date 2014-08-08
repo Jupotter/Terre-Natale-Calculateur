@@ -14,8 +14,6 @@ namespace Terre_Natale_Calculateur
 
         private TextBox Chi;
 
-        private ComboBox comboBox1;
-
         /// <summary>
         /// Variable nécessaire au concepteur.
         /// </summary>
@@ -47,8 +45,6 @@ namespace Terre_Natale_Calculateur
 
         private FlowLayoutPanel flowLayoutTalentsM;
 
-        private TabPage Global_Personnalité;
-
         private GroupBox groupBox2;
 
         private GroupBox groupBox3;
@@ -64,16 +60,6 @@ namespace Terre_Natale_Calculateur
         private Label label12;
 
         private Label label13;
-
-        private Label label14;
-
-        private Label label15;
-
-        private Label label16;
-
-        private Label label17;
-
-        private Label label18;
 
         private Label label19;
 
@@ -121,14 +107,6 @@ namespace Terre_Natale_Calculateur
 
         private TextBox Terre;
 
-        private TextBox textBox1;
-
-        private TextBox textBox2;
-
-        private TextBox textBox3;
-
-        private TextBox textBox4;
-
         private ToolStripSeparator toolStripSeparator;
 
         private ToolStripSeparator toolStripSeparator1;
@@ -161,6 +139,10 @@ namespace Terre_Natale_Calculateur
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Stats = new System.Windows.Forms.TabPage();
+            this.lab_Race = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lab_name = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.XpToAdd = new System.Windows.Forms.NumericUpDown();
@@ -207,17 +189,6 @@ namespace Terre_Natale_Calculateur
             this.flowLayoutTalentsA = new System.Windows.Forms.FlowLayoutPanel();
             this.TalentsP = new System.Windows.Forms.TabPage();
             this.flowLayoutTalentsP = new System.Windows.Forms.FlowLayoutPanel();
-            this.Global_Personnalité = new System.Windows.Forms.TabPage();
-            this.label18 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nouveauToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -232,10 +203,31 @@ namespace Terre_Natale_Calculateur
             this.talentsIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lab_name = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lab_Race = new System.Windows.Forms.Label();
+            this.ClasseTab = new System.Windows.Forms.TabPage();
+            this.stats_secondaire = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.volonte = new System.Windows.Forms.Label();
+            this.robustesse = new System.Windows.Forms.Label();
+            this.reflexe = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.PenDePoid = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.deplacement = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.Base_ini = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.RPF = new System.Windows.Forms.Label();
+            this.RPC = new System.Windows.Forms.Label();
+            this.RPE = new System.Windows.Forms.Label();
+            this.RPM = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -245,8 +237,12 @@ namespace Terre_Natale_Calculateur
             this.TalentsM.SuspendLayout();
             this.TalentsA.SuspendLayout();
             this.TalentsP.SuspendLayout();
-            this.Global_Personnalité.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.stats_secondaire.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -256,7 +252,8 @@ namespace Terre_Natale_Calculateur
             this.tabControl1.Controls.Add(this.TalentsM);
             this.tabControl1.Controls.Add(this.TalentsA);
             this.tabControl1.Controls.Add(this.TalentsP);
-            this.tabControl1.Controls.Add(this.Global_Personnalité);
+            this.tabControl1.Controls.Add(this.stats_secondaire);
+            this.tabControl1.Controls.Add(this.ClasseTab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Multiline = true;
@@ -289,6 +286,42 @@ namespace Terre_Natale_Calculateur
             this.Stats.TabIndex = 0;
             this.Stats.Text = "Stats";
             this.Stats.UseVisualStyleBackColor = true;
+            this.Stats.Click += new System.EventHandler(this.Stats_Click);
+            // 
+            // lab_Race
+            // 
+            this.lab_Race.AutoSize = true;
+            this.lab_Race.Location = new System.Drawing.Point(324, 26);
+            this.lab_Race.Name = "lab_Race";
+            this.lab_Race.Size = new System.Drawing.Size(0, 13);
+            this.lab_Race.TabIndex = 37;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(278, 26);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(39, 13);
+            this.label20.TabIndex = 36;
+            this.label20.Text = "Race :";
+            // 
+            // lab_name
+            // 
+            this.lab_name.AutoSize = true;
+            this.lab_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_name.Location = new System.Drawing.Point(109, 26);
+            this.lab_name.Name = "lab_name";
+            this.lab_name.Size = new System.Drawing.Size(0, 13);
+            this.lab_name.TabIndex = 35;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(37, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Nom :";
             // 
             // listBox1
             // 
@@ -744,118 +777,6 @@ namespace Terre_Natale_Calculateur
             this.flowLayoutTalentsP.Size = new System.Drawing.Size(627, 434);
             this.flowLayoutTalentsP.TabIndex = 0;
             // 
-            // Global_Personnalité
-            // 
-            this.Global_Personnalité.Controls.Add(this.label18);
-            this.Global_Personnalité.Controls.Add(this.comboBox1);
-            this.Global_Personnalité.Controls.Add(this.textBox4);
-            this.Global_Personnalité.Controls.Add(this.label17);
-            this.Global_Personnalité.Controls.Add(this.textBox3);
-            this.Global_Personnalité.Controls.Add(this.label16);
-            this.Global_Personnalité.Controls.Add(this.textBox2);
-            this.Global_Personnalité.Controls.Add(this.label15);
-            this.Global_Personnalité.Controls.Add(this.textBox1);
-            this.Global_Personnalité.Controls.Add(this.label14);
-            this.Global_Personnalité.Location = new System.Drawing.Point(4, 22);
-            this.Global_Personnalité.Name = "Global_Personnalité";
-            this.Global_Personnalité.Padding = new System.Windows.Forms.Padding(3);
-            this.Global_Personnalité.Size = new System.Drawing.Size(627, 434);
-            this.Global_Personnalité.TabIndex = 4;
-            this.Global_Personnalité.Text = "Global - Personnalité";
-            this.Global_Personnalité.UseVisualStyleBackColor = true;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(246, 201);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(59, 13);
-            this.label18.TabIndex = 9;
-            this.label18.Text = "Alignement";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Neutre - Neutre",
-            "Bon - Neutre",
-            "Mauvais - Neutre",
-            "Neutre - Loyal",
-            "Neutre - Chaotique",
-            "Bon - Loyal",
-            "Bon - Chaotique",
-            "Mauvais - Loyal",
-            "Mauvais - Chaotique"});
-            this.comboBox1.Location = new System.Drawing.Point(216, 217);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.Text = "Neutre - Neutre";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(351, 137);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(146, 20);
-            this.textBox4.TabIndex = 7;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(408, 121);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(39, 13);
-            this.label17.TabIndex = 6;
-            this.label17.Text = "Défaut";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(48, 137);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 20);
-            this.textBox3.TabIndex = 10;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(99, 121);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(40, 13);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "Qualité";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(351, 54);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 20);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(399, 38);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 13);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Faiblesse";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(48, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(103, 38);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(27, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Don";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -967,40 +888,248 @@ namespace Terre_Natale_Calculateur
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // label1
+            // ClasseTab
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Nom :";
+            this.ClasseTab.Location = new System.Drawing.Point(4, 22);
+            this.ClasseTab.Name = "ClasseTab";
+            this.ClasseTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ClasseTab.Size = new System.Drawing.Size(627, 434);
+            this.ClasseTab.TabIndex = 6;
+            this.ClasseTab.Text = "Classe";
+            this.ClasseTab.UseVisualStyleBackColor = true;
             // 
-            // lab_name
+            // stats_secondaire
             // 
-            this.lab_name.AutoSize = true;
-            this.lab_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_name.Location = new System.Drawing.Point(109, 26);
-            this.lab_name.Name = "lab_name";
-            this.lab_name.Size = new System.Drawing.Size(0, 13);
-            this.lab_name.TabIndex = 35;
+            this.stats_secondaire.Controls.Add(this.splitContainer1);
+            this.stats_secondaire.Location = new System.Drawing.Point(4, 22);
+            this.stats_secondaire.Name = "stats_secondaire";
+            this.stats_secondaire.Size = new System.Drawing.Size(627, 434);
+            this.stats_secondaire.TabIndex = 7;
+            this.stats_secondaire.Text = "Stats secondaire";
+            this.stats_secondaire.UseVisualStyleBackColor = true;
             // 
-            // label20
+            // splitContainer1
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(278, 26);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(39, 13);
-            this.label20.TabIndex = 36;
-            this.label20.Text = "Race :";
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
             // 
-            // lab_Race
+            // splitContainer1.Panel1
             // 
-            this.lab_Race.AutoSize = true;
-            this.lab_Race.Location = new System.Drawing.Point(324, 26);
-            this.lab_Race.Name = "lab_Race";
-            this.lab_Race.Size = new System.Drawing.Size(0, 13);
-            this.lab_Race.TabIndex = 37;
+            this.splitContainer1.Panel1.Controls.Add(this.label23);
+            this.splitContainer1.Panel1.Controls.Add(this.label22);
+            this.splitContainer1.Panel1.Controls.Add(this.Base_ini);
+            this.splitContainer1.Panel1.Controls.Add(this.label21);
+            this.splitContainer1.Panel1.Controls.Add(this.deplacement);
+            this.splitContainer1.Panel1.Controls.Add(this.label18);
+            this.splitContainer1.Panel1.Controls.Add(this.PenDePoid);
+            this.splitContainer1.Panel1.Controls.Add(this.label17);
+            this.splitContainer1.Panel1.Controls.Add(this.reflexe);
+            this.splitContainer1.Panel1.Controls.Add(this.robustesse);
+            this.splitContainer1.Panel1.Controls.Add(this.volonte);
+            this.splitContainer1.Panel1.Controls.Add(this.label16);
+            this.splitContainer1.Panel1.Controls.Add(this.label15);
+            this.splitContainer1.Panel1.Controls.Add(this.label14);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.RPM);
+            this.splitContainer1.Panel2.Controls.Add(this.RPE);
+            this.splitContainer1.Panel2.Controls.Add(this.RPC);
+            this.splitContainer1.Panel2.Controls.Add(this.RPF);
+            this.splitContainer1.Panel2.Controls.Add(this.label27);
+            this.splitContainer1.Panel2.Controls.Add(this.label26);
+            this.splitContainer1.Panel2.Controls.Add(this.label25);
+            this.splitContainer1.Panel2.Controls.Add(this.label24);
+            this.splitContainer1.Size = new System.Drawing.Size(627, 434);
+            this.splitContainer1.SplitterDistance = 298;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(41, 39);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(49, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Volonté :";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(41, 86);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(69, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Robustesse :";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(41, 139);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(49, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Reflexe :";
+            // 
+            // volonte
+            // 
+            this.volonte.AutoSize = true;
+            this.volonte.Location = new System.Drawing.Point(117, 39);
+            this.volonte.Name = "volonte";
+            this.volonte.Size = new System.Drawing.Size(0, 13);
+            this.volonte.TabIndex = 3;
+            // 
+            // robustesse
+            // 
+            this.robustesse.AutoSize = true;
+            this.robustesse.Location = new System.Drawing.Point(130, 86);
+            this.robustesse.Name = "robustesse";
+            this.robustesse.Size = new System.Drawing.Size(0, 13);
+            this.robustesse.TabIndex = 4;
+            // 
+            // reflexe
+            // 
+            this.reflexe.AutoSize = true;
+            this.reflexe.Location = new System.Drawing.Point(133, 138);
+            this.reflexe.Name = "reflexe";
+            this.reflexe.Size = new System.Drawing.Size(0, 13);
+            this.reflexe.TabIndex = 5;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(41, 183);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(94, 13);
+            this.label17.TabIndex = 6;
+            this.label17.Text = "Penalité de poids :";
+            // 
+            // PenDePoid
+            // 
+            this.PenDePoid.Location = new System.Drawing.Point(144, 180);
+            this.PenDePoid.Name = "PenDePoid";
+            this.PenDePoid.Size = new System.Drawing.Size(60, 20);
+            this.PenDePoid.TabIndex = 7;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(41, 231);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(76, 13);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "Deplacement :";
+            // 
+            // deplacement
+            // 
+            this.deplacement.AutoSize = true;
+            this.deplacement.Location = new System.Drawing.Point(144, 231);
+            this.deplacement.Name = "deplacement";
+            this.deplacement.Size = new System.Drawing.Size(0, 13);
+            this.deplacement.TabIndex = 9;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(41, 269);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(86, 13);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "Base d\'initiative :";
+            // 
+            // Base_ini
+            // 
+            this.Base_ini.AutoSize = true;
+            this.Base_ini.Location = new System.Drawing.Point(144, 269);
+            this.Base_ini.Name = "Base_ini";
+            this.Base_ini.Size = new System.Drawing.Size(0, 13);
+            this.Base_ini.TabIndex = 11;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(41, 311);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(97, 13);
+            this.label22.TabIndex = 12;
+            this.label22.Text = "Réunion de mana :";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(147, 311);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(0, 13);
+            this.label23.TabIndex = 13;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(38, 38);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(108, 13);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Récupération de PF :";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(38, 86);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(109, 13);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "Récupération de PC :";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(38, 139);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(109, 13);
+            this.label26.TabIndex = 2;
+            this.label26.Text = "Récupération de PE :";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(39, 187);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(111, 13);
+            this.label27.TabIndex = 3;
+            this.label27.Text = "Récupération de PM :";
+            // 
+            // RPF
+            // 
+            this.RPF.AutoSize = true;
+            this.RPF.Location = new System.Drawing.Point(166, 39);
+            this.RPF.Name = "RPF";
+            this.RPF.Size = new System.Drawing.Size(0, 13);
+            this.RPF.TabIndex = 4;
+            // 
+            // RPC
+            // 
+            this.RPC.AutoSize = true;
+            this.RPC.Location = new System.Drawing.Point(169, 86);
+            this.RPC.Name = "RPC";
+            this.RPC.Size = new System.Drawing.Size(0, 13);
+            this.RPC.TabIndex = 5;
+            // 
+            // RPE
+            // 
+            this.RPE.AutoSize = true;
+            this.RPE.Location = new System.Drawing.Point(169, 139);
+            this.RPE.Name = "RPE";
+            this.RPE.Size = new System.Drawing.Size(0, 13);
+            this.RPE.TabIndex = 6;
+            // 
+            // RPM
+            // 
+            this.RPM.AutoSize = true;
+            this.RPM.Location = new System.Drawing.Point(172, 183);
+            this.RPM.Name = "RPM";
+            this.RPM.Size = new System.Drawing.Size(0, 13);
+            this.RPM.TabIndex = 7;
             // 
             // Form1
             // 
@@ -1024,10 +1153,15 @@ namespace Terre_Natale_Calculateur
             this.TalentsM.ResumeLayout(false);
             this.TalentsA.ResumeLayout(false);
             this.TalentsP.ResumeLayout(false);
-            this.Global_Personnalité.ResumeLayout(false);
-            this.Global_Personnalité.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.stats_secondaire.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1048,6 +1182,31 @@ namespace Terre_Natale_Calculateur
         private Label label20;
         private Label lab_name;
         private Label label1;
+        private TabPage stats_secondaire;
+        private SplitContainer splitContainer1;
+        private Label label23;
+        private Label label22;
+        private Label Base_ini;
+        private Label label21;
+        private Label deplacement;
+        private Label label18;
+        private TextBox PenDePoid;
+        private Label label17;
+        private Label reflexe;
+        private Label robustesse;
+        private Label volonte;
+        private Label label16;
+        private Label label15;
+        private Label label14;
+        private Label RPM;
+        private Label RPE;
+        private Label RPC;
+        private Label RPF;
+        private Label label27;
+        private Label label26;
+        private Label label25;
+        private Label label24;
+        private TabPage ClasseTab;
     }
 }
 

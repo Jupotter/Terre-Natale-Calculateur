@@ -247,5 +247,10 @@ namespace Terre_Natale_Calculateur
                 listBox1.Visible = false;
             }
         }
+
+        private void Stats_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

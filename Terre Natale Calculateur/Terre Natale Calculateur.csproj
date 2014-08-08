@@ -86,6 +86,8 @@
     </Compile>
     <Compile Include="Character.cs" />
     <Compile Include="CharacterManager.cs" />
+    <Compile Include="Classe.cs" />
+    <Compile Include="ClassManager.cs" />
     <Compile Include="DumpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +149,9 @@
     <EmbeddedResource Include="StatsBonusForm.resx">
       <DependentUpon>StatsBonusForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Classes.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\TalentsManager.datasource" />
     <None Include="Properties\Settings.settings">

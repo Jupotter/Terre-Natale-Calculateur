@@ -279,7 +279,7 @@
   },
   {
 
-    "Name": "Conjuration",
+    "Name": "Creation",
     "PrimaryAspect": 5,
     "SecondaryAspect": 3,
     "Type": 1,
@@ -662,6 +662,15 @@
     "SecondaryAspect": 3,
     "Type": 1,
     "Id": 72,
+
+  },
+  {
+
+    "Name": "Ecole specialisé",
+    "PrimaryAspect": 5,
+    "SecondaryAspect": 5,
+    "Type": 1,
+    "Id": 73,
 
   }
 ]
