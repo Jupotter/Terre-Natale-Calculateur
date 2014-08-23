@@ -12,7 +12,7 @@ namespace Terre_Natale_Calculateur
     internal class ClassManager
     {
         private readonly JsonSerializerSettings _serializerSettings;
-        Dictionary<int, Classe> _Classes = new Dictionary<int, Classe>();
+        public Dictionary<int, Classe> _Classes = new Dictionary<int, Classe>();
         private static ClassManager _instance;
         private readonly ITraceWriter _traceWriter;
         int _nextId;
@@ -70,6 +70,14 @@ namespace Terre_Natale_Calculateur
             _Classes.Add(0,new Classe("Guerrier",0,2,2,0,0,"N","H","N","N",Aspect.Acier,Aspect.None,"Technique de predilection","Aucun","Ambidextrie (dégats), Arme (de Prédilection), Discipline (contre attaques), Défense (parades)"));
 
             DumpJSON();
+        }
+        public Classe getFormName(string search)
+        {
+            for (int i = 1; i < _Classes.Count; i++)
+            {
+                if (_Classes.ElementAt(i).Value.Nom == search) return _Classes.ElementAt(i).Value;
+            }
+            return _Classes[1];
         }
     }
 }

@@ -189,6 +189,36 @@ namespace Terre_Natale_Calculateur
             this.flowLayoutTalentsA = new System.Windows.Forms.FlowLayoutPanel();
             this.TalentsP = new System.Windows.Forms.TabPage();
             this.flowLayoutTalentsP = new System.Windows.Forms.FlowLayoutPanel();
+            this.stats_secondaire = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.PenDePoid = new System.Windows.Forms.NumericUpDown();
+            this.ReuMana = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.Base_ini = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.deplacement = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.reflexe = new System.Windows.Forms.Label();
+            this.robustesse = new System.Windows.Forms.Label();
+            this.volonte = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.RPM = new System.Windows.Forms.Label();
+            this.RPE = new System.Windows.Forms.Label();
+            this.RPC = new System.Windows.Forms.Label();
+            this.RPF = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.ClasseTab = new System.Windows.Forms.TabPage();
+            this.Debloque = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nouveauToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -203,31 +233,6 @@ namespace Terre_Natale_Calculateur
             this.talentsIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.ClasseTab = new System.Windows.Forms.TabPage();
-            this.stats_secondaire = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.volonte = new System.Windows.Forms.Label();
-            this.robustesse = new System.Windows.Forms.Label();
-            this.reflexe = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.PenDePoid = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.deplacement = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.Base_ini = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.RPF = new System.Windows.Forms.Label();
-            this.RPC = new System.Windows.Forms.Label();
-            this.RPE = new System.Windows.Forms.Label();
-            this.RPM = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -237,12 +242,14 @@ namespace Terre_Natale_Calculateur
             this.TalentsM.SuspendLayout();
             this.TalentsA.SuspendLayout();
             this.TalentsP.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.stats_secondaire.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PenDePoid)).BeginInit();
+            this.ClasseTab.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -777,6 +784,299 @@ namespace Terre_Natale_Calculateur
             this.flowLayoutTalentsP.Size = new System.Drawing.Size(627, 434);
             this.flowLayoutTalentsP.TabIndex = 0;
             // 
+            // stats_secondaire
+            // 
+            this.stats_secondaire.Controls.Add(this.splitContainer1);
+            this.stats_secondaire.Location = new System.Drawing.Point(4, 22);
+            this.stats_secondaire.Name = "stats_secondaire";
+            this.stats_secondaire.Size = new System.Drawing.Size(627, 434);
+            this.stats_secondaire.TabIndex = 7;
+            this.stats_secondaire.Text = "Stats secondaire";
+            this.stats_secondaire.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.PenDePoid);
+            this.splitContainer1.Panel1.Controls.Add(this.ReuMana);
+            this.splitContainer1.Panel1.Controls.Add(this.label22);
+            this.splitContainer1.Panel1.Controls.Add(this.Base_ini);
+            this.splitContainer1.Panel1.Controls.Add(this.label21);
+            this.splitContainer1.Panel1.Controls.Add(this.deplacement);
+            this.splitContainer1.Panel1.Controls.Add(this.label18);
+            this.splitContainer1.Panel1.Controls.Add(this.label17);
+            this.splitContainer1.Panel1.Controls.Add(this.reflexe);
+            this.splitContainer1.Panel1.Controls.Add(this.robustesse);
+            this.splitContainer1.Panel1.Controls.Add(this.volonte);
+            this.splitContainer1.Panel1.Controls.Add(this.label16);
+            this.splitContainer1.Panel1.Controls.Add(this.label15);
+            this.splitContainer1.Panel1.Controls.Add(this.label14);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.RPM);
+            this.splitContainer1.Panel2.Controls.Add(this.RPE);
+            this.splitContainer1.Panel2.Controls.Add(this.RPC);
+            this.splitContainer1.Panel2.Controls.Add(this.RPF);
+            this.splitContainer1.Panel2.Controls.Add(this.label27);
+            this.splitContainer1.Panel2.Controls.Add(this.label26);
+            this.splitContainer1.Panel2.Controls.Add(this.label25);
+            this.splitContainer1.Panel2.Controls.Add(this.label24);
+            this.splitContainer1.Size = new System.Drawing.Size(627, 434);
+            this.splitContainer1.SplitterDistance = 298;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // PenDePoid
+            // 
+            this.PenDePoid.Location = new System.Drawing.Point(147, 183);
+            this.PenDePoid.Name = "PenDePoid";
+            this.PenDePoid.Size = new System.Drawing.Size(52, 20);
+            this.PenDePoid.TabIndex = 14;
+            this.PenDePoid.ValueChanged += new System.EventHandler(this.PenDePoid_ValueChanged);
+            // 
+            // ReuMana
+            // 
+            this.ReuMana.AutoSize = true;
+            this.ReuMana.Location = new System.Drawing.Point(147, 311);
+            this.ReuMana.Name = "ReuMana";
+            this.ReuMana.Size = new System.Drawing.Size(0, 13);
+            this.ReuMana.TabIndex = 13;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(41, 311);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(97, 13);
+            this.label22.TabIndex = 12;
+            this.label22.Text = "Réunion de mana :";
+            // 
+            // Base_ini
+            // 
+            this.Base_ini.AutoSize = true;
+            this.Base_ini.Location = new System.Drawing.Point(144, 269);
+            this.Base_ini.Name = "Base_ini";
+            this.Base_ini.Size = new System.Drawing.Size(0, 13);
+            this.Base_ini.TabIndex = 11;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(41, 269);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(86, 13);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "Base d\'initiative :";
+            // 
+            // deplacement
+            // 
+            this.deplacement.AutoSize = true;
+            this.deplacement.Location = new System.Drawing.Point(144, 231);
+            this.deplacement.Name = "deplacement";
+            this.deplacement.Size = new System.Drawing.Size(0, 13);
+            this.deplacement.TabIndex = 9;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(41, 231);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(76, 13);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "Deplacement :";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(41, 183);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(94, 13);
+            this.label17.TabIndex = 6;
+            this.label17.Text = "Penalité de poids :";
+            // 
+            // reflexe
+            // 
+            this.reflexe.AutoSize = true;
+            this.reflexe.Location = new System.Drawing.Point(133, 138);
+            this.reflexe.Name = "reflexe";
+            this.reflexe.Size = new System.Drawing.Size(0, 13);
+            this.reflexe.TabIndex = 5;
+            // 
+            // robustesse
+            // 
+            this.robustesse.AutoSize = true;
+            this.robustesse.Location = new System.Drawing.Point(130, 86);
+            this.robustesse.Name = "robustesse";
+            this.robustesse.Size = new System.Drawing.Size(0, 13);
+            this.robustesse.TabIndex = 4;
+            // 
+            // volonte
+            // 
+            this.volonte.AutoSize = true;
+            this.volonte.Location = new System.Drawing.Point(117, 39);
+            this.volonte.Name = "volonte";
+            this.volonte.Size = new System.Drawing.Size(0, 13);
+            this.volonte.TabIndex = 3;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(41, 139);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(49, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Reflexe :";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(41, 86);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(69, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Robustesse :";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(41, 39);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(49, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Volonté :";
+            // 
+            // RPM
+            // 
+            this.RPM.AutoSize = true;
+            this.RPM.Location = new System.Drawing.Point(172, 183);
+            this.RPM.Name = "RPM";
+            this.RPM.Size = new System.Drawing.Size(0, 13);
+            this.RPM.TabIndex = 7;
+            // 
+            // RPE
+            // 
+            this.RPE.AutoSize = true;
+            this.RPE.Location = new System.Drawing.Point(169, 139);
+            this.RPE.Name = "RPE";
+            this.RPE.Size = new System.Drawing.Size(0, 13);
+            this.RPE.TabIndex = 6;
+            // 
+            // RPC
+            // 
+            this.RPC.AutoSize = true;
+            this.RPC.Location = new System.Drawing.Point(169, 86);
+            this.RPC.Name = "RPC";
+            this.RPC.Size = new System.Drawing.Size(0, 13);
+            this.RPC.TabIndex = 5;
+            // 
+            // RPF
+            // 
+            this.RPF.AutoSize = true;
+            this.RPF.Location = new System.Drawing.Point(166, 39);
+            this.RPF.Name = "RPF";
+            this.RPF.Size = new System.Drawing.Size(0, 13);
+            this.RPF.TabIndex = 4;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(39, 187);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(111, 13);
+            this.label27.TabIndex = 3;
+            this.label27.Text = "Récupération de PM :";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(38, 139);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(109, 13);
+            this.label26.TabIndex = 2;
+            this.label26.Text = "Récupération de PE :";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(38, 86);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(109, 13);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "Récupération de PC :";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(38, 38);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(108, 13);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Récupération de PF :";
+            // 
+            // ClasseTab
+            // 
+            this.ClasseTab.Controls.Add(this.Debloque);
+            this.ClasseTab.Controls.Add(this.label29);
+            this.ClasseTab.Controls.Add(this.label28);
+            this.ClasseTab.Controls.Add(this.listBox2);
+            this.ClasseTab.Controls.Add(this.comboBox1);
+            this.ClasseTab.Location = new System.Drawing.Point(4, 22);
+            this.ClasseTab.Name = "ClasseTab";
+            this.ClasseTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ClasseTab.Size = new System.Drawing.Size(627, 434);
+            this.ClasseTab.TabIndex = 6;
+            this.ClasseTab.Text = "Classe";
+            this.ClasseTab.UseVisualStyleBackColor = true;
+            // 
+            // Debloque
+            // 
+            this.Debloque.AutoSize = true;
+            this.Debloque.Location = new System.Drawing.Point(131, 148);
+            this.Debloque.Name = "Debloque";
+            this.Debloque.Size = new System.Drawing.Size(0, 13);
+            this.Debloque.TabIndex = 4;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(35, 148);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(59, 13);
+            this.label29.TabIndex = 3;
+            this.label29.Text = "Débloque :";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(32, 35);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(44, 13);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "Classe :";
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.HorizontalScrollbar = true;
+            this.listBox2.Location = new System.Drawing.Point(295, 60);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(326, 264);
+            this.listBox2.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(32, 60);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -888,249 +1188,6 @@ namespace Terre_Natale_Calculateur
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // ClasseTab
-            // 
-            this.ClasseTab.Location = new System.Drawing.Point(4, 22);
-            this.ClasseTab.Name = "ClasseTab";
-            this.ClasseTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ClasseTab.Size = new System.Drawing.Size(627, 434);
-            this.ClasseTab.TabIndex = 6;
-            this.ClasseTab.Text = "Classe";
-            this.ClasseTab.UseVisualStyleBackColor = true;
-            // 
-            // stats_secondaire
-            // 
-            this.stats_secondaire.Controls.Add(this.splitContainer1);
-            this.stats_secondaire.Location = new System.Drawing.Point(4, 22);
-            this.stats_secondaire.Name = "stats_secondaire";
-            this.stats_secondaire.Size = new System.Drawing.Size(627, 434);
-            this.stats_secondaire.TabIndex = 7;
-            this.stats_secondaire.Text = "Stats secondaire";
-            this.stats_secondaire.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.label23);
-            this.splitContainer1.Panel1.Controls.Add(this.label22);
-            this.splitContainer1.Panel1.Controls.Add(this.Base_ini);
-            this.splitContainer1.Panel1.Controls.Add(this.label21);
-            this.splitContainer1.Panel1.Controls.Add(this.deplacement);
-            this.splitContainer1.Panel1.Controls.Add(this.label18);
-            this.splitContainer1.Panel1.Controls.Add(this.PenDePoid);
-            this.splitContainer1.Panel1.Controls.Add(this.label17);
-            this.splitContainer1.Panel1.Controls.Add(this.reflexe);
-            this.splitContainer1.Panel1.Controls.Add(this.robustesse);
-            this.splitContainer1.Panel1.Controls.Add(this.volonte);
-            this.splitContainer1.Panel1.Controls.Add(this.label16);
-            this.splitContainer1.Panel1.Controls.Add(this.label15);
-            this.splitContainer1.Panel1.Controls.Add(this.label14);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.RPM);
-            this.splitContainer1.Panel2.Controls.Add(this.RPE);
-            this.splitContainer1.Panel2.Controls.Add(this.RPC);
-            this.splitContainer1.Panel2.Controls.Add(this.RPF);
-            this.splitContainer1.Panel2.Controls.Add(this.label27);
-            this.splitContainer1.Panel2.Controls.Add(this.label26);
-            this.splitContainer1.Panel2.Controls.Add(this.label25);
-            this.splitContainer1.Panel2.Controls.Add(this.label24);
-            this.splitContainer1.Size = new System.Drawing.Size(627, 434);
-            this.splitContainer1.SplitterDistance = 298;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(41, 39);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Volonté :";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(41, 86);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(69, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Robustesse :";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(41, 139);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(49, 13);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Reflexe :";
-            // 
-            // volonte
-            // 
-            this.volonte.AutoSize = true;
-            this.volonte.Location = new System.Drawing.Point(117, 39);
-            this.volonte.Name = "volonte";
-            this.volonte.Size = new System.Drawing.Size(0, 13);
-            this.volonte.TabIndex = 3;
-            // 
-            // robustesse
-            // 
-            this.robustesse.AutoSize = true;
-            this.robustesse.Location = new System.Drawing.Point(130, 86);
-            this.robustesse.Name = "robustesse";
-            this.robustesse.Size = new System.Drawing.Size(0, 13);
-            this.robustesse.TabIndex = 4;
-            // 
-            // reflexe
-            // 
-            this.reflexe.AutoSize = true;
-            this.reflexe.Location = new System.Drawing.Point(133, 138);
-            this.reflexe.Name = "reflexe";
-            this.reflexe.Size = new System.Drawing.Size(0, 13);
-            this.reflexe.TabIndex = 5;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(41, 183);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(94, 13);
-            this.label17.TabIndex = 6;
-            this.label17.Text = "Penalité de poids :";
-            // 
-            // PenDePoid
-            // 
-            this.PenDePoid.Location = new System.Drawing.Point(144, 180);
-            this.PenDePoid.Name = "PenDePoid";
-            this.PenDePoid.Size = new System.Drawing.Size(60, 20);
-            this.PenDePoid.TabIndex = 7;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(41, 231);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(76, 13);
-            this.label18.TabIndex = 8;
-            this.label18.Text = "Deplacement :";
-            // 
-            // deplacement
-            // 
-            this.deplacement.AutoSize = true;
-            this.deplacement.Location = new System.Drawing.Point(144, 231);
-            this.deplacement.Name = "deplacement";
-            this.deplacement.Size = new System.Drawing.Size(0, 13);
-            this.deplacement.TabIndex = 9;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(41, 269);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(86, 13);
-            this.label21.TabIndex = 10;
-            this.label21.Text = "Base d\'initiative :";
-            // 
-            // Base_ini
-            // 
-            this.Base_ini.AutoSize = true;
-            this.Base_ini.Location = new System.Drawing.Point(144, 269);
-            this.Base_ini.Name = "Base_ini";
-            this.Base_ini.Size = new System.Drawing.Size(0, 13);
-            this.Base_ini.TabIndex = 11;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(41, 311);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(97, 13);
-            this.label22.TabIndex = 12;
-            this.label22.Text = "Réunion de mana :";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(147, 311);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(0, 13);
-            this.label23.TabIndex = 13;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(38, 38);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(108, 13);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Récupération de PF :";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(38, 86);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(109, 13);
-            this.label25.TabIndex = 1;
-            this.label25.Text = "Récupération de PC :";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(38, 139);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(109, 13);
-            this.label26.TabIndex = 2;
-            this.label26.Text = "Récupération de PE :";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(39, 187);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(111, 13);
-            this.label27.TabIndex = 3;
-            this.label27.Text = "Récupération de PM :";
-            // 
-            // RPF
-            // 
-            this.RPF.AutoSize = true;
-            this.RPF.Location = new System.Drawing.Point(166, 39);
-            this.RPF.Name = "RPF";
-            this.RPF.Size = new System.Drawing.Size(0, 13);
-            this.RPF.TabIndex = 4;
-            // 
-            // RPC
-            // 
-            this.RPC.AutoSize = true;
-            this.RPC.Location = new System.Drawing.Point(169, 86);
-            this.RPC.Name = "RPC";
-            this.RPC.Size = new System.Drawing.Size(0, 13);
-            this.RPC.TabIndex = 5;
-            // 
-            // RPE
-            // 
-            this.RPE.AutoSize = true;
-            this.RPE.Location = new System.Drawing.Point(169, 139);
-            this.RPE.Name = "RPE";
-            this.RPE.Size = new System.Drawing.Size(0, 13);
-            this.RPE.TabIndex = 6;
-            // 
-            // RPM
-            // 
-            this.RPM.AutoSize = true;
-            this.RPM.Location = new System.Drawing.Point(172, 183);
-            this.RPM.Name = "RPM";
-            this.RPM.Size = new System.Drawing.Size(0, 13);
-            this.RPM.TabIndex = 7;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1153,8 +1210,6 @@ namespace Terre_Natale_Calculateur
             this.TalentsM.ResumeLayout(false);
             this.TalentsA.ResumeLayout(false);
             this.TalentsP.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.stats_secondaire.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -1162,6 +1217,11 @@ namespace Terre_Natale_Calculateur
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PenDePoid)).EndInit();
+            this.ClasseTab.ResumeLayout(false);
+            this.ClasseTab.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1184,13 +1244,12 @@ namespace Terre_Natale_Calculateur
         private Label label1;
         private TabPage stats_secondaire;
         private SplitContainer splitContainer1;
-        private Label label23;
+        private Label ReuMana;
         private Label label22;
         private Label Base_ini;
         private Label label21;
         private Label deplacement;
         private Label label18;
-        private TextBox PenDePoid;
         private Label label17;
         private Label reflexe;
         private Label robustesse;
@@ -1207,6 +1266,12 @@ namespace Terre_Natale_Calculateur
         private Label label25;
         private Label label24;
         private TabPage ClasseTab;
+        private Label Debloque;
+        private Label label29;
+        private Label label28;
+        private ListBox listBox2;
+        private ComboBox comboBox1;
+        private NumericUpDown PenDePoid;
     }
 }
 

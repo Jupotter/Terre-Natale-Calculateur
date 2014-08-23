@@ -1,7 +1,23 @@
 ﻿[
-  
   {
     "Id": 1,
+    "Nom": "Guerrier",
+    "RPE": 2,
+    "RPF": 2,
+    "RPC": 0,
+    "RPM": 0,
+    "MPE": "N",
+    "MPF": "H",
+    "MPC": "N",
+    "MPM": "N",
+    "Primaire": 6,
+    "Secondaire": 0,
+    "Maitrise_de_base": "Technique de predilection",
+    "TalentBonus": "Aucun",
+    "MaitriseSpecial": "Ambidextrie (dégats), Arme (de Prédilection), Discipline (contre attaques), Défense (parades)"
+  },
+  {
+    "Id": 10,
     "Nom": "Chevalier",
     "RPE": 1,
     "RPF": 1,
@@ -18,7 +34,7 @@
     "MaitriseSpecial": "Vengeur (avantage polyvalant si allié ko), Honneur (avantage offensif si allié faible), Cavalier (avantage sur monture), Valkirie (combattante acrobate à la lance), Griffonier (Combattant sur griffon) "
   },
   {
-    "Id": 2,
+    "Id": 20,
     "Nom": "Gardien",
     "RPE": 2,
     "RPF": 0,
@@ -31,11 +47,11 @@
     "Primaire": 4,
     "Secondaire": 6,
     "Maitrise_de_base": "Prouesse : Défense",
-    "TalentBonus": "Tous les Gariens sont trop bien",
+    "TalentBonus": "Aucun",
     "MaitriseSpecial": "Sentinelle (avantages via blocages), Dévotion (avantages si protège alliés), Forteresse (indemne : avantages défense)"
   },
   {
-    "Id": 3,
+    "Id": 30,
     "Nom": "Rôdeur",
     "RPE": 0,
     "RPF": 2,
@@ -52,7 +68,7 @@
     "MaitriseSpecial": "Ambidextrie (initiative), Tribal (alternance de style), Chasseur (pistage/anti races), Trappeur (expert pièges)"
   },
   {
-    "Id": 4,
+    "Id": 40,
     "Nom": "Scout",
     "RPE": 0,
     "RPF": 1,
@@ -69,7 +85,7 @@
     "MaitriseSpecial": "Tireur (portée des arcs accrues), Guide (survie générale accrue)"
   },
   {
-    "Id": 5,
+    "Id": 50,
     "Nom": "Roublard",
     "RPE": 0,
     "RPF": 0,
@@ -86,7 +102,7 @@
     "MaitriseSpecial": "Bandit (bluff), Larçin (discrétion), Sournois (camouflage, infirmité), Mobilité (déplacement accrue)"
   },
   {
-    "Id": 6,
+    "Id": 60,
     "Nom": "Assassin",
     "RPE": 0,
     "RPF": 1,
@@ -103,7 +119,7 @@
     "MaitriseSpecial": "Assassinat (camouflage, létal), Ombre (esquive), Poison (sur armes)"
   },
   {
-    "Id": 7,
+    "Id": 70,
     "Nom": "Barbare",
     "RPE": 2,
     "RPF": 1,
@@ -120,7 +136,7 @@
     "MaitriseSpecial": "Berserker (blessé : avantage offensive), Braillard (Cri de guerre accrue), ?"
   },
   {
-    "Id": 8,
+    "Id": 80,
     "Nom": "Maraudeur",
     "RPE": 1,
     "RPF": 2,
@@ -137,7 +153,7 @@
     "MaitriseSpecial": "Sanguinaire (avantage si victoire), Cruauté (avantage sur cible affaiblie), ?"
   },
   {
-    "Id": 9,
+    "Id": 90,
     "Nom": "Moine",
     "RPE": 1,
     "RPF": 1,
@@ -154,7 +170,7 @@
     "MaitriseSpecial": "Sérénité (indemne : avntage offensive), Maitre (écoles multiples), Pureté (sauvegardes +)"
   },
   {
-    "Id": 10,
+    "Id": 100,
     "Nom": "Ranger",
     "RPE": 1,
     "RPF": 1,
@@ -171,7 +187,7 @@
     "MaitriseSpecial": "Dressage (créature alliée)"
   },
   {
-    "Id": 11,
+    "Id": 110,
     "Nom": "Barde",
     "RPE": 0,
     "RPF": 0,
@@ -188,7 +204,7 @@
     "MaitriseSpecial": "Artiste (aisance durant chant/danse), Folklore (savoir étendu)"
   },
   {
-    "Id": 12,
+    "Id": 120,
     "Nom": "Spadassin",
     "RPE": 1,
     "RPF": 0,
@@ -205,7 +221,7 @@
     "MaitriseSpecial": "Acrobate (esquive mobilité+), Duel (avantage en 1 contre 1), ?"
   },
   {
-    "Id": 13,
+    "Id": 130,
     "Nom": "Batisseur",
     "RPE": 5,
     "RPF": 0,
@@ -222,7 +238,7 @@
     "MaitriseSpecial": "Architecte (avantage sur structure)"
   },
   {
-    "Id": 14,
+    "Id": 140,
     "Nom": "Ingénieur",
     "RPE": 0,
     "RPF": 0,
@@ -239,7 +255,7 @@
     "MaitriseSpecial": "Artificier (Alchimie : Techno +), Science (Acides ou Electriques)"
   },
   {
-    "Id": 15,
+    "Id": 150,
     "Nom": "Mécanicien",
     "RPE": 0,
     "RPF": 5,
@@ -256,7 +272,7 @@
     "MaitriseSpecial": "Mécamancien (avantage via/sur golem/méca), Transport (usage/gestion/création de véhicules)"
   },
   {
-    "Id": 16,
+    "Id": 160,
     "Nom": "Fantassin",
     "RPE": 2,
     "RPF": 1,
@@ -273,7 +289,7 @@
     "MaitriseSpecial": "Technosoldat (avantage sur armes hybrides)"
   },
   {
-    "Id": 17,
+    "Id": 170,
     "Nom": "Desperado",
     "RPE": 1,
     "RPF": 2,
@@ -290,7 +306,7 @@
     "MaitriseSpecial": "Ambidextrie (revolver), Bravoure (accroit risques pour avantages via arme à feu)"
   },
   {
-    "Id": 18,
+    "Id": 180,
     "Nom": "Apothiquaire",
     "RPE": 1,
     "RPF": 1,
@@ -307,7 +323,7 @@
     "MaitriseSpecial": "Médecine (Alchimie : Nature +)"
   },
   {
-    "Id": 19,
+    "Id": 190,
     "Nom": "Templier",
     "RPE": 0,
     "RPF": 2,
@@ -324,7 +340,7 @@
     "MaitriseSpecial": "Sylphide (Magiliège offensive accrue), Justice (avantage si rend la justice), Incarnation (avantage via enchantements reçus)"
   },
   {
-    "Id": 20,
+    "Id": 200,
     "Nom": "Paladin",
     "RPE": 2,
     "RPF": 0,
@@ -341,7 +357,7 @@
     "MaitriseSpecial": "Aura (débloque les auras), Dévotion (Magiliège défensive accrue), Rédemption (avantage si rend justice)"
   },
   {
-    "Id": 21,
+    "Id": 210,
     "Nom": "Clerc",
     "RPE": 0,
     "RPF": 0,
@@ -358,7 +374,7 @@
     "MaitriseSpecial": "Altruisme (soins temporaires), Guérisseur (soins multiples)"
   },
   {
-    "Id": 22,
+    "Id": 220,
     "Nom": "Prêtre",
     "RPE": 0,
     "RPF": -2,
@@ -375,7 +391,7 @@
     "MaitriseSpecial": "Compassion (soins partagés), Héraut (enchantements améliorations multiples)"
   },
   {
-    "Id": 23,
+    "Id": 230,
     "Nom": "Shaman",
     "RPE": 0,
     "RPF": -2,
@@ -392,7 +408,7 @@
     "MaitriseSpecial": "Herboriste (Alchimie : Nature +), Malédiction (durée maléfice +), Constellationniste (invocations divinités mineures)"
   },
   {
-    "Id": 24,
+    "Id": 240,
     "Nom": "Druide",
     "RPE": 1,
     "RPF": 0,
@@ -409,7 +425,7 @@
     "MaitriseSpecial": "Régénération (soins régénérants), Symbiose (invocations naturelles supérieures), Polyphorme (métamorphoses facilités)"
   },
   {
-    "Id": 25,
+    "Id": 250,
     "Nom": "Magicien",
     "RPE": 0,
     "RPF": 0,
@@ -426,7 +442,7 @@
     "MaitriseSpecial": "Manalogue (accroit affinité au mana), Sortilège (contre sorts), Grimorologie (usage de grimoire), Art des incantations"
   },
   {
-    "Id": 26,
+    "Id": 260,
     "Nom": "Sorcier",
     "RPE": 0,
     "RPF": -2,
@@ -443,7 +459,7 @@
     "MaitriseSpecial": "Elixirologie (avantage sur Alchimie : Magie), Malice (maléfice + efficaces et mortelles), Démonologie (invocation de démons)"
   },
   {
-    "Id": 27,
+    "Id": 270,
     "Nom": "Ensorceleur",
     "RPE": 0,
     "RPF": 0,
@@ -460,7 +476,7 @@
     "MaitriseSpecial": "Extension (accroit zone d'effets des sorts), Déchainement (critique sorts), Conflux (convocation élémentaire supérieure), Juggernaut (incantation non interruptible), Seconde nature (forme élémentaire accrue)"
   },
   {
-    "Id": 28,
+    "Id": 280,
     "Nom": "Enchanteur",
     "RPE": 0,
     "RPF": 0,
@@ -477,7 +493,7 @@
     "MaitriseSpecial": "Auramancien (Enchantement d'arme/objet multiples), Extension d'Enchantement (portée et durée des enchantements accrues)"
   },
   {
-    "Id": 29,
+    "Id": 290,
     "Nom": "Elémentaliste",
     "RPE": 0,
     "RPF": 1,
@@ -494,7 +510,7 @@
     "MaitriseSpecial": "Maitre d'élément (un élément au choix : avantages selon l'élément), Géomancie (les sorts climatiques sont largement accrues et l'élémentaliste y est avantagé)"
   },
   {
-    "Id": 30,
+    "Id": 300,
     "Nom": "Sorceleur",
     "RPE": 1,
     "RPF": 1,
@@ -511,7 +527,7 @@
     "MaitriseSpecial": "Dénis Arcanique (abjuration blesse), Maléficien (Maléfice sur arme), Aristomancien (avantage si arme enchantée)"
   },
   {
-    "Id": 31,
+    "Id": 310,
     "Nom": "Illusioniste",
     "RPE": 0,
     "RPF": 0,
@@ -528,7 +544,7 @@
     "MaitriseSpecial": "Chimère (invocations chimériques), Magie mimétique (magie mimétique accessible, via illusion)*"
   },
   {
-    "Id": 32,
+    "Id": 320,
     "Nom": "Envouteur",
     "RPE": 0,
     "RPF": 1,
@@ -545,7 +561,7 @@
     "MaitriseSpecial": "Charmeur (Magiliège illusoire accrue), Sans visage (deviens un sans visage)"
   },
   {
-    "Id": 33,
+    "Id": 330,
     "Nom": "Nécromancien",
     "RPE": 1,
     "RPF": 0,
@@ -562,7 +578,7 @@
     "MaitriseSpecial": "Horde (accroit le nombre d'invocations), Liche (deviens une liche), Goule (vol la vie des vaincus), Aura négative"
   },
   {
-    "Id": 34,
+    "Id": 340,
     "Nom": "Evocateur",
     "RPE": 0,
     "RPF": 2,
@@ -579,7 +595,7 @@
     "MaitriseSpecial": ""
   },
   {
-    "Id": 35,
+    "Id": 350,
     "Nom": "Démoniste",
     "RPE": 1,
     "RPF": 0,
@@ -594,22 +610,5 @@
     "Maitrise_de_base": "?",
     "TalentBonus": "Démonologie",
     "MaitriseSpecial": "?"
-  },
-  {
-    "Id": 36,
-    "Nom": "Guerrier",
-    "RPE": 2,
-    "RPF": 2,
-    "RPC": 0,
-    "RPM": 0,
-    "MPE": "N",
-    "MPF": "H",
-    "MPC": "N",
-    "MPM": "N",
-    "Primaire": 6,
-    "Secondaire": 0,
-    "Maitrise_de_base": "Technique de predilection",
-    "TalentBonus": "Aucun",
-    "MaitriseSpecial": "Ambidextrie (dégats), Arme (de Prédilection), Discipline (contre attaques), Défense (parades)"
   }
 ]

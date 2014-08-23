@@ -10,7 +10,9 @@ namespace Terre_Natale_Calculateur
     {
         private Character _character;
         private string _currentFilename;
+        Classe currentClasse;
         
+
         public Form1()
         {
             InitializeComponent();
@@ -22,13 +24,93 @@ namespace Terre_Natale_Calculateur
 
         private void ActualiseStats()
         {
+            int bF = 0;
+            int bC = 0;
+            int bM = 0;
+            int bE = 0;
+
+ #region bordel lutie ....
+
+            if (currentClasse != null)
+            {
+                int tmp = _character.Talents.Where(t => t.Type == TalentType.General &&
+                        (t.PrimaryAspect == currentClasse.Primaire
+                        || t.PrimaryAspect == currentClasse.Secondaire
+                        || t.SecondaryAspect == currentClasse.Primaire
+                        || t.SecondaryAspect == currentClasse.Secondaire)).Sum(t => t.Level);
+                switch (currentClasse.MPC)
+                {
+                    case "W": bC = tmp / 4;
+
+                        break;
+                    case "L": bC = tmp / 3;
+                        
+                        break;
+                    case "H": bC = tmp / 2;
+
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (currentClasse.MPE)
+                {
+                    case "W": bE = tmp / 5;
+
+                        break;
+                    case "L": bE = tmp / 4;
+
+                        break;
+                    case "H": bE = tmp / 3;
+
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (currentClasse.MPF)
+                {
+                    case "W": bF = tmp / 4;
+
+                        break;
+                    case "L": bF = tmp / 3;
+
+                        break;
+                    case "H": bF = tmp / 2;
+
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (currentClasse.MPM)
+                {
+                    case "W": bM = tmp / 4;
+
+                        break;
+                    case "L": bM = tmp / 3;
+
+                        break;
+                    case "H": bM = tmp / 2;
+
+                        break;
+                    case "N": bM = 0;
+
+                        break;
+                    default:
+                        break;
+                }
+            }
+#endregion
+            
             ExperienceRestante.Text = (int.Parse(Experience.Text) - _character.ExperienceUsed).ToString(CultureInfo.InvariantCulture);
-            Fatigue.Text = _character.Fatigue.ToString(CultureInfo.InvariantCulture);
-            Chi.Text = _character.Chi.ToString(CultureInfo.InvariantCulture);
-            Mana.Text = _character.Mana.ToString(CultureInfo.InvariantCulture);
-            Karma.Text = _character.Karma.ToString(CultureInfo.InvariantCulture);
-            Endurance.Text = _character.Endurance.ToString(CultureInfo.InvariantCulture);
+            Fatigue.Text = (_character.Fatigue+bF).ToString(CultureInfo.InvariantCulture);
+            Chi.Text = (_character.Chi+bC).ToString(CultureInfo.InvariantCulture);
+            Mana.Text = (_character.Mana+bM).ToString(CultureInfo.InvariantCulture);
+            Karma.Text = (_character.Karma).ToString(CultureInfo.InvariantCulture);
+            Endurance.Text = (_character.Endurance+bE).ToString(CultureInfo.InvariantCulture);
             Santé.Text = @"4";
+            recomputeStatsSecond();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -40,7 +122,7 @@ namespace Terre_Natale_Calculateur
 
         private void button4_Click(object sender, EventArgs e)
         {
-            _character.ExperienceAvailable -= (int) XpToAdd.Value;
+            _character.ExperienceAvailable -= (int)XpToAdd.Value;
             Experience.Text = _character.ExperienceAvailable.ToString(CultureInfo.InvariantCulture);
             ExperienceRestante.Text = _character.ExperienceRemaining.ToString(CultureInfo.InvariantCulture);
         }
@@ -136,8 +218,8 @@ namespace Terre_Natale_Calculateur
             SetCharacter(CharacterManager.Instance.Load(name));
             _currentFilename = name;
             PAChangedHandler(this, null);
-          
-            
+
+
         }
 
         private void ouvrirToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -208,6 +290,12 @@ namespace Terre_Natale_Calculateur
         {
             UpdateAspects();
             updateData();
+            comboBox1.Items.Clear();
+            foreach (var dat in ClassManager.Instance._Classes)
+            {
+                comboBox1.Items.Add(dat.Value.Nom);
+            }
+            recomputeStatsSecond();
         }
 
         private void updateData()
@@ -251,6 +339,48 @@ namespace Terre_Natale_Calculateur
         private void Stats_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Classe current = ClassManager.Instance.getFormName(comboBox1.Text);
+            listBox2.Items.Clear();
+            listBox2.Items.Add(current.Nom);
+            listBox2.Items.Add(current.Maitrise_de_base);
+            listBox2.Items.Add(current.MaitriseSpecial);
+            listBox2.Items.Add("MPC : " + current.MPC);
+            listBox2.Items.Add("MPM : " + current.MPM);
+            listBox2.Items.Add("MPF : " + current.MPF);
+            listBox2.Items.Add("MPE : " + current.MPE);
+            listBox2.Items.Add("RPC : " + current.RPC);
+            listBox2.Items.Add("RPM : " + current.RPM);
+            listBox2.Items.Add("RPF : " + current.RPF);
+            listBox2.Items.Add("RPE : " + current.RPE);
+            listBox2.Items.Add( current.Primaire.ToString());
+            listBox2.Items.Add( current.Secondaire.ToString());
+            Debloque.Text = current.TalentBonus;
+            currentClasse = current;
+            ActualiseStats();
+        }
+        private void recomputeStatsSecond()
+        {
+
+            volonte.Text =( Math.Max(Convert.ToInt32((Convert.ToInt16(Arcane.Text) + Convert.ToInt16(Terre.Text)))/4, _character.GetTalent("Volonté").Level)).ToString();
+            robustesse.Text = (Math.Max(Convert.ToInt32((Convert.ToInt16(Acier.Text) + Convert.ToInt16(Feu.Text))) / 4, _character.GetTalent("Endurance").Level)).ToString();
+            reflexe.Text = (Math.Max(
+                                    Math.Max(Convert.ToInt32((Convert.ToInt16(Eau.Text) + Convert.ToInt16(Vent.Text))) / 4, _character.GetTalent("Esquive").Level)
+                                    , _character.GetTalent("Discipline").Level
+                                    )).ToString();
+
+            deplacement.Text = (3 + Convert.ToInt32(Vent.Text) / 3 - Convert.ToInt32(PenDePoid.Value)).ToString();
+            Base_ini.Text = (Convert.ToInt32(Vent.Text)  - Convert.ToInt32(PenDePoid.Value)).ToString();
+            ReuMana.Text = (6 - Convert.ToInt32(PenDePoid.Value)).ToString();
+
+        }
+
+        private void PenDePoid_ValueChanged(object sender, EventArgs e)
+        {
+            recomputeStatsSecond();
         }
     }
 }
