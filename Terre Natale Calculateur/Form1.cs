@@ -103,6 +103,8 @@ namespace Terre_Natale_Calculateur
             }
 #endregion
             
+            
+
             ExperienceRestante.Text = (int.Parse(Experience.Text) - _character.ExperienceUsed).ToString(CultureInfo.InvariantCulture);
             Fatigue.Text = (_character.Fatigue+bF).ToString(CultureInfo.InvariantCulture);
             Chi.Text = (_character.Chi+bC).ToString(CultureInfo.InvariantCulture);
@@ -110,6 +112,7 @@ namespace Terre_Natale_Calculateur
             Karma.Text = (_character.Karma).ToString(CultureInfo.InvariantCulture);
             Endurance.Text = (_character.Endurance+bE).ToString(CultureInfo.InvariantCulture);
             Santé.Text = @"4";
+            comboBox1.Text = _character.getClasse().Nom;
             recomputeStatsSecond();
         }
 
@@ -360,6 +363,7 @@ namespace Terre_Natale_Calculateur
             listBox2.Items.Add( current.Secondaire.ToString());
             Debloque.Text = current.TalentBonus;
             currentClasse = current;
+            _character.SetClasse(current);
             ActualiseStats();
         }
         private void recomputeStatsSecond()
@@ -381,6 +385,10 @@ namespace Terre_Natale_Calculateur
         private void PenDePoid_ValueChanged(object sender, EventArgs e)
         {
             recomputeStatsSecond();
+        }
+        public void setClasse(string def)
+        {
+            comboBox1.Text = def;
         }
     }
 }

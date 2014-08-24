@@ -13,7 +13,7 @@ namespace Terre_Natale_Calculateur
         private Dictionary<Aspect, int> _bonusAspect = new Dictionary<Aspect, int>();
         private int _experienceAvailable;
         private Race _race;
-
+        private Classe classeChar;
         public Character(string name, TalentsManager talentsManager)
         {
             _bonusAspect = new Dictionary<Aspect, int>
@@ -50,6 +50,8 @@ namespace Terre_Natale_Calculateur
 
         public event EventHandler PAChanged;
 
+        public event EventHandler CharacterLoad;
+
         private void OnExperienceChanged()
         {
             EventHandler handler = ExperienceChanged;
@@ -64,6 +66,12 @@ namespace Terre_Natale_Calculateur
                 handler(this, EventArgs.Empty);
         }
 
+        private void OnCharacterLoad()
+        {
+            EventHandler handler = CharacterLoad;
+            if (handler != null)
+                handler(this, EventArgs.Empty);
+        }
         #endregion Events
 
         public int ExperienceAvailable
@@ -323,12 +331,13 @@ namespace Terre_Natale_Calculateur
             _aspectBonus = serializableCharacter.AspectBonus;
             _aspectMalus = serializableCharacter.AspectMalus;
             _race = RacesManager.Instance.GetRace(serializableCharacter.Race);
-
+            classeChar = ClassManager.Instance.getFormName(serializableCharacter.Classe);
             ExperienceAvailable = serializableCharacter.Experience;
 
             _bonusAspect = _race.AspectBonus;
 
             RecomputePA();
+            
         }
 
         public SerializableCharacter GetSerializableCharacter()
@@ -341,9 +350,17 @@ namespace Terre_Natale_Calculateur
                 AspectMalus = _aspectMalus,
                 Race = _race.Id,
                 Experience = ExperienceAvailable,
+                Classe=classeChar.Nom,
             };
         }
-
+        public void SetClasse(Classe def)
+        {
+            classeChar = def;
+        }
+        public Classe getClasse()
+        {
+            return classeChar;
+        }
         private IEnumerable<SerialisableTalent> GetSerialisableListTalent()
         {
             return (from tal in _talents.Values

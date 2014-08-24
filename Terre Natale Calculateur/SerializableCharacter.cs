@@ -11,5 +11,6 @@ namespace Terre_Natale_Calculateur
         public List<Aspect> AspectMalus;
         public int Race;
         public int Experience;
+        public string Classe;
     }
 }
