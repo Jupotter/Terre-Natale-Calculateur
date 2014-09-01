@@ -178,7 +178,7 @@
             // 
             this.PenDePoid.Location = new System.Drawing.Point(107, 87);
             this.PenDePoid.Name = "PenDePoid";
-            this.PenDePoid.Size = new System.Drawing.Size(52, 20);
+            this.PenDePoid.Size = new System.Drawing.Size(42, 20);
             this.PenDePoid.TabIndex = 36;
             this.PenDePoid.ValueChanged += new System.EventHandler(this.PenDePoid_ValueChanged);
             // 
