@@ -41,6 +41,8 @@
             this.speedBox = new System.Windows.Forms.TextBox();
             this.initBox = new System.Windows.Forms.TextBox();
             this.manaBox = new System.Windows.Forms.TextBox();
+            this.PenDePoid = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.PenDePoid)).BeginInit();
             this.SuspendLayout();
             // 
             // willLabel
@@ -172,10 +174,19 @@
             this.manaBox.Text = "0";
             this.manaBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // PenDePoid
+            // 
+            this.PenDePoid.Location = new System.Drawing.Point(107, 81);
+            this.PenDePoid.Name = "PenDePoid";
+            this.PenDePoid.Size = new System.Drawing.Size(52, 20);
+            this.PenDePoid.TabIndex = 36;
+            this.PenDePoid.ValueChanged += new System.EventHandler(this.PenDePoid_ValueChanged);
+            // 
             // SecondaryStats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.PenDePoid);
             this.Controls.Add(this.manaBox);
             this.Controls.Add(this.initBox);
             this.Controls.Add(this.speedBox);
@@ -191,6 +202,7 @@
             this.Controls.Add(this.willLabel);
             this.Name = "SecondaryStats";
             this.Size = new System.Drawing.Size(346, 302);
+            ((System.ComponentModel.ISupportInitialize)(this.PenDePoid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +223,6 @@
         private System.Windows.Forms.TextBox speedBox;
         private System.Windows.Forms.TextBox initBox;
         private System.Windows.Forms.TextBox manaBox;
+        private System.Windows.Forms.NumericUpDown PenDePoid;
     }
 }
