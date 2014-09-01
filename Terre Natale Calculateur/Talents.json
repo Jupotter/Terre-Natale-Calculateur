@@ -664,13 +664,33 @@
     "Id": 72,
 
   },
-  {
+    {
 
-    "Name": "Ecole specialisé",
-    "PrimaryAspect": 5,
-    "SecondaryAspect": 5,
-    "Type": 1,
-    "Id": 73,
+        "Name": "Ecole specialisé",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 5,
+        "Type": 1,
+        "Id": 73,
 
-  }
+    },
+    {
+
+        "Name": "Apprentissage",
+        "PrimaryAspect": 7,
+        "SecondaryAspect": 7,
+        "Type": 0,
+        "Id": 74,
+
+    },
+    {
+
+        "Name": "Maitrise",
+        "PrimaryAspect": 0,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 75,
+
+    }
+
+
 ]

@@ -21,6 +21,64 @@ namespace Terre_Natale_Calculateur
 
             //CharacterManager.Instance.Save(_character, "Name");
         }
+        #region affichage stats
+        private void recomputeStatsSecond()
+        {
+
+            volonte.Text = (Math.Max(Convert.ToInt32((Convert.ToInt16(Arcane.Text) + Convert.ToInt16(Terre.Text))) / 4, _character.GetTalent("Volonté").Level)).ToString();
+            robustesse.Text = (Math.Max(Convert.ToInt32((Convert.ToInt16(Acier.Text) + Convert.ToInt16(Feu.Text))) / 4, _character.GetTalent("Endurance").Level)).ToString();
+            reflexe.Text = (Math.Max(
+                                    Math.Max(Convert.ToInt32((Convert.ToInt16(Eau.Text) + Convert.ToInt16(Vent.Text))) / 4, _character.GetTalent("Esquive").Level)
+                                    , _character.GetTalent("Discipline").Level
+                                    )).ToString();
+
+            deplacement.Text = (Math.Max(2, 3 + Convert.ToInt32(Vent.Text) / 3 - Convert.ToInt32(PenDePoid.Value))).ToString();
+            Base_ini.Text = (Convert.ToInt32(Vent.Text) - Convert.ToInt32(PenDePoid.Value)).ToString();
+            ReuMana.Text = (6 - Convert.ToInt32(PenDePoid.Value)).ToString();
+
+            if (currentClasse != null)
+            {
+
+                RPC.Text = (4 + currentClasse.RPC).ToString();
+                RPF.Text = (4 + currentClasse.RPF).ToString();
+                RPE.Text = (4 + currentClasse.RPE).ToString();
+                RPM.Text = (4 + currentClasse.RPM).ToString();
+            }
+
+        }
+
+        public void newcharacterfinish()
+        {
+            UpdateAspects();
+            updateData();
+            comboBox1.Items.Clear();
+            foreach (var dat in ClassManager.Instance._Classes)
+            {
+                comboBox1.Items.Add(dat.Value.Nom);
+            }
+            recomputeStatsSecond();
+        }
+
+        private void updateData()
+        {
+            if (_character.Name != null && _character.Race != null)
+            {
+                lab_name.Text = _character.Name;
+                lab_Race.Text = _character.Race.Name;
+            }
+        }
+
+        public void UpdateAspects()
+        {
+            Acier.Text = _character.GetAspectValue(Aspect.Acier).ToString(CultureInfo.InvariantCulture);
+            Arcane.Text = _character.GetAspectValue(Aspect.Arcane).ToString(CultureInfo.InvariantCulture);
+            Eau.Text = _character.GetAspectValue(Aspect.Eau).ToString(CultureInfo.InvariantCulture);
+            Terre.Text = _character.GetAspectValue(Aspect.Terre).ToString(CultureInfo.InvariantCulture);
+            Feu.Text = _character.GetAspectValue(Aspect.Feu).ToString(CultureInfo.InvariantCulture);
+            Vent.Text = _character.GetAspectValue(Aspect.Vent).ToString(CultureInfo.InvariantCulture);
+            Equilibre.Text = _character.GetAspectValue(Aspect.Equilibre).ToString(CultureInfo.InvariantCulture);
+            ActualiseStats();
+        }
 
         private void ActualiseStats()
         {
@@ -29,7 +87,7 @@ namespace Terre_Natale_Calculateur
             int bM = 0;
             int bE = 0;
 
- #region bordel lutie ....
+            #region bordel lutie ....
 
             if (currentClasse != null)
             {
@@ -44,7 +102,7 @@ namespace Terre_Natale_Calculateur
 
                         break;
                     case "L": bC = tmp / 3;
-                        
+
                         break;
                     case "H": bC = tmp / 2;
 
@@ -101,42 +159,26 @@ namespace Terre_Natale_Calculateur
                         break;
                 }
             }
-#endregion
-            
-            
+            #endregion
+
+
 
             ExperienceRestante.Text = (int.Parse(Experience.Text) - _character.ExperienceUsed).ToString(CultureInfo.InvariantCulture);
-            Fatigue.Text = (_character.Fatigue+bF).ToString(CultureInfo.InvariantCulture);
-            Chi.Text = (_character.Chi+bC).ToString(CultureInfo.InvariantCulture);
-            Mana.Text = (_character.Mana+bM).ToString(CultureInfo.InvariantCulture);
+            Fatigue.Text = (_character.Fatigue + bF).ToString(CultureInfo.InvariantCulture);
+            Chi.Text = (_character.Chi + bC).ToString(CultureInfo.InvariantCulture);
+            Mana.Text = (_character.Mana + bM).ToString(CultureInfo.InvariantCulture);
             Karma.Text = (_character.Karma).ToString(CultureInfo.InvariantCulture);
-            Endurance.Text = (_character.Endurance+bE).ToString(CultureInfo.InvariantCulture);
+            Endurance.Text = (_character.Endurance + bE).ToString(CultureInfo.InvariantCulture);
             Santé.Text = @"4";
-            comboBox1.Text = _character.getClasse().Nom;
+            if (_character.getClasse() != null) comboBox1.Text = _character.getClasse().Nom;
             recomputeStatsSecond();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            _character.ExperienceAvailable += (int)XpToAdd.Value;
-            Experience.Text = _character.ExperienceAvailable.ToString(CultureInfo.InvariantCulture);
-            ExperienceRestante.Text = _character.ExperienceRemaining.ToString(CultureInfo.InvariantCulture);
-        }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            _character.ExperienceAvailable -= (int)XpToAdd.Value;
-            Experience.Text = _character.ExperienceAvailable.ToString(CultureInfo.InvariantCulture);
-            ExperienceRestante.Text = _character.ExperienceRemaining.ToString(CultureInfo.InvariantCulture);
-        }
+#endregion
 
-        private FlowLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)
-        {
-            var tpanel = new AspectTalentBox(_character);
-            tpanel.Initialize(predicate, name);
-            return tpanel;
-        }
-
+        #region LinkBoutton and event
+        #region gen
         private void CreateTalentBoxes()
         {
             flowLayoutTalentG.Controls.Clear();
@@ -147,7 +189,7 @@ namespace Terre_Natale_Calculateur
 
             FlowLayoutPanel box;
             foreach (var aspect in from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
-                                   where aspect != Aspect.None
+                                  
                                    select aspect)
             {
                 Aspect aspect1 = aspect;
@@ -184,11 +226,47 @@ namespace Terre_Natale_Calculateur
             }
         }
 
+        private FlowLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)
+        {
+            var tpanel = new AspectTalentBox(_character);
+            tpanel.Initialize(predicate, name);
+            return tpanel;
+        }
+
         private void enregistrersousToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.ShowDialog();
         }
 
+        #endregion
+
+
+#region other
+        private void talentsIdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DumpForm dumpy = new DumpForm();
+            dumpy.Show();
+        }
+
+        private void dumpTalentsjsonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TalentsManager.Instance.DumpJSON();
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            _character.ExperienceAvailable -= (int)XpToAdd.Value;
+            Experience.Text = _character.ExperienceAvailable.ToString(CultureInfo.InvariantCulture);
+            ExperienceRestante.Text = _character.ExperienceRemaining.ToString(CultureInfo.InvariantCulture);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            _character.ExperienceAvailable += (int)XpToAdd.Value;
+            Experience.Text = _character.ExperienceAvailable.ToString(CultureInfo.InvariantCulture);
+            ExperienceRestante.Text = _character.ExperienceRemaining.ToString(CultureInfo.InvariantCulture);
+        }
+
+       
         private void enregistrerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (_currentFilename != null)
@@ -261,54 +339,6 @@ namespace Terre_Natale_Calculateur
                 : System.Drawing.Color.Black;
         }
 
-        public void UpdateAspects()
-        {
-            Acier.Text = _character.GetAspectValue(Aspect.Acier).ToString(CultureInfo.InvariantCulture);
-            Arcane.Text = _character.GetAspectValue(Aspect.Arcane).ToString(CultureInfo.InvariantCulture);
-            Eau.Text = _character.GetAspectValue(Aspect.Eau).ToString(CultureInfo.InvariantCulture);
-            Terre.Text = _character.GetAspectValue(Aspect.Terre).ToString(CultureInfo.InvariantCulture);
-            Feu.Text = _character.GetAspectValue(Aspect.Feu).ToString(CultureInfo.InvariantCulture);
-            Vent.Text = _character.GetAspectValue(Aspect.Vent).ToString(CultureInfo.InvariantCulture);
-            Equilibre.Text = _character.GetAspectValue(Aspect.Equilibre).ToString(CultureInfo.InvariantCulture);
-            ActualiseStats();
-        }
-
-        private void dumpTalentsjsonToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TalentsManager.Instance.DumpJSON();
-        }
-
-        private void talentsIdToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DumpForm dumpy = new DumpForm();
-            dumpy.Show();
-        }
-
-        public Character getCharacter()
-        {
-            return _character;
-        }
-
-        public void newcharacterfinish()
-        {
-            UpdateAspects();
-            updateData();
-            comboBox1.Items.Clear();
-            foreach (var dat in ClassManager.Instance._Classes)
-            {
-                comboBox1.Items.Add(dat.Value.Nom);
-            }
-            recomputeStatsSecond();
-        }
-
-        private void updateData()
-        {
-            if (_character.Name != null && _character.Race != null)
-            {
-                lab_name.Text = _character.Name;
-                lab_Race.Text = _character.Race.Name;
-            }
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -359,33 +389,25 @@ namespace Terre_Natale_Calculateur
             listBox2.Items.Add("RPM : " + current.RPM);
             listBox2.Items.Add("RPF : " + current.RPF);
             listBox2.Items.Add("RPE : " + current.RPE);
-            listBox2.Items.Add( current.Primaire.ToString());
-            listBox2.Items.Add( current.Secondaire.ToString());
+            listBox2.Items.Add(current.Primaire.ToString());
+            listBox2.Items.Add(current.Secondaire.ToString());
             Debloque.Text = current.TalentBonus;
             currentClasse = current;
             _character.SetClasse(current);
             ActualiseStats();
         }
-        private void recomputeStatsSecond()
-        {
-
-            volonte.Text =( Math.Max(Convert.ToInt32((Convert.ToInt16(Arcane.Text) + Convert.ToInt16(Terre.Text)))/4, _character.GetTalent("Volonté").Level)).ToString();
-            robustesse.Text = (Math.Max(Convert.ToInt32((Convert.ToInt16(Acier.Text) + Convert.ToInt16(Feu.Text))) / 4, _character.GetTalent("Endurance").Level)).ToString();
-            reflexe.Text = (Math.Max(
-                                    Math.Max(Convert.ToInt32((Convert.ToInt16(Eau.Text) + Convert.ToInt16(Vent.Text))) / 4, _character.GetTalent("Esquive").Level)
-                                    , _character.GetTalent("Discipline").Level
-                                    )).ToString();
-
-            deplacement.Text = (3 + Convert.ToInt32(Vent.Text) / 3 - Convert.ToInt32(PenDePoid.Value)).ToString();
-            Base_ini.Text = (Convert.ToInt32(Vent.Text)  - Convert.ToInt32(PenDePoid.Value)).ToString();
-            ReuMana.Text = (6 - Convert.ToInt32(PenDePoid.Value)).ToString();
-
-        }
-
         private void PenDePoid_ValueChanged(object sender, EventArgs e)
         {
             recomputeStatsSecond();
         }
+        #endregion
+        #endregion
+
+        public Character getCharacter()
+        {
+            return _character;
+        }
+
         public void setClasse(string def)
         {
             comboBox1.Text = def;

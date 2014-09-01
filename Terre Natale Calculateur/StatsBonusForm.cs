@@ -59,11 +59,19 @@ namespace Terre_Natale_Calculateur
             comboBox4.Items.Add(Aspect.Feu);
             comboBox4.Items.Add(Aspect.Terre);
             comboBox4.Items.Add(Aspect.Vent);
+
+            if(parent.getCharacter().haveBonus())
+            {
+                comboBox1.Text = parent.getCharacter().getBonusAspect().ElementAt(0).ToString();
+                comboBox3.Text = parent.getCharacter().getBonusAspect().ElementAt(1).ToString();
+                comboBox2.Text = parent.getCharacter().getMalusAspect().ElementAt(0).ToString();
+                comboBox4.Text = parent.getCharacter().getMalusAspect().ElementAt(1).ToString();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text != "" || (comboBox2.Text) != "")
+            if (comboBox1.Text != "" && (comboBox2.Text) != "" && comboBox3.Text != "" && (comboBox4.Text) != "")
             {
 
                 parent.getCharacter().SetBonusMalus(

@@ -299,7 +299,8 @@ namespace Terre_Natale_Calculateur
             {
                 if (Aspect.None == talent.SecondaryAspect)
                 {
-                    _aspectPoint[talent.PrimaryAspect] += talent.XPCost;
+                    if (Aspect.None != talent.PrimaryAspect) _aspectPoint[talent.PrimaryAspect] += talent.XPCost;
+                    
                 }
                 else
                 {
@@ -373,6 +374,19 @@ namespace Terre_Natale_Calculateur
                     }).ToList();
         }
 
+        public bool haveBonus()
+        {
+            if (_aspectBonus.Count > 0) return true;
+            return false;
+        }
+        public List<Aspect> getBonusAspect()
+        {
+            return _aspectBonus;
+        }
+        public List<Aspect> getMalusAspect()
+        {
+            return _aspectMalus;
+        }
         #endregion Serialization
 
         /*
