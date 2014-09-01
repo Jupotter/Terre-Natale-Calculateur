@@ -7,6 +7,8 @@ namespace Terre_Natale_Calculateur
 {
     internal class CharacterManager
     {
+        public static Character Current = null;
+
         private static CharacterManager _instance;
 
         private readonly JsonSerializerSettings _serializerSettings;
@@ -39,6 +41,7 @@ namespace Terre_Natale_Calculateur
         public Character Create(String name)
         {
             var character = new Character(name, _talents);
+            Current = character;
             return character;
         }
 
@@ -50,7 +53,8 @@ namespace Terre_Natale_Calculateur
 #if DEBUG
             //Console.WriteLine(_traceWriter);
 #endif
-            return new Character(character);
+            Current = new Character(character);
+            return Current;
         }
 
         public void Save(Character character, String filename)

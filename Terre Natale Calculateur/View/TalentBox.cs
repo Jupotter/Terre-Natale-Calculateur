@@ -22,7 +22,7 @@ namespace Terre_Natale_Calculateur
         {
             _character = character;
             _character.ExperienceChanged += _character_ExperienceChanged;
-            _character.PAChanged += talent_LevelChanged;
+            //_character.PAChanged += talent_LevelChanged;
             SuspendLayout();
 
             _label = new Label
@@ -74,7 +74,7 @@ namespace Terre_Natale_Calculateur
             
         }
 
-        void _character_ExperienceChanged(object sender, EventArgs e)
+        void _character_ExperienceChanged(Character sender)
         {
             actuButton();
         }

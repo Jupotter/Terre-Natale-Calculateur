@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -298,9 +297,7 @@ namespace Terre_Natale_Calculateur
             string name = openFileDialog1.FileName;
             SetCharacter(CharacterManager.Instance.Load(name));
             _currentFilename = name;
-            PAChangedHandler(this, null);
-
-
+            UpdateAspects();
         }
 
         private void ouvrirToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -308,7 +305,7 @@ namespace Terre_Natale_Calculateur
             openFileDialog1.ShowDialog();
         }
 
-        private void PAChangedHandler(object sender, EventArgs e)
+        private void PAChangedHandler(Character sender)
         {
             UpdateAspects();
         }
