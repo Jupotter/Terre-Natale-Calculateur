@@ -48,7 +48,7 @@
             // willLabel
             // 
             this.willLabel.AutoSize = true;
-            this.willLabel.Location = new System.Drawing.Point(49, 4);
+            this.willLabel.Location = new System.Drawing.Point(49, 10);
             this.willLabel.Name = "willLabel";
             this.willLabel.Size = new System.Drawing.Size(52, 13);
             this.willLabel.TabIndex = 0;
@@ -57,7 +57,7 @@
             // robusLabel
             // 
             this.robusLabel.AutoSize = true;
-            this.robusLabel.Location = new System.Drawing.Point(29, 31);
+            this.robusLabel.Location = new System.Drawing.Point(29, 37);
             this.robusLabel.Name = "robusLabel";
             this.robusLabel.Size = new System.Drawing.Size(72, 13);
             this.robusLabel.TabIndex = 1;
@@ -66,7 +66,7 @@
             // reflexLabel
             // 
             this.reflexLabel.AutoSize = true;
-            this.reflexLabel.Location = new System.Drawing.Point(52, 58);
+            this.reflexLabel.Location = new System.Drawing.Point(52, 64);
             this.reflexLabel.Name = "reflexLabel";
             this.reflexLabel.Size = new System.Drawing.Size(49, 13);
             this.reflexLabel.TabIndex = 3;
@@ -75,7 +75,7 @@
             // weightPenaltyLabel
             // 
             this.weightPenaltyLabel.AutoSize = true;
-            this.weightPenaltyLabel.Location = new System.Drawing.Point(7, 85);
+            this.weightPenaltyLabel.Location = new System.Drawing.Point(7, 91);
             this.weightPenaltyLabel.Name = "weightPenaltyLabel";
             this.weightPenaltyLabel.Size = new System.Drawing.Size(94, 13);
             this.weightPenaltyLabel.TabIndex = 7;
@@ -84,7 +84,7 @@
             // speedLabel
             // 
             this.speedLabel.AutoSize = true;
-            this.speedLabel.Location = new System.Drawing.Point(25, 112);
+            this.speedLabel.Location = new System.Drawing.Point(25, 118);
             this.speedLabel.Name = "speedLabel";
             this.speedLabel.Size = new System.Drawing.Size(76, 13);
             this.speedLabel.TabIndex = 9;
@@ -93,7 +93,7 @@
             // initLabel
             // 
             this.initLabel.AutoSize = true;
-            this.initLabel.Location = new System.Drawing.Point(15, 139);
+            this.initLabel.Location = new System.Drawing.Point(15, 145);
             this.initLabel.Name = "initLabel";
             this.initLabel.Size = new System.Drawing.Size(86, 13);
             this.initLabel.TabIndex = 11;
@@ -102,7 +102,7 @@
             // manaLabel
             // 
             this.manaLabel.AutoSize = true;
-            this.manaLabel.Location = new System.Drawing.Point(4, 166);
+            this.manaLabel.Location = new System.Drawing.Point(4, 172);
             this.manaLabel.Name = "manaLabel";
             this.manaLabel.Size = new System.Drawing.Size(97, 13);
             this.manaLabel.TabIndex = 13;
@@ -111,7 +111,7 @@
             // willBox
             // 
             this.willBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.willBox.Location = new System.Drawing.Point(107, 0);
+            this.willBox.Location = new System.Drawing.Point(107, 6);
             this.willBox.Name = "willBox";
             this.willBox.ReadOnly = true;
             this.willBox.Size = new System.Drawing.Size(42, 20);
@@ -122,7 +122,7 @@
             // robusBox
             // 
             this.robusBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.robusBox.Location = new System.Drawing.Point(107, 27);
+            this.robusBox.Location = new System.Drawing.Point(107, 33);
             this.robusBox.Name = "robusBox";
             this.robusBox.ReadOnly = true;
             this.robusBox.Size = new System.Drawing.Size(42, 20);
@@ -133,7 +133,7 @@
             // reflexBox
             // 
             this.reflexBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.reflexBox.Location = new System.Drawing.Point(107, 54);
+            this.reflexBox.Location = new System.Drawing.Point(107, 60);
             this.reflexBox.Name = "reflexBox";
             this.reflexBox.ReadOnly = true;
             this.reflexBox.Size = new System.Drawing.Size(42, 20);
@@ -144,7 +144,7 @@
             // speedBox
             // 
             this.speedBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.speedBox.Location = new System.Drawing.Point(107, 108);
+            this.speedBox.Location = new System.Drawing.Point(107, 114);
             this.speedBox.Name = "speedBox";
             this.speedBox.ReadOnly = true;
             this.speedBox.Size = new System.Drawing.Size(42, 20);
@@ -155,7 +155,7 @@
             // initBox
             // 
             this.initBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.initBox.Location = new System.Drawing.Point(107, 135);
+            this.initBox.Location = new System.Drawing.Point(107, 141);
             this.initBox.Name = "initBox";
             this.initBox.ReadOnly = true;
             this.initBox.Size = new System.Drawing.Size(42, 20);
@@ -166,7 +166,7 @@
             // manaBox
             // 
             this.manaBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.manaBox.Location = new System.Drawing.Point(107, 162);
+            this.manaBox.Location = new System.Drawing.Point(107, 168);
             this.manaBox.Name = "manaBox";
             this.manaBox.ReadOnly = true;
             this.manaBox.Size = new System.Drawing.Size(42, 20);
@@ -176,7 +176,7 @@
             // 
             // PenDePoid
             // 
-            this.PenDePoid.Location = new System.Drawing.Point(107, 81);
+            this.PenDePoid.Location = new System.Drawing.Point(107, 87);
             this.PenDePoid.Name = "PenDePoid";
             this.PenDePoid.Size = new System.Drawing.Size(52, 20);
             this.PenDePoid.TabIndex = 36;

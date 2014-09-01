@@ -7,7 +7,15 @@ namespace Terre_Natale_Calculateur
 {
     internal class CharacterManager
     {
-        public static Character Current = null;
+        private static Character _current;
+
+        public static event Character.CharacterEventHandler CharacterChanged;
+
+        private static void OnCharacterChanged(Character caller)
+        {
+            Character.CharacterEventHandler handler = CharacterChanged;
+            if (handler != null) handler(caller);
+        }
 
         private static CharacterManager _instance;
 
@@ -36,12 +44,21 @@ namespace Terre_Natale_Calculateur
             get { return _instance ?? (_instance = new CharacterManager()); }
         }
 
-       
+        public static Character Current
+        {
+            get { return _current; }
+            set
+            {
+                _current = value;
+                OnCharacterChanged(_current);
+            }
+        }
+
 
         public Character Create(String name)
         {
             var character = new Character(name, _talents);
-            Current = character;
+            _current = character;
             return character;
         }
 
@@ -53,8 +70,8 @@ namespace Terre_Natale_Calculateur
 #if DEBUG
             //Console.WriteLine(_traceWriter);
 #endif
-            Current = new Character(character);
-            return Current;
+            _current = new Character(character);
+            return _current;
         }
 
         public void Save(Character character, String filename)

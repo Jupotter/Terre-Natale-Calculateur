@@ -8,6 +8,7 @@ namespace Terre_Natale_Calculateur.View
         public SecondaryStats()
         {
             InitializeComponent();
+            CharacterManager.CharacterChanged += caller => RecomputeStats();
         }
 
         private void RecomputeStats()
