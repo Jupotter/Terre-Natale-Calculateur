@@ -24,6 +24,15 @@ namespace Terre_Natale_Calculateur.View
                     (Math.Max(2, 3 + character.GetAspectValue(Aspect.Vent)/3 - PenDePoid.Value)).ToString();
                 initBox.Text = (character.GetAspectValue(Aspect.Vent) - PenDePoid.Value).ToString();
                 manaBox.Text = (6 - PenDePoid.Value).ToString();
+
+                if (character.getClasse() != null)
+                {
+                    Classe currentClasse = character.getClasse();
+                    RPC.Text = (4 + currentClasse.RPC).ToString();
+                    RPF.Text = (4 + currentClasse.RPF).ToString();
+                    RPE.Text = (4 + currentClasse.RPE).ToString();
+                    RPM.Text = (4 + currentClasse.RPM).ToString();
+                }
             }
 
             else
@@ -36,15 +45,6 @@ namespace Terre_Natale_Calculateur.View
                 initBox.Text = "0";
                 manaBox.Text = "0";
             }
-
-            //if (currentClasse != null)
-            //{
-
-            //    RPC.Text = (4 + currentClasse.RPC).ToString();
-            //    RPF.Text = (4 + currentClasse.RPF).ToString();
-            //    RPE.Text = (4 + currentClasse.RPE).ToString();
-            //    RPM.Text = (4 + currentClasse.RPM).ToString();
-            //}
 
         }
 
