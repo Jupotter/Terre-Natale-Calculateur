@@ -11,7 +11,7 @@ namespace Terre_Natale_Calculateur.View
             CharacterManager.CharacterChanged += caller => RecomputeStats();
         }
 
-        private void RecomputeStats()
+        public void RecomputeStats()
         {
             if (CharacterManager.Current != null)
             {
