@@ -46,31 +46,33 @@ namespace Terre_Natale_Calculateur
 
         #region Events
 
-        public event EventHandler ExperienceChanged;
+        public delegate void CharacterEventHandler(Character caller);
 
-        public event EventHandler PAChanged;
+        public event CharacterEventHandler ExperienceChanged;
 
-        public event EventHandler CharacterLoad;
+        public event CharacterEventHandler PAChanged;
+
+        public event CharacterEventHandler CharacterLoad;
 
         private void OnExperienceChanged()
         {
-            EventHandler handler = ExperienceChanged;
+            CharacterEventHandler handler = ExperienceChanged;
             if (handler != null)
-                handler(this, EventArgs.Empty);
+                handler(this);
         }
 
         private void OnPAchanged()
         {
-            EventHandler handler = PAChanged;
+            CharacterEventHandler handler = PAChanged;
             if (handler != null)
-                handler(this, EventArgs.Empty);
+                handler(this);
         }
 
         private void OnCharacterLoad()
         {
-            EventHandler handler = CharacterLoad;
+            CharacterEventHandler handler = CharacterLoad;
             if (handler != null)
-                handler(this, EventArgs.Empty);
+                handler(this);
         }
         #endregion Events
 
@@ -150,7 +152,7 @@ namespace Terre_Natale_Calculateur
             }
             _race = r;
             _bonusAspect = bonAspect;
-            PAChanged(this, null);
+            PAChanged(this);
         }
 
         public void SetBonusMalus(Aspect bonus, Aspect malus, Aspect bonus2, Aspect malus2)
@@ -251,6 +253,40 @@ namespace Terre_Natale_Calculateur
         }
 
         #endregion Ressources
+
+        #region stats
+
+        public int Willpower
+        {
+            get
+            {
+                return Math.Max((GetAspectValue(Aspect.Arcane) + GetAspectValue(Aspect.Terre))/4,
+                    GetTalent("Volonté").Level);
+            }
+        }
+
+        public int Robustesse
+        {
+            get
+            {
+                return Math.Max((GetAspectValue(Aspect.Acier) + GetAspectValue(Aspect.Feu)) / 4,
+                    GetTalent("Endurance").Level);
+            }
+        }
+
+        public int Reflex
+        {
+            get
+            {
+                return Math.Max(
+                    Math.Max(
+                    (GetAspectValue(Aspect.Eau) + GetAspectValue(Aspect.Vent))/4,
+                    GetTalent("Esquive").Level),
+                    GetTalent("Discipline").Level);
+            }
+        }
+
+        #endregion
 
         private void RecomputePA()
         {

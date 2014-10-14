@@ -80,35 +80,36 @@
     <Compile Include="Arme.cs" />
     <Compile Include="Armure.cs" />
     <Compile Include="Aspect.cs" />
-    <Compile Include="AspectTalentBox.cs">
+    <Compile Include="View\AspectTalentBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AspectTalentBox.Designer.cs">
+    <Compile Include="View\AspectTalentBox.Designer.cs">
       <DependentUpon>AspectTalentBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Character.cs" />
     <Compile Include="CharacterManager.cs" />
     <Compile Include="Classe.cs" />
     <Compile Include="ClassManager.cs" />
-    <Compile Include="DumpForm.cs">
+    <Compile Include="View\DumpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DumpForm.Designer.cs">
+    <Compile Include="View\DumpForm.Designer.cs">
       <DependentUpon>DumpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Equipement.cs" />
-    <Compile Include="Form1.cs">
+        <Compile Include="View\Form1.cs">
+
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="View\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Log.cs" />
     <Compile Include="LogToFile.cs" />
-    <Compile Include="NewCharacters.cs">
+    <Compile Include="View\NewCharacters.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewCharacters.Designer.cs">
+    <Compile Include="View\NewCharacters.Designer.cs">
       <DependentUpon>NewCharacters.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -118,25 +119,31 @@
     <Compile Include="RacesManager.cs" />
     <Compile Include="SerialisableTalent.cs" />
     <Compile Include="SerializableCharacter.cs" />
-    <Compile Include="StatsBonusForm.cs">
+    <Compile Include="View\SecondaryStats.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SecondaryStats.Designer.cs">
+      <DependentUpon>SecondaryStats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StatsBonusForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StatsBonusForm.Designer.cs">
+    <Compile Include="View\StatsBonusForm.Designer.cs">
       <DependentUpon>StatsBonusForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Talent.cs" />
-    <Compile Include="TalentBox.cs">
+    <Compile Include="View\TalentBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="TalentsManager.cs" />
     <Compile Include="TalentType.cs" />
-    <EmbeddedResource Include="DumpForm.resx">
+    <EmbeddedResource Include="View\DumpForm.resx">
       <DependentUpon>DumpForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewCharacters.resx">
+    <EmbeddedResource Include="View\NewCharacters.resx">
       <DependentUpon>NewCharacters.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -149,7 +156,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="StatsBonusForm.resx">
+    <EmbeddedResource Include="View\SecondaryStats.resx">
+      <DependentUpon>SecondaryStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StatsBonusForm.resx">
       <DependentUpon>StatsBonusForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Classes.json">

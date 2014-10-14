@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -22,30 +21,6 @@ namespace Terre_Natale_Calculateur
             //CharacterManager.Instance.Save(_character, "Name");
         }
         #region affichage stats
-        private void recomputeStatsSecond()
-        {
-
-            volonte.Text = (Math.Max(Convert.ToInt32((Convert.ToInt16(Arcane.Text) + Convert.ToInt16(Terre.Text))) / 4, _character.GetTalent("Volonté").Level)).ToString();
-            robustesse.Text = (Math.Max(Convert.ToInt32((Convert.ToInt16(Acier.Text) + Convert.ToInt16(Feu.Text))) / 4, _character.GetTalent("Endurance").Level)).ToString();
-            reflexe.Text = (Math.Max(
-                                    Math.Max(Convert.ToInt32((Convert.ToInt16(Eau.Text) + Convert.ToInt16(Vent.Text))) / 4, _character.GetTalent("Esquive").Level)
-                                    , _character.GetTalent("Discipline").Level
-                                    )).ToString();
-
-            deplacement.Text = (Math.Max(2, 3 + Convert.ToInt32(Vent.Text) / 3 - Convert.ToInt32(PenDePoid.Value))).ToString();
-            Base_ini.Text = (Convert.ToInt32(Vent.Text) - Convert.ToInt32(PenDePoid.Value)).ToString();
-            ReuMana.Text = (6 - Convert.ToInt32(PenDePoid.Value)).ToString();
-
-            if (currentClasse != null)
-            {
-
-                RPC.Text = (4 + currentClasse.RPC).ToString();
-                RPF.Text = (4 + currentClasse.RPF).ToString();
-                RPE.Text = (4 + currentClasse.RPE).ToString();
-                RPM.Text = (4 + currentClasse.RPM).ToString();
-            }
-
-        }
 
         public void newcharacterfinish()
         {
@@ -56,7 +31,7 @@ namespace Terre_Natale_Calculateur
             {
                 comboBox1.Items.Add(dat.Value.Nom);
             }
-            recomputeStatsSecond();
+            //recomputeStatsSecond();
         }
 
         private void updateData()
@@ -171,7 +146,7 @@ namespace Terre_Natale_Calculateur
             Endurance.Text = (_character.Endurance + bE).ToString(CultureInfo.InvariantCulture);
             Santé.Text = @"4";
             if (_character.getClasse() != null) comboBox1.Text = _character.getClasse().Nom;
-            recomputeStatsSecond();
+            secondaryStats1.RecomputeStats();
         }
 
 
@@ -298,9 +273,7 @@ namespace Terre_Natale_Calculateur
             string name = openFileDialog1.FileName;
             SetCharacter(CharacterManager.Instance.Load(name));
             _currentFilename = name;
-            PAChangedHandler(this, null);
-
-
+            UpdateAspects();
         }
 
         private void ouvrirToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -308,7 +281,7 @@ namespace Terre_Natale_Calculateur
             openFileDialog1.ShowDialog();
         }
 
-        private void PAChangedHandler(object sender, EventArgs e)
+        private void PAChangedHandler(Character sender)
         {
             UpdateAspects();
         }
@@ -398,7 +371,7 @@ namespace Terre_Natale_Calculateur
         }
         private void PenDePoid_ValueChanged(object sender, EventArgs e)
         {
-            recomputeStatsSecond();
+            //recomputeStatsSecond();
         }
         #endregion
         #endregion
