@@ -7,7 +7,7 @@ using Newtonsoft.Json.Serialization;
 using System.Data;
 namespace Terre_Natale_Calculateur
 {
-    internal class TalentsManager
+    internal class TalentsManager : ITalentsManager
     {
 
         private static TalentsManager _instance;

@@ -14,8 +14,7 @@ namespace Terre_Natale_Calculateur
         private int _experienceAvailable;
         private Race _race;
         private Classe classeChar;
-        
-        public Character(string name, TalentsManager talentsManager)
+        public Character(string name, ITalentsManager talentsManager)
         {
             Inventaire = new List<string>();
             _bonusAspect = new Dictionary<Aspect, int>
@@ -357,7 +356,11 @@ namespace Terre_Natale_Calculateur
         #region Serialization
 
         public Character(SerializableCharacter serializableCharacter)
-            : this(serializableCharacter.Name, TalentsManager.Instance)
+            : this(serializableCharacter, TalentsManager.Instance)
+        { }
+
+        public Character(SerializableCharacter serializableCharacter, ITalentsManager manager)
+            : this(serializableCharacter.Name, manager)
         {
             foreach (var item in serializableCharacter.Talents)
             {

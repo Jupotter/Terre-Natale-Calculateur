@@ -86,6 +86,7 @@
     <Compile Include="View\Ajouter Un Talent.Designer.cs">
       <DependentUpon>Ajouter Un Talent.cs</DependentUpon>
     </Compile>
+    <Compile Include="ITalentsManager.cs" />
     <Compile Include="View\AspectTalentBox.cs">
       <SubType>Component</SubType>
     </Compile>
