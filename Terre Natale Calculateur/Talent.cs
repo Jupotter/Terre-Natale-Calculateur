@@ -10,6 +10,7 @@ namespace Terre_Natale_Calculateur
         private int _id;
         private int _level;
         private string _name;
+        private bool _savoir;
         private Aspect _primaryAspect;
         private Aspect _secondaryAspect;
         private TalentType _type;
@@ -52,6 +53,11 @@ namespace Terre_Natale_Calculateur
         {
             get { return _id; }
             set { _id = value; }
+        }
+        public bool Savoir
+        {
+            get { return _savoir; }
+            set { _savoir = value; }
         }
 
         public int Level

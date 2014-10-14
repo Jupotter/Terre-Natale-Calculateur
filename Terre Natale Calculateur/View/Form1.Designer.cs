@@ -183,6 +183,7 @@ namespace Terre_Natale_Calculateur
             this.ExperienceLabel = new System.Windows.Forms.Label();
             this.TalentsG = new System.Windows.Forms.TabPage();
             this.flowLayoutTalentG = new System.Windows.Forms.FlowLayoutPanel();
+            this.Savoirs = new System.Windows.Forms.TabPage();
             this.TalentsM = new System.Windows.Forms.TabPage();
             this.flowLayoutTalentsM = new System.Windows.Forms.FlowLayoutPanel();
             this.TalentsA = new System.Windows.Forms.TabPage();
@@ -190,6 +191,7 @@ namespace Terre_Natale_Calculateur
             this.TalentsP = new System.Windows.Forms.TabPage();
             this.flowLayoutTalentsP = new System.Windows.Forms.FlowLayoutPanel();
             this.stats_secondaire = new System.Windows.Forms.TabPage();
+            this.secondaryStats1 = new Terre_Natale_Calculateur.View.SecondaryStats();
             this.ClasseTab = new System.Windows.Forms.TabPage();
             this.Debloque = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -210,13 +212,14 @@ namespace Terre_Natale_Calculateur
             this.talentsIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.secondaryStats1 = new Terre_Natale_Calculateur.View.SecondaryStats();
+            this.flowLayoutSavoir = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.TalentsG.SuspendLayout();
+            this.Savoirs.SuspendLayout();
             this.TalentsM.SuspendLayout();
             this.TalentsA.SuspendLayout();
             this.TalentsP.SuspendLayout();
@@ -229,6 +232,7 @@ namespace Terre_Natale_Calculateur
             // 
             this.tabControl1.Controls.Add(this.Stats);
             this.tabControl1.Controls.Add(this.TalentsG);
+            this.tabControl1.Controls.Add(this.Savoirs);
             this.tabControl1.Controls.Add(this.TalentsM);
             this.tabControl1.Controls.Add(this.TalentsA);
             this.tabControl1.Controls.Add(this.TalentsP);
@@ -703,6 +707,16 @@ namespace Terre_Natale_Calculateur
             this.flowLayoutTalentG.Size = new System.Drawing.Size(627, 434);
             this.flowLayoutTalentG.TabIndex = 0;
             // 
+            // Savoirs
+            // 
+            this.Savoirs.Controls.Add(this.flowLayoutSavoir);
+            this.Savoirs.Location = new System.Drawing.Point(4, 22);
+            this.Savoirs.Name = "Savoirs";
+            this.Savoirs.Size = new System.Drawing.Size(627, 434);
+            this.Savoirs.TabIndex = 8;
+            this.Savoirs.Text = "Savoirs";
+            this.Savoirs.UseVisualStyleBackColor = true;
+            // 
             // TalentsM
             // 
             this.TalentsM.Controls.Add(this.flowLayoutTalentsM);
@@ -766,6 +780,15 @@ namespace Terre_Natale_Calculateur
             this.stats_secondaire.TabIndex = 7;
             this.stats_secondaire.Text = "Stats secondaire";
             this.stats_secondaire.UseVisualStyleBackColor = true;
+            // 
+            // secondaryStats1
+            // 
+            this.secondaryStats1.AutoSize = true;
+            this.secondaryStats1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.secondaryStats1.Location = new System.Drawing.Point(0, 0);
+            this.secondaryStats1.Name = "secondaryStats1";
+            this.secondaryStats1.Size = new System.Drawing.Size(627, 434);
+            this.secondaryStats1.TabIndex = 0;
             // 
             // ClasseTab
             // 
@@ -937,13 +960,13 @@ namespace Terre_Natale_Calculateur
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // secondaryStats1
+            // flowLayoutSavoir
             // 
-            this.secondaryStats1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.secondaryStats1.Location = new System.Drawing.Point(0, 0);
-            this.secondaryStats1.Name = "secondaryStats1";
-            this.secondaryStats1.Size = new System.Drawing.Size(627, 434);
-            this.secondaryStats1.TabIndex = 0;
+            this.flowLayoutSavoir.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutSavoir.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutSavoir.Name = "flowLayoutSavoir";
+            this.flowLayoutSavoir.Size = new System.Drawing.Size(627, 434);
+            this.flowLayoutSavoir.TabIndex = 1;
             // 
             // Form1
             // 
@@ -964,10 +987,12 @@ namespace Terre_Natale_Calculateur
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.TalentsG.ResumeLayout(false);
+            this.Savoirs.ResumeLayout(false);
             this.TalentsM.ResumeLayout(false);
             this.TalentsA.ResumeLayout(false);
             this.TalentsP.ResumeLayout(false);
             this.stats_secondaire.ResumeLayout(false);
+            this.stats_secondaire.PerformLayout();
             this.ClasseTab.ResumeLayout(false);
             this.ClasseTab.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -1000,6 +1025,8 @@ namespace Terre_Natale_Calculateur
         private ListBox listBox2;
         private ComboBox comboBox1;
         private View.SecondaryStats secondaryStats1;
+        private TabPage Savoirs;
+        private FlowLayoutPanel flowLayoutSavoir;
     }
 }
 

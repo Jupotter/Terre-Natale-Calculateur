@@ -168,18 +168,25 @@ namespace Terre_Natale_Calculateur
                                    select aspect)
             {
                 Aspect aspect1 = aspect;
-                box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect1,
+                box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect1 && !t.Name.StartsWith("Savoir"),
                     String.Format("Talents de {0}", aspect));
                 if (box.Width > size)
                     size = box.Width;
                 flowLayoutTalentG.Controls.Add(box);
             }
+          
+               
+                box = CreateAspectBox(t => t.Type == TalentType.General && t.Name.StartsWith("Savoir"),
+                   "Savoirs");
+                
+                flowLayoutSavoir.Controls.Add(box);
+            
             foreach (AspectTalentBox aspectTalentBox in flowLayoutTalentG.Controls)
             {
                 //aspectTalentBox.AutoSize = false;
                 aspectTalentBox.Width = size;
             }
-
+             
             box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Acier, "Talents d'Acier");
             flowLayoutTalentsM.Controls.Add(box);
             box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Arcane, "Talents d'Arcane");

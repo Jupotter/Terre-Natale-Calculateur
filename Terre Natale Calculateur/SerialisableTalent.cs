@@ -11,5 +11,6 @@ namespace Terre_Natale_Calculateur
       public int id;
       public int level;
       public bool bonus;
+      public bool savoir;
     }
 }

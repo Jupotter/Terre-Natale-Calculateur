@@ -690,7 +690,18 @@
         "Type": 0,
         "Id": 75,
 
-    }
+    },
+    {
+
+    "Name": "Savoir Magie",
+    "PrimaryAspect": 5,
+    "SecondaryAspect": 0,
+    "Type": 0,
+    "Id": 76,
+    "Savoir": true,
+
+  }
+  
 
 
 ]
