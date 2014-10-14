@@ -362,17 +362,20 @@ namespace Terre_Natale_Calculateur
         public Character(SerializableCharacter serializableCharacter, ITalentsManager manager)
             : this(serializableCharacter.Name, manager)
         {
-            foreach (var item in serializableCharacter.Talents)
+            if (serializableCharacter.Talents != null)
             {
-                if (item.bonus)
+                foreach (var item in serializableCharacter.Talents)
                 {
-                    GetTalent(item.id).Increment(item.level - 1);
+                    if (item.bonus)
+                    {
+                        GetTalent(item.id).Increment(item.level - 1);
+                    }
+                    else
+                    {
+                        GetTalent(item.id).Increment(item.level);
+                    }
+                    GetTalent(item.id).HaveBonus = item.bonus;
                 }
-                else
-                {
-                    GetTalent(item.id).Increment(item.level);
-                }
-                GetTalent(item.id).HaveBonus = item.bonus;
             }
             _aspectBonus = serializableCharacter.AspectBonus;
             _aspectMalus = serializableCharacter.AspectMalus;

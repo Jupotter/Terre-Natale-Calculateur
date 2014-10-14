@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
-using Newtonsoft.Json.Serialization;
-using System.Data;
 namespace Terre_Natale_Calculateur
 {
 
@@ -67,7 +67,9 @@ namespace Terre_Natale_Calculateur
 
         public Race GetRace(int Id)
         {
-            return _races[Id];
+            if (_races != null)
+                return _races[Id];
+            return null;
         }
 
         public IDictionary<int, Race> CreateSet()
