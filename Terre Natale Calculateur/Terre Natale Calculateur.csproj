@@ -87,6 +87,9 @@
       <DependentUpon>Ajouter Un Talent.cs</DependentUpon>
     </Compile>
     <Compile Include="ITalentsManager.cs" />
+    <Compile Include="Interfaces\IClassManager.cs" />
+    <Compile Include="Interfaces\IRacesManager.cs" />
+    <Compile Include="Interfaces\ITalentsManager.cs" />
     <Compile Include="View\AspectTalentBox.cs">
       <SubType>Component</SubType>
     </Compile>

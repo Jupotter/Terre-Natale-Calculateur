@@ -8,7 +8,7 @@ using System.Linq;
 namespace Terre_Natale_Calculateur
 {
 
-    class RacesManager
+    class RacesManager : IRacesManager
     {
 
 

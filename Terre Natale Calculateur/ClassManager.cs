@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Terre_Natale_Calculateur
 {
-    internal class ClassManager
+    internal class ClassManager : IClassManager
     {
         private readonly JsonSerializerSettings _serializerSettings;
         public Dictionary<int, Classe> _Classes = new Dictionary<int, Classe>();

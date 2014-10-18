@@ -359,9 +359,19 @@ namespace Terre_Natale_Calculateur
             : this(serializableCharacter, TalentsManager.Instance)
         { }
 
-        public Character(SerializableCharacter serializableCharacter, ITalentsManager manager)
+        public Character(
+            SerializableCharacter serializableCharacter,
+            ITalentsManager manager,
+            IRacesManager racesManager = null,
+            IClassManager classManager = null
+            )
             : this(serializableCharacter.Name, manager)
         {
+            if (racesManager == null)
+                racesManager = RacesManager.Instance;
+            if (classManager == null)
+                classManager = ClassManager.Instance;
+
             if (serializableCharacter.Talents != null)
             {
                 foreach (var item in serializableCharacter.Talents)
@@ -379,8 +389,8 @@ namespace Terre_Natale_Calculateur
             }
             _aspectBonus = serializableCharacter.AspectBonus;
             _aspectMalus = serializableCharacter.AspectMalus;
-            _race = RacesManager.Instance.GetRace(serializableCharacter.Race);
-            classeChar = ClassManager.Instance.getFormName(serializableCharacter.Classe);
+            _race = racesManager.GetRace(serializableCharacter.Race);
+            classeChar = classManager.getFormName(serializableCharacter.Classe);
             ExperienceAvailable = serializableCharacter.Experience;
             Inventaire = serializableCharacter.Inventaire;
             _bonusAspect = _race.AspectBonus;

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharacterTest.cs" />
+    <Compile Include="MockClassManager.cs" />
     <Compile Include="MockTalentManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
