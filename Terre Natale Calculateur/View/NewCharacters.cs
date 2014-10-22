@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Terre_Natale_Calculateur
 {
-    internal partial class NewCharacters : Form
+     internal partial class NewCharacters : Form
     {
         private Character _character;
         IDictionary<int, Race> races;
@@ -59,11 +59,28 @@ namespace Terre_Natale_Calculateur
             }
         }
 
+        public void SetSavoir(string sav)
+        {
+            if (comboBox2.Text == "Savoir")
+            {
+                comboBox2.Text = sav;
+            }
+            else if( (comboBox3.Text) == "Savoir")
+            {
+                comboBox3.Text = sav;
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if (comboBox2.Text== "" || (comboBox3.Text)=="")
             {
                 MessageBox.Show("Selectionnez un bonus.");
+                return;
+            }
+            if (comboBox2.Text == "Savoir" || (comboBox3.Text) == "Savoir")
+            {
+                Choix_du_savoir cs = new Choix_du_savoir(this);
+                cs.ShowDialog();
                 return;
             }
              Dictionary<Aspect, int> resAsp = new Dictionary<Aspect, int>();

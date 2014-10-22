@@ -184,6 +184,7 @@ namespace Terre_Natale_Calculateur
             this.TalentsG = new System.Windows.Forms.TabPage();
             this.flowLayoutTalentG = new System.Windows.Forms.FlowLayoutPanel();
             this.Savoirs = new System.Windows.Forms.TabPage();
+            this.flowLayoutSavoir = new System.Windows.Forms.FlowLayoutPanel();
             this.TalentsM = new System.Windows.Forms.TabPage();
             this.flowLayoutTalentsM = new System.Windows.Forms.FlowLayoutPanel();
             this.TalentsA = new System.Windows.Forms.TabPage();
@@ -212,7 +213,8 @@ namespace Terre_Natale_Calculateur
             this.talentsIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.flowLayoutSavoir = new System.Windows.Forms.FlowLayoutPanel();
+            this.editionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajoutDeTalentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -717,6 +719,14 @@ namespace Terre_Natale_Calculateur
             this.Savoirs.Text = "Savoirs";
             this.Savoirs.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutSavoir
+            // 
+            this.flowLayoutSavoir.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutSavoir.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutSavoir.Name = "flowLayoutSavoir";
+            this.flowLayoutSavoir.Size = new System.Drawing.Size(627, 434);
+            this.flowLayoutSavoir.TabIndex = 1;
+            // 
             // TalentsM
             // 
             this.TalentsM.Controls.Add(this.flowLayoutTalentsM);
@@ -853,7 +863,8 @@ namespace Terre_Natale_Calculateur
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fichierToolStripMenuItem1,
-            this.debugToolStripMenuItem});
+            this.debugToolStripMenuItem,
+            this.editionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(635, 24);
@@ -960,13 +971,20 @@ namespace Terre_Natale_Calculateur
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // flowLayoutSavoir
+            // editionToolStripMenuItem
             // 
-            this.flowLayoutSavoir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutSavoir.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutSavoir.Name = "flowLayoutSavoir";
-            this.flowLayoutSavoir.Size = new System.Drawing.Size(627, 434);
-            this.flowLayoutSavoir.TabIndex = 1;
+            this.editionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ajoutDeTalentToolStripMenuItem});
+            this.editionToolStripMenuItem.Name = "editionToolStripMenuItem";
+            this.editionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.editionToolStripMenuItem.Text = "Edition";
+            // 
+            // ajoutDeTalentToolStripMenuItem
+            // 
+            this.ajoutDeTalentToolStripMenuItem.Name = "ajoutDeTalentToolStripMenuItem";
+            this.ajoutDeTalentToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.ajoutDeTalentToolStripMenuItem.Text = "Ajout de Talent";
+            this.ajoutDeTalentToolStripMenuItem.Click += new System.EventHandler(this.ajoutDeTalentToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1027,6 +1045,8 @@ namespace Terre_Natale_Calculateur
         private View.SecondaryStats secondaryStats1;
         private TabPage Savoirs;
         private FlowLayoutPanel flowLayoutSavoir;
+        private ToolStripMenuItem editionToolStripMenuItem;
+        private ToolStripMenuItem ajoutDeTalentToolStripMenuItem;
     }
 }
 

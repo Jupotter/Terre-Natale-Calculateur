@@ -259,6 +259,8 @@ namespace Terre_Natale_Calculateur
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            TalentsManager.Instance.Initialize();
+            
 
         }
 
@@ -391,6 +393,12 @@ namespace Terre_Natale_Calculateur
         public void setClasse(string def)
         {
             comboBox1.Text = def;
+        }
+
+        private void ajoutDeTalentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ajouter_Un_Talent aj = new Ajouter_Un_Talent();
+            aj.Show();
         }
     }
 }

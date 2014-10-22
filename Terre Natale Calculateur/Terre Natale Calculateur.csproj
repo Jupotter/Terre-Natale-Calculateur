@@ -80,6 +80,12 @@
     <Compile Include="Arme.cs" />
     <Compile Include="Armure.cs" />
     <Compile Include="Aspect.cs" />
+    <Compile Include="View\Ajouter Un Talent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ajouter Un Talent.Designer.cs">
+      <DependentUpon>Ajouter Un Talent.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AspectTalentBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -90,6 +96,12 @@
     <Compile Include="CharacterManager.cs" />
     <Compile Include="Classe.cs" />
     <Compile Include="ClassManager.cs" />
+    <Compile Include="View\Choix du savoir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Choix du savoir.Designer.cs">
+      <DependentUpon>Choix du savoir.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DumpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,8 +109,7 @@
       <DependentUpon>DumpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Equipement.cs" />
-        <Compile Include="View\Form1.cs">
-
+    <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Form1.Designer.cs">
@@ -137,6 +148,12 @@
     </Compile>
     <Compile Include="TalentsManager.cs" />
     <Compile Include="TalentType.cs" />
+    <EmbeddedResource Include="View\Ajouter Un Talent.resx">
+      <DependentUpon>Ajouter Un Talent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Choix du savoir.resx">
+      <DependentUpon>Choix du savoir.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\DumpForm.resx">
       <DependentUpon>DumpForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,7 +197,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Talents.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>

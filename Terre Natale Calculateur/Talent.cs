@@ -155,5 +155,10 @@ namespace Terre_Natale_Calculateur
             if (handler != null)
                 handler(this, EventArgs.Empty);
         }
+        public void reset()
+        {
+            _level = 0;
+            _haveBonus = false;
+        }
     }
 }

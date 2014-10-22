@@ -48,6 +48,10 @@ namespace Terre_Natale_Calculateur
                 talent.Id = _nextId++;
             }
             _talents = list.ToDictionary(talent => talent.Id);
+            for (int i = 1; i < _talents.Count; i++)
+			{
+                _talents[i].reset();
+			} 
             sr.Close();
         }
         public DataTable GetTalents()
@@ -77,6 +81,15 @@ namespace Terre_Natale_Calculateur
             sw.Close();
         }
 
+        public void ExitJSON()
+        {
+            if (_talents == null)
+                return;
+            String json = JsonConvert.SerializeObject(_talents.Values, _serializerSettings);
+            var sw = new StreamWriter("NewTalents.json", false);
+            sw.Write(json);
+            sw.Close();
+        }
         public IDictionary<int, Talent> CreateSet()
         {
             IDictionary<int, Talent> ret = new Dictionary<int, Talent>();
@@ -92,6 +105,34 @@ namespace Terre_Natale_Calculateur
         {
             return _talents[id];
         }
-
+        public List<Talent> GetAllSavoir()
+        {
+            List<Talent> result = new List<Talent>();
+            foreach (var item in _talents)
+            {
+                if (item.Value.Savoir == true)
+                {
+                    result.Add(item.Value);
+                }
+                
+            }
+            return result;
+        }
+        public void AddTalent(Talent newone)
+        {
+            _nextId++;
+            newone.Id = _nextId;
+            _talents.Add(_nextId, newone);
+            ActualizeJson();
+            
+        }
+        public void ActualizeJson()
+        {
+            ExitJSON();
+            if (File.Exists("save Talents" + DateTime.Now.Day + "_" + DateTime.Now.Month + ".json")) File.Delete("save Talents" + DateTime.Now.Day + "_" + DateTime.Now.Month + ".json");
+            File.Move("Talents.json", "save Talents" + DateTime.Now.Day + "_" + DateTime.Now.Month + ".json");
+            if (File.Exists("Talents.json")) File.Delete("Talents.json");
+            File.Move("NewTalents.json", "Talents.json");
+        }
     }
 }
