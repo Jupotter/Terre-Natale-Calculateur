@@ -12,5 +12,7 @@ namespace Terre_Natale_Calculateur
         public int Race;
         public int Experience;
         public string Classe;
+        public List<string> Inventaire;
+        public int penPoid;
     }
 }

@@ -14,8 +14,10 @@ namespace Terre_Natale_Calculateur
         private int _experienceAvailable;
         private Race _race;
         private Classe classeChar;
+        
         public Character(string name, TalentsManager talentsManager)
         {
+            Inventaire = new List<string>();
             _bonusAspect = new Dictionary<Aspect, int>
             {
                  {Aspect.Acier, 0},
@@ -105,6 +107,10 @@ namespace Terre_Natale_Calculateur
         }
 
         public string Name { get; set; }
+
+        public int penPoid{ get; set; }
+
+        public List<string> Inventaire { get; set; }
 
         public Race Race
         {
@@ -370,9 +376,9 @@ namespace Terre_Natale_Calculateur
             _race = RacesManager.Instance.GetRace(serializableCharacter.Race);
             classeChar = ClassManager.Instance.getFormName(serializableCharacter.Classe);
             ExperienceAvailable = serializableCharacter.Experience;
-
+            Inventaire = serializableCharacter.Inventaire;
             _bonusAspect = _race.AspectBonus;
-
+            penPoid = serializableCharacter.penPoid;
             RecomputePA();
             
         }
@@ -388,6 +394,8 @@ namespace Terre_Natale_Calculateur
                 Race = _race.Id,
                 Experience = ExperienceAvailable,
                 Classe=classeChar.Nom,
+                Inventaire=Inventaire,
+                penPoid=penPoid,
             };
         }
         public void SetClasse(Classe def)

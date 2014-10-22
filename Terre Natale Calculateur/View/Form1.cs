@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Terre_Natale_Calculateur
 {
@@ -31,6 +32,8 @@ namespace Terre_Natale_Calculateur
             {
                 comboBox1.Items.Add(dat.Value.Nom);
             }
+            updateXP();
+            secondaryStats1.setPendePoid(_character.penPoid);
             //recomputeStatsSecond();
         }
 
@@ -237,18 +240,21 @@ namespace Terre_Natale_Calculateur
         private void button4_Click(object sender, EventArgs e)
         {
             _character.ExperienceAvailable -= (int)XpToAdd.Value;
-            Experience.Text = _character.ExperienceAvailable.ToString(CultureInfo.InvariantCulture);
-            ExperienceRestante.Text = _character.ExperienceRemaining.ToString(CultureInfo.InvariantCulture);
+            updateXP();   
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             _character.ExperienceAvailable += (int)XpToAdd.Value;
+            updateXP();
+            }
+
+        private void updateXP()
+        {
             Experience.Text = _character.ExperienceAvailable.ToString(CultureInfo.InvariantCulture);
             ExperienceRestante.Text = _character.ExperienceRemaining.ToString(CultureInfo.InvariantCulture);
-        }
-
        
+        }
         private void enregistrerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (_currentFilename != null)
@@ -309,9 +315,19 @@ namespace Terre_Natale_Calculateur
 
             CreateTalentBoxes();
             UpdateAspects();
+            InitInventory();
             _character.PAChanged += PAChangedHandler;
 
             newcharacterfinish();
+        }
+
+        private void SetInventory()
+        {
+            listBox3.Items.Clear();
+            foreach (string item in _character.Inventaire)
+            {
+                listBox3.Items.Add(item);
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -399,6 +415,43 @@ namespace Terre_Natale_Calculateur
         {
             Ajouter_Un_Talent aj = new Ajouter_Un_Talent();
             aj.Show();
+        }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox2.Text = listBox3.Text;
+        }
+
+        private void actualiseInventory()
+        {
+            List<string> nInv = new List<string>();
+            foreach (var item in listBox3.Items)
+            {
+                nInv.Add(item.ToString());
+            }
+
+            _character.Inventaire = nInv;
+        }
+
+        private void ajouter_inv_Click(object sender, EventArgs e)
+        {
+            listBox3.Items.Add(textBox1.Text);
+            actualiseInventory();
+        }
+
+        private void Supprimer_inv_Click(object sender, EventArgs e)
+        {
+            listBox3.Items.Remove(textBox2.Text);
+            actualiseInventory();
+        }
+        private void InitInventory()
+        {
+            if (_character.Inventaire == null) _character.Inventaire = new List<string>();
+            if (_character.Inventaire.Count == 0) return;
+            foreach (string item in _character.Inventaire)
+            {
+                listBox3.Items.Add(item);
+            }
         }
     }
 }

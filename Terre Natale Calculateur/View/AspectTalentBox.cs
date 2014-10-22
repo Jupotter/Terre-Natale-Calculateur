@@ -30,7 +30,13 @@ namespace Terre_Natale_Calculateur
         {
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowOnly;
-            Controls.Add(new Label {Text = name});
+            Controls.Add(new Label
+            {
+                Text = name,
+                Font = new Font(FontFamily.GenericSansSerif, 8, FontStyle.Bold),
+                AutoSize=true,
+            });
+            
             foreach (TalentBox tbox in
                 from talent in _character.Talents
                 where predicate(talent)

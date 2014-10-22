@@ -30,7 +30,10 @@ namespace Terre_Natale_Calculateur
                 AutoSize = true,
                 Anchor = AnchorStyles.Top | AnchorStyles.Left,
                 Margin = new Padding(2),
+                
             };
+            
+           
             Controls.Add(_label);
 
             _minusButton = new Button
@@ -199,6 +202,23 @@ namespace Terre_Natale_Calculateur
             {
                 _plusButton.Enabled = false;
             }
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // TalentBox
+            // 
+            this.Name = "TalentBox";
+            this.Load += new System.EventHandler(this.TalentBox_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void TalentBox_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

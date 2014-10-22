@@ -50,7 +50,17 @@ namespace Terre_Natale_Calculateur.View
 
         private void PenDePoid_ValueChanged(object sender, EventArgs e)
         {
+            CharacterManager.Current.penPoid =Convert.ToInt16 (PenDePoid.Value);
             RecomputeStats();
+        }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        public void setPendePoid(int value)
+        {
+            PenDePoid.Value = value;
         }
     }
 }

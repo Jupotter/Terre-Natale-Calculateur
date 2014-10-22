@@ -37,6 +37,7 @@ namespace Terre_Natale_Calculateur
             _talents.Initialize();
             _classes = ClassManager.Instance;
             _classes.Initialize();
+            
         }
 
         public static CharacterManager Instance

@@ -199,6 +199,13 @@ namespace Terre_Natale_Calculateur
             this.label28 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Inventaire = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Supprimer_inv = new System.Windows.Forms.Button();
+            this.ajouter_inv = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nouveauToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -211,10 +218,10 @@ namespace Terre_Natale_Calculateur
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dumpTalentsjsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.talentsIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.editionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajoutDeTalentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -227,6 +234,11 @@ namespace Terre_Natale_Calculateur
             this.TalentsP.SuspendLayout();
             this.stats_secondaire.SuspendLayout();
             this.ClasseTab.SuspendLayout();
+            this.Inventaire.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -240,12 +252,14 @@ namespace Terre_Natale_Calculateur
             this.tabControl1.Controls.Add(this.TalentsP);
             this.tabControl1.Controls.Add(this.stats_secondaire);
             this.tabControl1.Controls.Add(this.ClasseTab);
+            this.tabControl1.Controls.Add(this.Inventaire);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(635, 460);
+            this.tabControl1.Size = new System.Drawing.Size(674, 593);
             this.tabControl1.TabIndex = 1;
             // 
             // Stats
@@ -265,10 +279,11 @@ namespace Terre_Natale_Calculateur
             this.Stats.Controls.Add(this.button3);
             this.Stats.Controls.Add(this.Experience);
             this.Stats.Controls.Add(this.ExperienceLabel);
+            this.Stats.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Stats.Location = new System.Drawing.Point(4, 22);
             this.Stats.Name = "Stats";
             this.Stats.Padding = new System.Windows.Forms.Padding(3);
-            this.Stats.Size = new System.Drawing.Size(627, 434);
+            this.Stats.Size = new System.Drawing.Size(666, 567);
             this.Stats.TabIndex = 0;
             this.Stats.Text = "Stats";
             this.Stats.UseVisualStyleBackColor = true;
@@ -694,9 +709,10 @@ namespace Terre_Natale_Calculateur
             // TalentsG
             // 
             this.TalentsG.Controls.Add(this.flowLayoutTalentG);
+            this.TalentsG.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TalentsG.Location = new System.Drawing.Point(4, 22);
             this.TalentsG.Name = "TalentsG";
-            this.TalentsG.Size = new System.Drawing.Size(627, 434);
+            this.TalentsG.Size = new System.Drawing.Size(666, 567);
             this.TalentsG.TabIndex = 1;
             this.TalentsG.Text = "Talents Generaux";
             this.TalentsG.UseVisualStyleBackColor = true;
@@ -706,15 +722,16 @@ namespace Terre_Natale_Calculateur
             this.flowLayoutTalentG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutTalentG.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutTalentG.Name = "flowLayoutTalentG";
-            this.flowLayoutTalentG.Size = new System.Drawing.Size(627, 434);
+            this.flowLayoutTalentG.Size = new System.Drawing.Size(666, 567);
             this.flowLayoutTalentG.TabIndex = 0;
             // 
             // Savoirs
             // 
             this.Savoirs.Controls.Add(this.flowLayoutSavoir);
+            this.Savoirs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Savoirs.Location = new System.Drawing.Point(4, 22);
             this.Savoirs.Name = "Savoirs";
-            this.Savoirs.Size = new System.Drawing.Size(627, 434);
+            this.Savoirs.Size = new System.Drawing.Size(666, 567);
             this.Savoirs.TabIndex = 8;
             this.Savoirs.Text = "Savoirs";
             this.Savoirs.UseVisualStyleBackColor = true;
@@ -724,15 +741,16 @@ namespace Terre_Natale_Calculateur
             this.flowLayoutSavoir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutSavoir.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutSavoir.Name = "flowLayoutSavoir";
-            this.flowLayoutSavoir.Size = new System.Drawing.Size(627, 434);
+            this.flowLayoutSavoir.Size = new System.Drawing.Size(666, 567);
             this.flowLayoutSavoir.TabIndex = 1;
             // 
             // TalentsM
             // 
             this.TalentsM.Controls.Add(this.flowLayoutTalentsM);
+            this.TalentsM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TalentsM.Location = new System.Drawing.Point(4, 22);
             this.TalentsM.Name = "TalentsM";
-            this.TalentsM.Size = new System.Drawing.Size(627, 434);
+            this.TalentsM.Size = new System.Drawing.Size(666, 567);
             this.TalentsM.TabIndex = 2;
             this.TalentsM.Text = "Talents Martiaux";
             this.TalentsM.UseVisualStyleBackColor = true;
@@ -742,15 +760,16 @@ namespace Terre_Natale_Calculateur
             this.flowLayoutTalentsM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutTalentsM.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutTalentsM.Name = "flowLayoutTalentsM";
-            this.flowLayoutTalentsM.Size = new System.Drawing.Size(627, 434);
+            this.flowLayoutTalentsM.Size = new System.Drawing.Size(666, 567);
             this.flowLayoutTalentsM.TabIndex = 0;
             // 
             // TalentsA
             // 
             this.TalentsA.Controls.Add(this.flowLayoutTalentsA);
+            this.TalentsA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TalentsA.Location = new System.Drawing.Point(4, 22);
             this.TalentsA.Name = "TalentsA";
-            this.TalentsA.Size = new System.Drawing.Size(627, 434);
+            this.TalentsA.Size = new System.Drawing.Size(666, 567);
             this.TalentsA.TabIndex = 3;
             this.TalentsA.Text = "Talents Aptitudes";
             this.TalentsA.UseVisualStyleBackColor = true;
@@ -760,15 +779,16 @@ namespace Terre_Natale_Calculateur
             this.flowLayoutTalentsA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutTalentsA.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutTalentsA.Name = "flowLayoutTalentsA";
-            this.flowLayoutTalentsA.Size = new System.Drawing.Size(627, 434);
+            this.flowLayoutTalentsA.Size = new System.Drawing.Size(666, 567);
             this.flowLayoutTalentsA.TabIndex = 0;
             // 
             // TalentsP
             // 
             this.TalentsP.Controls.Add(this.flowLayoutTalentsP);
+            this.TalentsP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TalentsP.Location = new System.Drawing.Point(4, 22);
             this.TalentsP.Name = "TalentsP";
-            this.TalentsP.Size = new System.Drawing.Size(627, 434);
+            this.TalentsP.Size = new System.Drawing.Size(666, 567);
             this.TalentsP.TabIndex = 5;
             this.TalentsP.Text = "Talents Prouesse";
             this.TalentsP.UseVisualStyleBackColor = true;
@@ -778,15 +798,16 @@ namespace Terre_Natale_Calculateur
             this.flowLayoutTalentsP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutTalentsP.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutTalentsP.Name = "flowLayoutTalentsP";
-            this.flowLayoutTalentsP.Size = new System.Drawing.Size(627, 434);
+            this.flowLayoutTalentsP.Size = new System.Drawing.Size(666, 567);
             this.flowLayoutTalentsP.TabIndex = 0;
             // 
             // stats_secondaire
             // 
             this.stats_secondaire.Controls.Add(this.secondaryStats1);
+            this.stats_secondaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stats_secondaire.Location = new System.Drawing.Point(4, 22);
             this.stats_secondaire.Name = "stats_secondaire";
-            this.stats_secondaire.Size = new System.Drawing.Size(627, 434);
+            this.stats_secondaire.Size = new System.Drawing.Size(666, 567);
             this.stats_secondaire.TabIndex = 7;
             this.stats_secondaire.Text = "Stats secondaire";
             this.stats_secondaire.UseVisualStyleBackColor = true;
@@ -797,7 +818,7 @@ namespace Terre_Natale_Calculateur
             this.secondaryStats1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.secondaryStats1.Location = new System.Drawing.Point(0, 0);
             this.secondaryStats1.Name = "secondaryStats1";
-            this.secondaryStats1.Size = new System.Drawing.Size(627, 434);
+            this.secondaryStats1.Size = new System.Drawing.Size(666, 567);
             this.secondaryStats1.TabIndex = 0;
             // 
             // ClasseTab
@@ -807,10 +828,11 @@ namespace Terre_Natale_Calculateur
             this.ClasseTab.Controls.Add(this.label28);
             this.ClasseTab.Controls.Add(this.listBox2);
             this.ClasseTab.Controls.Add(this.comboBox1);
+            this.ClasseTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClasseTab.Location = new System.Drawing.Point(4, 22);
             this.ClasseTab.Name = "ClasseTab";
             this.ClasseTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ClasseTab.Size = new System.Drawing.Size(627, 434);
+            this.ClasseTab.Size = new System.Drawing.Size(666, 567);
             this.ClasseTab.TabIndex = 6;
             this.ClasseTab.Text = "Classe";
             this.ClasseTab.UseVisualStyleBackColor = true;
@@ -859,6 +881,83 @@ namespace Terre_Natale_Calculateur
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // Inventaire
+            // 
+            this.Inventaire.Controls.Add(this.splitContainer1);
+            this.Inventaire.Location = new System.Drawing.Point(4, 22);
+            this.Inventaire.Name = "Inventaire";
+            this.Inventaire.Padding = new System.Windows.Forms.Padding(3);
+            this.Inventaire.Size = new System.Drawing.Size(666, 567);
+            this.Inventaire.TabIndex = 9;
+            this.Inventaire.Text = "Inventaire";
+            this.Inventaire.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.listBox3);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.Supprimer_inv);
+            this.splitContainer1.Panel2.Controls.Add(this.ajouter_inv);
+            this.splitContainer1.Panel2.Controls.Add(this.textBox1);
+            this.splitContainer1.Size = new System.Drawing.Size(660, 561);
+            this.splitContainer1.SplitterDistance = 428;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // listBox3
+            // 
+            this.listBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(0, 0);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(660, 428);
+            this.listBox3.TabIndex = 0;
+            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(17, 57);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(358, 20);
+            this.textBox2.TabIndex = 3;
+            // 
+            // Supprimer_inv
+            // 
+            this.Supprimer_inv.Location = new System.Drawing.Point(392, 55);
+            this.Supprimer_inv.Name = "Supprimer_inv";
+            this.Supprimer_inv.Size = new System.Drawing.Size(75, 23);
+            this.Supprimer_inv.TabIndex = 2;
+            this.Supprimer_inv.Text = "Supprimer";
+            this.Supprimer_inv.UseVisualStyleBackColor = true;
+            this.Supprimer_inv.Click += new System.EventHandler(this.Supprimer_inv_Click);
+            // 
+            // ajouter_inv
+            // 
+            this.ajouter_inv.Location = new System.Drawing.Point(392, 16);
+            this.ajouter_inv.Name = "ajouter_inv";
+            this.ajouter_inv.Size = new System.Drawing.Size(75, 23);
+            this.ajouter_inv.TabIndex = 1;
+            this.ajouter_inv.Text = "Ajouter";
+            this.ajouter_inv.UseVisualStyleBackColor = true;
+            this.ajouter_inv.Click += new System.EventHandler(this.ajouter_inv_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(17, 16);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(358, 20);
+            this.textBox1.TabIndex = 0;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -867,7 +966,7 @@ namespace Terre_Natale_Calculateur
             this.editionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(635, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(674, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -961,16 +1060,6 @@ namespace Terre_Natale_Calculateur
             this.talentsIdToolStripMenuItem.Text = "Talents Id";
             this.talentsIdToolStripMenuItem.Click += new System.EventHandler(this.talentsIdToolStripMenuItem_Click);
             // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.Filter = "Feuille de personnage | *.chr";
-            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
             // editionToolStripMenuItem
             // 
             this.editionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -986,11 +1075,21 @@ namespace Terre_Natale_Calculateur
             this.ajoutDeTalentToolStripMenuItem.Text = "Ajout de Talent";
             this.ajoutDeTalentToolStripMenuItem.Click += new System.EventHandler(this.ajoutDeTalentToolStripMenuItem_Click);
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Feuille de personnage | *.chr";
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 484);
+            this.ClientSize = new System.Drawing.Size(674, 617);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
@@ -1013,6 +1112,12 @@ namespace Terre_Natale_Calculateur
             this.stats_secondaire.PerformLayout();
             this.ClasseTab.ResumeLayout(false);
             this.ClasseTab.PerformLayout();
+            this.Inventaire.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -1047,6 +1152,13 @@ namespace Terre_Natale_Calculateur
         private FlowLayoutPanel flowLayoutSavoir;
         private ToolStripMenuItem editionToolStripMenuItem;
         private ToolStripMenuItem ajoutDeTalentToolStripMenuItem;
+        private TabPage Inventaire;
+        private SplitContainer splitContainer1;
+        private ListBox listBox3;
+        private TextBox textBox2;
+        private Button Supprimer_inv;
+        private Button ajouter_inv;
+        private TextBox textBox1;
     }
 }
 

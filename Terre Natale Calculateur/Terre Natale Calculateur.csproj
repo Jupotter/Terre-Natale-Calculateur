@@ -179,6 +179,9 @@
     <EmbeddedResource Include="View\StatsBonusForm.resx">
       <DependentUpon>StatsBonusForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\TalentBox.resx">
+      <DependentUpon>TalentBox.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Classes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
