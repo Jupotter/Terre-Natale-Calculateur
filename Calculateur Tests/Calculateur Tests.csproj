@@ -53,6 +53,7 @@
     <Compile Include="MockClassManager.cs" />
     <Compile Include="MockTalentManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TalentTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Terre Natale Calculateur\Terre Natale Calculateur.csproj">

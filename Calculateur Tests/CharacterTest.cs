@@ -9,7 +9,7 @@ namespace Calculateur_Tests
     {
         readonly ITalentsManager talentsManager = new MockTalentManager();
 
-        [Fact]
+        //[Fact]
         public void CharacterSimpleConstructorTest()
         {
             string name = "TestName";
@@ -27,8 +27,8 @@ namespace Calculateur_Tests
             Assert.Equal(20, character.Endurance);*/
         }
 
-        [Fact]
-        public void CharacterSerializedConstructorTest()
+        //[Fact]
+        private void CharacterSerializedConstructorTest()
         {
             var serializedCharacter = new SerializableCharacter
             {

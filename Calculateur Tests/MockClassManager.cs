@@ -20,7 +20,7 @@ namespace Calculateur_Tests
 
         public Classe getFormName(string search)
         {
-
+            return null;
         }
     }
 }
