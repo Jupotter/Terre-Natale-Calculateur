@@ -186,7 +186,7 @@ namespace Terre_Natale_Calculateur
             // 
             this._minusButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this._minusButton.AutoSize = true;
-            this._minusButton.Location = new System.Drawing.Point(138, 3);
+            this._minusButton.Location = new System.Drawing.Point(3, 3);
             this._minusButton.Name = "_minusButton";
             this._minusButton.Size = new System.Drawing.Size(23, 23);
             this._minusButton.TabIndex = 1;
@@ -204,7 +204,7 @@ namespace Terre_Natale_Calculateur
             // _plusButton
             // 
             this._plusButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this._plusButton.Location = new System.Drawing.Point(3, 3);
+            this._plusButton.Location = new System.Drawing.Point(138, 3);
             this._plusButton.Name = "_plusButton";
             this._plusButton.Size = new System.Drawing.Size(23, 23);
             this._plusButton.TabIndex = 3;
@@ -231,9 +231,9 @@ namespace Terre_Natale_Calculateur
             // 
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.Controls.Add(this._minusButton);
-            this.flowLayoutPanel1.Controls.Add(this._progress);
             this.flowLayoutPanel1.Controls.Add(this._plusButton);
+            this.flowLayoutPanel1.Controls.Add(this._progress);
+            this.flowLayoutPanel1.Controls.Add(this._minusButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(74, 0);
