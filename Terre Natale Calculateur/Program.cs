@@ -12,9 +12,13 @@ namespace Terre_Natale_Calculateur
         [STAThread]
         private static void Main()
         {
+#if DEBUG
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+#else
             try
             {
-
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form1());
@@ -24,6 +28,7 @@ namespace Terre_Natale_Calculateur
                 Log.Logger.WriteException(e);
                 ExceptionDispatchInfo.Capture(e).Throw();
             }
+#endif
         }
     }
 }
