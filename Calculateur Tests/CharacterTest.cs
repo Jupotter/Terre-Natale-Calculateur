@@ -9,7 +9,7 @@ namespace Calculateur_Tests
     {
         readonly ITalentsManager talentsManager = new MockTalentManager();
 
-        //[Fact]
+        [Fact]
         public void CharacterSimpleConstructorTest()
         {
             string name = "TestName";
@@ -27,7 +27,7 @@ namespace Calculateur_Tests
             Assert.Equal(20, character.Endurance);*/
         }
 
-        //[Fact]
+        [Fact]
         private void CharacterSerializedConstructorTest()
         {
             var serializedCharacter = new SerializableCharacter
@@ -35,10 +35,10 @@ namespace Calculateur_Tests
                 Name = "Name",
                 Experience = 50,
                 AspectMalus = new List<Aspect> {Aspect.Arcane, Aspect.Feu},
-                AspectBonus = new List<Aspect> {Aspect.Acier, Aspect.Eau}
+                AspectBonus = new List<Aspect> {Aspect.Acier, Aspect.Eau},
             };
 
-            var character = new Character(serializedCharacter, talentsManager);
+            var character = new Character(serializedCharacter, talentsManager,classManager: new MockClassManager());
 
             Assert.Equal("Name", character.Name);
             Assert.Equal(200, character.ExperienceAvailable);
