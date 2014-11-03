@@ -41,6 +41,54 @@ namespace Calculateur_Tests
             Assert.Equal(secondary, talent.SecondaryAspect);
         }
 
+        [Theory]
+        [InlineData(0, 0)]
+        [InlineData(1, 10)]
+        [InlineData(2, 30)]
+        [InlineData(3, 60)]
+        [InlineData(4, 100)]
+        [InlineData(5, 150)]
+        private void SimpleLevelTest(int level, int xp)
+        {
+            Talent talent = new Talent(
+                "Test",
+                TalentType.General,
+                Aspect.Acier);
+
+            talent.Increment(level);
+
+            Assert.Equal(level, talent.Level);
+            Assert.Equal(xp, talent.XPCost);
+        }
+
+        [Fact]
+        private void LevelLowBoundTest()
+        {
+            Talent talent = new Talent(
+                "Test",
+                TalentType.General,
+                Aspect.Acier);
+
+            talent.Decrement();
+
+            Assert.Equal(0, talent.Level);
+        }
+
+        [Fact]
+        private void LevelHighBoundTest()
+        {
+            Talent talent = new Talent(
+                "Test",
+                TalentType.General,
+                Aspect.Acier);
+
+            talent.Increment(5);
+
+            talent.Increment();
+
+            Assert.Equal(5, talent.Level);
+        }
+
         /// <summary>
         /// All combination of type and two aspects. The first aspect is never None
         /// </summary>
