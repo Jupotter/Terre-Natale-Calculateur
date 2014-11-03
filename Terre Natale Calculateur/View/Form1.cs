@@ -166,15 +166,22 @@ namespace Terre_Natale_Calculateur
             int size = 0;
 
             TableLayoutPanel box;
-            foreach (var aspect in from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
+            foreach (var aspect in from aspect in ((Aspect[])Enum.GetValues(typeof(Aspect)))
+                                   where aspect != Aspect.None && aspect != Aspect.Equilibre
                                    select aspect)
             {
-                Aspect aspect1 = aspect;
-                box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect1 && !t.Name.StartsWith("Savoir"),
+                box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect && !t.Name.StartsWith("Savoir"),
                     String.Format("Talents de {0}", aspect));
                 box.Dock = DockStyle.Fill;
                 layoutTalentG.Controls.Add(box);
             }
+
+            box = CreateAspectBox(t => t.Type == TalentType.General 
+                && (t.PrimaryAspect == Aspect.None || t.PrimaryAspect == Aspect.Equilibre)
+                && !t.Name.StartsWith("Savoir"),
+                    String.Format("Talents de classe"));
+            box.Dock = DockStyle.Fill;
+            layoutTalentG.Controls.Add(box);
           
                
                 box = CreateAspectBox(t => t.Type == TalentType.General && t.Name.StartsWith("Savoir"),
