@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Terre_Natale_Calculateur
 {
-    internal partial class AspectTalentBox : FlowLayoutPanel
+    internal partial class AspectTalentBox : TableLayoutPanel
     {
         private readonly Character _character;
         private readonly List<TalentBox> _talentBoxes;
@@ -21,8 +21,6 @@ namespace Terre_Natale_Calculateur
             _talentBoxes = new List<TalentBox>();
             InitializeComponent();
 
-            FlowDirection = FlowDirection.TopDown;
-            WrapContents = false;
             BorderStyle = BorderStyle.FixedSingle;
         }
 
@@ -30,20 +28,22 @@ namespace Terre_Natale_Calculateur
         {
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowOnly;
+            ColumnCount = 1;
+            ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             Controls.Add(new Label
             {
                 Text = name,
                 Font = new Font(FontFamily.GenericSansSerif, 8, FontStyle.Bold),
                 AutoSize=true,
-            });
+            }, 0, 0);
             
             foreach (TalentBox tbox in
                 from talent in _character.Talents
                 where predicate(talent)
                 select new TalentBox(_character) {LinkedTalent = talent})
             {
-                tbox.Margin = new Padding(0);
                 tbox.UpdateValue();
+                tbox.Dock = DockStyle.Fill;
                 Controls.Add(tbox);
             }
 
@@ -71,12 +71,6 @@ namespace Terre_Natale_Calculateur
 
         protected override void OnSizeChanged(EventArgs e)
         {
-            base.OnSizeChanged(e);
-
-            foreach (var talentBox in _talentBoxes)
-            {
-                talentBox.Width = Width;
-            }
         }
     }
 }

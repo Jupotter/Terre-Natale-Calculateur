@@ -41,9 +41,9 @@ namespace Terre_Natale_Calculateur
 
         private ToolStripMenuItem fichierToolStripMenuItem1;
 
-        private FlowLayoutPanel flowLayoutTalentG;
+        private TableLayoutPanel layoutTalentG;
 
-        private FlowLayoutPanel flowLayoutTalentsM;
+        private TableLayoutPanel layoutTalentsM;
 
         private GroupBox groupBox2;
 
@@ -182,17 +182,16 @@ namespace Terre_Natale_Calculateur
             this.Experience = new System.Windows.Forms.TextBox();
             this.ExperienceLabel = new System.Windows.Forms.Label();
             this.TalentsG = new System.Windows.Forms.TabPage();
-            this.flowLayoutTalentG = new System.Windows.Forms.FlowLayoutPanel();
+            this.layoutTalentG = new System.Windows.Forms.TableLayoutPanel();
             this.Savoirs = new System.Windows.Forms.TabPage();
-            this.flowLayoutSavoir = new System.Windows.Forms.FlowLayoutPanel();
+            this.layoutSavoir = new System.Windows.Forms.TableLayoutPanel();
             this.TalentsM = new System.Windows.Forms.TabPage();
-            this.flowLayoutTalentsM = new System.Windows.Forms.FlowLayoutPanel();
+            this.layoutTalentsM = new System.Windows.Forms.TableLayoutPanel();
             this.TalentsA = new System.Windows.Forms.TabPage();
-            this.flowLayoutTalentsA = new System.Windows.Forms.FlowLayoutPanel();
+            this.layoutTalentsA = new System.Windows.Forms.TableLayoutPanel();
             this.TalentsP = new System.Windows.Forms.TabPage();
-            this.flowLayoutTalentsP = new System.Windows.Forms.FlowLayoutPanel();
+            this.layoutTalentsP = new System.Windows.Forms.TableLayoutPanel();
             this.stats_secondaire = new System.Windows.Forms.TabPage();
-            this.secondaryStats1 = new Terre_Natale_Calculateur.View.SecondaryStats();
             this.ClasseTab = new System.Windows.Forms.TabPage();
             this.Debloque = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -222,6 +221,7 @@ namespace Terre_Natale_Calculateur
             this.ajoutDeTalentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.secondaryStats1 = new Terre_Natale_Calculateur.View.SecondaryStats();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -708,7 +708,7 @@ namespace Terre_Natale_Calculateur
             // 
             // TalentsG
             // 
-            this.TalentsG.Controls.Add(this.flowLayoutTalentG);
+            this.TalentsG.Controls.Add(this.layoutTalentG);
             this.TalentsG.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TalentsG.Location = new System.Drawing.Point(4, 22);
             this.TalentsG.Name = "TalentsG";
@@ -717,17 +717,22 @@ namespace Terre_Natale_Calculateur
             this.TalentsG.Text = "Talents Generaux";
             this.TalentsG.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutTalentG
+            // layoutTalentG
             // 
-            this.flowLayoutTalentG.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutTalentG.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutTalentG.Name = "flowLayoutTalentG";
-            this.flowLayoutTalentG.Size = new System.Drawing.Size(666, 567);
-            this.flowLayoutTalentG.TabIndex = 0;
+            this.layoutTalentG.AutoSize = true;
+            this.layoutTalentG.ColumnCount = 2;
+            this.layoutTalentG.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutTalentG.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutTalentG.Location = new System.Drawing.Point(0, 0);
+            this.layoutTalentG.Name = "layoutTalentG";
+            this.layoutTalentG.RowCount = 1;
+            this.layoutTalentG.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.layoutTalentG.Size = new System.Drawing.Size(415, 346);
+            this.layoutTalentG.TabIndex = 0;
             // 
             // Savoirs
             // 
-            this.Savoirs.Controls.Add(this.flowLayoutSavoir);
+            this.Savoirs.Controls.Add(this.layoutSavoir);
             this.Savoirs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Savoirs.Location = new System.Drawing.Point(4, 22);
             this.Savoirs.Name = "Savoirs";
@@ -736,17 +741,22 @@ namespace Terre_Natale_Calculateur
             this.Savoirs.Text = "Savoirs";
             this.Savoirs.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutSavoir
+            // layoutSavoir
             // 
-            this.flowLayoutSavoir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutSavoir.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutSavoir.Name = "flowLayoutSavoir";
-            this.flowLayoutSavoir.Size = new System.Drawing.Size(666, 567);
-            this.flowLayoutSavoir.TabIndex = 1;
+            this.layoutSavoir.AutoSize = true;
+            this.layoutSavoir.ColumnCount = 2;
+            this.layoutSavoir.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutSavoir.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutSavoir.Location = new System.Drawing.Point(0, 0);
+            this.layoutSavoir.Name = "layoutSavoir";
+            this.layoutSavoir.RowCount = 1;
+            this.layoutSavoir.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.layoutSavoir.Size = new System.Drawing.Size(431, 148);
+            this.layoutSavoir.TabIndex = 1;
             // 
             // TalentsM
             // 
-            this.TalentsM.Controls.Add(this.flowLayoutTalentsM);
+            this.TalentsM.Controls.Add(this.layoutTalentsM);
             this.TalentsM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TalentsM.Location = new System.Drawing.Point(4, 22);
             this.TalentsM.Name = "TalentsM";
@@ -755,17 +765,22 @@ namespace Terre_Natale_Calculateur
             this.TalentsM.Text = "Talents Martiaux";
             this.TalentsM.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutTalentsM
+            // layoutTalentsM
             // 
-            this.flowLayoutTalentsM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutTalentsM.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutTalentsM.Name = "flowLayoutTalentsM";
-            this.flowLayoutTalentsM.Size = new System.Drawing.Size(666, 567);
-            this.flowLayoutTalentsM.TabIndex = 0;
+            this.layoutTalentsM.AutoSize = true;
+            this.layoutTalentsM.ColumnCount = 2;
+            this.layoutTalentsM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutTalentsM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutTalentsM.Location = new System.Drawing.Point(0, 0);
+            this.layoutTalentsM.Name = "layoutTalentsM";
+            this.layoutTalentsM.RowCount = 1;
+            this.layoutTalentsM.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.layoutTalentsM.Size = new System.Drawing.Size(352, 182);
+            this.layoutTalentsM.TabIndex = 0;
             // 
             // TalentsA
             // 
-            this.TalentsA.Controls.Add(this.flowLayoutTalentsA);
+            this.TalentsA.Controls.Add(this.layoutTalentsA);
             this.TalentsA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TalentsA.Location = new System.Drawing.Point(4, 22);
             this.TalentsA.Name = "TalentsA";
@@ -774,17 +789,22 @@ namespace Terre_Natale_Calculateur
             this.TalentsA.Text = "Talents Aptitudes";
             this.TalentsA.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutTalentsA
+            // layoutTalentsA
             // 
-            this.flowLayoutTalentsA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutTalentsA.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutTalentsA.Name = "flowLayoutTalentsA";
-            this.flowLayoutTalentsA.Size = new System.Drawing.Size(666, 567);
-            this.flowLayoutTalentsA.TabIndex = 0;
+            this.layoutTalentsA.AutoSize = true;
+            this.layoutTalentsA.ColumnCount = 2;
+            this.layoutTalentsA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutTalentsA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutTalentsA.Location = new System.Drawing.Point(0, 0);
+            this.layoutTalentsA.Name = "layoutTalentsA";
+            this.layoutTalentsA.RowCount = 1;
+            this.layoutTalentsA.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.layoutTalentsA.Size = new System.Drawing.Size(312, 138);
+            this.layoutTalentsA.TabIndex = 0;
             // 
             // TalentsP
             // 
-            this.TalentsP.Controls.Add(this.flowLayoutTalentsP);
+            this.TalentsP.Controls.Add(this.layoutTalentsP);
             this.TalentsP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TalentsP.Location = new System.Drawing.Point(4, 22);
             this.TalentsP.Name = "TalentsP";
@@ -793,13 +813,18 @@ namespace Terre_Natale_Calculateur
             this.TalentsP.Text = "Talents Prouesse";
             this.TalentsP.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutTalentsP
+            // layoutTalentsP
             // 
-            this.flowLayoutTalentsP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutTalentsP.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutTalentsP.Name = "flowLayoutTalentsP";
-            this.flowLayoutTalentsP.Size = new System.Drawing.Size(666, 567);
-            this.flowLayoutTalentsP.TabIndex = 0;
+            this.layoutTalentsP.AutoSize = true;
+            this.layoutTalentsP.ColumnCount = 2;
+            this.layoutTalentsP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutTalentsP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutTalentsP.Location = new System.Drawing.Point(0, 0);
+            this.layoutTalentsP.Name = "layoutTalentsP";
+            this.layoutTalentsP.RowCount = 1;
+            this.layoutTalentsP.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.layoutTalentsP.Size = new System.Drawing.Size(453, 131);
+            this.layoutTalentsP.TabIndex = 0;
             // 
             // stats_secondaire
             // 
@@ -811,15 +836,6 @@ namespace Terre_Natale_Calculateur
             this.stats_secondaire.TabIndex = 7;
             this.stats_secondaire.Text = "Stats secondaire";
             this.stats_secondaire.UseVisualStyleBackColor = true;
-            // 
-            // secondaryStats1
-            // 
-            this.secondaryStats1.AutoSize = true;
-            this.secondaryStats1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.secondaryStats1.Location = new System.Drawing.Point(0, 0);
-            this.secondaryStats1.Name = "secondaryStats1";
-            this.secondaryStats1.Size = new System.Drawing.Size(666, 567);
-            this.secondaryStats1.TabIndex = 0;
             // 
             // ClasseTab
             // 
@@ -1085,10 +1101,20 @@ namespace Terre_Natale_Calculateur
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // secondaryStats1
+            // 
+            this.secondaryStats1.AutoSize = true;
+            this.secondaryStats1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.secondaryStats1.Location = new System.Drawing.Point(0, 0);
+            this.secondaryStats1.Name = "secondaryStats1";
+            this.secondaryStats1.Size = new System.Drawing.Size(666, 567);
+            this.secondaryStats1.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(674, 617);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
@@ -1104,10 +1130,15 @@ namespace Terre_Natale_Calculateur
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.TalentsG.ResumeLayout(false);
+            this.TalentsG.PerformLayout();
             this.Savoirs.ResumeLayout(false);
+            this.Savoirs.PerformLayout();
             this.TalentsM.ResumeLayout(false);
+            this.TalentsM.PerformLayout();
             this.TalentsA.ResumeLayout(false);
+            this.TalentsA.PerformLayout();
             this.TalentsP.ResumeLayout(false);
+            this.TalentsP.PerformLayout();
             this.stats_secondaire.ResumeLayout(false);
             this.stats_secondaire.PerformLayout();
             this.ClasseTab.ResumeLayout(false);
@@ -1127,9 +1158,9 @@ namespace Terre_Natale_Calculateur
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutTalentsA;
+        private TableLayoutPanel layoutTalentsA;
         private TabPage TalentsP;
-        private FlowLayoutPanel flowLayoutTalentsP;
+        private TableLayoutPanel layoutTalentsP;
         private ToolStripMenuItem debugToolStripMenuItem;
         private ToolStripMenuItem dumpTalentsjsonToolStripMenuItem;
         private ToolStripMenuItem talentsIdToolStripMenuItem;
@@ -1149,7 +1180,7 @@ namespace Terre_Natale_Calculateur
         private ComboBox comboBox1;
         private View.SecondaryStats secondaryStats1;
         private TabPage Savoirs;
-        private FlowLayoutPanel flowLayoutSavoir;
+        private TableLayoutPanel layoutSavoir;
         private ToolStripMenuItem editionToolStripMenuItem;
         private ToolStripMenuItem ajoutDeTalentToolStripMenuItem;
         private TabPage Inventaire;

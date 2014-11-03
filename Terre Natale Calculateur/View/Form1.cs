@@ -159,46 +159,48 @@ namespace Terre_Natale_Calculateur
         #region gen
         private void CreateTalentBoxes()
         {
-            flowLayoutTalentG.Controls.Clear();
-            flowLayoutTalentsM.Controls.Clear();
-            flowLayoutTalentsA.Controls.Clear();
+            layoutTalentG.Controls.Clear();
+            layoutTalentsM.Controls.Clear();
+            layoutTalentsA.Controls.Clear();
 
             int size = 0;
 
-            FlowLayoutPanel box;
+            TableLayoutPanel box;
             foreach (var aspect in from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
-                                  
                                    select aspect)
             {
                 Aspect aspect1 = aspect;
                 box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect1 && !t.Name.StartsWith("Savoir"),
                     String.Format("Talents de {0}", aspect));
-                if (box.Width > size)
-                    size = box.Width;
-                flowLayoutTalentG.Controls.Add(box);
+                box.Dock = DockStyle.Fill;
+                layoutTalentG.Controls.Add(box);
             }
           
                
                 box = CreateAspectBox(t => t.Type == TalentType.General && t.Name.StartsWith("Savoir"),
                    "Savoirs");
-                
-                flowLayoutSavoir.Controls.Add(box);
+                box.Dock = DockStyle.Fill;
+                layoutSavoir.Controls.Add(box);
             
-            foreach (AspectTalentBox aspectTalentBox in flowLayoutTalentG.Controls)
+            foreach (AspectTalentBox aspectTalentBox in layoutTalentG.Controls)
             {
                 //aspectTalentBox.AutoSize = false;
-                aspectTalentBox.Width = size;
+                //aspectTalentBox.Width = size;
             }
              
             box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Acier, "Talents d'Acier");
-            flowLayoutTalentsM.Controls.Add(box);
+            box.Dock = DockStyle.Fill;
+            layoutTalentsM.Controls.Add(box);
             box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Arcane, "Talents d'Arcane");
-            flowLayoutTalentsM.Controls.Add(box);
+            box.Dock = DockStyle.Fill;
+            layoutTalentsM.Controls.Add(box);
 
             box = CreateAspectBox(t => t.Type == TalentType.Aptitude && t.PrimaryAspect == Aspect.Acier, "Aptitude d'Acier");
-            flowLayoutTalentsA.Controls.Add(box);
+            box.Dock = DockStyle.Fill;
+            layoutTalentsA.Controls.Add(box);
             box = CreateAspectBox(t => t.Type == TalentType.Aptitude && t.PrimaryAspect == Aspect.Arcane, "Aptitude d'Arcane");
-            flowLayoutTalentsA.Controls.Add(box);
+            box.Dock = DockStyle.Fill;
+            layoutTalentsA.Controls.Add(box);
 
             foreach (var aspect in from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
                                    where aspect != Aspect.None && aspect != Aspect.Equilibre
@@ -207,11 +209,12 @@ namespace Terre_Natale_Calculateur
                 Aspect aspect1 = aspect;
                 box = CreateAspectBox(t => t.Type == TalentType.Prouesse && t.PrimaryAspect == aspect1,
                     String.Format("Prouesse de {0}", aspect));
-                flowLayoutTalentsP.Controls.Add(box);
+                box.Dock = DockStyle.Fill;
+                layoutTalentsP.Controls.Add(box);
             }
         }
 
-        private FlowLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)
+        private TableLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)
         {
             var tpanel = new AspectTalentBox(_character);
             tpanel.Initialize(predicate, name);
