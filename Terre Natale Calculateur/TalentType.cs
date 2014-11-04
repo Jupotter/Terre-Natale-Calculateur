@@ -1,6 +1,6 @@
 ﻿namespace Terre_Natale_Calculateur
 {
-    internal enum TalentType
+    public enum TalentType
     {
         General,
         Martial,

@@ -20,7 +20,7 @@ namespace Calculateur_Tests
         }
 
         [Theory, MemberData("TypeAspectData")]
-        private void ConstructorParametersTest(TalentType type, Aspect primary, Aspect secondary)
+        public void ConstructorParametersTest(TalentType type, Aspect primary, Aspect secondary)
         {
             Talent talent;
             if (secondary == Aspect.None)
@@ -48,7 +48,7 @@ namespace Calculateur_Tests
         [InlineData(3, 60)]
         [InlineData(4, 100)]
         [InlineData(5, 150)]
-        private void SimpleLevelTest(int level, int xp)
+        public void SimpleLevelTest(int level, int xp)
         {
             Talent talent = new Talent(
                 "Test",
@@ -62,7 +62,7 @@ namespace Calculateur_Tests
         }
 
         [Fact]
-        private void LevelLowBoundTest()
+        public void LevelLowBoundTest()
         {
             Talent talent = new Talent(
                 "Test",
@@ -75,7 +75,7 @@ namespace Calculateur_Tests
         }
 
         [Fact]
-        private void LevelHighBoundTest()
+        public void LevelHighBoundTest()
         {
             Talent talent = new Talent(
                 "Test",

@@ -1,6 +1,6 @@
 ﻿namespace Terre_Natale_Calculateur
 {
-    internal enum Aspect
+    public enum Aspect
     {
         None = 0,
         Eau = 1,

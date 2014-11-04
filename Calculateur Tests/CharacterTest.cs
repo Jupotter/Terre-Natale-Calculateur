@@ -28,7 +28,7 @@ namespace Calculateur_Tests
         }
 
         [Fact]
-        private void CharacterSerializedConstructorTest()
+        public void CharacterSerializedConstructorTest()
         {
             var serializedCharacter = new SerializableCharacter
             {
