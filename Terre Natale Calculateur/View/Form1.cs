@@ -27,6 +27,7 @@ namespace Terre_Natale_Calculateur
         {
             UpdateAspects();
             updateData();
+            
             comboBox1.Items.Clear();
             foreach (var dat in ClassManager.Instance._Classes)
             {
@@ -34,6 +35,7 @@ namespace Terre_Natale_Calculateur
             }
             updateXP();
             secondaryStats1.setPendePoid(_character.penPoid);
+            SetBonusRaciaux();
             //recomputeStatsSecond();
         }
 
@@ -43,114 +45,15 @@ namespace Terre_Natale_Calculateur
             {
                 lab_name.Text = _character.Name;
                 lab_Race.Text = _character.Race.Name;
+                SetBonusRaciaux();
             }
-        }
-
-        public void UpdateAspects()
-        {
-            Acier.Text = _character.GetAspectValue(Aspect.Acier).ToString(CultureInfo.InvariantCulture);
-            Arcane.Text = _character.GetAspectValue(Aspect.Arcane).ToString(CultureInfo.InvariantCulture);
-            Eau.Text = _character.GetAspectValue(Aspect.Eau).ToString(CultureInfo.InvariantCulture);
-            Terre.Text = _character.GetAspectValue(Aspect.Terre).ToString(CultureInfo.InvariantCulture);
-            Feu.Text = _character.GetAspectValue(Aspect.Feu).ToString(CultureInfo.InvariantCulture);
-            Vent.Text = _character.GetAspectValue(Aspect.Vent).ToString(CultureInfo.InvariantCulture);
-            Equilibre.Text = _character.GetAspectValue(Aspect.Equilibre).ToString(CultureInfo.InvariantCulture);
-            ActualiseStats();
-        }
-
-        private void ActualiseStats()
-        {
-            int bF = 0;
-            int bC = 0;
-            int bM = 0;
-            int bE = 0;
-
-            #region bordel lutie ....
-
-            if (currentClasse != null)
-            {
-                int tmp = _character.Talents.Where(t => t.Type == TalentType.General &&
-                        (t.PrimaryAspect == currentClasse.Primaire
-                        || t.PrimaryAspect == currentClasse.Secondaire
-                        || t.SecondaryAspect == currentClasse.Primaire
-                        || t.SecondaryAspect == currentClasse.Secondaire)).Sum(t => t.Level);
-                switch (currentClasse.MPC)
-                {
-                    case "W": bC = tmp / 4;
-
-                        break;
-                    case "L": bC = tmp / 3;
-
-                        break;
-                    case "H": bC = tmp / 2;
-
-                        break;
-                    default:
-                        break;
-                }
-
-                switch (currentClasse.MPE)
-                {
-                    case "W": bE = tmp / 5;
-
-                        break;
-                    case "L": bE = tmp / 4;
-
-                        break;
-                    case "H": bE = tmp / 3;
-
-                        break;
-                    default:
-                        break;
-                }
-
-                switch (currentClasse.MPF)
-                {
-                    case "W": bF = tmp / 4;
-
-                        break;
-                    case "L": bF = tmp / 3;
-
-                        break;
-                    case "H": bF = tmp / 2;
-
-                        break;
-                    default:
-                        break;
-                }
-
-                switch (currentClasse.MPM)
-                {
-                    case "W": bM = tmp / 4;
-
-                        break;
-                    case "L": bM = tmp / 3;
-
-                        break;
-                    case "H": bM = tmp / 2;
-
-                        break;
-                    case "N": bM = 0;
-
-                        break;
-                    default:
-                        break;
-                }
-            }
-            #endregion
-
-
-
-            ExperienceRestante.Text = (int.Parse(Experience.Text) - _character.ExperienceUsed).ToString(CultureInfo.InvariantCulture);
-            Fatigue.Text = (_character.Fatigue + bF).ToString(CultureInfo.InvariantCulture);
-            Chi.Text = (_character.Chi + bC).ToString(CultureInfo.InvariantCulture);
-            Mana.Text = (_character.Mana + bM).ToString(CultureInfo.InvariantCulture);
-            Karma.Text = (_character.Karma).ToString(CultureInfo.InvariantCulture);
-            Endurance.Text = (_character.Endurance + bE).ToString(CultureInfo.InvariantCulture);
-            Santé.Text = @"4";
             if (_character.getClasse() != null) comboBox1.Text = _character.getClasse().Nom;
             secondaryStats1.RecomputeStats();
         }
+
+       
+
+       
 
 
 #endregion
@@ -162,7 +65,8 @@ namespace Terre_Natale_Calculateur
             layoutTalentG.Controls.Clear();
             layoutTalentsM.Controls.Clear();
             layoutTalentsA.Controls.Clear();
-
+            layoutSavoir.Controls.Clear();
+            layoutTalentsP.Controls.Clear();
             int size = 0;
 
             TableLayoutPanel box;
@@ -354,28 +258,7 @@ namespace Terre_Natale_Calculateur
             sbf.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (listBox1.Visible == false)
-            {
-                listBox1.Items.Clear();
-                foreach (Aspect item in Enum.GetValues(typeof(Aspect)).Cast<Aspect>())
-                {
-                    if (item != Aspect.None)
-                    {
-                        listBox1.Items.Add(item.ToString() + ":" + _character.GetAspectPoint(item));
-                    }
-                }
-                button2.Text = "Masquer les PA";
-                listBox1.Visible = true;
-            }
-            else
-            {
-                listBox1.Items.Clear();
-                button2.Text = "Afficher les PA";
-                listBox1.Visible = false;
-            }
-        }
+       
 
         private void Stats_Click(object sender, EventArgs e)
         {
@@ -402,7 +285,7 @@ namespace Terre_Natale_Calculateur
             Debloque.Text = current.TalentBonus;
             currentClasse = current;
             _character.SetClasse(current);
-            ActualiseStats();
+            
         }
         private void PenDePoid_ValueChanged(object sender, EventArgs e)
         {
@@ -463,5 +346,34 @@ namespace Terre_Natale_Calculateur
                 listBox3.Items.Add(item);
             }
         }
+        public void UpdateAspects() { stat_Principal1.UpdateAspects(); }
+
+        public void ActualiseStats() { stat_Principal1.ActualiseStats(); }
+
+        private void TalentsM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dumpRaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RacesManager.Instance.DumpJSON();
+        }
+        public void SetBonusRaciaux()
+        {
+            BonusRaciauxBox.Items.Clear();
+            if (_character.Race == null) return;
+            foreach (string item in _character.Race.bonusRaciaux.Split(','))
+            {
+                BonusRaciauxBox.Items.Add(item);
+            }
+
+        }
+    
+
     }
+
+
+
+
 }

@@ -31,16 +31,17 @@ namespace Terre_Natale_Calculateur
             _traceWriter = new MemoryTraceWriter();
             _serializerSettings = new JsonSerializerSettings()
             {
-                Error = (sender, args) => Console.Write(args.ErrorContext.Error),
+                Error = (sender, args) => Log.Logger.Write(args.ErrorContext.Error.Message),
                 Formatting = Formatting.Indented,
-                TraceWriter = _traceWriter
+                TraceWriter = _traceWriter,
+                MissingMemberHandling = MissingMemberHandling.Error,
             };
         }
 
         public void Initialize()
         {
             var sr = new StreamReader("Races.json");
-            var list = JsonConvert.DeserializeObject<List<Race>>(sr.ReadToEnd());
+            var list = JsonConvert.DeserializeObject<List<Race>>(sr.ReadToEnd(),_serializerSettings);
 
             foreach (var talent in list)
             {
@@ -53,6 +54,8 @@ namespace Terre_Natale_Calculateur
             }
             _races = list.ToDictionary(talent => talent.Id);
             sr.Close();
+         //  Log.Logger.Write(_traceWriter.ToString());
+            
         }
 
         public void DumpJSON()
@@ -60,7 +63,7 @@ namespace Terre_Natale_Calculateur
             if (_races == null)
                 return;
             String json = JsonConvert.SerializeObject(_races.Values, _serializerSettings);
-            var sw = new StreamWriter("TalentsDump.json", false);
+            var sw = new StreamWriter("RaceDump.json", false);
             sw.Write(json);
             sw.Close();
         }

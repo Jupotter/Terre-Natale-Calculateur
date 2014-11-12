@@ -33,6 +33,7 @@ namespace Terre_Natale_Calculateur
             _plusButton.Click += _plusButton_Click;
             _minusButton.Click += _minusButton_Click;
             TextModified = OnTextModified;
+           
         }
 
         public TalentBox(Character character)
@@ -40,12 +41,13 @@ namespace Terre_Natale_Calculateur
         {
             _character = character;
             _character.ExperienceChanged += _character_ExperienceChanged;
+           
             //_character.PAChanged += talent_LevelChanged;
         }
 
         void _character_ExperienceChanged(Character sender)
         {
-            actuButton();
+            
         }
 
         protected override void OnSizeChanged(EventArgs e)
@@ -70,6 +72,7 @@ namespace Terre_Natale_Calculateur
                 if (_linkedTalent.SecondaryAspect != Aspect.None)
                     Text += string.Format(" ({0})", _linkedTalent.SecondaryAspect);
                 value.LevelChanged += talent_LevelChanged;
+                actuButton();
             }
         }
 
@@ -99,6 +102,7 @@ namespace Terre_Natale_Calculateur
             {
                 _linkedTalent.Decrement();
             }
+            actuButton();
         }
 
         private void _plusButton_Click(object sender, EventArgs e)
@@ -263,5 +267,7 @@ namespace Terre_Natale_Calculateur
         {
 
         }
+
+
     }
 }

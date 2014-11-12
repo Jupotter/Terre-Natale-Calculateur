@@ -37,7 +37,7 @@ namespace Terre_Natale_Calculateur
         {
             var sr = new StreamReader("Talents.json");
             var list = JsonConvert.DeserializeObject<List<Talent>>(sr.ReadToEnd());
-
+            if ( _talents != null && _talents.Count > 0) _talents.Clear();
             foreach (var talent in list)
             {
                 _nextId = Math.Max(_nextId, talent.Id);

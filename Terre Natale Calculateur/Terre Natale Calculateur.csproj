@@ -146,6 +146,12 @@
       <DependentUpon>StatsBonusForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Talent.cs" />
+    <Compile Include="View\Stat_Principal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Stat_Principal.Designer.cs">
+      <DependentUpon>Stat_Principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TalentBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StatsBonusForm.resx">
       <DependentUpon>StatsBonusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Stat_Principal.resx">
+      <DependentUpon>Stat_Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TalentBox.resx">
       <DependentUpon>TalentBox.cs</DependentUpon>
