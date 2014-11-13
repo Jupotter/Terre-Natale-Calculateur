@@ -40,7 +40,7 @@ namespace Terre_Natale_Calculateur.View
 
         void _character_ExperienceChanged(Character sender)
         {
-            actuButton();
+            ActualiseButtons();
         }
 
         protected override void OnSizeChanged(EventArgs e)
@@ -60,7 +60,7 @@ namespace Terre_Natale_Calculateur.View
                 if (_linkedTalent.SecondaryAspect != Aspect.None)
                     Text += string.Format(" ({0})", _linkedTalent.SecondaryAspect);
                 value.LevelChanged += talent_LevelChanged;
-                actuButton();
+                ActualiseButtons();
             }
         }
 
@@ -90,7 +90,7 @@ namespace Terre_Natale_Calculateur.View
             {
                 _linkedTalent.Decrement();
             }
-            actuButton();
+            ActualiseButtons();
         }
 
         private void _plusButton_Click(object sender, EventArgs e)
@@ -99,7 +99,7 @@ namespace Terre_Natale_Calculateur.View
             {
                     _linkedTalent.Increment();
             }
-            actuButton();
+            ActualiseButtons();
         }
 
         private void ChangeSize()
@@ -121,16 +121,16 @@ namespace Terre_Natale_Calculateur.View
         private void talent_LevelChanged(object sender, EventArgs e)
         {
             UpdateValue();
-            actuButton();
+            ActualiseButtons();
         }
 
-        private void actuButton()
+        private void ActualiseButtons()
         {
-            if( (_linkedTalent.Level >1 && _linkedTalent.HaveBonus))
+            if( (_linkedTalent.Level > 1 && _linkedTalent.HaveBonus))
             {
                 _minusButton.Enabled=true;
             }
-            else if(_linkedTalent.Level > 0)
+            else if(_linkedTalent.Level > 0 && !_linkedTalent.HaveBonus)
             {
                 _minusButton.Enabled=true;
             }else
