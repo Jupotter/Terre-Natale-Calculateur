@@ -59,6 +59,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.PeI = new System.Windows.Forms.TextBox();
+            this.PEa = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +88,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.PEa);
+            this.groupBox3.Controls.Add(this.PeI);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.Karma);
             this.groupBox3.Controls.Add(this.label11);
@@ -98,13 +106,13 @@
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Location = new System.Drawing.Point(292, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(147, 190);
+            this.groupBox3.Size = new System.Drawing.Size(147, 234);
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(25, 150);
+            this.label13.Location = new System.Drawing.Point(25, 209);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(44, 23);
             this.label13.TabIndex = 29;
@@ -113,7 +121,7 @@
             // Karma
             // 
             this.Karma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.Karma.Location = new System.Drawing.Point(69, 150);
+            this.Karma.Location = new System.Drawing.Point(69, 209);
             this.Karma.Name = "Karma";
             this.Karma.Size = new System.Drawing.Size(42, 20);
             this.Karma.TabIndex = 28;
@@ -122,16 +130,16 @@
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(13, 53);
+            this.label11.Location = new System.Drawing.Point(23, 89);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 13);
+            this.label11.Size = new System.Drawing.Size(46, 13);
             this.label11.TabIndex = 30;
             this.label11.Text = "PE :";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Fatigue
             // 
-            this.Fatigue.Location = new System.Drawing.Point(69, 125);
+            this.Fatigue.Location = new System.Drawing.Point(69, 184);
             this.Fatigue.Name = "Fatigue";
             this.Fatigue.Size = new System.Drawing.Size(42, 20);
             this.Fatigue.TabIndex = 31;
@@ -141,7 +149,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(21, 128);
+            this.label12.Location = new System.Drawing.Point(21, 187);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(48, 13);
             this.label12.TabIndex = 25;
@@ -150,7 +158,7 @@
             // Endurance
             // 
             this.Endurance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.Endurance.Location = new System.Drawing.Point(69, 50);
+            this.Endurance.Location = new System.Drawing.Point(69, 82);
             this.Endurance.Name = "Endurance";
             this.Endurance.Size = new System.Drawing.Size(42, 20);
             this.Endurance.TabIndex = 24;
@@ -160,7 +168,7 @@
             // Chi
             // 
             this.Chi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.Chi.Location = new System.Drawing.Point(69, 100);
+            this.Chi.Location = new System.Drawing.Point(69, 159);
             this.Chi.Name = "Chi";
             this.Chi.Size = new System.Drawing.Size(42, 20);
             this.Chi.TabIndex = 22;
@@ -170,7 +178,7 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(41, 103);
+            this.label.Location = new System.Drawing.Point(41, 162);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(28, 13);
             this.label.TabIndex = 21;
@@ -180,7 +188,7 @@
             // Mana
             // 
             this.Mana.ForeColor = System.Drawing.Color.Blue;
-            this.Mana.Location = new System.Drawing.Point(69, 75);
+            this.Mana.Location = new System.Drawing.Point(69, 134);
             this.Mana.Name = "Mana";
             this.Mana.Size = new System.Drawing.Size(42, 20);
             this.Mana.TabIndex = 20;
@@ -190,7 +198,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(29, 78);
+            this.label10.Location = new System.Drawing.Point(29, 137);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(40, 13);
             this.label10.TabIndex = 19;
@@ -200,7 +208,7 @@
             // Santé
             // 
             this.Santé.ForeColor = System.Drawing.Color.Red;
-            this.Santé.Location = new System.Drawing.Point(69, 25);
+            this.Santé.Location = new System.Drawing.Point(69, 30);
             this.Santé.Name = "Santé";
             this.Santé.Size = new System.Drawing.Size(42, 20);
             this.Santé.TabIndex = 18;
@@ -210,7 +218,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 28);
+            this.label9.Location = new System.Drawing.Point(28, 32);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 13);
             this.label9.TabIndex = 17;
@@ -236,13 +244,13 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(3, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(276, 190);
+            this.groupBox2.Size = new System.Drawing.Size(283, 234);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(220, 19);
+            this.button1.Location = new System.Drawing.Point(222, 37);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(50, 23);
             this.button1.TabIndex = 19;
@@ -252,7 +260,7 @@
             // 
             // Equilibre
             // 
-            this.Equilibre.Location = new System.Drawing.Point(124, 97);
+            this.Equilibre.Location = new System.Drawing.Point(126, 115);
             this.Equilibre.Name = "Equilibre";
             this.Equilibre.Size = new System.Drawing.Size(29, 20);
             this.Equilibre.TabIndex = 18;
@@ -262,7 +270,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(119, 78);
+            this.label19.Location = new System.Drawing.Point(121, 96);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(47, 13);
             this.label19.TabIndex = 17;
@@ -270,7 +278,7 @@
             // 
             // Acier
             // 
-            this.Acier.Location = new System.Drawing.Point(236, 160);
+            this.Acier.Location = new System.Drawing.Point(238, 178);
             this.Acier.Name = "Acier";
             this.Acier.Size = new System.Drawing.Size(29, 20);
             this.Acier.TabIndex = 16;
@@ -280,7 +288,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(232, 144);
+            this.label8.Location = new System.Drawing.Point(234, 162);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(31, 13);
             this.label8.TabIndex = 15;
@@ -289,7 +297,7 @@
             // Arcane
             // 
             this.Arcane.ForeColor = System.Drawing.Color.Purple;
-            this.Arcane.Location = new System.Drawing.Point(22, 30);
+            this.Arcane.Location = new System.Drawing.Point(24, 48);
             this.Arcane.Name = "Arcane";
             this.Arcane.Size = new System.Drawing.Size(29, 20);
             this.Arcane.TabIndex = 14;
@@ -299,7 +307,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 14);
+            this.label7.Location = new System.Drawing.Point(20, 32);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 13);
             this.label7.TabIndex = 13;
@@ -308,7 +316,7 @@
             // Feu
             // 
             this.Feu.ForeColor = System.Drawing.Color.Red;
-            this.Feu.Location = new System.Drawing.Point(124, 160);
+            this.Feu.Location = new System.Drawing.Point(126, 178);
             this.Feu.Name = "Feu";
             this.Feu.Size = new System.Drawing.Size(29, 20);
             this.Feu.TabIndex = 11;
@@ -318,7 +326,7 @@
             // Terre
             // 
             this.Terre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.Terre.Location = new System.Drawing.Point(235, 97);
+            this.Terre.Location = new System.Drawing.Point(237, 115);
             this.Terre.Name = "Terre";
             this.Terre.Size = new System.Drawing.Size(29, 20);
             this.Terre.TabIndex = 12;
@@ -328,7 +336,7 @@
             // Eau
             // 
             this.Eau.ForeColor = System.Drawing.Color.Blue;
-            this.Eau.Location = new System.Drawing.Point(124, 30);
+            this.Eau.Location = new System.Drawing.Point(126, 48);
             this.Eau.Name = "Eau";
             this.Eau.Size = new System.Drawing.Size(29, 20);
             this.Eau.TabIndex = 11;
@@ -338,7 +346,7 @@
             // Vent
             // 
             this.Vent.ForeColor = System.Drawing.Color.Green;
-            this.Vent.Location = new System.Drawing.Point(21, 97);
+            this.Vent.Location = new System.Drawing.Point(23, 115);
             this.Vent.Name = "Vent";
             this.Vent.Size = new System.Drawing.Size(29, 20);
             this.Vent.TabIndex = 10;
@@ -348,7 +356,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(127, 144);
+            this.label6.Location = new System.Drawing.Point(129, 162);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(25, 13);
             this.label6.TabIndex = 9;
@@ -357,7 +365,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(232, 79);
+            this.label5.Location = new System.Drawing.Point(234, 97);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 8;
@@ -366,7 +374,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 79);
+            this.label4.Location = new System.Drawing.Point(24, 97);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 7;
@@ -375,11 +383,49 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(127, 14);
+            this.label3.Location = new System.Drawing.Point(129, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Eau";
+            // 
+            // PeI
+            // 
+            this.PeI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.PeI.Location = new System.Drawing.Point(69, 56);
+            this.PeI.Name = "PeI";
+            this.PeI.Size = new System.Drawing.Size(42, 20);
+            this.PeI.TabIndex = 32;
+            this.PeI.Text = "0";
+            this.PeI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PEa
+            // 
+            this.PEa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.PEa.Location = new System.Drawing.Point(69, 108);
+            this.PEa.Name = "PEa";
+            this.PEa.Size = new System.Drawing.Size(42, 20);
+            this.PEa.TabIndex = 33;
+            this.PEa.Text = "0";
+            this.PEa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(13, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 17);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "PE (Ide) :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(10, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 17);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "PE (ago) :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Stat_Principal
             // 
@@ -390,7 +436,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Name = "Stat_Principal";
-            this.Size = new System.Drawing.Size(586, 221);
+            this.Size = new System.Drawing.Size(608, 267);
             this.Load += new System.EventHandler(this.Stat_Principal_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -433,6 +479,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox PEa;
+        private System.Windows.Forms.TextBox PeI;
 
     }
 }

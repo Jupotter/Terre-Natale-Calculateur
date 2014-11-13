@@ -127,7 +127,8 @@ namespace Terre_Natale_Calculateur.View
             Karma.Text = (_character.Karma).ToString();
             Endurance.Text = (_character.Endurance + bE).ToString();
             Santé.Text = (_character.Ps).ToString();
-            
+            PeI.Text = (_character.Endurance + bE + _character.GetTalent("Endurance").Level*5).ToString();
+            PEa.Text = (_character.Endurance + bE + _character.GetTalent("Volonté").Level * 7).ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
