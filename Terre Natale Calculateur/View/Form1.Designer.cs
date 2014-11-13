@@ -84,7 +84,8 @@ namespace Terre_Natale_Calculateur
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Stats = new System.Windows.Forms.TabPage();
-            this.stat_Principal1 = new Terre_Natale_Calculateur.View.Stat_Principal();
+            this.BonusRaciauxBox = new System.Windows.Forms.ListBox();
+            this.stat_Principal1 = new Terre_Natale_Calculateur.View.Stat_Principal(this);
             this.lab_Race = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.lab_name = new System.Windows.Forms.Label();
@@ -138,7 +139,6 @@ namespace Terre_Natale_Calculateur
             this.ajoutDeTalentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.BonusRaciauxBox = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -201,6 +201,14 @@ namespace Terre_Natale_Calculateur
             this.Stats.Text = "Stats";
             this.Stats.UseVisualStyleBackColor = true;
             this.Stats.Click += new System.EventHandler(this.Stats_Click);
+            // 
+            // BonusRaciauxBox
+            // 
+            this.BonusRaciauxBox.FormattingEnabled = true;
+            this.BonusRaciauxBox.Location = new System.Drawing.Point(40, 339);
+            this.BonusRaciauxBox.Name = "BonusRaciauxBox";
+            this.BonusRaciauxBox.Size = new System.Drawing.Size(440, 95);
+            this.BonusRaciauxBox.TabIndex = 39;
             // 
             // stat_Principal1
             // 
@@ -720,14 +728,6 @@ namespace Terre_Natale_Calculateur
             // 
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
-            // BonusRaciauxBox
-            // 
-            this.BonusRaciauxBox.FormattingEnabled = true;
-            this.BonusRaciauxBox.Location = new System.Drawing.Point(40, 339);
-            this.BonusRaciauxBox.Name = "BonusRaciauxBox";
-            this.BonusRaciauxBox.Size = new System.Drawing.Size(440, 95);
-            this.BonusRaciauxBox.TabIndex = 39;
             // 
             // Form1
             // 

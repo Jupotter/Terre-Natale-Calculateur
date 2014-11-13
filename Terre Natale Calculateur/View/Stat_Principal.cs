@@ -12,8 +12,10 @@ namespace Terre_Natale_Calculateur.View
 {
     public partial class Stat_Principal : UserControl
     {
-        public Stat_Principal()
+        Form1 parentForm;
+        public Stat_Principal(Form papa)
         {
+            parentForm = (Form1)papa;
             InitializeComponent();
         }
 
@@ -151,5 +153,11 @@ namespace Terre_Natale_Calculateur.View
                 listBox1.Visible = false;
             }
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StatsBonusForm sbf = new StatsBonusForm(parentForm);
+            sbf.ShowDialog();
+        }
+
     }
 }

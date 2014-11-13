@@ -254,12 +254,7 @@ namespace Terre_Natale_Calculateur
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            StatsBonusForm sbf = new StatsBonusForm(this);
-            sbf.ShowDialog();
-        }
-
+      
        
 
         private void Stats_Click(object sender, EventArgs e)
@@ -367,7 +362,8 @@ namespace Terre_Natale_Calculateur
             if (_character.Race == null) return;
             foreach (string item in _character.Race.bonusRaciaux.Split(','))
             {
-                BonusRaciauxBox.Items.Add(item);
+                
+                BonusRaciauxBox.Items.Add(item.Replace('#',' '));
 
             }
 

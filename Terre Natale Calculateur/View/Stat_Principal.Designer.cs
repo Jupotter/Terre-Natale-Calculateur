@@ -80,6 +80,7 @@
             this.button2.TabIndex = 36;
             this.button2.Text = "Afficher les PA";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox3
             // 
@@ -247,6 +248,7 @@
             this.button1.TabIndex = 19;
             this.button1.Text = "Bonus";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Equilibre
             // 
