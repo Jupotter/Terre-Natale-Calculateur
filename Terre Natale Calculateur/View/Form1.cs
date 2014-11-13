@@ -25,6 +25,7 @@ namespace Terre_Natale_Calculateur
 
         public void newcharacterfinish()
         {
+            _character.RecalculateRacialRessources();
             UpdateAspects();
             updateData();
             
@@ -36,6 +37,7 @@ namespace Terre_Natale_Calculateur
             updateXP();
             secondaryStats1.setPendePoid(_character.penPoid);
             SetBonusRaciaux();
+
             //recomputeStatsSecond();
         }
 
@@ -366,6 +368,7 @@ namespace Terre_Natale_Calculateur
             foreach (string item in _character.Race.bonusRaciaux.Split(','))
             {
                 BonusRaciauxBox.Items.Add(item);
+
             }
 
         }

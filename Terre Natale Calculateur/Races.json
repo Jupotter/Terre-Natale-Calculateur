@@ -22,7 +22,7 @@
       "Acier": 0,
       "Equilibre": 1
     },
-    "bonusRaciaux": "PK max +1, puis +1 encore tous les 3 niveaux, Jet de volonté +1 (ajst), Charisme : Les alliés prochent ont 1 PK' en combat",
+    "bonusRaciaux": "#PK max +1, puis +1 encore tous les 3 niveaux, Jet de volonté +1 (ajst), Charisme : Les alliés prochent ont 1 PK' en combat",
   },
   {
     "Id": 2,
@@ -47,7 +47,7 @@
       "Acier": 0,
       "Equilibre": 1
     },
-    "bonusRaciaux": " PK max +1, puis +1 encore tous les 3 niveaux,Résistance Froid 1, Colère : Blessé 1 PF' par round"
+    "bonusRaciaux": " #PK max +1, puis +1 encore tous les 3 niveaux,Résistance Froid 1, Colère : Blessé 1 PF' par round"
   },
   {
     "Id": 3,
@@ -70,7 +70,7 @@
       "Acier": 0,
       "Equilibre": -1
     },
-    "bonusRaciaux": " PK max +1, puis +1 encore tous les 3 niveaux, Résistance Feu 1, PF maximum +2, 1er Round : 2 PF'"
+    "bonusRaciaux": " #PK max +1, puis +1 encore tous les 3 niveaux, Résistance Feu 1, PF maximum +2, 1er Round : 2 PF'"
   },
   {
     "Id": 4,
@@ -95,7 +95,7 @@
       "Acier": 1,
       "Equilibre": -1
     },
-    "bonusRaciaux": "PK max +1, puis +1 encore tous les 3 niveaux,Spécialisation Endurance, PE indemne +2 +Endurance"
+    "bonusRaciaux": "#PK max +1, puis +1 encore tous les 3 niveaux,Spécialisation Endurance, PE indemne +2 +Endurance"
   },
   {
     "Id": 5,
@@ -121,7 +121,7 @@
       "Acier": -1,
       "Equilibre": 3
     },
-    "bonusRaciaux": "PK max +1, puis +1 encore tous les 3 niveaux,PC maximum +2, 1er round : 2 PC', Récup PC +1",
+    "bonusRaciaux": "#PK max +1, puis +1 encore tous les 3 niveaux,PC maximum +2, 1er round : 2 PC', Récup PC +1",
   },
   {
     "Id": 6,
@@ -148,7 +148,7 @@
       "Acier": 0,
       "Equilibre": -2
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "1/2 ACTM par round,Bonne vue, Base d'initiative +2, Déplacement +1, Spécialisation : Convocation, Guérison"
   },
   {
     "Id": 7,
@@ -171,7 +171,7 @@
       "Acier": -1,
       "Equilibre": -1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "1/2 ACTM par round, Recup PM +1, PM max +1 par rang d'école, Spécialisation : Altération, Abjuration"
   },
   {
     "Id": 8,
@@ -196,7 +196,7 @@
       "Acier": 1,
       "Equilibre": -2
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "1/2 ACTM par round, Infravision, Perfectionniste : Réussite +1, Spécialisation d'une école de magie parmis : Destruction, Maléfice "
   },
   {
     "Id": 9,
@@ -222,7 +222,7 @@
       "Acier": -1,
       "Equilibre": 1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "1/2 ACTM par round,Sens Accru (Ouïe), Accés Métamorphose (Aquatique), Spécialisation Natation, à l'aise en milieu aquatique, Spécialisation : Illusion, Enchantement "
   },
   {
     "Id": 10,
@@ -246,7 +246,7 @@
       "Acier": 1,
       "Equilibre": 0
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "#PS max +1, Infravision, PE (agonie) +2 +2xVolonté"
   },
   {
     "Id": 11,
@@ -270,7 +270,7 @@
       "Acier": 0,
       "Equilibre": 0
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "#PS max +1, Altération +1 contre Robustesse adverse, Spécialisation Attaque ou Défense (au choix)"
   },
   {
     "Id": 12,
@@ -295,7 +295,7 @@
       "Acier": 0,
       "Equilibre": 1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "#PS max +1,Spécialisation Savoir / Artisanats / Alchimie (au choix), Mémoire : Peut sociliter une aide quant à une information passé"
   },
   {
     "Id": 13,
@@ -318,7 +318,7 @@
       "Acier": 0,
       "Equilibre": -1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "Sauvegarde +1 (ajustement),Puissance naturelle +1, Spécialisation Social (Rugissements), Stabilité +2 (ajustement aux effets de gestion), Blessé : Relance +1 par round"
   },
   {
     "Id": 14,
@@ -341,7 +341,7 @@
       "Acier": 0,
       "Equilibre": -1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "Sauvegarde +1 (ajustement),Spécialisation Survie, Sens Accru (Odorat), Déplacement +2 pour un déplacement au delà du 1er round de déplacement, Maudit : PK adverse -1, à l'aise en milieu naturel"
   },
   {
     "Id": 15,
@@ -365,7 +365,7 @@
       "Acier": 0,
       "Equilibre": 0
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "Sauvegarde +1 (ajustement),Sens Accru (Vu), Vol (imparfait), Spécialisation Acrobatie, Réflèxe +1 (ajst)"
   },
   {
     "Id": 16,
@@ -391,7 +391,7 @@
       "Acier": 2,
       "Equilibre": -1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "Sauvegarde +1 (ajustement),Armure naturelle +1, tous les 2 dégats reçus octrois 1 Armure temporaire (cumulable jusqu'à 4) à usage d'une attaque reçue"
   },
   {
     "Id": 17,
@@ -416,7 +416,7 @@
       "Acier": 0,
       "Equilibre": -1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "Sauvegarde +1 (ajustement),Spécialisation Escalade / Athlétisme / Ambidextrie / Discrétion, Sournois +1"
   },
   {
     "Id": 18,
@@ -439,7 +439,7 @@
       "Acier": -1,
       "Equilibre": 1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "Sauvegarde +1 (ajustement),A l'aise durant la fuite (+2), Spécialisation Empathie / Feinte, 1er Round : Double PA"
   },
   {
     "Id": 19,
@@ -463,7 +463,7 @@
       "Acier": 0,
       "Equilibre": 1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "Sauvegarde +1 (ajustement),Spécialisation Discrétion, Malice & Férocité +1"
   },
   {
     "Id": 20,
@@ -487,7 +487,7 @@
       "Acier": 0,
       "Equilibre": -1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "Sauvegarde +1 (ajustement),Armure naturelle +1, Spécalisation Intimidation / Esquive (dont jet de réflèxe)"
   },
   {
     "Id": 21,
@@ -513,7 +513,7 @@
       "Acier": 0,
       "Equilibre": -1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "#PE max -2, Chance : Relance +1 par round,Résistance +2 (réduit la perforation adverse), ignore le 1er stack de n'importe quel infirmité, à l'aise en milieu naturel "
   },
   {
     "Id": 22,
@@ -536,7 +536,7 @@
       "Acier": -1,
       "Equilibre": 0
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "#PE max -2,Spécialisation Eloquence, Si ascendant social : Ajustement +1"
   },
   {
     "Id": 23,
@@ -559,7 +559,7 @@
       "Acier": -2,
       "Equilibre": 0
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "#PE max -2,#PS max -1, vol (imparfait), Petite taille, Altération +1 contre volonté adverse"
   },
   {
     "Id": 24,
@@ -586,7 +586,7 @@
       "Acier": -1,
       "Equilibre": 0
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "#PE max -2,Bonne vue, PA par tour +2 (cumulable jusqu'à 10 si non utilisé), Petite taille"
   },
   {
     "Id": 25,
@@ -634,7 +634,7 @@
       "Acier": 1,
       "Equilibre": -2
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "Puissance & Armure naturelle +1,A l'aise avec les actions réalisée via son aspect de naissance, Puissance/Armure naturelle +1, peut avoir queue/aile contre équilibre, Résistance à leur Aspect +1"
   },
   {
     "Id": 27,
@@ -659,7 +659,7 @@
       "Acier": 0,
       "Equilibre": 0
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "Puissance & Armure naturelle +1,Puissance naturelle +1, tous les 2 dégats reçus octrois 1 Puissance temporaire (cumulable jusqu'à 4) à usage d'une attaque"
   },
   {
     "Id": 28,
@@ -685,7 +685,7 @@
       "Acier": 0,
       "Equilibre": -1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "Puissance & Armure naturelle +1,Vision Karmique"
   },
   {
     "Id": 29,
@@ -711,7 +711,7 @@
       "Acier": 1,
       "Equilibre": -1
     },
-    "bonusRaciaux": ""
+    "bonusRaciaux": "Puissance & Armure naturelle +1,Sens Accru (Touché)"
   },
   {
     "Id": 30,

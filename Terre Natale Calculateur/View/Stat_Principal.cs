@@ -124,7 +124,7 @@ namespace Terre_Natale_Calculateur.View
             Mana.Text = (_character.Mana + bM).ToString();
             Karma.Text = (_character.Karma).ToString();
             Endurance.Text = (_character.Endurance + bE).ToString();
-            Santé.Text = @"4";
+            Santé.Text = (_character.Ps).ToString();
             
         }
 

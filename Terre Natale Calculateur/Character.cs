@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace Terre_Natale_Calculateur
 {
+    public enum Ressource{PS,PE,PM,PC,PF,PK,NONE}
     internal sealed class Character
     {
         private readonly IDictionary<int, Talent> _talents;
@@ -14,8 +15,14 @@ namespace Terre_Natale_Calculateur
         private int _experienceAvailable;
         private Race _race;
         private Classe classeChar;
+
+        private Dictionary<Ressource, int> RacialRessources = new Dictionary<Ressource, int>(); 
         public Character(string name, ITalentsManager talentsManager)
         {
+            foreach (Ressource item in Enum.GetValues(typeof(Ressource)))
+            {
+                RacialRessources.Add(item, 0);
+            }
             Inventaire = new List<string>();
             _bonusAspect = new Dictionary<Aspect, int>
             {
@@ -179,6 +186,9 @@ namespace Terre_Natale_Calculateur
         private int? _manaStore;
         private int? _totalXpStore;
 
+        public int Ps
+        { get { return 4 + RacialRessources[Ressource.PS]; } }
+
         public int Chi
         {
             get
@@ -193,7 +203,7 @@ namespace Terre_Natale_Calculateur
                            + GetAspectValue(Aspect.Equilibre)
                            + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
                 }
-                return _chiStore.Value;
+                return _chiStore.Value + RacialRessources[Ressource.PC];
             }
         }
 
@@ -202,8 +212,8 @@ namespace Terre_Natale_Calculateur
             get
             {
                 if (!_enduranceStore.HasValue)
-                    _enduranceStore = GetAspectValue(Aspect.Acier) + GetAspectValue(Aspect.Equilibre) + 5 + GetTalent("Endurance").Level;
-                return _enduranceStore.Value;
+                    _enduranceStore = GetAspectValue(Aspect.Acier) + GetAspectValue(Aspect.Equilibre) + 5 ;
+                return _enduranceStore.Value + RacialRessources[Ressource.PE];
             }
         }
 
@@ -222,7 +232,7 @@ namespace Terre_Natale_Calculateur
                                     + GetAspectValue(Aspect.Equilibre)
                                     + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
                 }
-                return _fatigueStore.Value;
+                return _fatigueStore.Value + RacialRessources[Ressource.PF]; ;
             }
         }
 
@@ -232,7 +242,7 @@ namespace Terre_Natale_Calculateur
             {
                 if (!_karmaStore.HasValue)
                     _karmaStore = GetAspectValue(Aspect.Equilibre);
-                return _karmaStore.Value;
+                return _karmaStore.Value + RacialRessources[Ressource.PK];;
             }
         }
 
@@ -253,10 +263,38 @@ namespace Terre_Natale_Calculateur
                                  + GetAspectValue(Aspect.Equilibre)
                                  + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
                 }
-                return _manaStore.Value;
+                return _manaStore.Value + RacialRessources[Ressource.PM]; 
             }
         }
 
+        public void RecalculateRacialRessources()
+        {
+            if (_race== null) return;
+            string[] toparse = _race.bonusRaciaux.Split(',');
+            string towork;
+            foreach (string st in toparse)
+            {
+                if (st.StartsWith("#"))
+                {
+                    towork=st.Remove(0, 1);
+                    if (Enum.GetNames(typeof(Ressource)).Contains(towork.Split(' ').First().Trim()))
+                    {
+                        Ressource target = Ressource.NONE;
+
+                        foreach (Ressource item in Enum.GetValues(typeof(Ressource)))
+                        {
+                            if (towork.Split(' ').First() == item.ToString()) target = item;
+                        }
+
+                        if (target == Ressource.NONE) return;
+                        RacialRessources[target] = Convert.ToInt32(towork.Split(' ').Last());
+                        //if (st.Split(' ').Last().Contains('+')) RacialRessources[target] = Convert.ToInt32(st.Split(' ').Last());
+                        //if (st.Split(' ').Last().Contains('-')) RacialRessources[target] = Convert.ToInt32(st.Split(' ').Last());
+                    }
+                }
+            }
+
+        }
         #endregion Ressources
 
         #region stats
@@ -349,7 +387,7 @@ namespace Terre_Natale_Calculateur
                     _aspectPoint[talent.SecondaryAspect] += talent.XPCost / 2;
                 }
             }
-
+         
             OnPAchanged();
         }
 
@@ -449,21 +487,6 @@ namespace Terre_Natale_Calculateur
         }
         #endregion Serialization
 
-        /*
-        public int getExpRestant()
-        {
-            int tt = 0;
-            foreach (var item in _talents)
-            {
-                int expinvest = 0;
-                for (int i = 0; i <= item.Value.Level; i++)
-                {
-                    expinvest += 10 * i;
-                }
-                tt += expinvest;
-            }
-            return tt;
-        }
-*/
+    
     }
 }
