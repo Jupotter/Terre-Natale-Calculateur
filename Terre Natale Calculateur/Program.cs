@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.ExceptionServices;
 using System.Windows.Forms;
+using Terre_Natale_Calculateur.View;
 
 namespace Terre_Natale_Calculateur
 {

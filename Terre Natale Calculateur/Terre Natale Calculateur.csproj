@@ -157,6 +157,9 @@
     </Compile>
     <Compile Include="TalentsManager.cs" />
     <Compile Include="TalentType.cs" />
+    <Compile Include="View\TalentBox.designer.cs">
+      <DependentUpon>TalentBox.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\Ajouter Un Talent.resx">
       <DependentUpon>Ajouter Un Talent.cs</DependentUpon>
     </EmbeddedResource>

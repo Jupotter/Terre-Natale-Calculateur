@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Terre_Natale_Calculateur
+namespace Terre_Natale_Calculateur.View
 {
     internal partial class StatsBonusForm : Form
     {

@@ -15,7 +15,7 @@ namespace Terre_Natale_Calculateur.View
         Form1 parentForm;
         public Stat_Principal(Form papa)
         {
-            parentForm = (Form1)papa;
+            parentForm = papa as Form1;
             InitializeComponent();
         }
 

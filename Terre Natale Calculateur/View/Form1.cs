@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
-namespace Terre_Natale_Calculateur
+namespace Terre_Natale_Calculateur.View
 {
     internal partial class Form1 : Form
     {

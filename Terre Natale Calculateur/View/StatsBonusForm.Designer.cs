@@ -1,4 +1,4 @@
-﻿namespace Terre_Natale_Calculateur
+﻿namespace Terre_Natale_Calculateur.View
 {
     partial class StatsBonusForm
     {
