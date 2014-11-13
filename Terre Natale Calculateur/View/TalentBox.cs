@@ -1,19 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Terre_Natale_Calculateur.View
 {
-    [HelpKeyword(typeof(UserControl))]
-    [ToolboxItem("System.Windows.Forms.Design.AutoSizeToolboxItem,System.Design")]
     internal partial class TalentBox : UserControl
     {
-        /// <summary> 
-        /// Variable nécessaire au concepteur.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        
 
         private Label _label;
         private Button _minusButton;
@@ -47,7 +40,7 @@ namespace Terre_Natale_Calculateur.View
 
         void _character_ExperienceChanged(Character sender)
         {
-            
+            actuButton();
         }
 
         protected override void OnSizeChanged(EventArgs e)
@@ -58,11 +51,6 @@ namespace Terre_Natale_Calculateur.View
 
         public event EventHandler TextModified;
 
-        public override sealed bool AutoSize
-        {
-            get { return base.AutoSize; }
-            set { base.AutoSize = value; }
-        }
         public Talent LinkedTalent
         {
             set
@@ -93,7 +81,7 @@ namespace Terre_Natale_Calculateur.View
 
         public void UpdateValue()
         {
-                _progress.Value = _linkedTalent.Level * 20;
+            _progress.Value = _linkedTalent.Level * 20;
         }
 
         private void _minusButton_Click(object sender, EventArgs e)
@@ -109,9 +97,7 @@ namespace Terre_Natale_Calculateur.View
         {
             if (_linkedTalent != null && _character != null)
             {
-                
                     _linkedTalent.Increment();
-                
             }
             actuButton();
         }

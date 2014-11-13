@@ -1,9 +1,20 @@
 ﻿using System;
+using System.ComponentModel;
+using System.ComponentModel.Design;
+using System.Windows.Forms;
 
 namespace Terre_Natale_Calculateur.View
 {
+
+    [HelpKeyword(typeof(UserControl))]
+    [ToolboxItem("System.Windows.Forms.Design.AutoSizeToolboxItem,System.Design")]
     partial class TalentBox
     {
+        /// <summary> 
+        /// Variable nécessaire au concepteur.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))

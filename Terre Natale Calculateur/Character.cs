@@ -165,6 +165,7 @@ namespace Terre_Natale_Calculateur
             _race = r;
             _bonusAspect = bonAspect;
             PAChanged(this);
+            OnExperienceChanged();
         }
 
         public void SetBonusMalus(Aspect bonus, Aspect malus, Aspect bonus2, Aspect malus2)
