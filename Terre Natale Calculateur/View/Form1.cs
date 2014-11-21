@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using System.Collections.Generic;
-
+using System.IO;
 namespace Terre_Natale_Calculateur.View
 {
     internal partial class Form1 : Form
@@ -369,6 +369,18 @@ namespace Terre_Natale_Calculateur.View
 
             }
 
+        }
+        public Stat_Principal GetPrincipalStats()
+        {
+            return stat_Principal1;
+        }
+
+        private void exporterEnTxtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(_character.Name + ".txt")) File.Delete(_character.Name + ".txt");
+            StreamWriter sw = new StreamWriter(_character.Name + ".txt");
+            sw.Write(_character.ExitTxt(this));
+            sw.Close();
         }
     
 

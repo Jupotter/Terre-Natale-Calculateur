@@ -134,6 +134,30 @@ namespace Terre_Natale_Calculateur.View
             PEa.Text = (_character.Endurance + bE + _character.GetTalent("Volonté").Level * 7).ToString();
         }
 
+        public string getPeI()
+        {
+            return PeI.Text;
+        }
+        public string getPeA()
+        {
+            return PEa.Text;
+        }
+        public string getChi()
+        {
+            return Chi.Text;
+        }
+        public string getMana()
+        {
+            return Mana.Text;
+        }
+        public string getFatigue()
+        {
+            return Fatigue.Text;
+        }
+        public string getEndurance()
+        {
+            return Endurance.Text;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             Character _character = CharacterManager.Current;

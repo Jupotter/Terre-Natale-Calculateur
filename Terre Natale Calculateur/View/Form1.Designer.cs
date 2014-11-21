@@ -140,6 +140,7 @@ namespace Terre_Natale_Calculateur.View
             this.ajoutDeTalentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.exporterEnTxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -631,6 +632,7 @@ namespace Terre_Natale_Calculateur.View
             this.toolStripSeparator,
             this.enregistrerToolStripMenuItem1,
             this.enregistrersousToolStripMenuItem,
+            this.exporterEnTxtToolStripMenuItem,
             this.toolStripSeparator1,
             this.quitterToolStripMenuItem});
             this.fichierToolStripMenuItem1.Name = "fichierToolStripMenuItem1";
@@ -746,6 +748,13 @@ namespace Terre_Natale_Calculateur.View
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // exporterEnTxtToolStripMenuItem
+            // 
+            this.exporterEnTxtToolStripMenuItem.Name = "exporterEnTxtToolStripMenuItem";
+            this.exporterEnTxtToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.exporterEnTxtToolStripMenuItem.Text = "Exporter en .Txt";
+            this.exporterEnTxtToolStripMenuItem.Click += new System.EventHandler(this.exporterEnTxtToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -823,6 +832,7 @@ namespace Terre_Natale_Calculateur.View
         private ToolStripMenuItem dumpRaceToolStripMenuItem;
         private ListBox BonusRaciauxBox;
         private Label level;
+        private ToolStripMenuItem exporterEnTxtToolStripMenuItem;
     }
 }
 
