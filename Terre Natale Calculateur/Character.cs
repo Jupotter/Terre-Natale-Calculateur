@@ -418,6 +418,8 @@ namespace Terre_Natale_Calculateur
             OnPAchanged();
         }
 
+
+         
         public string ExitTxt(View.Form1 Caller)
         {
             

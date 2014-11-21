@@ -18,6 +18,7 @@ namespace Terre_Natale_Calculateur.View
             
             InitializeComponent();
             stat_Principal1.setParent(this);
+            Tools.AllFather = this;
             //SetCharacter(CharacterManager.Instance.Create("Name"));
 
             //CharacterManager.Instance.Save(_character, "Name");
@@ -166,7 +167,7 @@ namespace Terre_Natale_Calculateur.View
             updateXP();
             }
 
-        private void updateXP()
+        public void updateXP()
         {
             Experience.Text = _character.ExperienceAvailable.ToString(CultureInfo.InvariantCulture);
             ExperienceRestante.Text = _character.ExperienceRemaining.ToString(CultureInfo.InvariantCulture);

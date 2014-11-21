@@ -80,6 +80,7 @@
     <Compile Include="Arme.cs" />
     <Compile Include="Armure.cs" />
     <Compile Include="Aspect.cs" />
+    <Compile Include="Tools.cs" />
     <Compile Include="View\Ajouter Un Talent.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -17,10 +17,11 @@ namespace Terre_Natale_Calculateur.View
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
         private FlowLayoutPanel flowLayoutPanel1;
-
+        
 
         public TalentBox()
         {
+            
             InitializeComponent();
 
             _plusButton.Click += _plusButton_Click;
@@ -32,6 +33,7 @@ namespace Terre_Natale_Calculateur.View
         public TalentBox(Character character)
             : this()
         {
+           
             _character = character;
             _character.ExperienceChanged += _character_ExperienceChanged;
            
@@ -82,6 +84,7 @@ namespace Terre_Natale_Calculateur.View
         public void UpdateValue()
         {
             _progress.Value = _linkedTalent.Level * 20;
+            Tools.AllFather.updateXP();
         }
 
         private void _minusButton_Click(object sender, EventArgs e)
