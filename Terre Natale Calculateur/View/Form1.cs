@@ -15,8 +15,9 @@ namespace Terre_Natale_Calculateur.View
 
         public Form1()
         {
+            
             InitializeComponent();
-
+            stat_Principal1.setParent(this);
             //SetCharacter(CharacterManager.Instance.Create("Name"));
 
             //CharacterManager.Instance.Save(_character, "Name");
@@ -169,7 +170,8 @@ namespace Terre_Natale_Calculateur.View
         {
             Experience.Text = _character.ExperienceAvailable.ToString(CultureInfo.InvariantCulture);
             ExperienceRestante.Text = _character.ExperienceRemaining.ToString(CultureInfo.InvariantCulture);
-       
+            level.Text = "Niveau : " + _character.GetLevel();
+            stat_Principal1.UpdateAspects();
         }
         private void enregistrerToolStripMenuItem1_Click(object sender, EventArgs e)
         {

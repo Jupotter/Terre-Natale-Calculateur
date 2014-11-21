@@ -10,15 +10,18 @@ using System.Windows.Forms;
 
 namespace Terre_Natale_Calculateur.View
 {
-    public partial class Stat_Principal : UserControl
+    internal partial class Stat_Principal : UserControl
     {
         Form1 parentForm;
-        public Stat_Principal(Form papa)
+        public Stat_Principal()
         {
-            parentForm = papa as Form1;
+            
             InitializeComponent();
         }
-
+        public void setParent(Form1 papa)
+        {
+            parentForm = papa;
+        }
         private void Stat_Principal_Load(object sender, EventArgs e)
         {
 
@@ -124,7 +127,7 @@ namespace Terre_Natale_Calculateur.View
            Fatigue.Text = (_character.Fatigue + bF).ToString();
             Chi.Text = (_character.Chi + bC).ToString();
             Mana.Text = (_character.Mana + bM).ToString();
-            Karma.Text = (_character.Karma).ToString();
+            Karma.Text = (_character.Karma()).ToString();
             Endurance.Text = (_character.Endurance + bE).ToString();
             Santé.Text = (_character.Ps).ToString();
             PeI.Text = (_character.Endurance + bE + _character.GetTalent("Endurance").Level*5).ToString();

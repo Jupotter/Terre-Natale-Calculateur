@@ -84,6 +84,28 @@ namespace Terre_Natale_Calculateur
         }
         #endregion Events
 
+        public int Karma()
+        {
+            int res = GetLevel() + GetAspectValue(Aspect.Equilibre);
+            if (Race == null) return res;
+            switch (Race.Name)
+            {
+                case "Empérien": res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
+                    break;
+                case "Keldanien": res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
+                    break;
+                case "Attilien": res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
+                    break;
+                case "Rosalien": res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
+                    break;
+                case "Titanien": res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
+                    break;
+                default:
+                    break;
+            }
+            return res;
+        }
+
         public int ExperienceAvailable
         {
             get { return _experienceAvailable; }
@@ -100,6 +122,17 @@ namespace Terre_Natale_Calculateur
         public int ExperienceRemaining
         {
             get { return _experienceAvailable - ExperienceUsed; }
+        }
+
+        public int GetLevel()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+
+                if ((15 * (i - 1) * i) > ExperienceAvailable) return i - 1;
+
+            }
+            return 15;
         }
 
         public int ExperienceUsed
@@ -237,15 +270,7 @@ namespace Terre_Natale_Calculateur
             }
         }
 
-        public int Karma
-        {
-            get
-            {
-                if (!_karmaStore.HasValue)
-                    _karmaStore = GetAspectValue(Aspect.Equilibre);
-                return _karmaStore.Value + RacialRessources[Ressource.PK];;
-            }
-        }
+        
 
         public int Mana
         {
