@@ -130,6 +130,7 @@ namespace Terre_Natale_Calculateur.View
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.enregistrerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.enregistrersousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exporterEnTxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -140,7 +141,6 @@ namespace Terre_Natale_Calculateur.View
             this.ajoutDeTalentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.exporterEnTxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.Stats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.XpToAdd)).BeginInit();
@@ -176,7 +176,7 @@ namespace Terre_Natale_Calculateur.View
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(674, 593);
+            this.tabControl1.Size = new System.Drawing.Size(708, 593);
             this.tabControl1.TabIndex = 1;
             // 
             // Stats
@@ -199,7 +199,7 @@ namespace Terre_Natale_Calculateur.View
             this.Stats.Location = new System.Drawing.Point(4, 22);
             this.Stats.Name = "Stats";
             this.Stats.Padding = new System.Windows.Forms.Padding(3);
-            this.Stats.Size = new System.Drawing.Size(666, 567);
+            this.Stats.Size = new System.Drawing.Size(700, 567);
             this.Stats.TabIndex = 0;
             this.Stats.Text = "Stats";
             this.Stats.UseVisualStyleBackColor = true;
@@ -366,7 +366,7 @@ namespace Terre_Natale_Calculateur.View
             this.Savoirs.Name = "Savoirs";
             this.Savoirs.Size = new System.Drawing.Size(666, 567);
             this.Savoirs.TabIndex = 8;
-            this.Savoirs.Text = "Savoirs";
+            this.Savoirs.Text = "Talent multiple";
             this.Savoirs.UseVisualStyleBackColor = true;
             // 
             // layoutSavoir
@@ -538,10 +538,10 @@ namespace Terre_Natale_Calculateur.View
             // Inventaire
             // 
             this.Inventaire.Controls.Add(this.splitContainer1);
-            this.Inventaire.Location = new System.Drawing.Point(4, 22);
+            this.Inventaire.Location = new System.Drawing.Point(4, 40);
             this.Inventaire.Name = "Inventaire";
             this.Inventaire.Padding = new System.Windows.Forms.Padding(3);
-            this.Inventaire.Size = new System.Drawing.Size(666, 567);
+            this.Inventaire.Size = new System.Drawing.Size(666, 549);
             this.Inventaire.TabIndex = 9;
             this.Inventaire.Text = "Inventaire";
             this.Inventaire.UseVisualStyleBackColor = true;
@@ -563,8 +563,8 @@ namespace Terre_Natale_Calculateur.View
             this.splitContainer1.Panel2.Controls.Add(this.Supprimer_inv);
             this.splitContainer1.Panel2.Controls.Add(this.ajouter_inv);
             this.splitContainer1.Panel2.Controls.Add(this.textBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(660, 561);
-            this.splitContainer1.SplitterDistance = 428;
+            this.splitContainer1.Size = new System.Drawing.Size(660, 543);
+            this.splitContainer1.SplitterDistance = 414;
             this.splitContainer1.TabIndex = 0;
             // 
             // listBox3
@@ -573,7 +573,7 @@ namespace Terre_Natale_Calculateur.View
             this.listBox3.FormattingEnabled = true;
             this.listBox3.Location = new System.Drawing.Point(0, 0);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(660, 428);
+            this.listBox3.Size = new System.Drawing.Size(660, 414);
             this.listBox3.TabIndex = 0;
             this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
             // 
@@ -620,7 +620,7 @@ namespace Terre_Natale_Calculateur.View
             this.editionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(674, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(708, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -680,6 +680,13 @@ namespace Terre_Natale_Calculateur.View
             this.enregistrersousToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.enregistrersousToolStripMenuItem.Text = "Enregistrer &sous";
             this.enregistrersousToolStripMenuItem.Click += new System.EventHandler(this.enregistrersousToolStripMenuItem_Click);
+            // 
+            // exporterEnTxtToolStripMenuItem
+            // 
+            this.exporterEnTxtToolStripMenuItem.Name = "exporterEnTxtToolStripMenuItem";
+            this.exporterEnTxtToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.exporterEnTxtToolStripMenuItem.Text = "Exporter en .Txt";
+            this.exporterEnTxtToolStripMenuItem.Click += new System.EventHandler(this.exporterEnTxtToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -748,19 +755,12 @@ namespace Terre_Natale_Calculateur.View
             this.openFileDialog1.Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // exporterEnTxtToolStripMenuItem
-            // 
-            this.exporterEnTxtToolStripMenuItem.Name = "exporterEnTxtToolStripMenuItem";
-            this.exporterEnTxtToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.exporterEnTxtToolStripMenuItem.Text = "Exporter en .Txt";
-            this.exporterEnTxtToolStripMenuItem.Click += new System.EventHandler(this.exporterEnTxtToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(674, 617);
+            this.ClientSize = new System.Drawing.Size(708, 617);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";

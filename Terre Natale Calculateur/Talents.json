@@ -214,24 +214,8 @@
     "Id": 22,
 
   },
-  {
 
-    "Name": "Artisanat",
-    "PrimaryAspect": 5,
-    "SecondaryAspect": 0,
-    "Type": 0,
-    "Id": 23,
-
-  },
-  {
-
-    "Name": "Alchimie",
-    "PrimaryAspect": 5,
-    "SecondaryAspect": 0,
-    "Type": 0,
-    "Id": 24,
-
-  },
+ 
   {
 
     "Name": "Destruction",
@@ -693,11 +677,95 @@
     },
     {
 
-    "Name": "Savoir Magie",
+        "Name": "Artisanat : Mecanique",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 76,
+
+    },
+    {
+
+        "Name": "Artisanat : Magique",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 77,
+
+    },
+    {
+
+        "Name": "Artisanat : Parchemin",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 78,
+
+    },
+    {
+
+        "Name": "Alchimie : Poison",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 79,
+
+    },
+    {
+
+        "Name": "Alchimie : Drogue",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 80,
+
+    },
+    {
+
+        "Name": "Alchimie : Magie",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 81,
+
+    },
+     {
+
+    "Name": "Alchimie : Potion",
     "PrimaryAspect": 5,
     "SecondaryAspect": 0,
     "Type": 0,
-    "Id": 76,
+    "Id": 82,
+
+  },
+    {
+
+        "Name": "Savoir Magie",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 23,
+        "Savoir": true,
+
+    },
+    {
+
+        "Name": "Savoir Mecanique",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 24,
+        "Savoir": true,
+
+    }
+    ,
+    {
+
+    "Name": "Savoir Folklore",
+    "PrimaryAspect": 5,
+    "SecondaryAspect": 0,
+    "Type": 0,
+    "Id": 83,
     "Savoir": true,
 
   }

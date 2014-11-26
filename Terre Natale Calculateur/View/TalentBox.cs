@@ -84,7 +84,7 @@ namespace Terre_Natale_Calculateur.View
         public void UpdateValue()
         {
             _progress.Value = _linkedTalent.Level * 20;
-            Tools.AllFather.updateXP();
+            //Tools.AllFather.updateXP();
         }
 
         private void _minusButton_Click(object sender, EventArgs e)
