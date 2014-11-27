@@ -36,7 +36,8 @@ namespace Terre_Natale_Calculateur.View
            
             _character = character;
             _character.ExperienceChanged += CharacterExperienceChanged;
-           
+            _character.PAChanged += CharacterExperienceChanged;
+
             //_character.PAChanged += talent_LevelChanged;
         }
 
