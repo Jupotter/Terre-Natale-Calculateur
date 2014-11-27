@@ -59,7 +59,7 @@ namespace Terre_Natale_Calculateur
         public Character Create(String name)
         {
             var character = new Character(name, _talents);
-            _current = character;
+            Current = character;
             return character;
         }
 
@@ -71,8 +71,8 @@ namespace Terre_Natale_Calculateur
 #if DEBUG
             //Console.WriteLine(_traceWriter);
 #endif
-            _current = new Character(character);
-            return _current;
+            Current = new Character(character);
+            return Current;
         }
 
         public void Save(Character character, String filename)

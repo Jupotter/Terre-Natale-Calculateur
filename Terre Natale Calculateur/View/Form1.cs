@@ -65,77 +65,7 @@ namespace Terre_Natale_Calculateur.View
 
         #region LinkBoutton and event
         #region gen
-        private void CreateTalentBoxes()
-        {
-            layoutTalentG.Controls.Clear();
-            layoutTalentsM.Controls.Clear();
-            layoutTalentsA.Controls.Clear();
-            layoutSavoir.Controls.Clear();
-            layoutTalentsP.Controls.Clear();
-            int size = 0;
-
-            TableLayoutPanel box;
-            foreach (var aspect in from aspect in ((Aspect[])Enum.GetValues(typeof(Aspect)))
-                                   where aspect != Aspect.None && aspect != Aspect.Equilibre
-                                   select aspect)
-            {
-                box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect && !t.Name.StartsWith("Savoir") && !t.Name.StartsWith("Artisanat") && !t.Name.StartsWith("Alchimie"),
-                    String.Format("Talents de {0}", aspect));
-                box.Dock = DockStyle.Fill;
-                layoutTalentG.Controls.Add(box);
-            }
-
-            box = CreateAspectBox(t => t.Type == TalentType.General 
-                && (t.PrimaryAspect == Aspect.None || t.PrimaryAspect == Aspect.Equilibre)
-                && !t.Name.StartsWith("Savoir"),
-                    String.Format("Talents de classe"));
-            box.Dock = DockStyle.Fill;
-            layoutTalentG.Controls.Add(box);
-
-
-            box = CreateAspectBox(t => t.Type == TalentType.General && (t.Name.StartsWith("Savoir") || t.Name.StartsWith("Artisanat") || t.Name.StartsWith("Alchimie")),
-                   "Talent multiple");
-                box.Dock = DockStyle.Fill;
-                layoutSavoir.Controls.Add(box);
-            
-            foreach (AspectTalentBox aspectTalentBox in layoutTalentG.Controls)
-            {
-                //aspectTalentBox.AutoSize = false;
-                //aspectTalentBox.Width = size;
-            }
-             
-            box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Acier, "Talents d'Acier");
-            box.Dock = DockStyle.Fill;
-            layoutTalentsM.Controls.Add(box);
-            box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Arcane, "Talents d'Arcane");
-            box.Dock = DockStyle.Fill;
-            layoutTalentsM.Controls.Add(box);
-
-            box = CreateAspectBox(t => t.Type == TalentType.Aptitude && t.PrimaryAspect == Aspect.Acier, "Aptitude d'Acier");
-            box.Dock = DockStyle.Fill;
-            layoutTalentsA.Controls.Add(box);
-            box = CreateAspectBox(t => t.Type == TalentType.Aptitude && t.PrimaryAspect == Aspect.Arcane, "Aptitude d'Arcane");
-            box.Dock = DockStyle.Fill;
-            layoutTalentsA.Controls.Add(box);
-
-            foreach (var aspect in from aspect in (Aspect[])Enum.GetValues(typeof(Aspect))
-                                   where aspect != Aspect.None && aspect != Aspect.Equilibre
-                                   select aspect)
-            {
-                Aspect aspect1 = aspect;
-                box = CreateAspectBox(t => t.Type == TalentType.Prouesse && t.PrimaryAspect == aspect1,
-                    String.Format("Prouesse de {0}", aspect));
-                box.Dock = DockStyle.Fill;
-                layoutTalentsP.Controls.Add(box);
-            }
-        }
-
-        private TableLayoutPanel CreateAspectBox(Predicate<Talent> predicate, string name)
-        {
-            var tpanel = new AspectTalentBox(_character);
-            tpanel.Initialize(predicate, name);
-            return tpanel;
-        }
+        
 
         private void enregistrersousToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -233,7 +163,6 @@ namespace Terre_Natale_Calculateur.View
             _character = character;
             Text = String.Format("Terre Natale – {0}", _character.Name);
 
-            CreateTalentBoxes();
             UpdateAspects();
             InitInventory();
             _character.PAChanged += PAChangedHandler;

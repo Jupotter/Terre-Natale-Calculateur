@@ -161,6 +161,12 @@
     <Compile Include="View\TalentBox.designer.cs">
       <DependentUpon>TalentBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\TalentPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\TalentPanel.Designer.cs">
+      <DependentUpon>TalentPanel.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\Ajouter Un Talent.resx">
       <DependentUpon>Ajouter Un Talent.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\TalentBox.resx">
       <DependentUpon>TalentBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TalentPanel.resx">
+      <DependentUpon>TalentPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Classes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
