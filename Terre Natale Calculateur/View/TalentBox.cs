@@ -35,12 +35,12 @@ namespace Terre_Natale_Calculateur.View
         {
            
             _character = character;
-            _character.ExperienceChanged += _character_ExperienceChanged;
+            _character.ExperienceChanged += CharacterExperienceChanged;
            
             //_character.PAChanged += talent_LevelChanged;
         }
 
-        void _character_ExperienceChanged(Character sender)
+        void CharacterExperienceChanged(Character sender)
         {
             ActualiseButtons();
         }
