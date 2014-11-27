@@ -49,12 +49,12 @@ namespace Terre_Natale_Calculateur
             }
             _talents = list.ToDictionary(talent => talent.Id);
             for (int i = 1; i < _talents.Count; i++)
-			{
+            {
                 _talents[i].reset();
-			} 
+            } 
             sr.Close();
         }
-        public DataTable GetTalents()
+        public DataTable GetTalentsDataTable()
         {
             DataTable data = new DataTable();
             DataColumn newone = new DataColumn("Id", typeof(Int32));

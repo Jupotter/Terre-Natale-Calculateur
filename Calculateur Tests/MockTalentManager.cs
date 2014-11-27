@@ -14,7 +14,7 @@ namespace Calculateur_Tests
         {
         }
 
-        public DataTable GetTalents()
+        public DataTable GetTalentsDataTable()
         {
             throw new NotImplementedException();
         }
