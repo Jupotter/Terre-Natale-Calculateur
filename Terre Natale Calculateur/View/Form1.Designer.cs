@@ -462,7 +462,6 @@ namespace Terre_Natale_Calculateur.View
             this.Stats.TabIndex = 0;
             this.Stats.Text = "Stats";
             this.Stats.UseVisualStyleBackColor = true;
-            this.Stats.Click += new System.EventHandler(this.Stats_Click);
             // 
             // ExperienceLabel
             // 
