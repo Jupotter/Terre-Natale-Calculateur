@@ -45,12 +45,6 @@ namespace Terre_Natale_Calculateur.View
             ActualiseButtons();
         }
 
-        protected override void OnSizeChanged(EventArgs e)
-        {
-            base.OnSizeChanged(e);
-
-        }
-
         public event EventHandler TextModified;
 
         public Talent LinkedTalent
