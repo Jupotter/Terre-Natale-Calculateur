@@ -36,10 +36,7 @@ namespace Terre_Natale_Calculateur.View
                 comboBox1.Items.Add(dat.Value.Nom);
             }
             updateXP();
-            secondaryStats1.setPendePoid(_character.penPoid);
             SetBonusRaciaux();
-
-            //recomputeStatsSecond();
         }
 
         private void updateData()

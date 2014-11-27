@@ -431,7 +431,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.Size = new System.Drawing.Size(294, 232);
             this.tableLayoutPanel4.TabIndex = 47;
-            this.tableLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
             // 
             // SecondaryStats
             // 

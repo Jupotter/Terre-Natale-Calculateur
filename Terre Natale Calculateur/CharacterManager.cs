@@ -68,6 +68,7 @@ namespace Terre_Natale_Calculateur
             var sr = new StreamReader(filename);
             var character = JsonConvert.DeserializeObject<SerializableCharacter>(sr.ReadToEnd(),
                 _serializerSettings);
+            sr.Close();
 #if DEBUG
             //Console.WriteLine(_traceWriter);
 #endif

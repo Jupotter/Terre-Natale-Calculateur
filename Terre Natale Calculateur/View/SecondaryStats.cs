@@ -5,17 +5,25 @@ namespace Terre_Natale_Calculateur.View
 {
     public partial class SecondaryStats : UserControl
     {
+        private Character character;
+
         public SecondaryStats()
         {
             InitializeComponent();
-            CharacterManager.CharacterChanged += caller => RecomputeStats();
+            CharacterManager.CharacterChanged += CharacterChanged;
+        }
+
+        private void CharacterChanged(Character caller)
+        {
+            character = caller;
+            PenDePoid.Value = caller.penPoid;
+            RecomputeStats();
         }
 
         public void RecomputeStats()
         {
-            if (CharacterManager.Current != null)
+            if (character != null)
             {
-                Character character = CharacterManager.Current;
                 willBox.Text = character.Willpower.ToString();
                 robusBox.Text = character.Robustesse.ToString();
                 reflexBox.Text = character.Reflex.ToString();
@@ -50,17 +58,8 @@ namespace Terre_Natale_Calculateur.View
 
         private void PenDePoid_ValueChanged(object sender, EventArgs e)
         {
-            CharacterManager.Current.penPoid =Convert.ToInt16 (PenDePoid.Value);
+            character.penPoid = Decimal.ToInt32(PenDePoid.Value);
             RecomputeStats();
-        }
-
-        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        public void setPendePoid(int value)
-        {
-            PenDePoid.Value = value;
         }
     }
 }
