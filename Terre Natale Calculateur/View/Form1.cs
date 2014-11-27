@@ -171,15 +171,6 @@ namespace Terre_Natale_Calculateur.View
                 : System.Drawing.Color.Black;
         }
 
-
-      
-       
-
-        private void Stats_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Classe current = ClassManager.Instance.getFormName(comboBox1.Text);
@@ -202,10 +193,7 @@ namespace Terre_Natale_Calculateur.View
             _character.SetClasse(current);
             
         }
-        private void PenDePoid_ValueChanged(object sender, EventArgs e)
-        {
-            //recomputeStatsSecond();
-        }
+
         #endregion
         #endregion
 
@@ -263,8 +251,6 @@ namespace Terre_Natale_Calculateur.View
         }
         public void UpdateAspects() { stat_Principal1.UpdateAspects(); }
 
-        public void ActualiseStats() { stat_Principal1.ActualiseStats(); }
-
         private void dumpRaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RacesManager.Instance.DumpJSON();
@@ -293,11 +279,5 @@ namespace Terre_Natale_Calculateur.View
             sw.Write(_character.ExitTxt(this));
             sw.Close();
         }
-    
-
     }
-
-
-
-
 }
