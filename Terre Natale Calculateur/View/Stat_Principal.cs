@@ -12,12 +12,22 @@ namespace Terre_Natale_Calculateur.View
 {
     internal partial class Stat_Principal : UserControl
     {
+        private Character character;
+
         Form1 parentForm;
         public Stat_Principal()
         {
-            
+            CharacterManager.CharacterChanged += OnCharacterChanged;
             InitializeComponent();
         }
+
+        private void OnCharacterChanged(Character caller)
+        {
+            character = caller;
+            character.PAChanged += caller1 => UpdateAspects();
+            UpdateAspects();
+        }
+
         public void setParent(Form1 papa)
         {
             parentForm = papa;
@@ -29,20 +39,18 @@ namespace Terre_Natale_Calculateur.View
 
         public void UpdateAspects()
         {
-            Character _character = CharacterManager.Current;
-            Acier.Text = _character.GetAspectValue(Aspect.Acier).ToString();
-            Arcane.Text = _character.GetAspectValue(Aspect.Arcane).ToString();
-            Eau.Text = _character.GetAspectValue(Aspect.Eau).ToString();
-            Terre.Text = _character.GetAspectValue(Aspect.Terre).ToString();
-            Feu.Text = _character.GetAspectValue(Aspect.Feu).ToString();
-            Vent.Text = _character.GetAspectValue(Aspect.Vent).ToString();
-            Equilibre.Text = _character.GetAspectValue(Aspect.Equilibre).ToString();
+            Acier.Text = character.GetAspectValue(Aspect.Acier).ToString();
+            Arcane.Text = character.GetAspectValue(Aspect.Arcane).ToString();
+            Eau.Text = character.GetAspectValue(Aspect.Eau).ToString();
+            Terre.Text = character.GetAspectValue(Aspect.Terre).ToString();
+            Feu.Text = character.GetAspectValue(Aspect.Feu).ToString();
+            Vent.Text = character.GetAspectValue(Aspect.Vent).ToString();
+            Equilibre.Text = character.GetAspectValue(Aspect.Equilibre).ToString();
             ActualiseStats();
         }
 
         public void ActualiseStats()
         {
-            Character _character = CharacterManager.Current;
             int bF = 0;
             int bC = 0;
             int bM = 0;
@@ -50,14 +58,14 @@ namespace Terre_Natale_Calculateur.View
             
             #region bordel lutie ....
 
-            if (_character.getClasse() != null)
+            if (character.getClasse() != null)
             {
-                int tmp = _character.Talents.Where(t => t.Type == TalentType.General &&
-                        (t.PrimaryAspect == _character.getClasse().Primaire
-                        || t.PrimaryAspect == _character.getClasse().Secondaire
-                        || t.SecondaryAspect == _character.getClasse().Primaire
-                        || t.SecondaryAspect == _character.getClasse().Secondaire)).Sum(t => t.Level);
-                switch (_character.getClasse().MPC)
+                int tmp = character.Talents.Where(t => t.Type == TalentType.General &&
+                        (t.PrimaryAspect == character.getClasse().Primaire
+                        || t.PrimaryAspect == character.getClasse().Secondaire
+                        || t.SecondaryAspect == character.getClasse().Primaire
+                        || t.SecondaryAspect == character.getClasse().Secondaire)).Sum(t => t.Level);
+                switch (character.getClasse().MPC)
                 {
                     case "W": bC = tmp / 4;
 
@@ -72,7 +80,7 @@ namespace Terre_Natale_Calculateur.View
                         break;
                 }
 
-                switch (_character.getClasse().MPE)
+                switch (character.getClasse().MPE)
                 {
                     case "W": bE = tmp / 5;
 
@@ -87,7 +95,7 @@ namespace Terre_Natale_Calculateur.View
                         break;
                 }
 
-                switch (_character.getClasse().MPF)
+                switch (character.getClasse().MPF)
                 {
                     case "W": bF = tmp / 4;
 
@@ -102,7 +110,7 @@ namespace Terre_Natale_Calculateur.View
                         break;
                 }
 
-                switch (_character.getClasse().MPM)
+                switch (character.getClasse().MPM)
                 {
                     case "W": bM = tmp / 4;
 
@@ -124,14 +132,14 @@ namespace Terre_Natale_Calculateur.View
 
 
 
-           Fatigue.Text = (_character.Fatigue + bF).ToString();
-            Chi.Text = (_character.Chi + bC).ToString();
-            Mana.Text = (_character.Mana + bM).ToString();
-            Karma.Text = (_character.Karma()).ToString();
-            Endurance.Text = (_character.Endurance + bE).ToString();
-            Santé.Text = (_character.Ps).ToString();
-            PeI.Text = (_character.Endurance + bE + _character.GetTalent("Endurance").Level*5).ToString();
-            PEa.Text = (_character.Endurance + bE + _character.GetTalent("Volonté").Level * 7).ToString();
+           Fatigue.Text = (character.Fatigue + bF).ToString();
+            Chi.Text = (character.Chi + bC).ToString();
+            Mana.Text = (character.Mana + bM).ToString();
+            Karma.Text = (character.Karma()).ToString();
+            Endurance.Text = (character.Endurance + bE).ToString();
+            Santé.Text = (character.Ps).ToString();
+            PeI.Text = (character.Endurance + bE + character.GetTalent("Endurance").Level*5).ToString();
+            PEa.Text = (character.Endurance + bE + character.GetTalent("Volonté").Level * 7).ToString();
         }
 
         public string getPeI()
@@ -160,7 +168,6 @@ namespace Terre_Natale_Calculateur.View
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            Character _character = CharacterManager.Current;
             if (listBox1.Visible == false)
             {
                 listBox1.Items.Clear();
@@ -168,7 +175,7 @@ namespace Terre_Natale_Calculateur.View
                 {
                     if (item != Aspect.None)
                     {
-                        listBox1.Items.Add(item.ToString() + ":" + _character.GetAspectPoint(item));
+                        listBox1.Items.Add(item.ToString() + ":" + character.GetAspectPoint(item));
                     }
                 }
                 button2.Text = "Masquer les PA";

@@ -131,17 +131,11 @@ namespace Terre_Natale_Calculateur.View
             string name = openFileDialog1.FileName;
             CharacterManager.Instance.Load(name);
             _currentFilename = name;
-            UpdateAspects();
         }
 
         private void ouvrirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
-        }
-
-        private void PAChangedHandler(Character sender)
-        {
-            UpdateAspects();
         }
 
         private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
@@ -156,9 +150,7 @@ namespace Terre_Natale_Calculateur.View
             _character = character;
             Text = String.Format("Terre Natale – {0}", _character.Name);
 
-            UpdateAspects();
             InitInventory();
-            _character.PAChanged += PAChangedHandler;
 
             newcharacterfinish();
         }
