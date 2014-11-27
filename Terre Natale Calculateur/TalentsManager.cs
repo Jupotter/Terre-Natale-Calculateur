@@ -9,6 +9,13 @@ namespace Terre_Natale_Calculateur
 {
     internal class TalentsManager : ITalentsManager
     {
+        public static event Action TalentsLoaded;
+
+        private static void OnTalentsLoaded()
+        {
+            Action handler = TalentsLoaded;
+            if (handler != null) handler();
+        }
 
         private static TalentsManager _instance;
 
@@ -53,7 +60,17 @@ namespace Terre_Natale_Calculateur
                 _talents[i].reset();
             } 
             sr.Close();
+
+            OnTalentsLoaded();
         }
+
+        public IEnumerable<Talent> GetTalents()
+        {
+            if (_talents != null)
+                return _talents.Values;
+            return null;
+        }
+
         public DataTable GetTalentsDataTable()
         {
             DataTable data = new DataTable();

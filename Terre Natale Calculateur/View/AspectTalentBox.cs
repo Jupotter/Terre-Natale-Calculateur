@@ -14,7 +14,7 @@ namespace Terre_Natale_Calculateur.View
     {
         private readonly Character _character;
 
-        public AspectTalentBox(Character character)
+        public AspectTalentBox(Character character = null)
         {
             _character = character;
             InitializeComponent();
@@ -34,9 +34,16 @@ namespace Terre_Natale_Calculateur.View
                 Font = new Font(FontFamily.GenericSansSerif, 8, FontStyle.Bold),
                 AutoSize=true,
             }, 0, 0);
-            
+
+            IEnumerable<Talent> talentsList = _character == null
+                ? TalentsManager.Instance.GetTalents()
+                : _character.Talents;
+
+            if (talentsList == null)
+                return;
+
             foreach (TalentBox tbox in
-                from talent in _character.Talents
+                from talent in talentsList
                 where predicate(talent)
                 select new TalentBox(_character) {LinkedTalent = talent})
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Terre_Natale_Calculateur.Annotations;
 
 namespace Terre_Natale_Calculateur.View
 {
@@ -30,15 +31,15 @@ namespace Terre_Natale_Calculateur.View
            
         }
 
-        public TalentBox(Character character)
+        public TalentBox([CanBeNull]Character character)
             : this()
         {
-           
+            if (character == null)
+                return;
+
             _character = character;
             _character.ExperienceChanged += CharacterExperienceChanged;
             _character.PAChanged += CharacterExperienceChanged;
-
-            //_character.PAChanged += talent_LevelChanged;
         }
 
         void CharacterExperienceChanged(Character sender)
@@ -100,17 +101,6 @@ namespace Terre_Natale_Calculateur.View
             ActualiseButtons();
         }
 
-        private void ChangeSize()
-        {
-            SuspendLayout();
-            //ChangeLayout();
-            //Width = _plusButton.Right;
-        }
-
-        private void ChangeLayout()
-        {
-        }
-
         private void OnTextModified(object sender, EventArgs eventArgs)
         {
             _label.Text = Text;
@@ -124,6 +114,13 @@ namespace Terre_Natale_Calculateur.View
 
         private void ActualiseButtons()
         {
+            if (_character == null)
+            {
+                _minusButton.Enabled = false;
+                _plusButton.Enabled = false;
+                return;
+            }
+
             if( (_linkedTalent.Level > 1 && _linkedTalent.HaveBonus))
             {
                 _minusButton.Enabled=true;

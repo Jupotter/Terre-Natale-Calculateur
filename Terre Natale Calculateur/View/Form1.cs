@@ -114,8 +114,6 @@ namespace Terre_Natale_Calculateur.View
         private void Form1_Load(object sender, EventArgs e)
         {
             TalentsManager.Instance.Initialize();
-            
-
         }
 
         private void nouveauToolStripMenuItem1_Click(object sender, EventArgs e)
