@@ -351,11 +351,6 @@ namespace Terre_Natale_Calculateur.View
 
         public void ActualiseStats() { stat_Principal1.ActualiseStats(); }
 
-        private void TalentsM_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dumpRaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RacesManager.Instance.DumpJSON();

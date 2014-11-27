@@ -392,7 +392,6 @@ namespace Terre_Natale_Calculateur.View
             this.TalentsM.TabIndex = 2;
             this.TalentsM.Text = "Talents Martiaux";
             this.TalentsM.UseVisualStyleBackColor = true;
-            this.TalentsM.Click += new System.EventHandler(this.TalentsM_Click);
             // 
             // layoutTalentsM
             // 
