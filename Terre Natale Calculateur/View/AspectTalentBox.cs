@@ -13,12 +13,10 @@ namespace Terre_Natale_Calculateur.View
     internal partial class AspectTalentBox : TableLayoutPanel
     {
         private readonly Character _character;
-        private readonly List<TalentBox> _talentBoxes;
 
         public AspectTalentBox(Character character)
         {
             _character = character;
-            _talentBoxes = new List<TalentBox>();
             InitializeComponent();
 
             BorderStyle = BorderStyle.FixedSingle;
@@ -46,31 +44,6 @@ namespace Terre_Natale_Calculateur.View
                 tbox.Dock = DockStyle.Fill;
                 Controls.Add(tbox);
             }
-
-            foreach (var box in _talentBoxes)
-            {
-                Width = Math.Max(Width, box.Width);
-            }
-        }
-
-        protected override void OnControlAdded(ControlEventArgs e)
-        {
-            base.OnControlAdded(e);
-
-            if (e.Control.GetType() == typeof (TalentBox))
-                _talentBoxes.Add((TalentBox)e.Control);
-        }
-
-        protected override void OnControlRemoved(ControlEventArgs e)
-        {
-            base.OnControlRemoved(e);
-
-            if (e.Control.GetType() == typeof(TalentBox))
-                _talentBoxes.Remove((TalentBox)e.Control);
-        }
-
-        protected override void OnSizeChanged(EventArgs e)
-        {
         }
     }
 }

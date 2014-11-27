@@ -34,7 +34,6 @@ namespace Terre_Natale_Calculateur.View
             layoutTalentsA.Controls.Clear();
             layoutSavoir.Controls.Clear();
             layoutTalentsP.Controls.Clear();
-            int size = 0;
 
             TableLayoutPanel box;
             foreach (var aspect in from aspect in ((Aspect[])Enum.GetValues(typeof(Aspect)))
@@ -59,12 +58,6 @@ namespace Terre_Natale_Calculateur.View
                    "Talent multiple");
             box.Dock = DockStyle.Fill;
             layoutSavoir.Controls.Add(box);
-
-            foreach (AspectTalentBox aspectTalentBox in layoutTalentG.Controls)
-            {
-                //aspectTalentBox.AutoSize = false;
-                //aspectTalentBox.Width = size;
-            }
 
             box = CreateAspectBox(t => t.Type == TalentType.Martial && t.PrimaryAspect == Aspect.Acier, "Talents d'Acier");
             box.Dock = DockStyle.Fill;
