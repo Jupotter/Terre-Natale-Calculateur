@@ -19,9 +19,7 @@ namespace Terre_Natale_Calculateur.View
             InitializeComponent();
             stat_Principal1.setParent(this);
             Tools.AllFather = this;
-            //SetCharacter(CharacterManager.Instance.Create("Name"));
-
-            //CharacterManager.Instance.Save(_character, "Name");
+            CharacterManager.CharacterChanged += SetCharacter;
         }
         #region affichage stats
 
@@ -123,7 +121,7 @@ namespace Terre_Natale_Calculateur.View
         private void nouveauToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             RacesManager.Instance.Initialize();
-            SetCharacter(CharacterManager.Instance.Create("name"));
+            CharacterManager.Instance.Create("name");
             RacesManager.Instance.CreateSet();
 
             NewCharacters nc = new NewCharacters(_character, this);
@@ -136,7 +134,7 @@ namespace Terre_Natale_Calculateur.View
         {
             RacesManager.Instance.Initialize();
             string name = openFileDialog1.FileName;
-            SetCharacter(CharacterManager.Instance.Load(name));
+            CharacterManager.Instance.Load(name);
             _currentFilename = name;
             UpdateAspects();
         }
