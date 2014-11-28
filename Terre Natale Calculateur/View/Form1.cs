@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Windows.Forms;
 namespace Terre_Natale_Calculateur.View
 {
     internal partial class Form1 : Form

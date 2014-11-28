@@ -207,6 +207,7 @@
     <EmbeddedResource Include="View\TalentPanel.resx">
       <DependentUpon>TalentPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Classes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
