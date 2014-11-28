@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terre Natale Calculateur", "Terre Natale Calculateur\Terre Natale Calculateur.csproj", "{3BD85B19-41A2-4659-9A16-80AB977A94B8}"
 EndProject
@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B16A36
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{628E624B-672F-4400-A058-42C31D742146}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculateur_wpf", "Calculateur_wpf\Calculateur_wpf.csproj", "{FBA5E31D-5FE1-41A6-85D8-AC0F5B422910}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +30,10 @@ Global
 		{200E1935-B170-4D47-B4C1-02A291DAFCAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{200E1935-B170-4D47-B4C1-02A291DAFCAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{200E1935-B170-4D47-B4C1-02A291DAFCAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBA5E31D-5FE1-41A6-85D8-AC0F5B422910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA5E31D-5FE1-41A6-85D8-AC0F5B422910}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA5E31D-5FE1-41A6-85D8-AC0F5B422910}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA5E31D-5FE1-41A6-85D8-AC0F5B422910}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
