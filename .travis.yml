@@ -1,8 +1,25 @@
 language: c
 
+before_install:
+    - sudo apt-key adv --keyserver pgp.mit.edu --recv-keys
+      3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+    - sudo add-apt-repository "deb http://download.mono-project.com/repo/debian wheezy-libtiff-compat main"
+    - sudo add-apt-repository  "deb http://download.mono-project.com/repo/debian wheezy main"
+    - lsb_release -a
+    - sudo apt-get update
+    - sudo apt-get clean
+    - sudo apt-get -f install
+
 install:
-      - sudo apt-get install mono-devel mono-gmcs
+    - sudo apt-get install mono-complete
+    - sudo apt-get install mono-devel mono-gmcs
+    - sudo mozroots --import --machine --sync
+    - yes | sudo certmgr -ssl -m https://go.microsoft.com
+    - yes | sudo certmgr -ssl -m https://nugetgallery.blob.core.windows.net
+    - yes | sudo certmgr -ssl -m https://nuget.org
+    - wget https://nuget.org/nuget.exe
+    - export EnableNuGetPackageRestore=true
+    - mono nuget.exe restore -Verbosity detailed
 
 script:
-      - export EnableNuGetPackageRestore=true
-      - xbuild "Terre Natale Calculateur.sln"
+    - xbuild "Terre Natale Calculateur.sln"
