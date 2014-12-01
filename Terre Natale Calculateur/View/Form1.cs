@@ -290,5 +290,10 @@ namespace Terre_Natale_Calculateur.View
             sw.Write(_character.ExitTxt(this));
             sw.Close();
         }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
