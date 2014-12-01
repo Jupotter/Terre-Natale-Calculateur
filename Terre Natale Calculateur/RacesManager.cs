@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 namespace Terre_Natale_Calculateur
 {
 
@@ -40,7 +41,7 @@ namespace Terre_Natale_Calculateur
 
         public void Initialize()
         {
-            var sr = new StreamReader("Races.json");
+            var sr = new StreamReader(String.Format("{0}/Races.json", Application.StartupPath));
             var list = JsonConvert.DeserializeObject<List<Race>>(sr.ReadToEnd(),_serializerSettings);
 
             foreach (var talent in list)
