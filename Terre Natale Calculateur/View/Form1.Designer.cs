@@ -95,8 +95,8 @@ namespace Terre_Natale_Calculateur.View
             this.lab_Race = new System.Windows.Forms.Label();
             this.lab_name = new System.Windows.Forms.Label();
             this.level = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.RaceLabel = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
             this.XpToAdd = new System.Windows.Forms.NumericUpDown();
             this.ExperienceRestante = new System.Windows.Forms.TextBox();
             this.Experience = new System.Windows.Forms.TextBox();
@@ -499,23 +499,23 @@ namespace Terre_Natale_Calculateur.View
             this.level.TabIndex = 40;
             this.level.Text = "Niveau : 1";
             // 
-            // label20
+            // RaceLabel
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(282, 11);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(39, 13);
-            this.label20.TabIndex = 36;
-            this.label20.Text = "Race :";
+            this.RaceLabel.AutoSize = true;
+            this.RaceLabel.Location = new System.Drawing.Point(282, 11);
+            this.RaceLabel.Name = "RaceLabel";
+            this.RaceLabel.Size = new System.Drawing.Size(39, 13);
+            this.RaceLabel.TabIndex = 36;
+            this.RaceLabel.Text = "Race :";
             // 
-            // label1
+            // NameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Nom :";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Location = new System.Drawing.Point(41, 11);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(35, 13);
+            this.NameLabel.TabIndex = 34;
+            this.NameLabel.Text = "Nom :";
             // 
             // XpToAdd
             // 
@@ -621,11 +621,11 @@ namespace Terre_Natale_Calculateur.View
             // panel1
             // 
             this.panel1.Controls.Add(this.level);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.NameLabel);
             this.panel1.Controls.Add(this.ExperienceLabel);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.RaceLabel);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.Experience);
             this.panel1.Controls.Add(this.ExperienceRestante);
@@ -703,9 +703,9 @@ namespace Terre_Natale_Calculateur.View
         private ListBox BonusRaciauxBox;
         private Stat_Principal stat_Principal1;
         private Label lab_Race;
-        private Label label20;
+        private Label RaceLabel;
         private Label lab_name;
-        private Label label1;
+        private Label NameLabel;
         private NumericUpDown XpToAdd;
         private TextBox ExperienceRestante;
         private TextBox Experience;
