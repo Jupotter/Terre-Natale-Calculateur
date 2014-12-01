@@ -109,14 +109,24 @@ namespace Terre_Natale_Calculateur.View
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            TalentsManager.TalentsLoaded += TalentsManagerOnTalentsLoaded;
             TalentsManager.Instance.Initialize();
+        }
+
+        private void TalentsManagerOnTalentsLoaded()
+        {
+            TalentsManager.TalentsLoaded -= TalentsManagerOnTalentsLoaded;
+            string[] args = Environment.GetCommandLineArgs();
+            if (args.Length <= 1)
+                return;
+            RacesManager.Instance.Initialize();
+            CharacterManager.Instance.Load(args[1]);
         }
 
         private void nouveauToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             RacesManager.Instance.Initialize();
             CharacterManager.Instance.Create("name");
-            RacesManager.Instance.CreateSet();
 
             NewCharacters nc = new NewCharacters(_character, this);
             nc.Show();
