@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
-using Newtonsoft.Json.Serialization;
-using System.Data;
+using System.Windows.Forms;
 namespace Terre_Natale_Calculateur
 {
     internal class TalentsManager : ITalentsManager
@@ -42,7 +43,7 @@ namespace Terre_Natale_Calculateur
 
         public void Initialize()
         {
-            var sr = new StreamReader("Talents.json");
+            var sr = new StreamReader(String.Format("{0}/Talents.json", Application.StartupPath));
             var list = JsonConvert.DeserializeObject<List<Talent>>(sr.ReadToEnd());
             if ( _talents != null && _talents.Count > 0) _talents.Clear();
             foreach (var talent in list)

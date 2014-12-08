@@ -768,7 +768,16 @@
     "Id": 83,
     "Savoir": true,
 
-  }
+  },
+    {
+
+        "Name": "Artisanat : Pièges",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 84,
+
+    },
   
 
 

@@ -202,3 +202,9 @@ FakesAssemblies/
 *~
 *.userprefs
 *.orig
+
+
+
+# Advanced Installer files
+Terre Natale-cache/
+mirlite_setup.msi

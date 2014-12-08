@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Windows.Forms;
 namespace Terre_Natale_Calculateur.View
 {
     internal partial class Form1 : Form
@@ -110,14 +109,24 @@ namespace Terre_Natale_Calculateur.View
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            TalentsManager.TalentsLoaded += TalentsManagerOnTalentsLoaded;
             TalentsManager.Instance.Initialize();
+        }
+
+        private void TalentsManagerOnTalentsLoaded()
+        {
+            TalentsManager.TalentsLoaded -= TalentsManagerOnTalentsLoaded;
+            string[] args = Environment.GetCommandLineArgs();
+            if (args.Length <= 1)
+                return;
+            RacesManager.Instance.Initialize();
+            CharacterManager.Instance.Load(args[1]);
         }
 
         private void nouveauToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             RacesManager.Instance.Initialize();
             CharacterManager.Instance.Create("name");
-            RacesManager.Instance.CreateSet();
 
             NewCharacters nc = new NewCharacters(_character, this);
             nc.Show();
@@ -149,6 +158,8 @@ namespace Terre_Natale_Calculateur.View
         {
             _character = character;
             Text = String.Format("Terre Natale – {0}", _character.Name);
+            NameLabel.Text = String.Format("Nom: {0}", _character.Name);
+            RaceLabel.Text = String.Format("Race: {0}", _character.Race.Name);
 
             InitInventory();
 
@@ -278,6 +289,11 @@ namespace Terre_Natale_Calculateur.View
             StreamWriter sw = new StreamWriter(_character.Name + ".txt");
             sw.Write(_character.ExitTxt(this));
             sw.Close();
+        }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

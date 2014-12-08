@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Terre_Natale_Calculateur
 {
@@ -29,7 +30,7 @@ namespace Terre_Natale_Calculateur
         {
 
 
-            var sr = new StreamReader("Classes.json");
+            var sr = new StreamReader(String.Format("{0}/Classes.json", Application.StartupPath));
             var list = JsonConvert.DeserializeObject<List<Classe>>(sr.ReadToEnd());
 
             foreach (var classe in list)
