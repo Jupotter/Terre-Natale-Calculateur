@@ -285,8 +285,27 @@ namespace Terre_Natale_Calculateur.View
 
         private void exporterEnTxtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (File.Exists(_character.Name + ".txt")) File.Delete(_character.Name + ".txt");
-            StreamWriter sw = new StreamWriter(_character.Name + ".txt");
+            string name;
+            if (_currentFilename != null)
+            {
+                name = _currentFilename;
+                name = String.Format("{0}.txt", name);
+                if (File.Exists(name))
+                    File.Delete(name);
+                var sw = new StreamWriter(name);
+                sw.Write(_character.ExitTxt(this));
+                sw.Close();
+            }
+            else
+                saveFileDialog1.ShowDialog();
+        }
+
+        private void saveFileDialog2_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string name = saveFileDialog1.FileName;
+            if (File.Exists(name))
+                File.Delete(name);
+            var sw = new StreamWriter(name);
             sw.Write(_character.ExitTxt(this));
             sw.Close();
         }
