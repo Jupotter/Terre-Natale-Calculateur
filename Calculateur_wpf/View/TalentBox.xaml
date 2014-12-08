@@ -3,17 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="255">
+             mc:Ignorable="d" Height="27" Width="Auto">
     <Grid Margin="0" FlowDirection="LeftToRight">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Content="{Binding Name, FallbackValue=Talent Name}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <StackPanel Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Button Content="+" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}"/>
-            <ProgressBar Width="100" Margin="2"/>
+        <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right" VerticalAlignment="Center">
             <Button Content="-" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}"/>
+            <ProgressBar Width="100" Margin="2" Maximum="5" Value="{Binding Level, Mode=OneWay}" />
+            <Button Content="+" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}"/>
         </StackPanel>
     </Grid>
 </UserControl>

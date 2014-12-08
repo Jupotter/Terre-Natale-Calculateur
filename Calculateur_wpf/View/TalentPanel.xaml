@@ -11,10 +11,24 @@
     <UserControl.DataContext>
         <viewModel:TalentsPanel/>
     </UserControl.DataContext>
+
     <ItemsControl ItemsSource="{Binding Talents}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid ScrollViewer.VerticalScrollBarVisibility="Auto" Columns="2" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <view:TalentBox />
+                <GroupBox Header="{Binding Key}">
+                    <ItemsControl ItemsSource="{Binding Value}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <view:TalentBox />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </GroupBox>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>
