@@ -645,6 +645,7 @@ namespace Terre_Natale_Calculateur.View
             this.ClientSize = new System.Drawing.Size(708, 617);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Terre Natale";
             this.Shown += new System.EventHandler(this.Form1_Load);
