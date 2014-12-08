@@ -38,3 +38,4 @@ using System.Runtime.InteropServices;
 
 // Make internal classes visible to test project
 [assembly: InternalsVisibleTo("Calculateur Tests")]
+[assembly: InternalsVisibleTo("Calculateur_wpf")]
