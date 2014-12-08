@@ -75,6 +75,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\TalentBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TalentPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +102,9 @@
     <Compile Include="ViewModel\MainStats.cs" />
     <Compile Include="ViewModel\MainWindow.cs" />
     <Compile Include="ViewModel\TalentsPanel.cs" />
+    <Compile Include="View\TalentBox.xaml.cs">
+      <DependentUpon>TalentBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TalentPanel.xaml.cs">
       <DependentUpon>TalentPanel.xaml</DependentUpon>
     </Compile>
