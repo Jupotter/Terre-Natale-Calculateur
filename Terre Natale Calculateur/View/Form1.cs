@@ -159,7 +159,8 @@ namespace Terre_Natale_Calculateur.View
             _character = character;
             Text = String.Format("Terre Natale – {0}", _character.Name);
             NameLabel.Text = String.Format("Nom: {0}", _character.Name);
-            RaceLabel.Text = String.Format("Race: {0}", _character.Race.Name);
+            if (character.Race != null)
+                RaceLabel.Text = String.Format("Race: {0}", _character.Race.Name);
 
             InitInventory();
 
