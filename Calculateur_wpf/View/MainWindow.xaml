@@ -39,9 +39,7 @@
                     <local:MainStats Height="405" VerticalAlignment="Top" Margin="10,0,0,0"/>
                 </TabItem>
                 <TabItem Header="Talents">
-                    <Grid Background="#FFE5E5E5" Height="396">
-                        <local:TalentPanel/>
-                    </Grid>
+                    <local:TalentPanel Height="405" VerticalAlignment="Top"/>
                 </TabItem>
             </TabControl>
         </DockPanel>

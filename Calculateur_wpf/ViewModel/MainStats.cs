@@ -37,6 +37,51 @@ namespace Calculateur_wpf.ViewModel
             get { return character == null ? 0 : character.GetAspectValue(Aspect.Terre); }
         }
 
+        public int Equilibre
+        {
+            get { return character == null ? 0 : character.GetAspectValue(Aspect.Equilibre); }
+        }
+
+        public int Health
+        {
+            get { return character == null ? 0 : character.Ps; }
+        }
+
+        public int EnduranceIndemne
+        {
+            get { return character == null ? 0 : character.Endurance + 5 * character.GetTalent("Endurance").Level; }
+        }
+
+        public int Endurance
+        {
+            get { return character == null ? 0 : character.Endurance; }
+        }
+
+        public int EnduranceAgonisant
+        {
+            get { return character == null ? 0 : character.Endurance + 7 * character.GetTalent("Volonté").Level; }
+        }
+
+        public int Mana
+        {
+            get { return character == null ? 0 : character.Mana; }
+        }
+
+        public int Chi
+        {
+            get { return character == null ? 0 : character.Chi; }
+        }
+
+        public int Fatigue
+        {
+            get { return character == null ? 0 : character.Fatigue; }
+        }
+
+        public int Karma
+        {
+            get { return character == null ? 0 : character.Karma(); }
+        }
+
         public MainStats()
         {
             CharacterManager.CharacterChanged += CharacterManager_OnCharacterChanged;
