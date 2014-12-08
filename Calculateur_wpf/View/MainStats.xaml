@@ -13,39 +13,39 @@
             <GroupBox Header="Aspects" Height="256" Width="276">
                 <Grid>
                     <Label Content="Arcane" HorizontalAlignment="Center" Margin="10,10,207.37,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Center" Height="23" Margin="10,40.96,207.37,0" TextWrapping="Wrap" Text="{Binding Arcane, Mode=OneWay}" VerticalAlignment="Top" Width="46.63"/>
+                    <TextBox HorizontalAlignment="Center" Height="23" Margin="10,40.96,207.37,0" TextWrapping="Wrap" Text="{Binding Arcane, Mode=OneWay}" VerticalAlignment="Top" Width="46.63" IsReadOnly="True"/>
                     <Label Content="Eau" HorizontalAlignment="Center" Margin="111.185,10,106.185,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Center" Height="23" Margin="111.185,40.96,106.185,0" TextWrapping="Wrap" Text="{Binding Eau, Mode=OneWay}" VerticalAlignment="Top" Width="46.63"/>
+                    <TextBox HorizontalAlignment="Center" Height="23" Margin="111.185,40.96,106.185,0" TextWrapping="Wrap" Text="{Binding Eau, Mode=OneWay}" VerticalAlignment="Top" Width="46.63" IsReadOnly="True"/>
                     <Label Content="Vent" HorizontalAlignment="Center" Margin="10,76.05,219.413,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Center" Height="23" Margin="10,107.01,207.37,103.03" TextWrapping="Wrap" Text="{Binding Vent, Mode=OneWay}" VerticalAlignment="Center" Width="46.63"/>
+                    <TextBox HorizontalAlignment="Center" Height="23" Margin="10,107.01,207.37,103.03" TextWrapping="Wrap" Text="{Binding Vent, Mode=OneWay}" VerticalAlignment="Center" Width="46.63" IsReadOnly="True"/>
                     <Label Content="Feu" HorizontalAlignment="Center" Margin="120.056,151.13,115.016,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Center" Height="23" Margin="111.185,182.09,106.185,0" TextWrapping="Wrap" Text="{Binding Feu, Mode=OneWay}" VerticalAlignment="Top" Width="46.63"/>
+                    <TextBox HorizontalAlignment="Center" Height="23" Margin="111.185,182.09,106.185,0" TextWrapping="Wrap" Text="{Binding Feu, Mode=OneWay}" VerticalAlignment="Top" Width="46.63" IsReadOnly="True"/>
                     <Label Content="Équilibre" HorizontalAlignment="Center" Margin="111.185,77.05,94.185,0" VerticalAlignment="Top" Width="58.63"/>
-                    <TextBox HorizontalAlignment="Center" Height="23" Margin="111.185,107.01,106.185,103.03" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Width="46.63"/>
+                    <TextBox HorizontalAlignment="Center" Height="23" Margin="111.185,107.01,106.185,103.03" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Width="46.63" IsReadOnly="True"/>
                     <Label Content="Acier" HorizontalAlignment="Left" Margin="207.37,151.13,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="207.37,182.09,0,0" TextWrapping="Wrap" Text="{Binding Acier, Mode=OneWay}" VerticalAlignment="Top" Width="46.63"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="207.37,182.09,0,0" TextWrapping="Wrap" Text="{Binding Acier, Mode=OneWay}" VerticalAlignment="Top" Width="46.63" IsReadOnly="True"/>
                     <Label Content="Terre" HorizontalAlignment="Left" Margin="206.823,77.05,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="207.37,107.01,0,103.03" TextWrapping="Wrap" Text="{Binding Terre, Mode=OneWay}" VerticalAlignment="Center" Width="46.63"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="207.37,107.01,0,103.03" TextWrapping="Wrap" Text="{Binding Terre, Mode=OneWay}" VerticalAlignment="Center" Width="46.63" IsReadOnly="True"/>
                 </Grid>
             </GroupBox>
             <GroupBox Header="Statistiques" Width="169">
                 <UniformGrid Width="202" Columns="2">
                     <Label Content="Santé:" Margin="0,0,5,0" HorizontalContentAlignment="Right"/>
-                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0"/>
+                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0" IsReadOnly="True"/>
                     <Label Content="Endurance In:" Margin="0,0,5,0" HorizontalContentAlignment="Right"/>
-                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0"/>
+                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0" IsReadOnly="True"/>
                     <Label Content="Endurance:" Margin="0,0,5,0" HorizontalContentAlignment="Right"/>
-                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0"/>
+                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0" IsReadOnly="True"/>
                     <Label Content="Endurance Ag:" Margin="0,0,5,0" HorizontalContentAlignment="Right"/>
-                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0"/>
+                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0" IsReadOnly="True"/>
                     <Label Content="Mana:" Margin="0,0,5,0" HorizontalContentAlignment="Right"/>
-                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0"/>
+                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0" IsReadOnly="True"/>
                     <Label Content="Chi:" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
-                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0"/>
+                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0" IsReadOnly="True"/>
                     <Label Content="Fatigue:" Margin="0,0,5,0" HorizontalContentAlignment="Right"/>
-                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0"/>
+                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0" IsReadOnly="True"/>
                     <Label Content="Karma:" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
-                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0"/>
+                    <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,0,48,0" IsReadOnly="True"/>
                 </UniformGrid>
             </GroupBox>
         </WrapPanel>
