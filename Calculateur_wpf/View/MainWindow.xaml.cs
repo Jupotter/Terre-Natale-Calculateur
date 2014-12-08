@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Microsoft.Win32;
+using System.Windows;
 using Terre_Natale_Calculateur;
 
 namespace Calculateur_wpf.View
@@ -31,6 +32,14 @@ namespace Calculateur_wpf.View
         private void MenuItem_OnClick(object sender, RoutedEventArgs e)
         {
             CharacterManager.Instance.Create("Test");
+        }
+
+        private void OpenMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            RacesManager.Instance.Initialize();
+            var openFileDialog = new OpenFileDialog {Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*"};
+            if (openFileDialog.ShowDialog() == true)
+                CharacterManager.Instance.Load(openFileDialog.FileName);
         }
     }
 }
