@@ -44,7 +44,7 @@
             this.robusLabel = new System.Windows.Forms.Label();
             this.willBox = new System.Windows.Forms.TextBox();
             this.robusBox = new System.Windows.Forms.TextBox();
-            this.willAdjust = new System.Windows.Forms.TextBox();
+            this.willAjust = new System.Windows.Forms.TextBox();
             this.robusAjust = new System.Windows.Forms.TextBox();
             this.reflexBox = new System.Windows.Forms.TextBox();
             this.reflexAjust = new System.Windows.Forms.TextBox();
@@ -224,7 +224,7 @@
             this.tableLayoutPanel2.Controls.Add(this.robusAjust, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.willLabel, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.willBox, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.willAdjust, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.willAjust, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -284,18 +284,18 @@
             this.robusBox.Text = "0";
             this.robusBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // willAdjust
+            // willAjust
             // 
-            this.willAdjust.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.willAdjust.BackColor = System.Drawing.SystemColors.Window;
-            this.willAdjust.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.willAdjust.Location = new System.Drawing.Point(126, 16);
-            this.willAdjust.Name = "willAdjust";
-            this.willAdjust.ReadOnly = true;
-            this.willAdjust.Size = new System.Drawing.Size(42, 20);
-            this.willAdjust.TabIndex = 32;
-            this.willAdjust.Text = "0";
-            this.willAdjust.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.willAjust.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.willAjust.BackColor = System.Drawing.SystemColors.Window;
+            this.willAjust.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.willAjust.Location = new System.Drawing.Point(126, 16);
+            this.willAjust.Name = "willAjust";
+            this.willAjust.ReadOnly = true;
+            this.willAjust.Size = new System.Drawing.Size(42, 20);
+            this.willAjust.TabIndex = 32;
+            this.willAjust.Text = "0";
+            this.willAjust.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // robusAjust
             // 
@@ -574,7 +574,7 @@
         private System.Windows.Forms.TextBox RPC;
         private System.Windows.Forms.TextBox RPF;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.TextBox willAdjust;
+        private System.Windows.Forms.TextBox willAjust;
         private System.Windows.Forms.TextBox robusAjust;
         private System.Windows.Forms.TextBox reflexAjust;
         private System.Windows.Forms.Label label1;
