@@ -416,8 +416,6 @@ namespace Terre_Natale_Calculateur
          
         public string ExitTxt(View.Form1 Caller)
         {
-            
-            
             string fiche = "";
             fiche += "Nom : " + Name + Environment.NewLine ;
             fiche += "Race : " + Race.Name + Environment.NewLine;
@@ -519,7 +517,10 @@ namespace Terre_Natale_Calculateur
             _aspectBonus = serializableCharacter.AspectBonus;
             _aspectMalus = serializableCharacter.AspectMalus;
             _race = racesManager.GetRace(serializableCharacter.Race);
-            classeChar = classManager.getFormName(serializableCharacter.Classe);
+            if (!serializableCharacter.Classe.Equals(""))
+                classeChar = classManager.getFormName(serializableCharacter.Classe);
+            else
+                classeChar = null;
             ExperienceAvailable = serializableCharacter.Experience;
             Inventaire = serializableCharacter.Inventaire;
             _bonusAspect = _race.AspectBonus;
@@ -538,7 +539,7 @@ namespace Terre_Natale_Calculateur
                 AspectMalus = _aspectMalus,
                 Race = _race.Id,
                 Experience = ExperienceAvailable,
-                Classe=classeChar.Nom,
+                Classe = classeChar != null ? classeChar.Nom : "",
                 Inventaire=Inventaire,
                 penPoid=penPoid,
             };
