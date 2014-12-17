@@ -36,6 +36,11 @@ namespace Terre_Natale_Calculateur.View
             }
             updateXP();
             SetBonusRaciaux();
+
+            Text = String.Format("Terre Natale – {0}", _character.Name);
+            NameLabel.Text = String.Format("Nom: {0}", _character.Name);
+            if (_character.Race != null)
+                RaceLabel.Text = String.Format("Race: {0}", _character.Race.Name);
         }
 
         private void updateData()
@@ -157,10 +162,6 @@ namespace Terre_Natale_Calculateur.View
         private void SetCharacter(Character character)
         {
             _character = character;
-            Text = String.Format("Terre Natale – {0}", _character.Name);
-            NameLabel.Text = String.Format("Nom: {0}", _character.Name);
-            if (character.Race != null)
-                RaceLabel.Text = String.Format("Race: {0}", _character.Race.Name);
 
             InitInventory();
 
