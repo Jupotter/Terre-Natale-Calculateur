@@ -71,8 +71,15 @@ namespace Terre_Natale_Calculateur
 
         public Race GetRace(int Id)
         {
-            if (_races != null)
-                return _races[Id];
+            try
+            {
+                if (_races != null)
+                    return _races[Id];
+            }
+            catch (KeyNotFoundException e)
+            {
+                Log.Logger.WriteException(e);
+            }
             return null;
         }
 

@@ -517,13 +517,14 @@ namespace Terre_Natale_Calculateur
             _aspectBonus = serializableCharacter.AspectBonus;
             _aspectMalus = serializableCharacter.AspectMalus;
             _race = racesManager.GetRace(serializableCharacter.Race);
-            if (!serializableCharacter.Classe.Equals(""))
+            if (serializableCharacter.Classe != null && !serializableCharacter.Classe.Equals(""))
                 classeChar = classManager.getFormName(serializableCharacter.Classe);
             else
                 classeChar = null;
             ExperienceAvailable = serializableCharacter.Experience;
             Inventaire = serializableCharacter.Inventaire;
-            _bonusAspect = _race.AspectBonus;
+            if (_race != null)
+                _bonusAspect = _race.AspectBonus;
             penPoid = serializableCharacter.penPoid;
             RecomputePA();
             
