@@ -141,6 +141,7 @@
             // manaBox
             // 
             this.manaBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.manaBox.BackColor = System.Drawing.SystemColors.Window;
             this.manaBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.manaBox.Location = new System.Drawing.Point(126, 81);
             this.manaBox.Name = "manaBox";
@@ -153,6 +154,7 @@
             // speedBox
             // 
             this.speedBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.speedBox.BackColor = System.Drawing.SystemColors.Window;
             this.speedBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.speedBox.Location = new System.Drawing.Point(126, 29);
             this.speedBox.Name = "speedBox";
@@ -175,6 +177,7 @@
             // initBox
             // 
             this.initBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.initBox.BackColor = System.Drawing.SystemColors.Window;
             this.initBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.initBox.Location = new System.Drawing.Point(126, 55);
             this.initBox.Name = "initBox";
@@ -258,6 +261,7 @@
             // willBox
             // 
             this.willBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.willBox.BackColor = System.Drawing.SystemColors.Window;
             this.willBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.willBox.Location = new System.Drawing.Point(78, 16);
             this.willBox.Name = "willBox";
@@ -270,6 +274,7 @@
             // robusBox
             // 
             this.robusBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.robusBox.BackColor = System.Drawing.SystemColors.Window;
             this.robusBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.robusBox.Location = new System.Drawing.Point(78, 41);
             this.robusBox.Name = "robusBox";
@@ -282,6 +287,7 @@
             // willAdjust
             // 
             this.willAdjust.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.willAdjust.BackColor = System.Drawing.SystemColors.Window;
             this.willAdjust.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.willAdjust.Location = new System.Drawing.Point(126, 16);
             this.willAdjust.Name = "willAdjust";
@@ -294,6 +300,7 @@
             // robusAjust
             // 
             this.robusAjust.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.robusAjust.BackColor = System.Drawing.SystemColors.Window;
             this.robusAjust.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.robusAjust.Location = new System.Drawing.Point(126, 41);
             this.robusAjust.Name = "robusAjust";
@@ -306,6 +313,7 @@
             // reflexBox
             // 
             this.reflexBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.reflexBox.BackColor = System.Drawing.SystemColors.Window;
             this.reflexBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.reflexBox.Location = new System.Drawing.Point(78, 67);
             this.reflexBox.Name = "reflexBox";
@@ -318,6 +326,7 @@
             // reflexAjust
             // 
             this.reflexAjust.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.reflexAjust.BackColor = System.Drawing.SystemColors.Window;
             this.reflexAjust.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.reflexAjust.Location = new System.Drawing.Point(126, 67);
             this.reflexAjust.Name = "reflexAjust";
@@ -377,6 +386,7 @@
             // RPE
             // 
             this.RPE.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.RPE.BackColor = System.Drawing.SystemColors.Window;
             this.RPE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.RPE.Location = new System.Drawing.Point(74, 81);
             this.RPE.Name = "RPE";
@@ -421,6 +431,7 @@
             // RPM
             // 
             this.RPM.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.RPM.BackColor = System.Drawing.SystemColors.Window;
             this.RPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.RPM.Location = new System.Drawing.Point(74, 55);
             this.RPM.Name = "RPM";
@@ -443,6 +454,7 @@
             // 
             // RPC
             // 
+            this.RPC.BackColor = System.Drawing.SystemColors.Window;
             this.RPC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.RPC.Location = new System.Drawing.Point(74, 3);
             this.RPC.Name = "RPC";
@@ -454,6 +466,7 @@
             // 
             // RPF
             // 
+            this.RPF.BackColor = System.Drawing.SystemColors.Window;
             this.RPF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.RPF.Location = new System.Drawing.Point(74, 29);
             this.RPF.Name = "RPF";

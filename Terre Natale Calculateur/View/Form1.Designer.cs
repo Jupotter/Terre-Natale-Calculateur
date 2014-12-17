@@ -86,9 +86,12 @@ namespace Terre_Natale_Calculateur.View
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.stats_secondaire = new System.Windows.Forms.TabPage();
+            this.secondaryStats1 = new Terre_Natale_Calculateur.View.SecondaryStats();
             this.TalentsTab = new System.Windows.Forms.TabPage();
+            this.talentPanel1 = new Terre_Natale_Calculateur.View.TalentPanel();
             this.Stats = new System.Windows.Forms.TabPage();
             this.BonusRaciauxBox = new System.Windows.Forms.ListBox();
+            this.stat_Principal1 = new Terre_Natale_Calculateur.View.Stat_Principal();
             this.lab_Race = new System.Windows.Forms.Label();
             this.lab_name = new System.Windows.Forms.Label();
             this.level = new System.Windows.Forms.Label();
@@ -104,9 +107,6 @@ namespace Terre_Natale_Calculateur.View
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.stat_Principal1 = new Terre_Natale_Calculateur.View.Stat_Principal();
-            this.talentPanel1 = new Terre_Natale_Calculateur.View.TalentPanel();
-            this.secondaryStats1 = new Terre_Natale_Calculateur.View.SecondaryStats();
             this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.Inventaire.SuspendLayout();
@@ -416,6 +416,15 @@ namespace Terre_Natale_Calculateur.View
             this.stats_secondaire.Text = "Stats secondaire";
             this.stats_secondaire.UseVisualStyleBackColor = true;
             // 
+            // secondaryStats1
+            // 
+            this.secondaryStats1.AutoSize = true;
+            this.secondaryStats1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.secondaryStats1.Location = new System.Drawing.Point(0, 0);
+            this.secondaryStats1.Name = "secondaryStats1";
+            this.secondaryStats1.Size = new System.Drawing.Size(694, 567);
+            this.secondaryStats1.TabIndex = 0;
+            // 
             // TalentsTab
             // 
             this.TalentsTab.Controls.Add(this.talentPanel1);
@@ -426,6 +435,14 @@ namespace Terre_Natale_Calculateur.View
             this.TalentsTab.TabIndex = 1;
             this.TalentsTab.Text = "Talents";
             this.TalentsTab.UseVisualStyleBackColor = true;
+            // 
+            // talentPanel1
+            // 
+            this.talentPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.talentPanel1.Location = new System.Drawing.Point(0, 0);
+            this.talentPanel1.Name = "talentPanel1";
+            this.talentPanel1.Size = new System.Drawing.Size(694, 567);
+            this.talentPanel1.TabIndex = 0;
             // 
             // Stats
             // 
@@ -449,6 +466,13 @@ namespace Terre_Natale_Calculateur.View
             this.BonusRaciauxBox.Name = "BonusRaciauxBox";
             this.BonusRaciauxBox.Size = new System.Drawing.Size(440, 95);
             this.BonusRaciauxBox.TabIndex = 39;
+            // 
+            // stat_Principal1
+            // 
+            this.stat_Principal1.Location = new System.Drawing.Point(40, 6);
+            this.stat_Principal1.Name = "stat_Principal1";
+            this.stat_Principal1.Size = new System.Drawing.Size(586, 251);
+            this.stat_Principal1.TabIndex = 38;
             // 
             // lab_Race
             // 
@@ -509,6 +533,7 @@ namespace Terre_Natale_Calculateur.View
             // 
             // ExperienceRestante
             // 
+            this.ExperienceRestante.BackColor = System.Drawing.SystemColors.Window;
             this.ExperienceRestante.Location = new System.Drawing.Point(402, 43);
             this.ExperienceRestante.Name = "ExperienceRestante";
             this.ExperienceRestante.ReadOnly = true;
@@ -519,6 +544,7 @@ namespace Terre_Natale_Calculateur.View
             // 
             // Experience
             // 
+            this.Experience.BackColor = System.Drawing.SystemColors.Window;
             this.Experience.Location = new System.Drawing.Point(113, 43);
             this.Experience.Name = "Experience";
             this.Experience.ReadOnly = true;
@@ -613,30 +639,6 @@ namespace Terre_Natale_Calculateur.View
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(702, 74);
             this.panel1.TabIndex = 2;
-            // 
-            // stat_Principal1
-            // 
-            this.stat_Principal1.Location = new System.Drawing.Point(40, 6);
-            this.stat_Principal1.Name = "stat_Principal1";
-            this.stat_Principal1.Size = new System.Drawing.Size(586, 251);
-            this.stat_Principal1.TabIndex = 38;
-            // 
-            // talentPanel1
-            // 
-            this.talentPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.talentPanel1.Location = new System.Drawing.Point(0, 0);
-            this.talentPanel1.Name = "talentPanel1";
-            this.talentPanel1.Size = new System.Drawing.Size(694, 567);
-            this.talentPanel1.TabIndex = 0;
-            // 
-            // secondaryStats1
-            // 
-            this.secondaryStats1.AutoSize = true;
-            this.secondaryStats1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.secondaryStats1.Location = new System.Drawing.Point(0, 0);
-            this.secondaryStats1.Name = "secondaryStats1";
-            this.secondaryStats1.Size = new System.Drawing.Size(694, 567);
-            this.secondaryStats1.TabIndex = 0;
             // 
             // Form1
             // 
