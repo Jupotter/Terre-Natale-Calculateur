@@ -293,9 +293,8 @@ namespace Terre_Natale_Calculateur.View
                 name = String.Format("{0}.txt", name);
                 if (File.Exists(name))
                     File.Delete(name);
-                var sw = new StreamWriter(name);
-                sw.Write(_character.ExitTxt(this));
-                sw.Close();
+                using (var sw = new StreamWriter(name))
+                    sw.Write(_character.ExitTxt(this));
             }
             else
                 saveFileDialog1.ShowDialog();
@@ -306,9 +305,8 @@ namespace Terre_Natale_Calculateur.View
             string name = saveFileDialog1.FileName;
             if (File.Exists(name))
                 File.Delete(name);
-            var sw = new StreamWriter(name);
-            sw.Write(_character.ExitTxt(this));
-            sw.Close();
+            using (var sw = new StreamWriter(name))
+                sw.Write(_character.ExitTxt(this));
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)

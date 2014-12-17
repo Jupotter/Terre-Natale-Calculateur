@@ -43,25 +43,25 @@ namespace Terre_Natale_Calculateur
 
         public void Initialize()
         {
-            var sr = new StreamReader(String.Format("{0}/Talents.json", Application.StartupPath));
-            var list = JsonConvert.DeserializeObject<List<Talent>>(sr.ReadToEnd());
-            if ( _talents != null && _talents.Count > 0) _talents.Clear();
-            foreach (var talent in list)
+            using (var sr = new StreamReader(String.Format("{0}/Talents.json", Application.StartupPath)))
             {
-                _nextId = Math.Max(_nextId, talent.Id);
-            }
+                var list = JsonConvert.DeserializeObject<List<Talent>>(sr.ReadToEnd());
+                if (_talents != null && _talents.Count > 0) _talents.Clear();
+                foreach (var talent in list)
+                {
+                    _nextId = Math.Max(_nextId, talent.Id);
+                }
 
-            foreach (var talent in list.Where(talent => talent.Id == 0))
-            {
-                talent.Id = _nextId++;
+                foreach (var talent in list.Where(talent => talent.Id == 0))
+                {
+                    talent.Id = _nextId++;
+                }
+                _talents = list.ToDictionary(talent => talent.Id);
+                for (int i = 1; i < _talents.Count; i++)
+                {
+                    _talents[i].reset();
+                }
             }
-            _talents = list.ToDictionary(talent => talent.Id);
-            for (int i = 1; i < _talents.Count; i++)
-            {
-                _talents[i].reset();
-            } 
-            sr.Close();
-
             OnTalentsLoaded();
         }
 
@@ -94,20 +94,12 @@ namespace Terre_Natale_Calculateur
             if (_talents == null)
                 return;
             String json = JsonConvert.SerializeObject(_talents.Values, _serializerSettings);
-            var sw = new StreamWriter("TalentsDump.json", false);
-            sw.Write(json);
-            sw.Close();
+            using (var sw = new StreamWriter("TalentsDump.json", false))
+            {
+                sw.Write(json);
+            }
         }
 
-        public void ExitJSON()
-        {
-            if (_talents == null)
-                return;
-            String json = JsonConvert.SerializeObject(_talents.Values, _serializerSettings);
-            var sw = new StreamWriter("NewTalents.json", false);
-            sw.Write(json);
-            sw.Close();
-        }
         public IDictionary<int, Talent> CreateSet()
         {
             IDictionary<int, Talent> ret = new Dictionary<int, Talent>();
@@ -123,19 +115,12 @@ namespace Terre_Natale_Calculateur
         {
             return _talents[id];
         }
-        public List<Talent> GetAllSavoir()
+
+        public IEnumerable<Talent> GetAllSavoir()
         {
-            List<Talent> result = new List<Talent>();
-            foreach (var item in _talents)
-            {
-                if (item.Value.Savoir == true)
-                {
-                    result.Add(item.Value);
-                }
-                
-            }
-            return result;
+            return (from item in _talents where item.Value.Savoir select item.Value).ToList();
         }
+
         public void AddTalent(Talent newone)
         {
             _nextId++;
@@ -144,13 +129,16 @@ namespace Terre_Natale_Calculateur
             ActualizeJson();
             
         }
-        public void ActualizeJson()
+
+        private void ActualizeJson()
         {
-            ExitJSON();
-            if (File.Exists("save Talents" + DateTime.Now.Day + "_" + DateTime.Now.Month + ".json")) File.Delete("save Talents" + DateTime.Now.Day + "_" + DateTime.Now.Month + ".json");
-            File.Move("Talents.json", "save Talents" + DateTime.Now.Day + "_" + DateTime.Now.Month + ".json");
-            if (File.Exists("Talents.json")) File.Delete("Talents.json");
-            File.Move("NewTalents.json", "Talents.json");
+            DumpJSON();
+            if (File.Exists(string.Format("save Talents{0}_{1}.json", DateTime.Now.Day, DateTime.Now.Month)))
+                File.Delete(string.Format("save Talents{0}_{1}.json", DateTime.Now.Day, DateTime.Now.Month));
+            File.Move("Talents.json", string.Format("save Talents{0}_{1}.json", DateTime.Now.Day, DateTime.Now.Month));
+            if (File.Exists("Talents.json"))
+                File.Delete("Talents.json");
+            File.Move("TalentsDump.json", "Talents.json");
         }
     }
 }

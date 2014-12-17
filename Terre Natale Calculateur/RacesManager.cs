@@ -41,22 +41,21 @@ namespace Terre_Natale_Calculateur
 
         public void Initialize()
         {
-            var sr = new StreamReader(String.Format("{0}/Races.json", Application.StartupPath));
-            var list = JsonConvert.DeserializeObject<List<Race>>(sr.ReadToEnd(),_serializerSettings);
-
-            foreach (var talent in list)
+            using (var sr = new StreamReader(String.Format("{0}/Races.json", Application.StartupPath)))
             {
-                _nextId = Math.Max(_nextId, talent.Id);
-            }
+                var list = JsonConvert.DeserializeObject<List<Race>>(sr.ReadToEnd(), _serializerSettings);
 
-            foreach (var talent in list.Where(talent => talent.Id == 0))
-            {
-                talent.Id = _nextId++;
+                foreach (var talent in list)
+                {
+                    _nextId = Math.Max(_nextId, talent.Id);
+                }
+
+                foreach (var talent in list.Where(talent => talent.Id == 0))
+                {
+                    talent.Id = _nextId++;
+                }
+                _races = list.ToDictionary(talent => talent.Id);
             }
-            _races = list.ToDictionary(talent => talent.Id);
-            sr.Close();
-         //  Log.Logger.Write(_traceWriter.ToString());
-            
         }
 
         public void DumpJSON()
@@ -64,9 +63,10 @@ namespace Terre_Natale_Calculateur
             if (_races == null)
                 return;
             String json = JsonConvert.SerializeObject(_races.Values, _serializerSettings);
-            var sw = new StreamWriter("RaceDump.json", false);
-            sw.Write(json);
-            sw.Close();
+            using (var sw = new StreamWriter("RaceDump.json", false))
+            {
+                sw.Write(json);
+            }
         }
 
         public Race GetRace(int Id)

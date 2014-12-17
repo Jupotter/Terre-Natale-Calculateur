@@ -640,6 +640,10 @@ namespace Terre_Natale_Calculateur.View
             this.panel1.Size = new System.Drawing.Size(702, 74);
             this.panel1.TabIndex = 2;
             // 
+            // saveFileDialog2
+            // 
+            this.saveFileDialog2.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog2_FileOk);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

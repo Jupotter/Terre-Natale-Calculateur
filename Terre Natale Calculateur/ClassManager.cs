@@ -28,24 +28,22 @@ namespace Terre_Natale_Calculateur
         }
         public void Initialize()
         {
-
-
-            var sr = new StreamReader(String.Format("{0}/Classes.json", Application.StartupPath));
-            var list = JsonConvert.DeserializeObject<List<Classe>>(sr.ReadToEnd());
-
-            foreach (var classe in list)
+            using (var sr = new StreamReader(String.Format("{0}/Classes.json", Application.StartupPath)))
             {
-                _nextId = Math.Max(_nextId, classe.Id);
-            }
+                var list = JsonConvert.DeserializeObject<List<Classe>>(sr.ReadToEnd());
 
-            foreach (var classe in list.Where(Classe => Classe.Id == 0))
-            {
-                classe.Id = _nextId++;
-            }
-            _Classes = list.ToDictionary(Classe => Classe.Id);
-            sr.Close();
 
-            //createbase();
+                foreach (var classe in list)
+                {
+                    _nextId = Math.Max(_nextId, classe.Id);
+                }
+
+                foreach (var classe in list.Where(classe => classe.Id == 0))
+                {
+                    classe.Id = _nextId++;
+                }
+                _Classes = list.ToDictionary(classe => classe.Id);
+            }
         }
 
         public void DumpJSON()
@@ -53,9 +51,9 @@ namespace Terre_Natale_Calculateur
             if (_Classes == null)
                 return;
             String json = JsonConvert.SerializeObject(_Classes.Values, _serializerSettings);
-            var sw = new StreamWriter("ClassesDump.json", false);
-            sw.Write(json);
-            sw.Close();
+
+            using (var sw = new StreamWriter("ClassesDump.json", false))
+                sw.Write(json);
         }
 
         public static ClassManager Instance
