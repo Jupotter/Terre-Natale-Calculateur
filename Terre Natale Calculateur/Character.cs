@@ -330,8 +330,7 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                return Math.Max((GetAspectValue(Aspect.Arcane) + GetAspectValue(Aspect.Terre))/4,
-                    GetTalent("Volonté").Level);
+                return GetTalent("Volonté").Level;
             }
         }
 
@@ -339,8 +338,7 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                return Math.Max((GetAspectValue(Aspect.Acier) + GetAspectValue(Aspect.Feu)) / 4,
-                    GetTalent("Endurance").Level);
+                return GetTalent("Endurance").Level;
             }
         }
 
@@ -348,11 +346,7 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                return Math.Max(
-                    Math.Max(
-                    (GetAspectValue(Aspect.Eau) + GetAspectValue(Aspect.Vent))/4,
-                    GetTalent("Esquive").Level),
-                    GetTalent("Discipline").Level);
+                return GetTalent("Esquive").Level;
             }
         }
 
