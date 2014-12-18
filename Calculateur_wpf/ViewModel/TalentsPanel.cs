@@ -1,7 +1,6 @@
 ﻿using Microsoft.Practices.Prism.Mvvm;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Terre_Natale_Calculateur;
 
 namespace Calculateur_wpf.ViewModel
@@ -18,13 +17,11 @@ namespace Calculateur_wpf.ViewModel
                 var talents = character.Talents;
 
                 var ret = new List<TalentGroupBox>();
-                foreach (var aspect in from aspect in ((Aspect[]) Enum.GetValues(typeof (Aspect)))
-                    where aspect != Aspect.None && aspect != Aspect.Equilibre
-                    select aspect)
+                foreach (var aspect in new[] { Aspect.Eau, Aspect.Feu, Aspect.Terre, Aspect.Vent, Aspect.Acier, Aspect.Arcane })
                 {
                     var box = new TalentGroupBox(character);
                     var local = aspect;
-                    box.SetTalentsOption(talent => talent.PrimaryAspect == local && talent.SecondaryAspect == Aspect.None);
+                    box.SetTalentsOption(talent => talent.PrimaryAspect == local && talent.SecondaryAspect == Aspect.None && !talent.Savoir);
                     box.Name = String.Format("Talents de {0}", aspect);
                     ret.Add(box);
                 }
@@ -32,7 +29,7 @@ namespace Calculateur_wpf.ViewModel
             }
         }
 
-        public IEnumerable<KeyValuePair<Aspect, List<Talent>>> TalentsAptitude
+        public IEnumerable<TalentGroupBox> TalentsAptitude
         {
             get
             {
@@ -40,17 +37,14 @@ namespace Calculateur_wpf.ViewModel
                     return null;
                 var talents = character.Talents;
 
-                var ret = new Dictionary<Aspect, List<Talent>>();
-                foreach (var aspect in from aspect in ((Aspect[])Enum.GetValues(typeof(Aspect)))
-                                       where aspect != Aspect.None && aspect != Aspect.Equilibre
-                                       select aspect)
+                var ret = new List<TalentGroupBox>();
+                foreach (var aspect in new[]{Aspect.Acier,Aspect.Arcane})
                 {
-                    ret[aspect] = new List<Talent>();
-                    foreach (var talent in talents)
-                    {
-                        if (talent.PrimaryAspect == aspect && talent.Type == TalentType.Aptitude)
-                            ret[aspect].Add(talent);
-                    }
+                    var box = new TalentGroupBox(character);
+                    var local = aspect;
+                    box.SetTalentsOption(talent => talent.PrimaryAspect == local && talent.Type == TalentType.Aptitude && !talent.Savoir);
+                    box.Name = String.Format("Aptitude de {0}", aspect);
+                    ret.Add(box);
                 }
                 return ret;
             }

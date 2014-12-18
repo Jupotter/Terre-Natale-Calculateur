@@ -16,7 +16,7 @@
             <ItemsControl ItemsSource="{Binding TalentsGeneraux}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid ScrollViewer.VerticalScrollBarVisibility="Auto" Columns="2" VerticalAlignment="Top" />
+                        <UniformGrid ScrollViewer.VerticalScrollBarVisibility="Auto" Columns="2" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
@@ -35,15 +35,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <GroupBox Header="{Binding Key}">
-                            <ItemsControl ItemsSource="{Binding Value}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <view:TalentBox />
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </GroupBox>
+                        <view:TalentGroupBox />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
