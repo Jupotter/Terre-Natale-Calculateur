@@ -13,7 +13,7 @@ namespace Calculateur_wpf.ViewModel
         private Character character;
         private TalentTest talentTest;
 
-        public TalentGroupBox()
+        private TalentGroupBox()
         {
             CharacterManager.CharacterChanged += CharacterManager_OnCharacterChanged;
         }
@@ -24,13 +24,13 @@ namespace Calculateur_wpf.ViewModel
             this.character = character;
         }
 
-        public IEnumerable<Talent> Talents
+        public IEnumerable<TalentBox> Talents
         {
             get
             {
                 if (character == null)
                     return null;
-                var ret = character.Talents.Where(talent => talentTest(talent)).ToList();
+                var ret = (from talent in character.Talents where talentTest(talent) select new TalentBox(talent, character)).ToList();
                 return ret.Count == 0 ? null : ret;
             }
         }

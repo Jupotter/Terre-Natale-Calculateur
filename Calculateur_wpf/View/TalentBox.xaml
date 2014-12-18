@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" Height="27" Width="Auto">
+             xmlns:viewModel="clr-namespace:Calculateur_wpf.ViewModel"
+             mc:Ignorable="d" Height="27" Width="Auto"
+             d:DataContext="{d:DesignInstance viewModel:TalentBox}">
     <Grid Margin="0" FlowDirection="LeftToRight">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -12,9 +14,9 @@
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Content="{Binding Name, FallbackValue=Talent Name}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Button Content="-" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}"/>
+            <Button Content="-" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" IsEnabled="{Binding CanLevelDown}"/>
             <ProgressBar Width="100" Margin="2" Maximum="5" Value="{Binding Level, Mode=OneWay}" />
-            <Button Content="+" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}"/>
+            <Button Content="+" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" IsEnabled="{Binding CanLevelUp}"/>
         </StackPanel>
     </Grid>
 </UserControl>
