@@ -103,6 +103,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="StringToNullableIntConverter.cs" />
     <Compile Include="ViewModel\MainStats.cs" />
     <Compile Include="ViewModel\MainWindow.cs" />
     <Compile Include="ViewModel\TalentBox.cs" />

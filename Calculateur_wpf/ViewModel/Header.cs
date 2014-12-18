@@ -1,4 +1,6 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
+﻿using System;
+using Microsoft.Practices.Prism.Commands;
+using Microsoft.Practices.Prism.Mvvm;
 using Terre_Natale_Calculateur;
 
 namespace Calculateur_wpf.ViewModel
@@ -12,7 +14,8 @@ namespace Calculateur_wpf.ViewModel
             get { return character == null ? 0 : character.ExperienceAvailable; }
             set
             {
-                if (character == null) return;
+                if (character == null)
+                    return;
                 character.ExperienceAvailable = value;
                 OnPropertyChanged(() => ExperienceAvailable);
                 OnPropertyChanged(() => ExperienceRemaining);
@@ -24,6 +27,49 @@ namespace Calculateur_wpf.ViewModel
             get { return character == null ? 0 : character.ExperienceRemaining; }
         }
 
+        public DelegateCommand<int?> AddExperienceCommand
+        {
+            get
+            {
+                return new DelegateCommand<int?>(
+                  i => { if (i.HasValue) AddExperience(i.Value); },
+                  CanAddExperience);
+            }
+        }
+
+        private bool CanAddExperience(int? i)
+        {
+            return character != null && i.HasValue && i != 0;
+        }
+
+        private void AddExperience(int i)
+        {
+            character.ExperienceAvailable += i;
+        }
+
+        public DelegateCommand<int?> RemoveExperienceCommand
+        {
+            get
+            {
+                return new DelegateCommand<int?>(
+                    i => { if (i.HasValue) RemoveExperience(i.Value); },
+                    CanRemoveExperience);
+            }
+        }
+
+        private bool CanRemoveExperience(int? i)
+        {
+            return character != null 
+                && i.HasValue && i != 0
+                && character.ExperienceAvailable - i >= 0
+                && character.ExperienceRemaining - i >= 0;
+        }
+
+        private void RemoveExperience(int i)
+        {
+            character.ExperienceAvailable -= i;
+        }
+
         public string Name
         {
             get { return character == null ? "No Character" : character.Name; }
@@ -33,7 +79,8 @@ namespace Calculateur_wpf.ViewModel
         {
             get
             {
-                if (character == null || character.Race == null) return "";
+                if (character == null || character.Race == null)
+                    return "";
                 return character.Race.Name;
             }
         }
@@ -55,6 +102,8 @@ namespace Calculateur_wpf.ViewModel
         {
             OnPropertyChanged(() => ExperienceAvailable);
             OnPropertyChanged(() => ExperienceRemaining);
+            OnPropertyChanged(() => AddExperienceCommand);
+            OnPropertyChanged(() => RemoveExperienceCommand);
         }
     }
 }
