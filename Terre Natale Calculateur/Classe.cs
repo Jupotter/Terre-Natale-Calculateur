@@ -15,19 +15,14 @@ namespace Terre_Natale_Calculateur
         int _RPF;
         int _RPC;
         int _RPM;
-        string _MPE;
-        string _MPF;
-        string _MPC;
-        string _MPM;
-        Aspect _Primaire;
-        Aspect _Secondaire;
+        List<string> statbonus;
+        List<string> sauvBonus;
         String _Maitrise_de_base;
         String _TalentBonus;
         String _MaitriseSpecial;
 
 
-        public Classe(string name, int id, int RPE, int RPF, int RPC, int RPM, string MPE, string MPF,
-        string MPC, string MPM, Aspect Primaire, Aspect Secondaire, String Maitrisedebase,
+        public Classe(string name, int id, int RPE, int RPF, int RPC, int RPM,List<string>statb,List<string>sauvb, String Maitrisedebase,
         String TalentBonus, String MaitriseSpecial)
         {
              _nom = name;
@@ -36,12 +31,8 @@ namespace Terre_Natale_Calculateur
              _RPF = RPF;
              _RPC=RPC;
              _RPM=RPM;
-             _MPE=MPE;
-             _MPF=MPF;
-             _MPC=MPC;
-             _MPM=MPM;
-             _Primaire=Primaire;
-             _Secondaire=Secondaire;
+             statbonus = statb;
+             sauvBonus = sauvb;
              _Maitrise_de_base = Maitrisedebase;
              _TalentBonus=TalentBonus;
              _MaitriseSpecial=MaitriseSpecial;
@@ -59,6 +50,7 @@ namespace Terre_Natale_Calculateur
             set { _nom = value; }
         }
 
+        #region get set
         public int RPE
         {
             get { return _RPE; }
@@ -79,36 +71,21 @@ namespace Terre_Natale_Calculateur
             get { return _RPM; }
             set { _RPM = value; }
         }
-        public string MPE
+
+        public List<string> StatBonus
         {
-            get { return _MPE; }
-            set { _MPE = value; }
+            get { return statbonus; }
+            set { statbonus = value; }
         }
-        public string MPF
+        public List<string> SauvBonus
         {
-            get { return _MPF; }
-            set { _MPF = value; }
+            get { return sauvBonus; }
+            set { sauvBonus = value; }
+
         }
-        public string MPC
-        {
-            get { return _MPC; }
-            set { _MPC = value; }
-        }
-        public string MPM
-        {
-            get { return _MPM; }
-            set { _MPM = value; }
-        }
-        public Aspect Primaire
-        {
-            get { return _Primaire; }
-            set { _Primaire = value; }
-        }
-        public Aspect Secondaire
-        {
-            get { return _Secondaire; }
-            set { _Secondaire = value; }
-        }
+
+#endregion
+
         public String Maitrise_de_base
         {
             get { return _Maitrise_de_base; }
@@ -124,5 +101,7 @@ namespace Terre_Natale_Calculateur
             get { return _MaitriseSpecial; }
             set { _MaitriseSpecial = value; }
         }
+
+       
     }
 }

@@ -188,19 +188,26 @@ namespace Terre_Natale_Calculateur.View
         {
             Classe current = ClassManager.Instance.getFormName(comboBox1.Text);
             listBox2.Items.Clear();
+            
             listBox2.Items.Add(current.Nom);
             listBox2.Items.Add(current.Maitrise_de_base);
             listBox2.Items.Add(current.MaitriseSpecial);
-            listBox2.Items.Add("MPC : " + current.MPC);
-            listBox2.Items.Add("MPM : " + current.MPM);
-            listBox2.Items.Add("MPF : " + current.MPF);
-            listBox2.Items.Add("MPE : " + current.MPE);
             listBox2.Items.Add("RPC : " + current.RPC);
             listBox2.Items.Add("RPM : " + current.RPM);
             listBox2.Items.Add("RPF : " + current.RPF);
             listBox2.Items.Add("RPE : " + current.RPE);
-            listBox2.Items.Add(current.Primaire.ToString());
-            listBox2.Items.Add(current.Secondaire.ToString());
+            if (currentClasse!=null)
+            {
+                foreach (var item in currentClasse.StatBonus)
+    {
+        listBox2.Items.Add(item);
+    }
+                foreach (var item in currentClasse.SauvBonus)
+                {
+                 listBox2.Items.Add(item);   
+                }
+                
+            }
             Debloque.Text = current.TalentBonus;
             currentClasse = current;
             _character.SetClasse(current);
