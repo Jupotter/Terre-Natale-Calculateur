@@ -5,7 +5,7 @@
         xmlns:properties="clr-namespace:Calculateur_wpf.Properties"
         xmlns:viewModel="clr-namespace:Calculateur_wpf.ViewModel"
         xmlns:local="clr-namespace:Calculateur_wpf.View" x:Class="Calculateur_wpf.View.MainWindow"
-        Title="{Binding Name, FallbackValue=Terre Natale, Mode=OneWay, StringFormat=Terre Natale -- \{0\}}" Height="571" Width="661">
+        Title="{Binding Name, FallbackValue=Terre Natale, Mode=OneWay, StringFormat=Terre Natale -- \{0\}}" Height="595.169" Width="661">
     <Window.DataContext>
         <viewModel:MainWindow/>
     </Window.DataContext>
