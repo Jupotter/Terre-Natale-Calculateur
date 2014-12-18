@@ -51,95 +51,18 @@ namespace Terre_Natale_Calculateur.View
 
         public void ActualiseStats()
         {
-            int bF = 0;
-            int bC = 0;
-            int bM = 0;
-            int bE = 0;
-            
-            #region bordel lutie ....
-
-            if (character.getClasse() != null)
-            {
-                int tmp = character.Talents.Where(t => t.Type == TalentType.General &&
-                        (t.PrimaryAspect == character.getClasse().Primaire
-                        || t.PrimaryAspect == character.getClasse().Secondaire
-                        || t.SecondaryAspect == character.getClasse().Primaire
-                        || t.SecondaryAspect == character.getClasse().Secondaire)).Sum(t => t.Level);
-                switch (character.getClasse().MPC)
-                {
-                    case "W": bC = tmp / 4;
-
-                        break;
-                    case "L": bC = tmp / 3;
-
-                        break;
-                    case "H": bC = tmp / 2;
-
-                        break;
-                    default:
-                        break;
-                }
-
-                switch (character.getClasse().MPE)
-                {
-                    case "W": bE = tmp / 5;
-
-                        break;
-                    case "L": bE = tmp / 4;
-
-                        break;
-                    case "H": bE = tmp / 3;
-
-                        break;
-                    default:
-                        break;
-                }
-
-                switch (character.getClasse().MPF)
-                {
-                    case "W": bF = tmp / 4;
-
-                        break;
-                    case "L": bF = tmp / 3;
-
-                        break;
-                    case "H": bF = tmp / 2;
-
-                        break;
-                    default:
-                        break;
-                }
-
-                switch (character.getClasse().MPM)
-                {
-                    case "W": bM = tmp / 4;
-
-                        break;
-                    case "L": bM = tmp / 3;
-
-                        break;
-                    case "H": bM = tmp / 2;
-
-                        break;
-                    case "N": bM = 0;
-
-                        break;
-                    default:
-                        break;
-                }
-            }
-            #endregion
+          
 
 
 
-           Fatigue.Text = (character.Fatigue + bF).ToString();
-            Chi.Text = (character.Chi + bC).ToString();
-            Mana.Text = (character.Mana + bM).ToString();
+           Fatigue.Text = (character.Fatigue ).ToString();
+            Chi.Text = (character.Chi ).ToString();
+            Mana.Text = (character.Mana).ToString();
             Karma.Text = (character.Karma()).ToString();
-            Endurance.Text = (character.Endurance + bE).ToString();
+            Endurance.Text = (character.Endurance).ToString();
             Santé.Text = (character.Ps).ToString();
-            PeI.Text = (character.Endurance + bE + character.GetTalent("Endurance").Level*5).ToString();
-            PEa.Text = (character.Endurance + bE + character.GetTalent("Volonté").Level * 7).ToString();
+            PeI.Text = (character.PeIndem).ToString();
+            PEa.Text = (character.Endurance + character.GetTalent("Volonté").Level * 7).ToString();
         }
 
         public string getPeI()

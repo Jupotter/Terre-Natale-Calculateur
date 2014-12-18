@@ -238,7 +238,15 @@ namespace Terre_Natale_Calculateur
                            + GetAspectValue(Aspect.Equilibre)
                            + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
                 }
-                return _chiStore.Value + RacialRessources[Ressource.PC];
+                int b = 0;
+                if (classeChar != null)
+                {
+                    if (classeChar.StatBonus.Contains("PC"))
+                    {
+                        b = GetBonusStatValue("PC");
+                    }
+                }
+                return _chiStore.Value + RacialRessources[Ressource.PC] + b;
             }
         }
 
@@ -267,11 +275,35 @@ namespace Terre_Natale_Calculateur
                                     + GetAspectValue(Aspect.Equilibre)
                                     + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
                 }
-                return _fatigueStore.Value + RacialRessources[Ressource.PF]; ;
+
+                int b = 0;
+                if (classeChar != null)
+                {
+                    if (classeChar.StatBonus.Contains("PF"))
+                    {
+                        b = GetBonusStatValue("PF");
+                    }
+                }
+                return _fatigueStore.Value + RacialRessources[Ressource.PF] + b ;
             }
         }
 
-        
+        public int PeIndem
+        {
+            get 
+            {
+                int b = 0;
+                if (classeChar != null)
+                {
+                    if (classeChar.StatBonus.Contains("PE"))
+                    {
+                        b = GetBonusStatValue("PE");
+                    }
+                }
+
+                return Endurance+GetTalent("Endurance").Level*5+b;
+            }
+        }
 
         public int Mana
         {
@@ -290,7 +322,15 @@ namespace Terre_Natale_Calculateur
                                  + GetAspectValue(Aspect.Equilibre)
                                  + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
                 }
-                return _manaStore.Value + RacialRessources[Ressource.PM]; 
+                int b = 0;
+                if (classeChar != null)
+                {
+                    if (classeChar.StatBonus.Contains("PM"))
+                    {
+                        b = GetBonusStatValue("PM");
+                    }
+                }
+                return _manaStore.Value + RacialRessources[Ressource.PM]+b; 
             }
         }
 
@@ -322,6 +362,51 @@ namespace Terre_Natale_Calculateur
             }
 
         }
+
+        public int GetBonusStatValue(string name)
+        {
+            int b = 0;
+            if (classeChar.StatBonus.Count() == 1)
+            { b = GetLevel() + 4; }
+            if (classeChar.StatBonus.Count() == 2)
+            {
+                switch (classeChar.StatBonus.IndexOf(name))
+                {
+                    case 1: b = Convert.ToInt32(Math.Truncate((double)(5 + GetLevel()) / 2));
+                        break;
+                    case 2: b = Convert.ToInt32(Math.Truncate((double)(4 + GetLevel()) / 2));
+                        break;
+                }
+            }
+            if (classeChar.StatBonus.Count() == 3)
+            {
+                switch (classeChar.StatBonus.IndexOf(name))
+                {
+                    case 1: b = Convert.ToInt32(Math.Truncate((double)(6 + GetLevel()) / 3));
+                        break;
+                    case 2: b = Convert.ToInt32(Math.Truncate((double)(5 + GetLevel()) / 3));
+                        break;
+                    case 3: b = Convert.ToInt32(Math.Truncate((double)(4 + GetLevel()) / 3));
+                        break;
+                }
+            }
+            if (classeChar.StatBonus.Count() == 4)
+            {
+                switch (classeChar.StatBonus.IndexOf(name))
+                {
+                    case 1: b = Convert.ToInt32(Math.Truncate((double)(7 + GetLevel()) / 4));
+                        break;
+                    case 2: b = Convert.ToInt32(Math.Truncate((double)(6 + GetLevel()) / 4));
+                        break;
+                    case 3: b = Convert.ToInt32(Math.Truncate((double)(5 + GetLevel()) / 4));
+                        break;
+                    case 4: b = Convert.ToInt32(Math.Truncate((double)(4 + GetLevel()) / 4));
+                        break;
+                }
+            }
+            return b;
+        }
+
         #endregion Ressources
 
         #region stats

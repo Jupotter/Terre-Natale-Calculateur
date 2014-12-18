@@ -64,9 +64,9 @@ namespace Terre_Natale_Calculateur
 
         public void createbase()
         {
-            _Classes.Add(0,new Classe("Guerrier",0,2,2,0,0,"N","H","N","N",Aspect.Acier,Aspect.None,"Technique de predilection","Aucun","Ambidextrie (dégats), Arme (de Prédilection), Discipline (contre attaques), Défense (parades)"));
+          //  _Classes.Add(0,new Classe("Guerrier",0,2,2,0,0,"N","H","N","N",Aspect.Acier,Aspect.None,"Technique de predilection","Aucun","Ambidextrie (dégats), Arme (de Prédilection), Discipline (contre attaques), Défense (parades)"));
 
-            DumpJSON();
+            //DumpJSON();
         }
         public Classe getFormName(string search)
         {

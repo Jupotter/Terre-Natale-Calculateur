@@ -133,6 +133,7 @@ namespace Terre_Natale_Calculateur
                 _primaryAspect = PrimaryAspect,
                 _secondaryAspect = SecondaryAspect,
                 _type = Type,
+                _savoir = Savoir,
             };
         }
 
