@@ -46,12 +46,15 @@ namespace Calculateur_wpf.ViewModel
         private void CharacterManager_OnCharacterChanged(Character caller)
         {
             character = caller;
-            character.ExperienceChanged += caller1 =>
-            {
-                OnPropertyChanged(() => ExperienceAvailable);
-                OnPropertyChanged(() => ExperienceRemaining);
-            };
+            character.ExperienceChanged += CharacterOnXpChanged;
+            character.PAChanged += CharacterOnXpChanged;
             OnPropertyChanged(null);
+        }
+
+        private void CharacterOnXpChanged(Character caller)
+        {
+            OnPropertyChanged(() => ExperienceAvailable);
+            OnPropertyChanged(() => ExperienceRemaining);
         }
     }
 }

@@ -14,9 +14,9 @@
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Content="{Binding Name, FallbackValue=Talent Name}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Button Content="-" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" IsEnabled="{Binding CanLevelDown}"/>
+            <Button Content="-" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" Command="{Binding RemoveLevelCommand}"/>
             <ProgressBar Width="100" Margin="2" Maximum="5" Value="{Binding Level, Mode=OneWay}" />
-            <Button Content="+" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" IsEnabled="{Binding CanLevelUp}"/>
+            <Button Content="+" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" Command="{Binding AddLevelCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>

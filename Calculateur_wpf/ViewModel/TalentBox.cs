@@ -1,4 +1,6 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
+﻿using System;
+using Microsoft.Practices.Prism.Commands;
+using Microsoft.Practices.Prism.Mvvm;
 using Terre_Natale_Calculateur;
 
 namespace Calculateur_wpf.ViewModel
@@ -18,18 +20,47 @@ namespace Calculateur_wpf.ViewModel
             get { return talent.Name; }
         }
 
+        public DelegateCommand AddLevelCommand
+        {
+            get { return new DelegateCommand(AddLevel, () => CanLevelUp); }
+        }
+
+        public DelegateCommand RemoveLevelCommand
+        {
+            get { return new DelegateCommand(RemoveLevel, () => CanLevelDown);}
+        }
+
         public TalentBox(Talent talent, Character character)
         {
             this.talent = talent;
             this.character = character;
+            character.ExperienceChanged += CharacterOnExperienceChanged;
+            character.PAChanged += CharacterOnExperienceChanged;
         }
 
-        public bool CanLevelUp
+        private void CharacterOnExperienceChanged(Character caller)
         {
-            get { return character.ExperienceRemaining > talent.GetXpNeeded() - talent.XPCost && talent.Level <= 5; }
+            OnPropertyChanged(null);
         }
 
-        public bool CanLevelDown
+        private void AddLevel()
+        {
+            talent.Increment();
+            OnPropertyChanged(null);
+        }
+
+        private void RemoveLevel()
+        {
+            talent.Decrement();
+            OnPropertyChanged(null);
+        }
+
+        private bool CanLevelUp
+        {
+            get { return talent.Level <= 5 && character.ExperienceRemaining >= (talent.GetXpNeeded() - talent.XPCost); }
+        }
+
+        private bool CanLevelDown
         {
             get
             {
