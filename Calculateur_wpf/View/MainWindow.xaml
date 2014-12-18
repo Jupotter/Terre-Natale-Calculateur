@@ -34,12 +34,12 @@
                 </MenuItem>
             </Menu>
             <local:Header Height="89" VerticalAlignment="Top" DockPanel.Dock="Top"/>
-            <TabControl VerticalAlignment="Top" DockPanel.Dock="Top">
+            <TabControl DockPanel.Dock="Top">
                 <TabItem Header="Stats">
                     <local:MainStats Height="405" VerticalAlignment="Top" Margin="10,0,0,0"/>
                 </TabItem>
                 <TabItem Header="Talents">
-                    <local:TalentPanel Height="405" VerticalAlignment="Top"/>
+                    <local:TalentPanel VerticalAlignment="Top"/>
                 </TabItem>
             </TabControl>
         </DockPanel>

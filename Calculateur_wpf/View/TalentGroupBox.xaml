@@ -1,0 +1,21 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:view="clr-namespace:Calculateur_wpf.View"
+             xmlns:viewModel="clr-namespace:Calculateur_wpf.ViewModel"
+             x:Class="Calculateur_wpf.View.TalentGroupBox"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+    d:DataContext ="{d:DesignInstance viewModel:TalentGroupBox}">
+    <GroupBox Header="{Binding Name}">
+        <ItemsControl ItemsSource="{Binding Talents}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <view:TalentBox />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </GroupBox>
+</UserControl>

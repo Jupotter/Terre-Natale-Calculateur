@@ -11,25 +11,42 @@
     <UserControl.DataContext>
         <viewModel:TalentsPanel/>
     </UserControl.DataContext>
-
-    <ItemsControl ItemsSource="{Binding Talents}">
-        <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-                <UniformGrid ScrollViewer.VerticalScrollBarVisibility="Auto" Columns="2" />
-            </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
-        <ItemsControl.ItemTemplate>
-            <DataTemplate>
-                <GroupBox Header="{Binding Key}">
-                    <ItemsControl ItemsSource="{Binding Value}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <view:TalentBox />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </GroupBox>
-            </DataTemplate>
-        </ItemsControl.ItemTemplate>
-    </ItemsControl>
+    <TabControl>
+        <TabItem Header="Généraux">
+            <ItemsControl ItemsSource="{Binding TalentsGeneraux}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid ScrollViewer.VerticalScrollBarVisibility="Auto" Columns="2" VerticalAlignment="Top" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <view:TalentGroupBox />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </TabItem>
+        <TabItem Header="Aptitude">
+            <ItemsControl ItemsSource="{Binding TalentsAptitude}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid ScrollViewer.VerticalScrollBarVisibility="Auto" Columns="2" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <GroupBox Header="{Binding Key}">
+                            <ItemsControl ItemsSource="{Binding Value}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <view:TalentBox />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </GroupBox>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </TabItem>
+    </TabControl>
 </UserControl>
