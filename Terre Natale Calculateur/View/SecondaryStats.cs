@@ -28,6 +28,10 @@ namespace Terre_Natale_Calculateur.View
                 robusBox.Text = character.Robustesse.ToString();
                 reflexBox.Text = character.Reflex.ToString();
 
+                willAjust.Text = (1 + Math.Max(character.GetAspectValue(Aspect.Arcane), character.GetAspectValue(Aspect.Feu))).ToString();
+                robusAjust.Text = (1 + Math.Max(character.GetAspectValue(Aspect.Acier), character.GetAspectValue(Aspect.Terre))).ToString();
+                reflexAjust.Text = (1 + Math.Max(character.GetAspectValue(Aspect.Eau), character.GetAspectValue(Aspect.Vent))).ToString();
+
                 speedBox.Text =
                     (Math.Max(2, 3 + character.GetAspectValue(Aspect.Vent)/3 - PenDePoid.Value)).ToString();
                 initBox.Text = (character.GetAspectValue(Aspect.Vent) - PenDePoid.Value).ToString();

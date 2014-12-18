@@ -203,6 +203,7 @@
     "SecondaryAspect": 0,
     "Type": 0,
     "Id": 21,
+    "Savoir" : true,
 
   },
   {
@@ -682,6 +683,7 @@
         "SecondaryAspect": 0,
         "Type": 0,
         "Id": 76,
+        "Savoir": true,
 
     },
     {
@@ -691,6 +693,7 @@
         "SecondaryAspect": 0,
         "Type": 0,
         "Id": 77,
+        "Savoir": true,
 
     },
     {
@@ -700,6 +703,7 @@
         "SecondaryAspect": 0,
         "Type": 0,
         "Id": 78,
+        "Savoir": true,
 
     },
     {
@@ -709,6 +713,7 @@
         "SecondaryAspect": 0,
         "Type": 0,
         "Id": 79,
+        "Savoir": true,
 
     },
     {
@@ -718,6 +723,7 @@
         "SecondaryAspect": 0,
         "Type": 0,
         "Id": 80,
+        "Savoir": true,
 
     },
     {
@@ -727,6 +733,7 @@
         "SecondaryAspect": 0,
         "Type": 0,
         "Id": 81,
+        "Savoir": true,
 
     },
      {
@@ -736,6 +743,7 @@
     "SecondaryAspect": 0,
     "Type": 0,
     "Id": 82,
+        "Savoir": true,
 
   },
     {
@@ -776,6 +784,7 @@
         "SecondaryAspect": 0,
         "Type": 0,
         "Id": 84,
+        "Savoir": true,
 
     },
   

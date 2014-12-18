@@ -107,6 +107,7 @@ namespace Terre_Natale_Calculateur.View
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.Inventaire.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -532,6 +533,7 @@ namespace Terre_Natale_Calculateur.View
             // 
             // ExperienceRestante
             // 
+            this.ExperienceRestante.BackColor = System.Drawing.SystemColors.Window;
             this.ExperienceRestante.Location = new System.Drawing.Point(402, 43);
             this.ExperienceRestante.Name = "ExperienceRestante";
             this.ExperienceRestante.ReadOnly = true;
@@ -542,6 +544,7 @@ namespace Terre_Natale_Calculateur.View
             // 
             // Experience
             // 
+            this.Experience.BackColor = System.Drawing.SystemColors.Window;
             this.Experience.Location = new System.Drawing.Point(113, 43);
             this.Experience.Name = "Experience";
             this.Experience.ReadOnly = true;
@@ -637,6 +640,10 @@ namespace Terre_Natale_Calculateur.View
             this.panel1.Size = new System.Drawing.Size(702, 74);
             this.panel1.TabIndex = 2;
             // 
+            // saveFileDialog2
+            // 
+            this.saveFileDialog2.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog2_FileOk);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -718,6 +725,7 @@ namespace Terre_Natale_Calculateur.View
         private TabControl tabControl1;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
+        private SaveFileDialog saveFileDialog2;
     }
 }
 

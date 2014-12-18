@@ -65,23 +65,24 @@ namespace Terre_Natale_Calculateur
 
         public Character Load(String filename)
         {
-            var sr = new StreamReader(filename);
-            var character = JsonConvert.DeserializeObject<SerializableCharacter>(sr.ReadToEnd(),
-                _serializerSettings);
-            sr.Close();
-#if DEBUG
-            //Console.WriteLine(_traceWriter);
-#endif
-            Current = new Character(character);
-            return Current;
+            using (var sr = new StreamReader(filename))
+            {
+                SerializableCharacter character;
+                character = JsonConvert.DeserializeObject<SerializableCharacter>(sr.ReadToEnd(),
+                    _serializerSettings);
+
+                Current = new Character(character);
+                return Current; 
+            }
         }
 
         public void Save(Character character, String filename)
         {
-            var sw = new StreamWriter(filename, false);
-            String json = JsonConvert.SerializeObject(character.GetSerializableCharacter(), _serializerSettings);
-            sw.Write(json);
-            sw.Close();
+            using (var sw = new StreamWriter(filename, false))
+            {
+                String json = JsonConvert.SerializeObject(character.GetSerializableCharacter(), _serializerSettings);
+                sw.Write(json); 
+            }
         }
     }
 }

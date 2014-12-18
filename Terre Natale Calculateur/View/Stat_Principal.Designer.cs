@@ -31,6 +31,10 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PEa = new System.Windows.Forms.TextBox();
+            this.PeI = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.Karma = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -59,10 +63,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.PeI = new System.Windows.Forms.TextBox();
-            this.PEa = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -110,6 +110,48 @@
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(10, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 17);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "PE (ago) :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(13, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 17);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "PE (Ide) :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PEa
+            // 
+            this.PEa.BackColor = System.Drawing.SystemColors.Window;
+            this.PEa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.PEa.Location = new System.Drawing.Point(69, 108);
+            this.PEa.Name = "PEa";
+            this.PEa.ReadOnly = true;
+            this.PEa.Size = new System.Drawing.Size(42, 20);
+            this.PEa.TabIndex = 33;
+            this.PEa.Text = "0";
+            this.PEa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PeI
+            // 
+            this.PeI.BackColor = System.Drawing.SystemColors.Window;
+            this.PeI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.PeI.Location = new System.Drawing.Point(69, 56);
+            this.PeI.Name = "PeI";
+            this.PeI.ReadOnly = true;
+            this.PeI.Size = new System.Drawing.Size(42, 20);
+            this.PeI.TabIndex = 32;
+            this.PeI.Text = "0";
+            this.PeI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label13
             // 
             this.label13.Location = new System.Drawing.Point(25, 209);
@@ -120,9 +162,11 @@
             // 
             // Karma
             // 
+            this.Karma.BackColor = System.Drawing.SystemColors.Window;
             this.Karma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.Karma.Location = new System.Drawing.Point(69, 209);
             this.Karma.Name = "Karma";
+            this.Karma.ReadOnly = true;
             this.Karma.Size = new System.Drawing.Size(42, 20);
             this.Karma.TabIndex = 28;
             this.Karma.Text = "0";
@@ -139,8 +183,10 @@
             // 
             // Fatigue
             // 
+            this.Fatigue.BackColor = System.Drawing.SystemColors.Window;
             this.Fatigue.Location = new System.Drawing.Point(69, 184);
             this.Fatigue.Name = "Fatigue";
+            this.Fatigue.ReadOnly = true;
             this.Fatigue.Size = new System.Drawing.Size(42, 20);
             this.Fatigue.TabIndex = 31;
             this.Fatigue.Text = "0";
@@ -157,9 +203,11 @@
             // 
             // Endurance
             // 
+            this.Endurance.BackColor = System.Drawing.SystemColors.Window;
             this.Endurance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.Endurance.Location = new System.Drawing.Point(69, 82);
             this.Endurance.Name = "Endurance";
+            this.Endurance.ReadOnly = true;
             this.Endurance.Size = new System.Drawing.Size(42, 20);
             this.Endurance.TabIndex = 24;
             this.Endurance.Text = "0";
@@ -167,9 +215,11 @@
             // 
             // Chi
             // 
+            this.Chi.BackColor = System.Drawing.SystemColors.Window;
             this.Chi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.Chi.Location = new System.Drawing.Point(69, 159);
             this.Chi.Name = "Chi";
+            this.Chi.ReadOnly = true;
             this.Chi.Size = new System.Drawing.Size(42, 20);
             this.Chi.TabIndex = 22;
             this.Chi.Text = "0";
@@ -187,9 +237,11 @@
             // 
             // Mana
             // 
+            this.Mana.BackColor = System.Drawing.SystemColors.Window;
             this.Mana.ForeColor = System.Drawing.Color.Blue;
             this.Mana.Location = new System.Drawing.Point(69, 134);
             this.Mana.Name = "Mana";
+            this.Mana.ReadOnly = true;
             this.Mana.Size = new System.Drawing.Size(42, 20);
             this.Mana.TabIndex = 20;
             this.Mana.Text = "0";
@@ -207,9 +259,11 @@
             // 
             // Santé
             // 
+            this.Santé.BackColor = System.Drawing.SystemColors.Window;
             this.Santé.ForeColor = System.Drawing.Color.Red;
             this.Santé.Location = new System.Drawing.Point(69, 30);
             this.Santé.Name = "Santé";
+            this.Santé.ReadOnly = true;
             this.Santé.Size = new System.Drawing.Size(42, 20);
             this.Santé.TabIndex = 18;
             this.Santé.Text = "0";
@@ -260,8 +314,10 @@
             // 
             // Equilibre
             // 
+            this.Equilibre.BackColor = System.Drawing.SystemColors.Window;
             this.Equilibre.Location = new System.Drawing.Point(126, 115);
             this.Equilibre.Name = "Equilibre";
+            this.Equilibre.ReadOnly = true;
             this.Equilibre.Size = new System.Drawing.Size(29, 20);
             this.Equilibre.TabIndex = 18;
             this.Equilibre.Text = "0";
@@ -278,8 +334,10 @@
             // 
             // Acier
             // 
+            this.Acier.BackColor = System.Drawing.SystemColors.Window;
             this.Acier.Location = new System.Drawing.Point(238, 178);
             this.Acier.Name = "Acier";
+            this.Acier.ReadOnly = true;
             this.Acier.Size = new System.Drawing.Size(29, 20);
             this.Acier.TabIndex = 16;
             this.Acier.Text = "0";
@@ -296,9 +354,11 @@
             // 
             // Arcane
             // 
+            this.Arcane.BackColor = System.Drawing.SystemColors.Window;
             this.Arcane.ForeColor = System.Drawing.Color.Purple;
             this.Arcane.Location = new System.Drawing.Point(24, 48);
             this.Arcane.Name = "Arcane";
+            this.Arcane.ReadOnly = true;
             this.Arcane.Size = new System.Drawing.Size(29, 20);
             this.Arcane.TabIndex = 14;
             this.Arcane.Text = "0";
@@ -315,9 +375,11 @@
             // 
             // Feu
             // 
+            this.Feu.BackColor = System.Drawing.SystemColors.Window;
             this.Feu.ForeColor = System.Drawing.Color.Red;
             this.Feu.Location = new System.Drawing.Point(126, 178);
             this.Feu.Name = "Feu";
+            this.Feu.ReadOnly = true;
             this.Feu.Size = new System.Drawing.Size(29, 20);
             this.Feu.TabIndex = 11;
             this.Feu.Text = "0";
@@ -325,9 +387,11 @@
             // 
             // Terre
             // 
+            this.Terre.BackColor = System.Drawing.SystemColors.Window;
             this.Terre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.Terre.Location = new System.Drawing.Point(237, 115);
             this.Terre.Name = "Terre";
+            this.Terre.ReadOnly = true;
             this.Terre.Size = new System.Drawing.Size(29, 20);
             this.Terre.TabIndex = 12;
             this.Terre.Text = "0";
@@ -335,9 +399,11 @@
             // 
             // Eau
             // 
+            this.Eau.BackColor = System.Drawing.SystemColors.Window;
             this.Eau.ForeColor = System.Drawing.Color.Blue;
             this.Eau.Location = new System.Drawing.Point(126, 48);
             this.Eau.Name = "Eau";
+            this.Eau.ReadOnly = true;
             this.Eau.Size = new System.Drawing.Size(29, 20);
             this.Eau.TabIndex = 11;
             this.Eau.Text = "0";
@@ -345,9 +411,11 @@
             // 
             // Vent
             // 
+            this.Vent.BackColor = System.Drawing.SystemColors.Window;
             this.Vent.ForeColor = System.Drawing.Color.Green;
             this.Vent.Location = new System.Drawing.Point(23, 115);
             this.Vent.Name = "Vent";
+            this.Vent.ReadOnly = true;
             this.Vent.Size = new System.Drawing.Size(29, 20);
             this.Vent.TabIndex = 10;
             this.Vent.Text = "0";
@@ -388,44 +456,6 @@
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Eau";
-            // 
-            // PeI
-            // 
-            this.PeI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.PeI.Location = new System.Drawing.Point(69, 56);
-            this.PeI.Name = "PeI";
-            this.PeI.Size = new System.Drawing.Size(42, 20);
-            this.PeI.TabIndex = 32;
-            this.PeI.Text = "0";
-            this.PeI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // PEa
-            // 
-            this.PEa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.PEa.Location = new System.Drawing.Point(69, 108);
-            this.PEa.Name = "PEa";
-            this.PEa.Size = new System.Drawing.Size(42, 20);
-            this.PEa.TabIndex = 33;
-            this.PEa.Text = "0";
-            this.PEa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(13, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 17);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "PE (Ide) :";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(10, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 17);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "PE (ago) :";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Stat_Principal
             // 

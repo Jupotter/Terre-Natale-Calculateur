@@ -36,6 +36,11 @@ namespace Terre_Natale_Calculateur.View
             }
             updateXP();
             SetBonusRaciaux();
+
+            Text = String.Format("Terre Natale – {0}", _character.Name);
+            NameLabel.Text = String.Format("Nom: {0}", _character.Name);
+            if (_character.Race != null)
+                RaceLabel.Text = String.Format("Race: {0}", _character.Race.Name);
         }
 
         private void updateData()
@@ -157,9 +162,6 @@ namespace Terre_Natale_Calculateur.View
         private void SetCharacter(Character character)
         {
             _character = character;
-            Text = String.Format("Terre Natale – {0}", _character.Name);
-            NameLabel.Text = String.Format("Nom: {0}", _character.Name);
-            RaceLabel.Text = String.Format("Race: {0}", _character.Race.Name);
 
             InitInventory();
 
@@ -285,10 +287,27 @@ namespace Terre_Natale_Calculateur.View
 
         private void exporterEnTxtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (File.Exists(_character.Name + ".txt")) File.Delete(_character.Name + ".txt");
-            StreamWriter sw = new StreamWriter(_character.Name + ".txt");
-            sw.Write(_character.ExitTxt(this));
-            sw.Close();
+            string name;
+            if (_currentFilename != null)
+            {
+                name = _currentFilename;
+                name = String.Format("{0}.txt", name);
+                if (File.Exists(name))
+                    File.Delete(name);
+                using (var sw = new StreamWriter(name))
+                    sw.Write(_character.ExitTxt(this));
+            }
+            else
+                saveFileDialog1.ShowDialog();
+        }
+
+        private void saveFileDialog2_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string name = saveFileDialog1.FileName;
+            if (File.Exists(name))
+                File.Delete(name);
+            using (var sw = new StreamWriter(name))
+                sw.Write(_character.ExitTxt(this));
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)

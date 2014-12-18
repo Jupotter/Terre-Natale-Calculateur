@@ -42,10 +42,13 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.willLabel = new System.Windows.Forms.Label();
             this.robusLabel = new System.Windows.Forms.Label();
-            this.reflexLabel = new System.Windows.Forms.Label();
             this.willBox = new System.Windows.Forms.TextBox();
             this.robusBox = new System.Windows.Forms.TextBox();
+            this.willAjust = new System.Windows.Forms.TextBox();
+            this.robusAjust = new System.Windows.Forms.TextBox();
             this.reflexBox = new System.Windows.Forms.TextBox();
+            this.reflexAjust = new System.Windows.Forms.TextBox();
+            this.reflexLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.RPE = new System.Windows.Forms.TextBox();
@@ -57,6 +60,8 @@
             this.RPC = new System.Windows.Forms.TextBox();
             this.RPF = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PenDePoid)).BeginInit();
@@ -74,7 +79,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(157, 123);
+            this.groupBox3.Size = new System.Drawing.Size(177, 123);
             this.groupBox3.TabIndex = 46;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Vitesse";
@@ -101,14 +106,14 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(151, 104);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(171, 104);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // weightPenaltyLabel
             // 
             this.weightPenaltyLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.weightPenaltyLabel.AutoSize = true;
-            this.weightPenaltyLabel.Location = new System.Drawing.Point(6, 6);
+            this.weightPenaltyLabel.Location = new System.Drawing.Point(26, 6);
             this.weightPenaltyLabel.Name = "weightPenaltyLabel";
             this.weightPenaltyLabel.Size = new System.Drawing.Size(94, 13);
             this.weightPenaltyLabel.TabIndex = 7;
@@ -117,7 +122,7 @@
             // PenDePoid
             // 
             this.PenDePoid.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.PenDePoid.Location = new System.Drawing.Point(106, 3);
+            this.PenDePoid.Location = new System.Drawing.Point(126, 3);
             this.PenDePoid.Name = "PenDePoid";
             this.PenDePoid.Size = new System.Drawing.Size(42, 20);
             this.PenDePoid.TabIndex = 36;
@@ -127,7 +132,7 @@
             // 
             this.speedLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.speedLabel.AutoSize = true;
-            this.speedLabel.Location = new System.Drawing.Point(24, 32);
+            this.speedLabel.Location = new System.Drawing.Point(44, 32);
             this.speedLabel.Name = "speedLabel";
             this.speedLabel.Size = new System.Drawing.Size(76, 13);
             this.speedLabel.TabIndex = 9;
@@ -136,8 +141,9 @@
             // manaBox
             // 
             this.manaBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.manaBox.BackColor = System.Drawing.SystemColors.Window;
             this.manaBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.manaBox.Location = new System.Drawing.Point(106, 81);
+            this.manaBox.Location = new System.Drawing.Point(126, 81);
             this.manaBox.Name = "manaBox";
             this.manaBox.ReadOnly = true;
             this.manaBox.Size = new System.Drawing.Size(42, 20);
@@ -148,8 +154,9 @@
             // speedBox
             // 
             this.speedBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.speedBox.BackColor = System.Drawing.SystemColors.Window;
             this.speedBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.speedBox.Location = new System.Drawing.Point(106, 29);
+            this.speedBox.Location = new System.Drawing.Point(126, 29);
             this.speedBox.Name = "speedBox";
             this.speedBox.ReadOnly = true;
             this.speedBox.Size = new System.Drawing.Size(42, 20);
@@ -161,7 +168,7 @@
             // 
             this.manaLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.manaLabel.AutoSize = true;
-            this.manaLabel.Location = new System.Drawing.Point(3, 84);
+            this.manaLabel.Location = new System.Drawing.Point(23, 84);
             this.manaLabel.Name = "manaLabel";
             this.manaLabel.Size = new System.Drawing.Size(97, 13);
             this.manaLabel.TabIndex = 13;
@@ -170,8 +177,9 @@
             // initBox
             // 
             this.initBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.initBox.BackColor = System.Drawing.SystemColors.Window;
             this.initBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.initBox.Location = new System.Drawing.Point(106, 55);
+            this.initBox.Location = new System.Drawing.Point(126, 55);
             this.initBox.Name = "initBox";
             this.initBox.ReadOnly = true;
             this.initBox.Size = new System.Drawing.Size(42, 20);
@@ -183,7 +191,7 @@
             // 
             this.initLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.initLabel.AutoSize = true;
-            this.initLabel.Location = new System.Drawing.Point(14, 58);
+            this.initLabel.Location = new System.Drawing.Point(34, 58);
             this.initLabel.Name = "initLabel";
             this.initLabel.Size = new System.Drawing.Size(86, 13);
             this.initLabel.TabIndex = 11;
@@ -196,7 +204,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 132);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(157, 97);
+            this.groupBox2.Size = new System.Drawing.Size(177, 110);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sauvegarde";
@@ -204,30 +212,37 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.AutoSize = true;
-            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.Controls.Add(this.willLabel, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.robusLabel, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.reflexLabel, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.willBox, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.robusBox, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.reflexBox, 1, 2);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.Controls.Add(this.reflexLabel, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.reflexBox, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.reflexAjust, 2, 3);
+            this.tableLayoutPanel2.Controls.Add(this.robusLabel, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.robusBox, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.robusAjust, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.willLabel, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.willBox, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.willAjust, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(151, 78);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(171, 91);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // willLabel
             // 
             this.willLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.willLabel.AutoSize = true;
-            this.willLabel.Location = new System.Drawing.Point(51, 6);
+            this.willLabel.Location = new System.Drawing.Point(23, 19);
             this.willLabel.Name = "willLabel";
             this.willLabel.Size = new System.Drawing.Size(49, 13);
             this.willLabel.TabIndex = 0;
@@ -237,27 +252,18 @@
             // 
             this.robusLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.robusLabel.AutoSize = true;
-            this.robusLabel.Location = new System.Drawing.Point(31, 32);
+            this.robusLabel.Location = new System.Drawing.Point(3, 44);
             this.robusLabel.Name = "robusLabel";
             this.robusLabel.Size = new System.Drawing.Size(69, 13);
             this.robusLabel.TabIndex = 1;
             this.robusLabel.Text = "Robustesse :";
             // 
-            // reflexLabel
-            // 
-            this.reflexLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.reflexLabel.AutoSize = true;
-            this.reflexLabel.Location = new System.Drawing.Point(51, 58);
-            this.reflexLabel.Name = "reflexLabel";
-            this.reflexLabel.Size = new System.Drawing.Size(49, 13);
-            this.reflexLabel.TabIndex = 3;
-            this.reflexLabel.Text = "Reflexe :";
-            // 
             // willBox
             // 
             this.willBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.willBox.BackColor = System.Drawing.SystemColors.Window;
             this.willBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.willBox.Location = new System.Drawing.Point(106, 3);
+            this.willBox.Location = new System.Drawing.Point(78, 16);
             this.willBox.Name = "willBox";
             this.willBox.ReadOnly = true;
             this.willBox.Size = new System.Drawing.Size(42, 20);
@@ -268,8 +274,9 @@
             // robusBox
             // 
             this.robusBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.robusBox.BackColor = System.Drawing.SystemColors.Window;
             this.robusBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.robusBox.Location = new System.Drawing.Point(106, 29);
+            this.robusBox.Location = new System.Drawing.Point(78, 41);
             this.robusBox.Name = "robusBox";
             this.robusBox.ReadOnly = true;
             this.robusBox.Size = new System.Drawing.Size(42, 20);
@@ -277,11 +284,38 @@
             this.robusBox.Text = "0";
             this.robusBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // willAjust
+            // 
+            this.willAjust.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.willAjust.BackColor = System.Drawing.SystemColors.Window;
+            this.willAjust.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.willAjust.Location = new System.Drawing.Point(126, 16);
+            this.willAjust.Name = "willAjust";
+            this.willAjust.ReadOnly = true;
+            this.willAjust.Size = new System.Drawing.Size(42, 20);
+            this.willAjust.TabIndex = 32;
+            this.willAjust.Text = "0";
+            this.willAjust.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // robusAjust
+            // 
+            this.robusAjust.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.robusAjust.BackColor = System.Drawing.SystemColors.Window;
+            this.robusAjust.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.robusAjust.Location = new System.Drawing.Point(126, 41);
+            this.robusAjust.Name = "robusAjust";
+            this.robusAjust.ReadOnly = true;
+            this.robusAjust.Size = new System.Drawing.Size(42, 20);
+            this.robusAjust.TabIndex = 33;
+            this.robusAjust.Text = "0";
+            this.robusAjust.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // reflexBox
             // 
             this.reflexBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.reflexBox.BackColor = System.Drawing.SystemColors.Window;
             this.reflexBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.reflexBox.Location = new System.Drawing.Point(106, 55);
+            this.reflexBox.Location = new System.Drawing.Point(78, 67);
             this.reflexBox.Name = "reflexBox";
             this.reflexBox.ReadOnly = true;
             this.reflexBox.Size = new System.Drawing.Size(42, 20);
@@ -289,12 +323,35 @@
             this.reflexBox.Text = "0";
             this.reflexBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // reflexAjust
+            // 
+            this.reflexAjust.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.reflexAjust.BackColor = System.Drawing.SystemColors.Window;
+            this.reflexAjust.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.reflexAjust.Location = new System.Drawing.Point(126, 67);
+            this.reflexAjust.Name = "reflexAjust";
+            this.reflexAjust.ReadOnly = true;
+            this.reflexAjust.Size = new System.Drawing.Size(42, 20);
+            this.reflexAjust.TabIndex = 34;
+            this.reflexAjust.Text = "0";
+            this.reflexAjust.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // reflexLabel
+            // 
+            this.reflexLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.reflexLabel.AutoSize = true;
+            this.reflexLabel.Location = new System.Drawing.Point(23, 70);
+            this.reflexLabel.Name = "reflexLabel";
+            this.reflexLabel.Size = new System.Drawing.Size(49, 13);
+            this.reflexLabel.TabIndex = 3;
+            this.reflexLabel.Text = "Reflexe :";
+            // 
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(166, 3);
+            this.groupBox1.Location = new System.Drawing.Point(186, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(125, 123);
             this.groupBox1.TabIndex = 45;
@@ -329,6 +386,7 @@
             // RPE
             // 
             this.RPE.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.RPE.BackColor = System.Drawing.SystemColors.Window;
             this.RPE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.RPE.Location = new System.Drawing.Point(74, 81);
             this.RPE.Name = "RPE";
@@ -373,6 +431,7 @@
             // RPM
             // 
             this.RPM.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.RPM.BackColor = System.Drawing.SystemColors.Window;
             this.RPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.RPM.Location = new System.Drawing.Point(74, 55);
             this.RPM.Name = "RPM";
@@ -395,6 +454,7 @@
             // 
             // RPC
             // 
+            this.RPC.BackColor = System.Drawing.SystemColors.Window;
             this.RPC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.RPC.Location = new System.Drawing.Point(74, 3);
             this.RPC.Name = "RPC";
@@ -406,6 +466,7 @@
             // 
             // RPF
             // 
+            this.RPF.BackColor = System.Drawing.SystemColors.Window;
             this.RPF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.RPF.Location = new System.Drawing.Point(74, 29);
             this.RPF.Name = "RPF";
@@ -429,8 +490,30 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(294, 232);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(314, 245);
             this.tableLayoutPanel4.TabIndex = 47;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(80, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Valeur";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(130, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Ajust.";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SecondaryStats
             // 
@@ -439,7 +522,7 @@
             this.AutoSize = true;
             this.Controls.Add(this.tableLayoutPanel4);
             this.Name = "SecondaryStats";
-            this.Size = new System.Drawing.Size(300, 238);
+            this.Size = new System.Drawing.Size(320, 251);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -491,6 +574,11 @@
         private System.Windows.Forms.TextBox RPC;
         private System.Windows.Forms.TextBox RPF;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TextBox willAjust;
+        private System.Windows.Forms.TextBox robusAjust;
+        private System.Windows.Forms.TextBox reflexAjust;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
 
     }
 }

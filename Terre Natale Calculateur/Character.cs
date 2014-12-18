@@ -330,8 +330,7 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                return Math.Max((GetAspectValue(Aspect.Arcane) + GetAspectValue(Aspect.Terre))/4,
-                    GetTalent("Volonté").Level);
+                return GetTalent("Volonté").Level;
             }
         }
 
@@ -339,8 +338,7 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                return Math.Max((GetAspectValue(Aspect.Acier) + GetAspectValue(Aspect.Feu)) / 4,
-                    GetTalent("Endurance").Level);
+                return GetTalent("Endurance").Level;
             }
         }
 
@@ -348,11 +346,7 @@ namespace Terre_Natale_Calculateur
         {
             get
             {
-                return Math.Max(
-                    Math.Max(
-                    (GetAspectValue(Aspect.Eau) + GetAspectValue(Aspect.Vent))/4,
-                    GetTalent("Esquive").Level),
-                    GetTalent("Discipline").Level);
+                return GetTalent("Esquive").Level;
             }
         }
 
@@ -422,8 +416,6 @@ namespace Terre_Natale_Calculateur
          
         public string ExitTxt(View.Form1 Caller)
         {
-            
-            
             string fiche = "";
             fiche += "Nom : " + Name + Environment.NewLine ;
             fiche += "Race : " + Race.Name + Environment.NewLine;
@@ -525,10 +517,14 @@ namespace Terre_Natale_Calculateur
             _aspectBonus = serializableCharacter.AspectBonus;
             _aspectMalus = serializableCharacter.AspectMalus;
             _race = racesManager.GetRace(serializableCharacter.Race);
-            classeChar = classManager.getFormName(serializableCharacter.Classe);
+            if (serializableCharacter.Classe != null && !serializableCharacter.Classe.Equals(""))
+                classeChar = classManager.getFormName(serializableCharacter.Classe);
+            else
+                classeChar = null;
             ExperienceAvailable = serializableCharacter.Experience;
             Inventaire = serializableCharacter.Inventaire;
-            _bonusAspect = _race.AspectBonus;
+            if (_race != null)
+                _bonusAspect = _race.AspectBonus;
             penPoid = serializableCharacter.penPoid;
             RecomputePA();
             
@@ -544,7 +540,7 @@ namespace Terre_Natale_Calculateur
                 AspectMalus = _aspectMalus,
                 Race = _race.Id,
                 Experience = ExperienceAvailable,
-                Classe=classeChar.Nom,
+                Classe = classeChar != null ? classeChar.Nom : "",
                 Inventaire=Inventaire,
                 penPoid=penPoid,
             };

@@ -35,7 +35,7 @@ namespace Terre_Natale_Calculateur.View
                                    where aspect != Aspect.None && aspect != Aspect.Equilibre
                                    select aspect)
             {
-                box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect && !t.Name.StartsWith("Savoir") && !t.Name.StartsWith("Artisanat") && !t.Name.StartsWith("Alchimie"),
+                box = CreateAspectBox(t => t.Type == TalentType.General && t.PrimaryAspect == aspect && !t.Savoir,
                     String.Format("Talents de {0}", aspect));
                 box.Dock = DockStyle.Fill;
                 layoutTalentG.Controls.Add(box);
@@ -49,7 +49,7 @@ namespace Terre_Natale_Calculateur.View
             layoutTalentG.Controls.Add(box);
 
 
-            box = CreateAspectBox(t => t.Type == TalentType.General && (t.Name.StartsWith("Savoir") || t.Name.StartsWith("Artisanat") || t.Name.StartsWith("Alchimie")),
+            box = CreateAspectBox(t => t.Type == TalentType.General && t.Savoir,
                    "Talent multiple");
             box.Dock = DockStyle.Fill;
             layoutSavoir.Controls.Add(box);
