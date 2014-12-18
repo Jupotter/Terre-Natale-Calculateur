@@ -20,13 +20,14 @@ namespace Terre_Natale_Calculateur
         }
 
         [UsedImplicitly]
-        public Talent(string name, TalentType type, Aspect primaryAspect, Aspect secondaryAspect = Aspect.None)
+        public Talent(string name, TalentType type, Aspect primaryAspect, Aspect secondaryAspect = Aspect.None, bool savoir = false)
         {
             Level = 0;
             _name = name;
             _primaryAspect = primaryAspect;
             _secondaryAspect = secondaryAspect;
             _type = type;
+            _savoir = savoir;
         }
 // ReSharper restore MemberCanBePrivate.Global
 
@@ -159,6 +160,11 @@ namespace Terre_Natale_Calculateur
         {
             _level = 0;
             _haveBonus = false;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0} : {1}", Name, Level);
         }
     }
 }
