@@ -165,7 +165,7 @@ namespace Terre_Natale_Calculateur
 
         public override string ToString()
         {
-            return String.Format("{0} : {1}", Name, Level);
+            return Name;
         }
     }
 }

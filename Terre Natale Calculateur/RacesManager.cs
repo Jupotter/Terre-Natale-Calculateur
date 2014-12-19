@@ -71,6 +71,8 @@ namespace Terre_Natale_Calculateur
 
         public Race GetRace(int Id)
         {
+            if (Id < 1 || Id >_races.Count)
+                return null;
             try
             {
                 if (_races != null)

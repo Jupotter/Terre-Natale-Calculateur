@@ -31,7 +31,7 @@ namespace Calculateur_wpf.View
 
         private void MenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            CharacterManager.Instance.Create("Test");
+            new NewCharacter().ShowDialog();
         }
 
         private void OpenMenuItem_OnClick(object sender, RoutedEventArgs e)
