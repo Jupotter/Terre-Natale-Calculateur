@@ -4,16 +4,23 @@
         xmlns:calculateurWpf="clr-namespace:Calculateur_wpf"
         xmlns:properties="clr-namespace:Calculateur_wpf.Properties"
         xmlns:viewModel="clr-namespace:Calculateur_wpf.ViewModel"
-        xmlns:local="clr-namespace:Calculateur_wpf.View" x:Class="Calculateur_wpf.View.MainWindow"
+        xmlns:local="clr-namespace:Calculateur_wpf.View" x:Name="window" x:Class="Calculateur_wpf.View.MainWindow"
         Title="{Binding Name, FallbackValue=Terre Natale, Mode=OneWay, StringFormat=Terre Natale -- \{0\}}" Height="595.169" Width="661">
     <Window.DataContext>
         <viewModel:MainWindow/>
     </Window.DataContext>
+    <Window.InputBindings>
+        <KeyBinding Key="N" Modifiers="Control" Command="{Binding NewCharacterCommand, ElementName=window, Mode=OneWay}"></KeyBinding>
+        <KeyBinding Modifiers="Control" Key="O" Command="{Binding LoadCharacterCommand, Mode=OneWay}"></KeyBinding>
+        <KeyBinding Modifiers="Control" Key="S" Command="{Binding SaveCharacterCommand, Mode=OneWay}"></KeyBinding>
+        <KeyBinding Modifiers="Control+Shift" Key="S" Command="{Binding SaveCharacterAsCommand, Mode=OneWay}"></KeyBinding>
+        <KeyBinding Modifiers="Alt" Key="F4" Command="{Binding ExitCommand, ElementName=window, Mode=OneWay}"></KeyBinding>
+    </Window.InputBindings>
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="Fichier">
-                    <MenuItem Name="NewMenuItem" Header="_Nouveau" HorizontalAlignment="Left" Width="140" Click="MenuItem_OnClick">
+                    <MenuItem Header="_Nouveau" Click="NewCharacterOnClick" InputGestureText="Ctrl+N">
                         <MenuItem.Icon>
                             <Image>
                                 <Image.Source>
@@ -22,11 +29,32 @@
                             </Image>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Name="OpenMenuItem" Header="_Ouvrir" HorizontalAlignment="Left" Width="140" Click="OpenMenuItem_OnClick">
+                    <MenuItem Name="OpenMenuItem" Header="_Ouvrir" Command="{Binding LoadCharacterCommand, Mode=OneWay}" InputGestureText="Ctrl+O">
                         <MenuItem.Icon>
                             <Image>
                                 <Image.Source>
                                     <BitmapImage DecodePixelWidth="16" UriSource="..\Icons\Open_6529.png"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Name="SaveMenuItem" Header="Enregi_strer" Command="{Binding SaveCharacterCommand, Mode=OneWay}" InputGestureText="Ctrl+S">
+                        <MenuItem.Icon>
+                            <Image>
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="16" UriSource="..\Icons\Save_6530.png"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Enre_gistrer Sous" Command="{Binding SaveCharacterAsCommand, Mode=OneWay}"  InputGestureText="Ctrl+Maj+S"/>
+                    <Separator />
+                    <MenuItem Header="_Quitter" InputGestureText="Alt+F4"  Click="ExitOnClick">
+                        <MenuItem.Icon>
+                            <Image>
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="16" UriSource="..\Icons\Close_16xMD.png"></BitmapImage>
                                 </Image.Source>
                             </Image>
                         </MenuItem.Icon>

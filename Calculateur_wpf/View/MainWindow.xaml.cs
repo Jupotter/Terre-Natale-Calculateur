@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+﻿using Microsoft.Practices.Prism.Commands;
 using System.Windows;
 using Terre_Natale_Calculateur;
 
@@ -9,37 +9,32 @@ namespace Calculateur_wpf.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Character character;
-
         public MainWindow()
         {
             TalentsManager.Instance.Initialize();
             RacesManager.Instance.Initialize();
             ClassManager.Instance.Initialize();
-            CharacterManager.CharacterChanged += CharacterManager_CharacterChanged;
             InitializeComponent();
-
-            this.DataContext = this;
         }
 
-        void CharacterManager_CharacterChanged(Character caller)
+        public DelegateCommand NewCharacterCommand
         {
-            DataContext = caller;
-            character = caller;
-            Title = caller.Name;
+            get { return new DelegateCommand(() => NewCharacterOnClick(this, null)); }
         }
 
-        private void MenuItem_OnClick(object sender, RoutedEventArgs e)
+        private void NewCharacterOnClick(object sender, RoutedEventArgs e)
         {
             new NewCharacter().ShowDialog();
         }
 
-        private void OpenMenuItem_OnClick(object sender, RoutedEventArgs e)
+        public DelegateCommand ExitCommand
         {
-            RacesManager.Instance.Initialize();
-            var openFileDialog = new OpenFileDialog {Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*"};
-            if (openFileDialog.ShowDialog() == true)
-                CharacterManager.Instance.Load(openFileDialog.FileName);
+            get { return new DelegateCommand(() => ExitOnClick(this, null)); }
+        }
+
+        private void ExitOnClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
         }
     }
 }
