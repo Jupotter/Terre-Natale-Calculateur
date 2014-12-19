@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Terre_Natale_Calculateur
 {
-   internal struct SerialisableTalent
+   public struct SerialisableTalent
     {
       public int id;
       public int level;

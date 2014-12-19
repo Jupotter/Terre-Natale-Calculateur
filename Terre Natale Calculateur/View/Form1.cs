@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Windows.Forms;
 namespace Terre_Natale_Calculateur.View
 {
@@ -294,27 +293,27 @@ namespace Terre_Natale_Calculateur.View
 
         private void exporterEnTxtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string name;
-            if (_currentFilename != null)
-            {
-                name = _currentFilename;
-                name = String.Format("{0}.txt", name);
-                if (File.Exists(name))
-                    File.Delete(name);
-                using (var sw = new StreamWriter(name))
-                    sw.Write(_character.ExitTxt(this));
-            }
-            else
-                saveFileDialog1.ShowDialog();
+            //string name;
+            //if (_currentFilename != null)
+            //{
+            //    name = _currentFilename;
+            //    name = String.Format("{0}.txt", name);
+            //    if (File.Exists(name))
+            //        File.Delete(name);
+            //    using (var sw = new StreamWriter(name))
+            //        sw.Write(_character.ExitTxt(this));
+            //}
+            //else
+            //    saveFileDialog1.ShowDialog();
         }
 
         private void saveFileDialog2_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            string name = saveFileDialog1.FileName;
-            if (File.Exists(name))
-                File.Delete(name);
-            using (var sw = new StreamWriter(name))
-                sw.Write(_character.ExitTxt(this));
+        //    string name = saveFileDialog1.FileName;
+        //    if (File.Exists(name))
+        //        File.Delete(name);
+        //    using (var sw = new StreamWriter(name))
+        //        sw.Write(_character.ExitTxt(this));
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)

@@ -3,7 +3,7 @@ using System.Data;
 
 namespace Terre_Natale_Calculateur
 {
-    internal interface ITalentsManager
+    public interface ITalentsManager
     {
         void Initialize();
         DataTable GetTalentsDataTable();

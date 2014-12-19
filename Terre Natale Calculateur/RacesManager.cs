@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace Terre_Natale_Calculateur
 {
 
-    class RacesManager : IRacesManager
+    public class RacesManager : IRacesManager
     {
 
 

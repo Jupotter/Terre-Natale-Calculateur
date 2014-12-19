@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Terre_Natale_Calculateur
 {
-    class LogToFile
+    public class LogToFile
     {
         private readonly FileStream _logFileStream;
 

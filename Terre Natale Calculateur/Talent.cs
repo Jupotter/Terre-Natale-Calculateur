@@ -4,7 +4,7 @@ using Terre_Natale_Calculateur.Annotations;
 
 namespace Terre_Natale_Calculateur
 {
-    internal class Talent : ICloneable
+    public class Talent : ICloneable
     {
         private bool _haveBonus;
         private int _id;

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 namespace Terre_Natale_Calculateur
 {
-    class Race
+    public class Race
     {
         public int Id;
         public readonly string Name;

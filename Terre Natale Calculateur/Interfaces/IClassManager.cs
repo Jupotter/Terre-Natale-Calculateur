@@ -1,6 +1,6 @@
 namespace Terre_Natale_Calculateur
 {
-    internal interface IClassManager
+    public interface IClassManager
     {
         void Initialize();
         void DumpJSON();

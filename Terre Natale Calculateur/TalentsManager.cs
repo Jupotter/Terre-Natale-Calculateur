@@ -8,7 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Terre_Natale_Calculateur
 {
-    internal class TalentsManager : ITalentsManager
+    public class TalentsManager : ITalentsManager
     {
         public static event Action TalentsLoaded;
 

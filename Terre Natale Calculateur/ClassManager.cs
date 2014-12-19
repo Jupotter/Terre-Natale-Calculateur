@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Terre_Natale_Calculateur
 {
-    internal class ClassManager : IClassManager
+    public class ClassManager : IClassManager
     {
         private readonly JsonSerializerSettings _serializerSettings;
         public Dictionary<int, Classe> _Classes = new Dictionary<int, Classe>();

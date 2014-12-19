@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Terre_Natale_Calculateur
 {
-    internal class CharacterManager
+    public class CharacterManager
     {
         private static Character _current;
 
