@@ -282,8 +282,12 @@
         "TalentBonus": "Aucun",
         "MaitriseSpecial": "Architecte (avantage sur structure)",
         "StatBonus": [
+            "PF"
         ],
         "SauvBonus": [
+            "Robustesse",
+            "Réflexe",
+            "Volonté"
         ]
     },
     {
@@ -297,8 +301,13 @@
         "TalentBonus": "Aucun",
         "MaitriseSpecial": "Artificier (Alchimie : Techno +), Science (Acides ou Electriques)",
         "StatBonus": [
+            "PC"
         ],
         "SauvBonus": [
+            "Volonté",
+            "Robustesse",
+            "Réflexe"
+
         ]
     },
     {
@@ -331,9 +340,15 @@
         "Maitrise_de_base": "Spécial & Prouesse : Profession",
         "TalentBonus": "Aucun",
         "MaitriseSpecial": "Technosoldat (avantage sur armes hybrides)",
-        "StatBonus": ["PE", "PC", "PF" 
+        "StatBonus": [
+            "PE",
+            "PC",
+            "PF"
         ],
-        "SauvBonus": ["Réflexe","Robustesse","Volonté"
+        "SauvBonus": [
+            "Réflexe",
+            "Robustesse",
+            "Volonté"
         ]
     },
     {
@@ -370,8 +385,15 @@
         "TalentBonus": "Aucun",
         "MaitriseSpecial": "Médecine (Alchimie : Nature +)",
         "StatBonus": [
+            "PE",
+            "PF",
+            "PC"
         ],
         "SauvBonus": [
+            "Volonté",
+            "Réflexe",
+            "Robustesse"
+
         ]
     },
     {
@@ -385,8 +407,14 @@
         "TalentBonus": "Magiliège",
         "MaitriseSpecial": "Sylphide (Magiliège offensive accrue), Justice (avantage si rend la justice), Incarnation (avantage via enchantements reçus)",
         "StatBonus": [
+            "PE",
+            "PM"
         ],
         "SauvBonus": [
+            "Robustesse",
+            "Volonté",
+            "Réflexe"
+
         ]
     },
     {
@@ -400,8 +428,13 @@
         "TalentBonus": "Magiliège",
         "MaitriseSpecial": "Aura (débloque les auras), Dévotion (Magiliège défensive accrue), Rédemption (avantage si rend justice)",
         "StatBonus": [
+            "PE",
+            "PM"
         ],
         "SauvBonus": [
+            "Robustesse",
+            "Volonté",
+            "Réflexe"
         ]
     },
     {
@@ -665,8 +698,14 @@
         "TalentBonus": "Aucun",
         "MaitriseSpecial": "Dénis Arcanique (abjuration blesse), Maléficien (Maléfice sur arme), Aristomancien (avantage si arme enchantée)",
         "StatBonus": [
+            "PE",
+            "PF",
+            "PM"
         ],
         "SauvBonus": [
+            "Réflexe",
+            "Volonté",
+            "Robustesse"
         ]
     },
     {
@@ -680,8 +719,14 @@
         "TalentBonus": "Aucun",
         "MaitriseSpecial": "Chimère (invocations chimériques), Magie mimétique (magie mimétique accessible, via illusion)*",
         "StatBonus": [
+            "PF",
+            "PM"
+
         ],
         "SauvBonus": [
+            "Robustesse",
+            "Volonté",
+            "Réflexe"
         ]
     },
     {
@@ -695,8 +740,11 @@
         "TalentBonus": "Magiliège",
         "MaitriseSpecial": "Charmeur (Magiliège illusoire accrue), Sans visage (deviens un sans visage)",
         "StatBonus": [
+            "PM",
+            "PC"
         ],
         "SauvBonus": [
+            "Volonté","Réflexe","Robustesse"
         ]
     },
     {
