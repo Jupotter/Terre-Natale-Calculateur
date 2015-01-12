@@ -5,7 +5,7 @@
         xmlns:properties="clr-namespace:Calculateur_wpf.Properties"
         xmlns:viewModel="clr-namespace:Calculateur_wpf.ViewModel"
         xmlns:local="clr-namespace:Calculateur_wpf.View" x:Name="window" x:Class="Calculateur_wpf.View.MainWindow"
-        Title="{Binding Name, FallbackValue=Terre Natale, Mode=OneWay, StringFormat=Terre Natale -- \{0\}}" Height="595.169" Width="661">
+        Title="{Binding Name, FallbackValue=Terre Natale, Mode=OneWay, StringFormat=Terre Natale -- \{0\}}" Height="Auto" Width="661">
     <Window.DataContext>
         <viewModel:MainWindow/>
     </Window.DataContext>
@@ -61,10 +61,17 @@
                     </MenuItem>
                 </MenuItem>
             </Menu>
-            <local:Header Height="89" VerticalAlignment="Top" DockPanel.Dock="Top"/>
+            <local:Header Height="Auto" VerticalAlignment="Top" DockPanel.Dock="Top"/>
             <TabControl DockPanel.Dock="Top">
                 <TabItem Header="Stats">
-                    <local:MainStats Height="405" VerticalAlignment="Top" Margin="10,0,0,0"/>
+                    <TabControl>
+                        <TabItem Header="Principales">
+                            <local:MainStats VerticalAlignment="Stretch" Margin="0,0,0,0"/>
+                        </TabItem>
+                        <TabItem Header="Secondaires">
+                            <local:SecondaryStats VerticalAlignment="Top"/>
+                        </TabItem>
+                    </TabControl>
                 </TabItem>
                 <TabItem Header="Talents">
                     <local:TalentPanel VerticalAlignment="Top"/>
