@@ -82,6 +82,16 @@ namespace Calculateur_wpf.ViewModel
             get { return character == null ? 0 : character.Karma(); }
         }
 
+        public string RacialBonuses
+        {
+            get
+            {
+                if (character == null || character.Race == null)
+                    return null;
+                return character.Race.bonusRaciaux.Replace("#", "").Replace(", ","\n");
+            }
+        }
+
         public MainStats()
         {
             CharacterManager.CharacterChanged += CharacterManager_OnCharacterChanged;
