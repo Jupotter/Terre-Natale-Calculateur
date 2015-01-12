@@ -19,7 +19,7 @@
         <Label Content="Niveau" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="342,10,0,0" RenderTransformOrigin="1.936,0.538"/>
         <StackPanel HorizontalAlignment="Left" Height="30" Margin="10,51,0,0" VerticalAlignment="Top" Width="430" Orientation="Horizontal">
             <Label Content="Expérience:" VerticalAlignment="Center"/>
-            <TextBox Height="23" TextWrapping="Wrap" Width="51" VerticalAlignment="Center" Text="{Binding ExperienceAvailable, Mode=TwoWay}"/>
+            <TextBox VerticalAlignment="Center" Text="{Binding ExperienceAvailable, Mode=TwoWay}" Style="{StaticResource NumberBox}" IsReadOnly="False"/>
             <Expander Header="Editer" x:Name="exp3" ExpandDirection="Right" Collapsed="Exp3Collapsed">
                 <Expander.Resources>
                     <Storyboard x:Key="SbCollapse"  >
@@ -52,12 +52,14 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <Button Name="XpMinusButton"  Content="-" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" VerticalAlignment="Center" Height="20" Margin="5,0" Command="{Binding RemoveExperienceCommand, Mode=OneWay}" CommandParameter="{Binding Text, Converter={StaticResource StringToNullableIntConverter}, ElementName=ExperienceChange, Mode=OneWay}"/>
-                    <TextBox x:Name="ExperienceChange" Height="22" TextWrapping="Wrap" VerticalAlignment="Center" Text="0" Grid.Column="1" Width="30" TextChanged="ExperienceBoxChanged"/>
+                    <TextBox x:Name="ExperienceChange" VerticalAlignment="Center" Text="0" Grid.Column="1"
+                             TextChanged="ExperienceBoxChanged" Style="{StaticResource NumberBox}" IsReadOnly="False"/>
                     <Button Name="XpPlusButton" Content="+" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" VerticalAlignment="Center" Height="20" Grid.Column="2" Margin="5,0" Command="{Binding AddExperienceCommand, Mode=OneWay}" CommandParameter="{Binding Text, Converter={StaticResource StringToNullableIntConverter}, ElementName=ExperienceChange, Mode=OneWay}"/>
                 </Grid>
             </Expander>
             <Label Content="Expérience Restante:" VerticalAlignment="Center"/>
-            <TextBox Height="23" TextWrapping="Wrap" Text="{Binding ExperienceRemaining, Mode=OneWay}" Width="44" VerticalAlignment="Center" IsReadOnly="True"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding ExperienceRemaining, Mode=OneWay}" VerticalAlignment="Center"
+                     Style="{StaticResource NumberBox}"/>
         </StackPanel>
     </Grid>
 </UserControl>

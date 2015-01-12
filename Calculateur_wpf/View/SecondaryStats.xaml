@@ -31,13 +31,17 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Content="Pénalité de poid:" Margin="0" HorizontalContentAlignment="Right"/>
-                <xctk:IntegerUpDown Grid.Column="1" Grid.Row="0" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Minimum="0" Maximum="30" Value="{Binding WeightPenalty}"/>
+                <xctk:IntegerUpDown Grid.Column="1" Grid.Row="0" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                    TextAlignment="Center" Minimum="0" Maximum="30" Value="{Binding WeightPenalty}" Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Grid.Row="1" Content="Déplacement:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding Speed, Mode=OneWay}"/>
+                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding Speed, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Grid.Row="2" Content="Base d'Initiative:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding Initiative, Mode=OneWay}"/>
+                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding Initiative, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Grid.Row="3" Content="Réunion de Mana:" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding ManaImpulsion, Mode=OneWay}"/>
+                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding ManaImpulsion, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
             </Grid>
         </GroupBox>
         <GroupBox Grid.Column="1" Grid.Row="0" Header="Récuperations">
@@ -53,13 +57,17 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Content="Chi:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding RecoverPC, Mode=OneWay}"/>
+                <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding RecoverPC, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Grid.Row="1" Content="Fatigue:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding RecoverPF, Mode=OneWay}"/>
+                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding RecoverPF, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Grid.Row="2" Content="Mana:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding RecoverPM, Mode=OneWay}"/>
+                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding RecoverPM, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Grid.Row="3" Content="Endurance:" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding RecoverPE, Mode=OneWay}"/>
+                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding RecoverPE, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
             </Grid>
         </GroupBox>
         <GroupBox Grid.Column="0" Grid.Row="1" Header="Sauvegardes">
@@ -78,14 +86,20 @@
                 <Label Grid.Column="1" Grid.Row="0" Content="Valeur"/>
                 <Label Grid.Column="2" Grid.Row="0" Content="Ajust."/>
                 <Label Grid.Column="0" Grid.Row="1" Content="Volonté:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding Willpower, Mode=OneWay}"/>
-                <TextBox Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding WillAjust, Mode=OneWay}"/>
+                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding Willpower, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
+                <TextBox Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding WillAjust, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Grid.Row="2" Content="Robustesse" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding Robustesse, Mode=OneWay}"/>
-                <TextBox Grid.Column="2" Grid.Row="2" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding RobustAjust, Mode=OneWay}"/>
+                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding Robustesse, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
+                <TextBox Grid.Column="2" Grid.Row="2" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding RobustAjust, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Grid.Row="3" Content="Reflexe:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding Reflex, Mode=OneWay}"/>
-                <TextBox Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Margin="0" IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center" Width="40" Text="{Binding ReflexAjust, Mode=OneWay}"/>
+                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding Reflex, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
+                <TextBox Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding ReflexAjust, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
 
             </Grid>
         </GroupBox>

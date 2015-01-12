@@ -6,5 +6,11 @@
         <Style TargetType="{x:Type UserControl}">
             <Setter Property="Background" Value="White" />
         </Style>
+        <Style TargetType="TextBox" x:Key="NumberBox">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="23" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

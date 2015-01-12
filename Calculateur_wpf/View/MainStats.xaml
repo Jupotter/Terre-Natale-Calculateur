@@ -35,7 +35,8 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Content="Arcane" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                    <TextBox HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="{Binding Arcane, Mode=OneWay}" VerticalAlignment="Top" IsReadOnly="True" Grid.Row="1" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" TextAlignment="Center" />
+                    <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Arcane, Mode=OneWay}" VerticalAlignment="Top"
+                             Grid.Row="1" Style="{StaticResource NumberBox}"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0">
                     <Grid.RowDefinitions>
@@ -43,7 +44,8 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Eau" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                    <TextBox HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="{Binding Eau, Mode=OneWay}" VerticalAlignment="Top" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" IsReadOnly="True" Grid.Row="1" TextAlignment="Center"/>
+                    <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Eau, Mode=OneWay}" VerticalAlignment="Top" IsReadOnly="True" Grid.Row="1"
+                             Style="{Binding Mode=OneWay, Source={StaticResource NumberBox}}"/>
                 </Grid>
                 <Grid Grid.Column="0" Grid.Row="1">
                     <Grid.RowDefinitions>
@@ -51,7 +53,8 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Vent" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                    <TextBox HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="{Binding Vent, Mode=OneWay}" VerticalAlignment="Top"  Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" IsReadOnly="True" Grid.Row="1" TextAlignment="Center"/>
+                    <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Vent, Mode=OneWay}" VerticalAlignment="Top"
+                             Grid.Row="1" Style="{StaticResource NumberBox}"/>
                 </Grid>
                 <Grid Grid.Column="2" Grid.Row="1">
                     <Grid.RowDefinitions>
@@ -59,7 +62,8 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Terre" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="0"/>
-                    <TextBox HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="{Binding Terre, Mode=OneWay}" VerticalAlignment="Top"  Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" IsReadOnly="True" Grid.Row="1" TextAlignment="Center"/>
+                    <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Terre, Mode=OneWay}" VerticalAlignment="Top"
+                             Grid.Row="1" Style="{StaticResource NumberBox}"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="2">
                     <Grid.RowDefinitions>
@@ -67,7 +71,8 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Feu" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                    <TextBox Grid.Row="1" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="{Binding Feu, Mode=OneWay}" VerticalAlignment="Top" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" IsReadOnly="True" TextAlignment="Center"/>
+                    <TextBox Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Feu, Mode=OneWay}" VerticalAlignment="Top"
+                             Style="{StaticResource NumberBox}"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="1">
                     <Grid.RowDefinitions>
@@ -75,7 +80,8 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Équilibre" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="58.63"/>
-                    <TextBox Grid.Row="1" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="{Binding Equilibre, Mode=OneWay}" VerticalAlignment="Top"  Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" IsReadOnly="True" TextAlignment="Center"/>
+                    <TextBox Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Equilibre, Mode=OneWay}" VerticalAlignment="Top"
+                             Style="{StaticResource NumberBox}"/>
                 </Grid>
                 <Grid Grid.Column="2" Grid.Row="2">
                     <Grid.RowDefinitions>
@@ -83,7 +89,8 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Acier" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                    <TextBox Grid.Row="1" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="{Binding Acier, Mode=OneWay}" VerticalAlignment="Top" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" IsReadOnly="True" TextAlignment="Center"/>
+                    <TextBox Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Acier, Mode=OneWay}" VerticalAlignment="Top"
+                             Style="{StaticResource NumberBox}"/>
                 </Grid>
             </Grid>
         </GroupBox>
@@ -104,21 +111,37 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Content="Santé:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="{Binding Health, Mode=OneWay}" Margin="0" IsReadOnly="True" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center"/>
+                <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="{Binding Health, Mode=OneWay}" Margin="0"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Grid.Row="1" Content="Endurance In:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="{Binding EnduranceIndemne, Mode=OneWay}" Margin="0" IsReadOnly="True" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="23" TextAlignment="Center"/>
+                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="{Binding EnduranceIndemne, Mode=OneWay}" Margin="0"
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Grid.Row="2" Content="Endurance:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Endurance, Mode=OneWay}" Margin="0" IsReadOnly="True" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center"/>
+                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Endurance, Mode=OneWay}" Margin="0"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Content="Endurance Ag:" Margin="0" HorizontalContentAlignment="Right" Grid.Row="3"/>
-                <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding EnduranceAgonisant, Mode=OneWay}" Margin="0" IsReadOnly="True" Grid.Row="3" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center"/>
+                <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding EnduranceAgonisant, Mode=OneWay}" Margin="0"
+                         Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Content="Mana:" Margin="0" HorizontalContentAlignment="Right" Grid.Row="4"/>
-                <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Mana, Mode=OneWay}" Margin="0" IsReadOnly="True" Grid.Row="4" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center"/>
+                <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Mana, Mode=OneWay}" Margin="0" Grid.Row="4"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Content="Chi:" HorizontalContentAlignment="Right" Margin="0" Grid.Row="5"/>
-                <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Chi, Mode=OneWay}" Margin="0" IsReadOnly="True" Grid.Row="5" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center"/>
+                <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Chi, Mode=OneWay}" Margin="0" Grid.Row="5"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Content="Fatigue:" Margin="0" HorizontalContentAlignment="Right" Grid.Row="6"/>
-                <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Fatigue, Mode=OneWay}" Margin="0" IsReadOnly="True" Grid.Row="6" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center"/>
+                <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Fatigue, Mode=OneWay}" Margin="0"
+                         Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Style="{StaticResource NumberBox}"/>
                 <Label Grid.Column="0" Content="Karma:" HorizontalContentAlignment="Right" Margin="0" Grid.Row="7"/>
-                <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Karma, Mode=OneWay}" Margin="0" IsReadOnly="True" Grid.Row="7" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextAlignment="Center"/>
+                <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Karma, Mode=OneWay}" Margin="0"
+                         Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Style="{StaticResource NumberBox}"/>
             </Grid>
         </GroupBox>
         <GroupBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Header="Bonnus Raciaux">
