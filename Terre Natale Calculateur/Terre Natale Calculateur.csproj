@@ -97,108 +97,25 @@
     <Compile Include="Arme.cs" />
     <Compile Include="Armure.cs" />
     <Compile Include="Aspect.cs" />
-    <Compile Include="Tools.cs" />
-    <Compile Include="View\Ajouter Un Talent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Ajouter Un Talent.Designer.cs">
-      <DependentUpon>Ajouter Un Talent.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interfaces\IClassManager.cs" />
     <Compile Include="Interfaces\IRacesManager.cs" />
     <Compile Include="Interfaces\ITalentsManager.cs" />
-    <Compile Include="View\AspectTalentBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="View\AspectTalentBox.Designer.cs">
-      <DependentUpon>AspectTalentBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Character.cs" />
     <Compile Include="CharacterManager.cs" />
     <Compile Include="Classe.cs" />
     <Compile Include="ClassManager.cs" />
-    <Compile Include="View\Choix du savoir.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Choix du savoir.Designer.cs">
-      <DependentUpon>Choix du savoir.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\DumpForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\DumpForm.Designer.cs">
-      <DependentUpon>DumpForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Equipement.cs" />
-    <Compile Include="View\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Log.cs" />
     <Compile Include="LogToFile.cs" />
-    <Compile Include="View\NewCharacters.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\NewCharacters.Designer.cs">
-      <DependentUpon>NewCharacters.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Race.cs" />
     <Compile Include="RacesManager.cs" />
     <Compile Include="SerialisableTalent.cs" />
     <Compile Include="SerializableCharacter.cs" />
-    <Compile Include="View\SecondaryStats.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\SecondaryStats.Designer.cs">
-      <DependentUpon>SecondaryStats.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\StatsBonusForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\StatsBonusForm.Designer.cs">
-      <DependentUpon>StatsBonusForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Talent.cs" />
-    <Compile Include="View\Stat_Principal.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Stat_Principal.Designer.cs">
-      <DependentUpon>Stat_Principal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\TalentBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="TalentsManager.cs" />
     <Compile Include="TalentType.cs" />
-    <Compile Include="View\TalentBox.designer.cs">
-      <DependentUpon>TalentBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\TalentPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\TalentPanel.Designer.cs">
-      <DependentUpon>TalentPanel.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="View\Ajouter Un Talent.resx">
-      <DependentUpon>Ajouter Un Talent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Choix du savoir.resx">
-      <DependentUpon>Choix du savoir.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\DumpForm.resx">
-      <DependentUpon>DumpForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\NewCharacters.resx">
-      <DependentUpon>NewCharacters.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -209,21 +126,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\SecondaryStats.resx">
-      <DependentUpon>SecondaryStats.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\StatsBonusForm.resx">
-      <DependentUpon>StatsBonusForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Stat_Principal.resx">
-      <DependentUpon>Stat_Principal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\TalentBox.resx">
-      <DependentUpon>TalentBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\TalentPanel.resx">
-      <DependentUpon>TalentPanel.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Classes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
