@@ -99,6 +99,9 @@ namespace Terre_Natale_Calculateur
             set { _MaitriseSpecial = value; }
         }
 
-       
+        public override string ToString()
+        {
+            return _nom;
+        }
     }
 }

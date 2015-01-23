@@ -96,6 +96,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\ClassPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\NewCharacter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +137,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="StringToNullableIntConverter.cs" />
+    <Compile Include="ViewModel\ClassPanel.cs" />
     <Compile Include="ViewModel\MainStats.cs" />
     <Compile Include="ViewModel\MainWindow.cs" />
     <Compile Include="ViewModel\NewCharacter.cs" />
@@ -140,6 +145,9 @@
     <Compile Include="ViewModel\TalentBox.cs" />
     <Compile Include="ViewModel\TalentGroupBox.cs" />
     <Compile Include="ViewModel\TalentsPanel.cs" />
+    <Compile Include="View\ClassPanel.xaml.cs">
+      <DependentUpon>ClassPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\NewCharacter.xaml.cs">
       <DependentUpon>NewCharacter.xaml</DependentUpon>
     </Compile>

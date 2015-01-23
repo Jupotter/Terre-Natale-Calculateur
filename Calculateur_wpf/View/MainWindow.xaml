@@ -76,6 +76,9 @@
                 <TabItem Header="Talents">
                     <local:TalentPanel VerticalAlignment="Top"/>
                 </TabItem>
+                <TabItem Header="Classe">
+                    <local:ClassPanel VerticalAlignment="Top" />
+                </TabItem>
             </TabControl>
         </DockPanel>
 
