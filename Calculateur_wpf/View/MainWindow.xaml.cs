@@ -1,6 +1,5 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using System.Windows;
-using Terre_Natale_Calculateur;
 
 namespace Calculateur_wpf.View
 {
@@ -11,9 +10,6 @@ namespace Calculateur_wpf.View
     {
         public MainWindow()
         {
-            TalentsManager.Instance.Initialize();
-            RacesManager.Instance.Initialize();
-            ClassManager.Instance.Initialize();
             InitializeComponent();
         }
 

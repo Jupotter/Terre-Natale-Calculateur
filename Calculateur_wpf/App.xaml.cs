@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Calculateur_wpf.View;
 using System.Windows;
+using Terre_Natale_Calculateur;
 
 namespace Calculateur_wpf
 {
@@ -13,5 +9,15 @@ namespace Calculateur_wpf
     /// </summary>
     public partial class App : Application
     {
+        private void App_OnStartup(object sender, StartupEventArgs e)
+        {
+            var window = new MainWindow();
+            TalentsManager.Instance.Initialize();
+            RacesManager.Instance.Initialize();
+            ClassManager.Instance.Initialize();
+            if (e.Args.Length != 0)
+                CharacterManager.Instance.Load(e.Args[0]);
+            window.Show();
+        }
     }
 }
