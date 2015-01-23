@@ -1,5 +1,6 @@
 ﻿using Microsoft.Practices.Prism.Mvvm;
 using System;
+using System.Linq;
 using Terre_Natale_Calculateur;
 
 namespace Calculateur_wpf.ViewModel
@@ -149,6 +150,32 @@ namespace Calculateur_wpf.ViewModel
                 OnPropertyChanged(() => Speed);
                 OnPropertyChanged(() => Initiative);
                 OnPropertyChanged(() => ManaImpulsion);
+            }
+        }
+
+        public int MartialMemory
+        {
+            get
+            {
+                if (character == null)
+                    return 0;
+                int martial = character.Talents
+                    .Where(talent => talent.Type == TalentType.Aptitude && talent.PrimaryAspect == Aspect.Acier)
+                    .Sum(talent => talent.Level);
+                return character.GetAspectValue(Aspect.Acier) + character.GetAspectValue(Aspect.Arcane) + martial*2;
+            }
+        }
+
+        public int SpellMemory
+        {
+            get
+            {
+                if (character == null)
+                    return 0;
+                int spell = character.Talents
+                    .Where(talent => talent.Type == TalentType.Aptitude && talent.PrimaryAspect == Aspect.Arcane)
+                    .Sum(talent => talent.Level);
+                return character.GetAspectValue(Aspect.Terre)*2 + character.GetAspectValue(Aspect.Arcane)*4 + spell*4;
             }
         }
 
