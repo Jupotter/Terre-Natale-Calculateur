@@ -28,6 +28,22 @@
                 </ItemsControl>
             </ScrollViewer>
         </TabItem>
+        <TabItem Header="Multiples">
+            <ScrollViewer VerticalAlignment="Top" VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding TalentsMultiple}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid ScrollViewer.VerticalScrollBarVisibility="Auto" Columns="2" VerticalAlignment="Top" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <view:TalentGroupBox />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </TabItem>
         <TabItem Header="Martiaux">
             <ScrollViewer VerticalAlignment="Top" VerticalScrollBarVisibility="Auto">
                 <ItemsControl ItemsSource="{Binding TalentsMartial}">
