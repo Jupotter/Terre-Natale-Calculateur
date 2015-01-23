@@ -66,7 +66,7 @@
                 <TabItem Header="Stats">
                     <TabControl>
                         <TabItem Header="Principales">
-                            <local:MainStats VerticalAlignment="Stretch" Margin="0,0,0,0"/>
+                            <local:MainStats VerticalAlignment="Top" Margin="0,0,0,0"/>
                         </TabItem>
                         <TabItem Header="Secondaires">
                             <local:SecondaryStats VerticalAlignment="Top"/>
