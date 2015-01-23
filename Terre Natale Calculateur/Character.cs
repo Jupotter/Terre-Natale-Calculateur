@@ -204,6 +204,9 @@ namespace Terre_Natale_Calculateur
 
         public void SetBonusMalus(Aspect bonus, Aspect malus, Aspect bonus2, Aspect malus2)
         {
+            _aspectBonus.Clear();
+            _aspectMalus.Clear();
+
             _aspectBonus.Add(bonus);
             _aspectMalus.Add(malus);
 
