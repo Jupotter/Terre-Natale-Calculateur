@@ -4,17 +4,17 @@
         xmlns:calculateurWpf="clr-namespace:Calculateur_wpf"
         xmlns:properties="clr-namespace:Calculateur_wpf.Properties"
         xmlns:viewModel="clr-namespace:Calculateur_wpf.ViewModel"
-        xmlns:local="clr-namespace:Calculateur_wpf.View" x:Name="window" x:Class="Calculateur_wpf.View.MainWindow"
-        Title="{Binding Name, FallbackValue=Terre Natale, Mode=OneWay, StringFormat=Terre Natale -- \{0\}}" Height="Auto" Width="661">
+        xmlns:local="clr-namespace:Calculateur_wpf.View" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Name="window" x:Class="Calculateur_wpf.View.MainWindow"
+        Title="{Binding Name, FallbackValue=Terre Natale, Mode=OneWay, StringFormat=Terre Natale -- \{0\}}" Height="Auto" Width="552" d:DesignHeight="515">
     <Window.DataContext>
         <viewModel:MainWindow/>
     </Window.DataContext>
     <Window.InputBindings>
-        <KeyBinding Key="N" Modifiers="Control" Command="{Binding NewCharacterCommand, ElementName=window, Mode=OneWay}"></KeyBinding>
-        <KeyBinding Modifiers="Control" Key="O" Command="{Binding LoadCharacterCommand, Mode=OneWay}"></KeyBinding>
-        <KeyBinding Modifiers="Control" Key="S" Command="{Binding SaveCharacterCommand, Mode=OneWay}"></KeyBinding>
-        <KeyBinding Modifiers="Control+Shift" Key="S" Command="{Binding SaveCharacterAsCommand, Mode=OneWay}"></KeyBinding>
-        <KeyBinding Modifiers="Alt" Key="F4" Command="{Binding ExitCommand, ElementName=window, Mode=OneWay}"></KeyBinding>
+        <KeyBinding Key="N" Modifiers="Control" Command="{Binding NewCharacterCommand, ElementName=window, Mode=OneWay}"/>
+        <KeyBinding Modifiers="Control" Key="O" Command="{Binding LoadCharacterCommand, Mode=OneWay}"/>
+        <KeyBinding Modifiers="Control" Key="S" Command="{Binding SaveCharacterCommand, Mode=OneWay}"/>
+        <KeyBinding Modifiers="Control+Shift" Key="S" Command="{Binding SaveCharacterAsCommand, Mode=OneWay}"/>
+        <KeyBinding Modifiers="Alt" Key="F4" Command="{Binding ExitCommand, ElementName=window, Mode=OneWay}"/>
     </Window.InputBindings>
     <Grid>
         <DockPanel>
@@ -24,26 +24,26 @@
                         <MenuItem.Icon>
                             <Image>
                                 <Image.Source>
-                                    <BitmapImage DecodePixelWidth="16" UriSource="..\Icons\NewFile_6276.png"></BitmapImage>
+                                    <BitmapImage DecodePixelWidth="16" UriSource="..\Icons\NewFile_6276.png"/>
                                 </Image.Source>
                             </Image>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Name="OpenMenuItem" Header="_Ouvrir" Command="{Binding LoadCharacterCommand, Mode=OneWay}" InputGestureText="Ctrl+O">
+                    <MenuItem x:Name="OpenMenuItem" Header="_Ouvrir" Command="{Binding LoadCharacterCommand, Mode=OneWay}" InputGestureText="Ctrl+O">
                         <MenuItem.Icon>
                             <Image>
                                 <Image.Source>
-                                    <BitmapImage DecodePixelWidth="16" UriSource="..\Icons\Open_6529.png"></BitmapImage>
+                                    <BitmapImage DecodePixelWidth="16" UriSource="..\Icons\Open_6529.png"/>
                                 </Image.Source>
                             </Image>
                         </MenuItem.Icon>
                     </MenuItem>
                     <Separator />
-                    <MenuItem Name="SaveMenuItem" Header="Enregi_strer" Command="{Binding SaveCharacterCommand, Mode=OneWay}" InputGestureText="Ctrl+S">
+                    <MenuItem x:Name="SaveMenuItem" Header="Enregi_strer" Command="{Binding SaveCharacterCommand, Mode=OneWay}" InputGestureText="Ctrl+S">
                         <MenuItem.Icon>
                             <Image>
                                 <Image.Source>
-                                    <BitmapImage DecodePixelWidth="16" UriSource="..\Icons\Save_6530.png"></BitmapImage>
+                                    <BitmapImage DecodePixelWidth="16" UriSource="..\Icons\Save_6530.png"/>
                                 </Image.Source>
                             </Image>
                         </MenuItem.Icon>
@@ -54,7 +54,7 @@
                         <MenuItem.Icon>
                             <Image>
                                 <Image.Source>
-                                    <BitmapImage DecodePixelWidth="16" UriSource="..\Icons\Close_16xMD.png"></BitmapImage>
+                                    <BitmapImage DecodePixelWidth="16" UriSource="..\Icons\Close_16xMD.png"/>
                                 </Image.Source>
                             </Image>
                         </MenuItem.Icon>
@@ -66,10 +66,10 @@
                 <TabItem Header="Stats">
                     <TabControl>
                         <TabItem Header="Principales">
-                            <local:MainStats VerticalAlignment="Top" Margin="0,0,0,0"/>
+                            <local:MainStats VerticalAlignment="Stretch" Margin="0,0,0,0" HorizontalAlignment="Center"/>
                         </TabItem>
                         <TabItem Header="Secondaires">
-                            <local:SecondaryStats VerticalAlignment="Top"/>
+                            <local:SecondaryStats VerticalAlignment="Top" HorizontalAlignment="Center"/>
                         </TabItem>
                     </TabControl>
                 </TabItem>
