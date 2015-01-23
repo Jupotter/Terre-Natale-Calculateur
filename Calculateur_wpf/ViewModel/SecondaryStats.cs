@@ -187,6 +187,13 @@ namespace Calculateur_wpf.ViewModel
         private void CharacterManager_OnCharacterChanged(Character caller)
         {
             character = caller;
+            if (character != null)
+                character.PAChanged += CharacterOnPAChanged;
+            OnPropertyChanged(null);
+        }
+
+        private void CharacterOnPAChanged(Character caller)
+        {
             OnPropertyChanged(null);
         }
     }

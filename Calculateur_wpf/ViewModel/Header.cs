@@ -109,6 +109,7 @@ namespace Calculateur_wpf.ViewModel
 
         private void CharacterOnXpChanged(Character caller)
         {
+            OnPropertyChanged(() => Race);
             OnPropertyChanged(() => ExperienceAvailable);
             OnPropertyChanged(() => ExperienceRemaining);
             OnPropertyChanged(() => AddExperienceCommand);
