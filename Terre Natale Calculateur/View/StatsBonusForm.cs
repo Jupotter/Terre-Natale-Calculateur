@@ -1,36 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Terre_Natale_Calculateur.View
 {
     internal partial class StatsBonusForm : Form
     {
-        Form1 parent;
+        private readonly Character character;
 
-       
-
-        public StatsBonusForm(Form1 caller)
+        public StatsBonusForm()
         {
-            parent = caller;
+            character = CharacterManager.Current;
+            if (character == null)
+                return;
             InitializeComponent();
         }
 
         private void StatsBonusForm_Load(object sender, EventArgs e )
         {
-           
-
             comboBox1.Items.Clear();
             comboBox2.Items.Clear();
             comboBox3.Items.Clear();
             comboBox4.Items.Clear();
 
+
+            comboBox1.Items.Add(Aspect.None);
             comboBox1.Items.Add(Aspect.Acier);
             comboBox1.Items.Add(Aspect.Arcane);
             comboBox1.Items.Add(Aspect.Eau);
@@ -38,6 +32,7 @@ namespace Terre_Natale_Calculateur.View
             comboBox1.Items.Add(Aspect.Terre);
             comboBox1.Items.Add(Aspect.Vent);
 
+            comboBox2.Items.Add(Aspect.None);
             comboBox2.Items.Add(Aspect.Acier);
             comboBox2.Items.Add(Aspect.Arcane);
             comboBox2.Items.Add(Aspect.Eau);
@@ -45,7 +40,7 @@ namespace Terre_Natale_Calculateur.View
             comboBox2.Items.Add(Aspect.Terre);
             comboBox2.Items.Add(Aspect.Vent);
 
-
+            comboBox3.Items.Add(Aspect.None);
             comboBox3.Items.Add(Aspect.Acier);
             comboBox3.Items.Add(Aspect.Arcane);
             comboBox3.Items.Add(Aspect.Eau);
@@ -53,6 +48,7 @@ namespace Terre_Natale_Calculateur.View
             comboBox3.Items.Add(Aspect.Terre);
             comboBox3.Items.Add(Aspect.Vent);
 
+            comboBox4.Items.Add(Aspect.None);
             comboBox4.Items.Add(Aspect.Acier);
             comboBox4.Items.Add(Aspect.Arcane);
             comboBox4.Items.Add(Aspect.Eau);
@@ -60,31 +56,36 @@ namespace Terre_Natale_Calculateur.View
             comboBox4.Items.Add(Aspect.Terre);
             comboBox4.Items.Add(Aspect.Vent);
 
-            if(parent.getCharacter().haveBonus())
+            if(character.haveBonus())
             {
-                comboBox1.Text = parent.getCharacter().getBonusAspect().ElementAt(0).ToString();
-                comboBox3.Text = parent.getCharacter().getBonusAspect().ElementAt(1).ToString();
-                comboBox2.Text = parent.getCharacter().getMalusAspect().ElementAt(0).ToString();
-                comboBox4.Text = parent.getCharacter().getMalusAspect().ElementAt(1).ToString();
+                comboBox1.SelectedItem = character.getBonusAspect().ElementAt(0);
+                comboBox3.SelectedItem = character.getBonusAspect().ElementAt(1);
+                comboBox2.SelectedItem = character.getMalusAspect().ElementAt(0);
+                comboBox4.SelectedItem = character.getMalusAspect().ElementAt(1);
+            }
+            else
+            {
+                comboBox1.SelectedItem = Aspect.None;
+                comboBox2.SelectedItem = Aspect.None;
+                comboBox3.SelectedItem = Aspect.None;
+                comboBox4.SelectedItem = Aspect.None;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text != "" && (comboBox2.Text) != "" && comboBox3.Text != "" && (comboBox4.Text) != "")
+            if ((comboBox1.SelectedText != "None" && (comboBox2.Text) == "None") ||
+                (comboBox3.Text != "None" && (comboBox4.Text) == "None"))
             {
-
-                parent.getCharacter().SetBonusMalus(
-                    (Aspect)Enum.Parse(typeof(Aspect), comboBox1.Text, false),
-                    (Aspect)Enum.Parse(typeof(Aspect), comboBox2.Text, false), 
-                    (Aspect)Enum.Parse(typeof(Aspect),comboBox3.Text, false),
-                    (Aspect)Enum.Parse(typeof(Aspect), comboBox4.Text, false));
-                parent.UpdateAspects();
-                this.Close();
             }
             else
             {
-                
+                character.SetBonusMalus(
+                    (Aspect) comboBox1.SelectedItem,
+                    (Aspect) comboBox2.SelectedItem,
+                    (Aspect) comboBox3.SelectedItem,
+                    (Aspect) comboBox4.SelectedItem);
+                this.Close();
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Terre_Natale_Calculateur.View
@@ -45,6 +46,19 @@ namespace Terre_Natale_Calculateur.View
                     RPE.Text = (4 + currentClasse.RPE).ToString();
                     RPM.Text = (4 + currentClasse.RPM).ToString();
                 }
+
+                int martial = character.Talents
+                    .Where(talent => talent.Type == TalentType.Aptitude && talent.PrimaryAspect == Aspect.Acier)
+                    .Sum(talent => talent.Level);
+                martialBox.Text = (character.GetAspectValue(Aspect.Acier) + character.GetAspectValue(Aspect.Arcane) + martial*2).ToString();
+
+                int spell = character.Talents
+                    .Where(talent => talent.Type == TalentType.Aptitude && talent.PrimaryAspect == Aspect.Arcane)
+                    .Sum(talent => talent.Level);
+                spellbox.Text =
+                    (character.GetAspectValue(Aspect.Terre)*2 + character.GetAspectValue(Aspect.Arcane)*4 + spell*4)
+                        .ToString();
+
             }
 
             else

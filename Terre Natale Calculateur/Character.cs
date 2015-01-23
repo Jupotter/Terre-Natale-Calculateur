@@ -204,6 +204,9 @@ namespace Terre_Natale_Calculateur
 
         public void SetBonusMalus(Aspect bonus, Aspect malus, Aspect bonus2, Aspect malus2)
         {
+            _aspectBonus.Clear();
+            _aspectMalus.Clear();
+
             _aspectBonus.Add(bonus);
             _aspectMalus.Add(malus);
 
@@ -588,15 +591,24 @@ namespace Terre_Natale_Calculateur
             {
                 foreach (var item in serializableCharacter.Talents)
                 {
-                    if (item.bonus)
+                    try
                     {
-                        GetTalent(item.id).Increment(item.level - 1);
+                        Talent talent = GetTalent(item.id);
+
+                        if (item.bonus)
+                        {
+                            talent.Increment(item.level - 1);
+                        }
+                        else
+                        {
+                            talent.Increment(item.level);
+                        }
+                        talent.HaveBonus = item.bonus;
                     }
-                    else
+                    catch
                     {
-                        GetTalent(item.id).Increment(item.level);
+                        continue;
                     }
-                    GetTalent(item.id).HaveBonus = item.bonus;
                 }
             }
             _aspectBonus = serializableCharacter.AspectBonus;

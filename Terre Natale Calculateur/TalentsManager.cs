@@ -57,9 +57,9 @@ namespace Terre_Natale_Calculateur
                     talent.Id = _nextId++;
                 }
                 _talents = list.ToDictionary(talent => talent.Id);
-                for (int i = 1; i < _talents.Count; i++)
+                foreach (var talent in _talents)
                 {
-                    _talents[i].reset();
+                    talent.Value.reset();
                 }
             }
             OnTalentsLoaded();

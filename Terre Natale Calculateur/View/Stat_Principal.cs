@@ -113,7 +113,7 @@ namespace Terre_Natale_Calculateur.View
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            StatsBonusForm sbf = new StatsBonusForm(parentForm);
+            StatsBonusForm sbf = new StatsBonusForm();
             sbf.ShowDialog();
         }
 
