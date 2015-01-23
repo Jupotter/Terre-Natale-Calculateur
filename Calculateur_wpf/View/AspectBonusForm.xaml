@@ -1,0 +1,82 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ViewModel="clr-namespace:Calculateur_wpf.ViewModel" x:Class="Calculateur_wpf.View.AspectBonusForm"
+        Title="Choix des bonus d'Aspect" Height="145" Width="264" WindowStyle="ToolWindow"
+        Loaded="AspectBonusForm_OnLoaded">
+    <Window.DataContext>
+        <ViewModel:AspectBonusForm/>
+    </Window.DataContext>
+    <Window.Resources>
+        <!--<Style TargetType="ComboBox">
+            <Setter Property="Width" Value="75"></Setter>
+        </Style>-->
+    </Window.Resources>
+    <DockPanel LastChildFill="True"
+        VerticalAlignment="Stretch">
+        <Grid DockPanel.Dock="Bottom">
+            <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                        >
+                <Button HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Accepter"
+                    Width="75"
+                    Margin="3" Command="{Binding AcceptCommand, Mode=OneWay}"/>
+                <Button HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Annuler"
+                    Width="75"
+                    Margin="3" Click="Button_Click"/>
+            </StackPanel>
+        </Grid>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                Text="Bonus"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontWeight="Bold" />
+            <TextBlock Grid.Row="0" Grid.Column="1"
+                Text="Malus"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontWeight="Bold" />
+            <ComboBox Grid.Row="1" Grid.Column="0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                ItemsSource="{Binding Aspects}"
+                SelectedItem="{Binding Bonus1}"
+                Width="75"/>
+            <ComboBox Grid.Row="2" Grid.Column="0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                ItemsSource="{Binding Aspects}"
+                IsEnabled="{Binding CanSetBonus2, Mode=OneWay}"
+                SelectedItem="{Binding Bonus2}"
+                Width="75"/>
+            <ComboBox Grid.Row="1" Grid.Column="1"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                ItemsSource="{Binding Aspects}"
+                IsEnabled="{Binding CanSetMalus1, Mode=OneWay}"
+                SelectedItem="{Binding Malus1}"
+                Width="75"/>
+            <ComboBox Grid.Row="2" Grid.Column="1"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                ItemsSource="{Binding Aspects}"
+                IsEnabled="{Binding CanSetMalus2, Mode=OneWay}"
+                SelectedItem="{Binding Malus2}"
+                Width="75"/>
+        </Grid>
+    </DockPanel>
+</Window>

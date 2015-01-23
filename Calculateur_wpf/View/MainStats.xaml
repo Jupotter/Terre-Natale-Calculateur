@@ -92,6 +92,12 @@
                     <TextBox Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Acier, Mode=OneWay}" VerticalAlignment="Top"
                              Style="{StaticResource NumberBox}"/>
                 </Grid>
+                <Button Grid.Row="0" Grid.Column="2" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Width="75" Content="Bonus" 
+                        Click="Button_Click" 
+                        IsEnabled="{Binding CanSetAspectBonus, Mode=OneWay}"/>
             </Grid>
         </GroupBox>
         <GroupBox Grid.Column="1" Grid.Row="0"  Header="Statistiques">

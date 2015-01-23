@@ -92,6 +92,11 @@ namespace Calculateur_wpf.ViewModel
             }
         }
 
+        public bool CanSetAspectBonus
+        {
+            get { return character != null; }
+        }
+
         public MainStats()
         {
             CharacterManager.CharacterChanged += CharacterManager_OnCharacterChanged;
