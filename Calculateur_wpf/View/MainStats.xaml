@@ -150,7 +150,7 @@
                          Style="{StaticResource NumberBox}"/>
             </Grid>
         </GroupBox>
-        <GroupBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Header="Bonnus Raciaux">
+        <GroupBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Header="Bonus Raciaux">
             <TextBlock Text="{Binding RacialBonuses, Mode=OneWay}"></TextBlock>
         </GroupBox>
     </Grid>
