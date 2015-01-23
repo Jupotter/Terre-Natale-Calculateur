@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Practices.Prism.Commands;
+﻿using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
 using Terre_Natale_Calculateur;
 
@@ -85,6 +84,16 @@ namespace Calculateur_wpf.ViewModel
             }
         }
 
+        public int Level
+        {
+            get
+            {
+                if (character == null)
+                    return 0;
+                return character.GetLevel();
+            }
+        }
+
         public Header()
         {
             CharacterManager.CharacterChanged += CharacterManager_OnCharacterChanged;
@@ -104,6 +113,7 @@ namespace Calculateur_wpf.ViewModel
             OnPropertyChanged(() => ExperienceRemaining);
             OnPropertyChanged(() => AddExperienceCommand);
             OnPropertyChanged(() => RemoveExperienceCommand);
+            OnPropertyChanged(() => Level);
         }
     }
 }

@@ -16,7 +16,7 @@
         <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" VerticalAlignment="Top" Width="120" Margin="54,14,0,0" IsReadOnly="True"/>
         <Label Content="Race:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="179,10,0,0"/>
         <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Race, Mode=OneWay}" VerticalAlignment="Top" Width="120" Margin="217,14,0,0" IsReadOnly="True"/>
-        <Label Content="Niveau" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="342,10,0,0" RenderTransformOrigin="1.936,0.538"/>
+        <TextBlock Text="{Binding Level, FallbackValue=Niveau: 0, Mode=OneWay, StringFormat=Niveau: \{0\}, TargetNullValue=Niveau: 0}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="342,14,0,45" RenderTransformOrigin="1.936,0.538" Height="22"/>
         <StackPanel HorizontalAlignment="Left" Height="30" Margin="10,51,0,0" VerticalAlignment="Top" Width="430" Orientation="Horizontal">
             <Label Content="Expérience:" VerticalAlignment="Center"/>
             <TextBox VerticalAlignment="Center" Text="{Binding ExperienceAvailable, Mode=TwoWay}" Style="{StaticResource NumberBox}" IsReadOnly="False"/>
