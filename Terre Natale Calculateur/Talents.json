@@ -27,7 +27,7 @@
 
   },
   {
-    "Name": "Plagia",
+    "Name": "Ruse",
     "PrimaryAspect": 1,
     "SecondaryAspect": 0,
     "Type": 0,
@@ -99,7 +99,7 @@
   },
   {
 
-    "Name": "Empathie",
+    "Name": "Sagesse",
     "PrimaryAspect": 4,
     "SecondaryAspect": 0,
     "Type": 0,
@@ -117,7 +117,7 @@
   },
   {
 
-    "Name": "Dressage",
+    "Name": "Symbiose",
     "PrimaryAspect": 4,
     "SecondaryAspect": 0,
     "Type": 0,
@@ -126,7 +126,7 @@
   },
   {
 
-    "Name": "Sabotage",
+    "Name": "Dexterité",
     "PrimaryAspect": 3,
     "SecondaryAspect": 0,
     "Type": 0,
@@ -144,7 +144,7 @@
   },
   {
 
-    "Name": "Conduite",
+    "Name": "Rapidité",
     "PrimaryAspect": 3,
     "SecondaryAspect": 0,
     "Type": 0,
@@ -180,7 +180,7 @@
   },
   {
 
-    "Name": "Escalade",
+    "Name": "Consitution",
     "PrimaryAspect": 6,
     "SecondaryAspect": 0,
     "Type": 0,
@@ -332,33 +332,6 @@
     "SecondaryAspect": 2,
     "Type": 1,
     "Id": 37,
-
-  },
-  {
-
-    "Name": "Sans Armure",
-    "PrimaryAspect": 6,
-    "SecondaryAspect": 4,
-    "Type": 1,
-    "Id": 38,
-
-  },
-  {
-
-    "Name": "Armure légère",
-    "PrimaryAspect": 6,
-    "SecondaryAspect": 1,
-    "Type": 1,
-    "Id": 39,
-
-  },
-  {
-
-    "Name": "Armure Lourde",
-    "PrimaryAspect": 6,
-    "SecondaryAspect": 2,
-    "Type": 1,
-    "Id": 40,
 
   },
   {

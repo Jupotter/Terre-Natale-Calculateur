@@ -588,15 +588,24 @@ namespace Terre_Natale_Calculateur
             {
                 foreach (var item in serializableCharacter.Talents)
                 {
-                    if (item.bonus)
+                    try
                     {
-                        GetTalent(item.id).Increment(item.level - 1);
+                        Talent talent = GetTalent(item.id);
+
+                        if (item.bonus)
+                        {
+                            talent.Increment(item.level - 1);
+                        }
+                        else
+                        {
+                            talent.Increment(item.level);
+                        }
+                        talent.HaveBonus = item.bonus;
                     }
-                    else
+                    catch
                     {
-                        GetTalent(item.id).Increment(item.level);
+                        continue;
                     }
-                    GetTalent(item.id).HaveBonus = item.bonus;
                 }
             }
             _aspectBonus = serializableCharacter.AspectBonus;
