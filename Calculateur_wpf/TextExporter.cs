@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using Terre_Natale_Calculateur;
+using Calculateur_Backend;
 
-namespace Calculateur_wpf
+namespace Calculateur
 {
     class TextExporter
     {

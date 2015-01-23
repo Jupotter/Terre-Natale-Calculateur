@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-             xmlns:ViewModel="clr-namespace:Calculateur_wpf.ViewModel" x:Class="Calculateur_wpf.View.SecondaryStats"
+             xmlns:ViewModel="clr-namespace:Calculateur.ViewModel" x:Class="Calculateur.View.SecondaryStats"
              mc:Ignorable="d">
     <UserControl.DataContext>
         <ViewModel:SecondaryStats/>

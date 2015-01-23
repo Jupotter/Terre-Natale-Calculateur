@@ -1,7 +1,7 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using System.Windows;
 
-namespace Calculateur_wpf.View
+namespace Calculateur.View
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Terre_Natale_Calculateur;
+using Calculateur_Backend;
 using Xunit;
 
 namespace Calculateur_Tests

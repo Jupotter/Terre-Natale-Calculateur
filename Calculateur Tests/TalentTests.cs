@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Terre_Natale_Calculateur;
+using Calculateur_Backend;
 using Xunit;
 
 namespace Calculateur_Tests

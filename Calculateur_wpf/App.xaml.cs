@@ -1,8 +1,8 @@
-﻿using Calculateur_wpf.View;
+﻿using Calculateur.View;
 using System.Windows;
-using Terre_Natale_Calculateur;
+using Calculateur_Backend;
 
-namespace Calculateur_wpf
+namespace Calculateur
 {
     /// <summary>
     /// Logique d'interaction pour App.xaml

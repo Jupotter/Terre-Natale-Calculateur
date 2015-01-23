@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
     public enum Ressource{PS,PE,PM,PC,PF,PK,NONE}
     public sealed class Character

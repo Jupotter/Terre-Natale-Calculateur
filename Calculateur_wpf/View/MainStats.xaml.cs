@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Calculateur_wpf.View
+namespace Calculateur.View
 {
     /// <summary>
     /// Logique d'interaction pour MainStats.xaml

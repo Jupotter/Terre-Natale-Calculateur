@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
-using Terre_Natale_Calculateur;
+using Calculateur_Backend;
 
-namespace Calculateur_wpf.ViewModel
+namespace Calculateur.ViewModel
 {
     class TalentBox : BindableBase
     {

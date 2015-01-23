@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Calculateur_wpf.View
+namespace Calculateur.View
 {
     /// <summary>
     /// Logique d'interaction pour SecondaryStats.xaml

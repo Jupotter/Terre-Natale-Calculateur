@@ -3,9 +3,9 @@ using Microsoft.Practices.Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Terre_Natale_Calculateur;
+using Calculateur_Backend;
 
-namespace Calculateur_wpf.ViewModel
+namespace Calculateur.ViewModel
 {
     class NewCharacter : BindableBase
     {

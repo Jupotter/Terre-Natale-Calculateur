@@ -1,7 +1,7 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:ViewModel="clr-namespace:Calculateur_wpf.ViewModel" x:Class="Calculateur_wpf.View.AspectBonusForm"
+        xmlns:ViewModel="clr-namespace:Calculateur.ViewModel" x:Class="Calculateur.View.AspectBonusForm"
         Title="Choix des bonus d'Aspect" Height="145" Width="264" WindowStyle="ToolWindow"
         Loaded="AspectBonusForm_OnLoaded">
     <Window.DataContext>

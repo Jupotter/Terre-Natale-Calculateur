@@ -5,7 +5,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Microsoft.Practices.Prism.Commands;
 
-namespace Calculateur_wpf.View
+namespace Calculateur.View
 {
     /// <summary>
     /// Logique d'interaction pour Header.xaml

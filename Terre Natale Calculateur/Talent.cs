@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using Calculateur_Backend.Annotations;
+using Newtonsoft.Json;
 using System;
-using Terre_Natale_Calculateur.Annotations;
 
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
     public class Talent : ICloneable
     {

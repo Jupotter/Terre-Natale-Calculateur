@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
     public class Race
     {

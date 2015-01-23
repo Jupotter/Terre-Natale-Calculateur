@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Calculateur_wpf.View
+namespace Calculateur.View
 {
     /// <summary>
     /// Logique d'interaction pour AspectBonusForm.xaml

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:ViewModel="clr-namespace:Calculateur_wpf.ViewModel" xmlns:Calculateur_wpf="clr-namespace:Calculateur_wpf" x:Class="Calculateur_wpf.View.Header" 
+             xmlns:ViewModel="clr-namespace:Calculateur.ViewModel" xmlns:Calculateur_wpf="clr-namespace:Calculateur" x:Class="Calculateur.View.Header" 
              mc:Ignorable="d">
     <UserControl.Resources>
         <Calculateur_wpf:StringToNullableIntConverter x:Key="StringToNullableIntConverter"/>

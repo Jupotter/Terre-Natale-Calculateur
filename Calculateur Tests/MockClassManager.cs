@@ -1,5 +1,5 @@
 ﻿using System;
-using Terre_Natale_Calculateur;
+using Calculateur_Backend;
 
 namespace Calculateur_Tests
 {

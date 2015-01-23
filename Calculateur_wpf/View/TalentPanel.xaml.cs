@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Calculateur_wpf.View
+namespace Calculateur.View
 {
     /// <summary>
     /// Logique d'interaction pour TalentPanel.xaml

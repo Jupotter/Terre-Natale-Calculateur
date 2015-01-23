@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Calculateur_wpf
+namespace Calculateur
 {
     class StringToNullableIntConverter : IValueConverter
     {

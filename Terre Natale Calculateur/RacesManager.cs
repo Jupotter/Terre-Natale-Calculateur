@@ -6,7 +6,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
 
     public class RacesManager : IRacesManager
