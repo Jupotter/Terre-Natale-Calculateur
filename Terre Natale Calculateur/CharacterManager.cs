@@ -3,9 +3,9 @@ using Newtonsoft.Json.Serialization;
 using System;
 using System.IO;
 
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
-    internal class CharacterManager
+    public class CharacterManager
     {
         private static Character _current;
 

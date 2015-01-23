@@ -6,9 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
-    internal class ClassManager : IClassManager
+    public class ClassManager : IClassManager
     {
         private readonly JsonSerializerSettings _serializerSettings;
         public Dictionary<int, Classe> _Classes = new Dictionary<int, Classe>();

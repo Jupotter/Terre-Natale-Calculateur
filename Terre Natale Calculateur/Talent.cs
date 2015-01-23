@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Calculateur_Backend.Annotations;
+using Newtonsoft.Json;
 using System;
-using Terre_Natale_Calculateur.Annotations;
 
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
-    internal class Talent : ICloneable
+    public class Talent : ICloneable
     {
         private bool _haveBonus;
         private int _id;
@@ -165,7 +165,7 @@ namespace Terre_Natale_Calculateur
 
         public override string ToString()
         {
-            return String.Format("{0} : {1}", Name, Level);
+            return Name;
         }
     }
 }

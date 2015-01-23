@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Data;
 
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
-    internal interface IRacesManager
+    public interface IRacesManager
     {
         void Initialize();
         void DumpJSON();

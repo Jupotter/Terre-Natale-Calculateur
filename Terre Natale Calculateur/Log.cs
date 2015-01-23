@@ -1,6 +1,6 @@
-﻿namespace Terre_Natale_Calculateur
+﻿namespace Calculateur_Backend
 {
-    static class Log
+    public static class Log
     {
         static Log()
         {

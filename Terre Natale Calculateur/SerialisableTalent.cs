@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
-   internal struct SerialisableTalent
+   public struct SerialisableTalent
     {
       public int id;
       public int level;

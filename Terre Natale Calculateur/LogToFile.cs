@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
-    class LogToFile
+    public class LogToFile
     {
         private readonly FileStream _logFileStream;
 

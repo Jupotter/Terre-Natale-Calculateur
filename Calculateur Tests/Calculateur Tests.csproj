@@ -30,6 +30,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Final|AnyCPU'">
+    <OutputPath>bin\Final\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,9 +65,9 @@
     <Compile Include="TalentTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Terre Natale Calculateur\Terre Natale Calculateur.csproj">
+    <ProjectReference Include="..\Terre Natale Calculateur\Calculateur Backend.csproj">
       <Project>{3bd85b19-41a2-4659-9a16-80ab977a94b8}</Project>
-      <Name>Terre Natale Calculateur</Name>
+      <Name>Calculateur Backend</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

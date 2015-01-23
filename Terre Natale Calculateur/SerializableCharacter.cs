@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
-    internal struct SerializableCharacter
+    public struct SerializableCharacter
     {
         public String Name;
         public IEnumerable<SerialisableTalent> Talents;

@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Data;
 
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
-    internal interface ITalentsManager
+    public interface ITalentsManager
     {
         void Initialize();
         DataTable GetTalentsDataTable();

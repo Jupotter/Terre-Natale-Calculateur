@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using System.IO;
-namespace Terre_Natale_Calculateur
+﻿using System.Collections.Generic;
+namespace Calculateur_Backend
 {
-    class Race
+    public class Race
     {
         public int Id;
         public readonly string Name;
@@ -17,6 +11,11 @@ namespace Terre_Natale_Calculateur
         public Race(string name)
         {
             Name = name;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 

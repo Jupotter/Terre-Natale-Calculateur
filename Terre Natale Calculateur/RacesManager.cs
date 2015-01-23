@@ -6,10 +6,10 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-namespace Terre_Natale_Calculateur
+namespace Calculateur_Backend
 {
 
-    class RacesManager : IRacesManager
+    public class RacesManager : IRacesManager
     {
 
 
@@ -71,6 +71,8 @@ namespace Terre_Natale_Calculateur
 
         public Race GetRace(int Id)
         {
+            if (Id < 1 || Id >_races.Count)
+                return null;
             try
             {
                 if (_races != null)
