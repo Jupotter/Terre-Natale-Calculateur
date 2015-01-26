@@ -49,6 +49,9 @@
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="Enre_gistrer Sous" Command="{Binding SaveCharacterAsCommand, Mode=OneWay}"  InputGestureText="Ctrl+Maj+S"/>
+
+                    <MenuItem Header="Exporter" Command="{Binding ExportCharacterCommand, Mode=OneWay}" />
+                    <MenuItem Header="Voir Export" Click="ExportOnClick" />
                     <Separator />
                     <MenuItem Header="_Quitter" InputGestureText="Alt+F4"  Click="ExitOnClick">
                         <MenuItem.Icon>

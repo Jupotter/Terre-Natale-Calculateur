@@ -1,6 +1,7 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
-using Calculateur_Backend;
+﻿using Calculateur_Backend;
+using Microsoft.Practices.Prism.Mvvm;
 using System.Collections.Generic;
+using System.Linq;
 namespace Calculateur.ViewModel
 {
     class MainStats : BindableBase
@@ -113,12 +114,10 @@ namespace Calculateur.ViewModel
             get
             {
                 if (character == null) return null;
-                Dictionary<Aspect,int> res = new Dictionary<Aspect,int>();
-                foreach (var item in new[] { Aspect.Eau, Aspect.Feu, Aspect.Terre, Aspect.Vent, Aspect.Acier, Aspect.Arcane, Aspect.Equilibre })
-                {
-                    res.Add(item, character.GetAspectPoint(item));
-                }
-                return res;
+                return
+                    new[]
+                    {Aspect.Eau, Aspect.Feu, Aspect.Terre, Aspect.Vent, Aspect.Acier, Aspect.Arcane, Aspect.Equilibre}
+                        .ToDictionary(item => item, item => character.GetAspectPoint(item));
             }
         }
 

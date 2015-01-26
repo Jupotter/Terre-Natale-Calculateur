@@ -132,6 +132,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ExportViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\NewCharacter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +176,7 @@
     <Compile Include="TextExporter.cs" />
     <Compile Include="ViewModel\AspectBonusForm.cs" />
     <Compile Include="ViewModel\ClassPanel.cs" />
+    <Compile Include="ViewModel\ExportViewWindow.cs" />
     <Compile Include="ViewModel\MainStats.cs" />
     <Compile Include="ViewModel\MainWindow.cs" />
     <Compile Include="ViewModel\NewCharacter.cs" />
@@ -184,6 +189,9 @@
     </Compile>
     <Compile Include="View\ClassPanel.xaml.cs">
       <DependentUpon>ClassPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ExportViewWindow.xaml.cs">
+      <DependentUpon>ExportViewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\NewCharacter.xaml.cs">
       <DependentUpon>NewCharacter.xaml</DependentUpon>

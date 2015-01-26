@@ -1,7 +1,8 @@
-﻿using Microsoft.Practices.Prism.Commands;
+﻿using Calculateur_Backend;
+using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
 using Microsoft.Win32;
-using Calculateur_Backend;
+using System.IO;
 
 namespace Calculateur.ViewModel
 {
@@ -68,8 +69,36 @@ namespace Calculateur.ViewModel
         {
             var saveFileDialog = new SaveFileDialog { Filter = "Feuille de personnage |*.chr|Tous les fichier |*.*" };
             if (saveFileDialog.ShowDialog() == true)
+            {
                 fileName = saveFileDialog.FileName;
-            CharacterManager.Instance.Save(character, fileName);
+                CharacterManager.Instance.Save(character, fileName);
+            }
+        }
+
+        public DelegateCommand ExportCharacterCommand
+        {
+            get { return new DelegateCommand(ExportCharacterAs, CanExportCharacter);}
+        }
+
+        private bool CanExportCharacter()
+        {
+            return character != null;
+        }
+
+        private void ExportCharacterAs()
+        {
+            var saveFileDialog = new SaveFileDialog()
+            {
+                Filter = "Fichier texte|*.txt|Tous les fichier|*.*",
+            };
+
+            if (saveFileDialog.ShowDialog() != true)
+                return;
+            string fiche = TextExporter.ExportCharacter(character);
+            using (var sw = new StreamWriter(saveFileDialog.FileName))
+            {
+                sw.Write(fiche);
+            }
         }
     }
 }
