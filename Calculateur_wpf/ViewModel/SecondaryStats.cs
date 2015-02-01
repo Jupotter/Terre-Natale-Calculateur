@@ -13,7 +13,7 @@ namespace Calculateur.ViewModel
         {
             get
             {
-                return character == null ? 0 : character.Willpower;
+                return character == null ? 0 : character.Willpower + 1;
             }
         }
 
@@ -21,7 +21,7 @@ namespace Calculateur.ViewModel
         {
             get
             {
-                return character == null ? 0 : character.Robustesse;
+                return character == null ? 0 : character.Robustesse + 1;
             }
         }
 
@@ -29,7 +29,7 @@ namespace Calculateur.ViewModel
         {
             get
             {
-                return character == null ? 0 : character.Reflex;
+                return character == null ? 0 : character.Reflex + 1;
             }
         }
 
@@ -39,7 +39,7 @@ namespace Calculateur.ViewModel
             {
                 if (character == null)
                     return 0;
-                return 1 + Math.Max(character.GetAspectValue(Aspect.Arcane), character.GetAspectValue(Aspect.Feu));
+                return  Math.Max(character.GetAspectValue(Aspect.Arcane), character.GetAspectValue(Aspect.Feu));
             }
         }
 
@@ -49,7 +49,7 @@ namespace Calculateur.ViewModel
             {
                 if (character == null)
                     return 0;
-                return 1 + Math.Max(character.GetAspectValue(Aspect.Eau), character.GetAspectValue(Aspect.Vent));
+                return Math.Max(character.GetAspectValue(Aspect.Eau), character.GetAspectValue(Aspect.Vent));
             }
         }
 
@@ -59,7 +59,7 @@ namespace Calculateur.ViewModel
             {
                 if (character == null)
                     return 0;
-                return 1 + Math.Max(character.GetAspectValue(Aspect.Acier), character.GetAspectValue(Aspect.Terre));
+                return  Math.Max(character.GetAspectValue(Aspect.Acier), character.GetAspectValue(Aspect.Terre));
             }
         }
 
