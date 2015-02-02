@@ -55,6 +55,15 @@ namespace Calculateur
             fiche.Add(String.Format("Robustesse: {0}", character.Robustesse));
             fiche.Add(String.Format("Volonté: {0}", character.Willpower));
 
+            fiche.Add(separator);
+
+            fiche.Add("Stats secondaires:");
+            fiche.Add(String.Format("Pénalité de poids: {0}", character.penPoid));
+            fiche.Add(String.Format("Déplacement: {0}", 3 + character.GetAspectValue(Aspect.Vent)/3 - character.penPoid));
+            fiche.Add(String.Format("Initiative: {0}", character.GetAspectValue(Aspect.Vent) - character.penPoid));
+            fiche.Add(String.Format("Réunion de Mana: {0}", 6 - character.penPoid));
+            fiche.Add(String.Format("Impulsion de Mana: {0}", 5 + character.GetAspectValue(Aspect.Vent)));
+
             return string.Join(Environment.NewLine, fiche);
         }
     }
