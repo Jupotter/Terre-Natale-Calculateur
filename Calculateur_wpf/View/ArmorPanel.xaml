@@ -1,0 +1,78 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ViewModel="clr-namespace:Calculateur_wpf.ViewModel" x:Class="Calculateur_wpf.View.ArmorPanel" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="2"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.DataContext>
+            <ViewModel:ArmorPanel/>
+        </Grid.DataContext>
+        <Label Grid.Row="0" Grid.Column="1"
+            Content="Type" />
+        <Label Grid.Row="0" Grid.Column="2"
+            Content="Qualité" />
+        <Label Grid.Row="0" Grid.Column="3"
+            Content="Armure" />
+        <Label Grid.Row="1" Grid.Column="0"
+            Content="Armure" />
+        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding ArmorTypes}"/>
+        <ComboBox Grid.Row="1" Grid.Column="2" />
+        <TextBlock Grid.Row="1" Grid.Column="3"
+            Text="0" />
+        <Label Grid.Row="2" Grid.Column="0"
+            Content ="Brassards" />
+        <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ArmorTypes}" />
+        <ComboBox Grid.Row="2" Grid.Column="2" />
+        <TextBlock Grid.Row="2" Grid.Column="3"
+            Text="0" />
+        <Label Grid.Row="3" Grid.Column="0"
+            Content ="Jambières" />
+        <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding ArmorTypes}" />
+        <ComboBox Grid.Row="3" Grid.Column="2" />
+        <TextBlock Grid.Row="3" Grid.Column="3"
+            Text="0" />
+        <Label Grid.Row="4" Grid.Column="0"
+            Content ="Casque" />
+            <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding ArmorTypes}" />
+        <ComboBox Grid.Row="4" Grid.Column="2" />
+        <TextBlock Grid.Row="4" Grid.Column="3"
+            Text="0" />
+        <Label Grid.Row="5" Grid.Column="0"
+            Content ="Talent" />
+        <Label Grid.Row="6" Grid.Column="0"
+            Content ="Total" />
+    </Grid>
+</UserControl>
