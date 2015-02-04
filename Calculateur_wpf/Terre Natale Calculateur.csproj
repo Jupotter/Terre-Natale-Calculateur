@@ -177,6 +177,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="StringToNullableIntConverter.cs" />
+    <Compile Include="SumConverter.cs" />
     <Compile Include="TextExporter.cs" />
     <Compile Include="ViewModel\ArmorPanel.cs" />
     <Compile Include="ViewModel\AspectBonusForm.cs" />

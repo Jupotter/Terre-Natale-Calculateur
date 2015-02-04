@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculateur_Backend
 {
@@ -13,6 +10,6 @@ namespace Calculateur_Backend
         int qual;
         int dégatBase;
         int NbDee;
-        Dictionary<TypeArmure, int> Difficulte;
+        Dictionary<int, int> Difficulte;
     }
 }

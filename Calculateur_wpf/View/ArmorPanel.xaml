@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:ViewModel="clr-namespace:Calculateur_wpf.ViewModel" x:Class="Calculateur_wpf.View.ArmorPanel" 
+             xmlns:ViewModel="clr-namespace:Calculateur_wpf.ViewModel"
+             xmlns:local="clr-namespace:Calculateur"
+             x:Class="Calculateur_wpf.View.ArmorPanel" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -20,6 +22,7 @@
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
+        <local:SumConverter x:Key="SumConverter" />
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -32,10 +35,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <Grid.DataContext>
             <ViewModel:ArmorPanel/>
@@ -48,31 +51,62 @@
             Content="Armure" />
         <Label Grid.Row="1" Grid.Column="0"
             Content="Armure" />
-        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding ArmorTypes}"/>
-        <ComboBox Grid.Row="1" Grid.Column="2" />
+        <ComboBox Grid.Row="1" Grid.Column="1"
+                  ItemsSource="{Binding ArmorTypes}"
+                  SelectedValue="{Binding ChestArmorType}" />
+        <ComboBox Grid.Row="1" Grid.Column="2"
+                  ItemsSource="{Binding Qualities}"
+                  SelectedValue="{Binding ChestArmorQuality}"/>
         <TextBlock Grid.Row="1" Grid.Column="3"
-            Text="0" />
+            Text="{Binding ChestArmorTotal, Mode=OneWay}" />
         <Label Grid.Row="2" Grid.Column="0"
             Content ="Brassards" />
-        <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ArmorTypes}" />
-        <ComboBox Grid.Row="2" Grid.Column="2" />
+        <ComboBox Grid.Row="2" Grid.Column="1"
+                  ItemsSource="{Binding ArmorTypes}"
+                  SelectedValue="{Binding ArmsArmorType}"/>
+        <ComboBox Grid.Row="2" Grid.Column="2"
+                  ItemsSource="{Binding Qualities}"
+                  SelectedValue="{Binding ArmsArmorQuality}"/>
         <TextBlock Grid.Row="2" Grid.Column="3"
-            Text="0" />
+            Text="{Binding ArmsArmorTotal, Mode=OneWay}" />
         <Label Grid.Row="3" Grid.Column="0"
             Content ="Jambières" />
-        <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding ArmorTypes}" />
-        <ComboBox Grid.Row="3" Grid.Column="2" />
+        <ComboBox Grid.Row="3" Grid.Column="1"
+                  ItemsSource="{Binding ArmorTypes}"
+                  SelectedValue="{Binding LegsArmorType}"/>
+        <ComboBox Grid.Row="3" Grid.Column="2"
+                  ItemsSource="{Binding Qualities}"
+                  SelectedValue="{Binding LegsArmorQuality}"/>
         <TextBlock Grid.Row="3" Grid.Column="3"
-            Text="0" />
+            Text="{Binding LegsArmorTotal, Mode=OneWay}" />
         <Label Grid.Row="4" Grid.Column="0"
             Content ="Casque" />
-            <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding ArmorTypes}" />
-        <ComboBox Grid.Row="4" Grid.Column="2" />
+        <ComboBox Grid.Row="4" Grid.Column="1"
+                  ItemsSource="{Binding ArmorTypes}"
+                  SelectedValue="{Binding HeadArmorType}" />
+        <ComboBox Grid.Row="4" Grid.Column="2"
+                  ItemsSource="{Binding Qualities}"
+                  SelectedValue="{Binding HeadArmorQuality}" />
         <TextBlock Grid.Row="4" Grid.Column="3"
-            Text="0" />
+            Text="{Binding HeadArmorTotal, Mode=OneWay}" />
         <Label Grid.Row="5" Grid.Column="0"
             Content ="Talent" />
         <Label Grid.Row="6" Grid.Column="0"
             Content ="Total" />
+        <TextBlock Grid.Row="6" Grid.Column="3">
+            <TextBlock.Text>
+                <MultiBinding Converter="{StaticResource SumConverter}">
+                    <Binding Path="ChestArmorTotal" />
+                    <Binding Path="HeadArmorTotal" />
+                    <Binding Path="LegsArmorTotal" />
+                    <Binding Path="ArmsArmorTotal" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="5" 
+                   Visibility="Hidden" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top"
+                   Text="Intermediaire        " />
     </Grid>
 </UserControl>

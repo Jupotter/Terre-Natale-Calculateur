@@ -4,7 +4,9 @@
         xmlns:calculateurWpf="clr-namespace:Calculateur"
         xmlns:properties="clr-namespace:Calculateur.Properties"
         xmlns:viewModel="clr-namespace:Calculateur.ViewModel"
-        xmlns:local="clr-namespace:Calculateur.View" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Name="window" x:Class="Calculateur.View.MainWindow"
+        xmlns:local="clr-namespace:Calculateur.View" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:Calculateur_wpf.View"
+    mc:Ignorable="d" x:Name="window" x:Class="Calculateur.View.MainWindow"
         Title="{Binding Name, FallbackValue=Terre Natale, Mode=OneWay, StringFormat=Terre Natale -- \{0\}}" Height="Auto" Width="635" d:DesignHeight="515">
     <Window.DataContext>
         <viewModel:MainWindow/>
@@ -80,6 +82,9 @@
                 </TabItem>
                 <TabItem Header="Classe">
                     <local:ClassPanel VerticalAlignment="Top" />
+                </TabItem>
+                <TabItem Header="Armure">
+                    <view:ArmorPanel VerticalAlignment="Top" HorizontalAlignment="Center"/>
                 </TabItem>
             </TabControl>
         </DockPanel>
