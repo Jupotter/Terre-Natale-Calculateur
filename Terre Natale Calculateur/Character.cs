@@ -5,19 +5,19 @@ using System.Linq;
 
 namespace Calculateur_Backend
 {
-    public enum Ressource{PS,PE,PM,PC,PF,PK,NONE}
+    public enum Ressource { PS, PE, PM, PC, PF, PK, NONE }
     public sealed class Character
     {
         private readonly IDictionary<int, Talent> _talents;
         private List<Aspect> _aspectBonus = new List<Aspect>();
-        private List<Aspect> _aspectMalus= new List<Aspect>();
+        private List<Aspect> _aspectMalus = new List<Aspect>();
         private IDictionary<Aspect, int> _aspectPoint;
         private Dictionary<Aspect, int> _bonusAspect = new Dictionary<Aspect, int>();
         private int _experienceAvailable;
         private Race _race;
         private Classe classeChar;
 
-        private Dictionary<Ressource, int> RacialRessources = new Dictionary<Ressource, int>(); 
+        private Dictionary<Ressource, int> RacialRessources = new Dictionary<Ressource, int>();
         public Character(string name, ITalentsManager talentsManager)
         {
             foreach (Ressource item in Enum.GetValues(typeof(Ressource)))
@@ -88,18 +88,24 @@ namespace Calculateur_Backend
         public int Karma()
         {
             int res = GetLevel() + GetAspectValue(Aspect.Equilibre);
-            if (Race == null) return res;
+            if (Race == null)
+                return res;
             switch (Race.Name)
             {
-                case "Empérien": res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
+                case "Empérien":
+                    res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
                     break;
-                case "Keldanien": res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
+                case "Keldanien":
+                    res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
                     break;
-                case "Attilien": res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
+                case "Attilien":
+                    res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
                     break;
-                case "Rosalien": res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
+                case "Rosalien":
+                    res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
                     break;
-                case "Titanien": res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
+                case "Titanien":
+                    res += 1 + Convert.ToInt16(Math.Truncate((double)GetLevel() / 3));
                     break;
                 default:
                     break;
@@ -130,7 +136,8 @@ namespace Calculateur_Backend
             for (int i = 0; i < 15; i++)
             {
 
-                if ((15 * (i - 1) * i) > ExperienceAvailable + 20) return i - 1;
+                if ((15 * (i - 1) * i) > ExperienceAvailable + 20)
+                    return i - 1;
 
             }
             return 15;
@@ -148,7 +155,7 @@ namespace Calculateur_Backend
 
         public string Name { get; set; }
 
-        public int penPoid{ get; set; }
+        public int penPoid { get; set; }
 
         public List<string> Inventaire { get; set; }
 
@@ -170,13 +177,28 @@ namespace Calculateur_Backend
         public int GetAspectValue(Aspect aspect)
         {
             int n = 0;
+            int value = 10;
             for (int i = 0; i <= 10; i++)
             {
                 n += i * 10;
                 if (_aspectPoint[aspect] >= n && _aspectPoint[aspect] < (i + 1) * 10 + n)
-                    return i + _bonusAspect[aspect];
+                {
+                    value = i + _bonusAspect[aspect];
+                }
             }
-            return 10;
+            if (aspect == Aspect.Equilibre)
+            {
+                int level = GetLevel();
+                int count = _talents.Values.Count(talent => talent.Type == TalentType.General && talent.Level > 0);
+                int aspects = new[] {Aspect.Eau, Aspect.Feu, Aspect.Vent, Aspect.Terre, Aspect.Acier, Aspect.Arcane}
+                    .Where(a => _talents.Values
+                        .Where(talent => talent.Type == TalentType.General && talent.PrimaryAspect == a)
+                        .Sum(talent => talent.XPCost) >= 5*level)
+                    .Count();
+
+                value += count/(10 - aspects);
+            }
+            return value;
         }
 
         public Talent GetTalent(String name)
@@ -258,7 +280,7 @@ namespace Calculateur_Backend
             get
             {
                 if (!_enduranceStore.HasValue)
-                    _enduranceStore = GetAspectValue(Aspect.Acier) + GetAspectValue(Aspect.Equilibre) + 5 ;
+                    _enduranceStore = GetAspectValue(Aspect.Acier) + GetAspectValue(Aspect.Equilibre) + 5;
                 return _enduranceStore.Value + RacialRessources[Ressource.PE];
             }
         }
@@ -287,13 +309,13 @@ namespace Calculateur_Backend
                         b = GetBonusStatValue("PF");
                     }
                 }
-                return _fatigueStore.Value + RacialRessources[Ressource.PF] + b ;
+                return _fatigueStore.Value + RacialRessources[Ressource.PF] + b;
             }
         }
 
         public int PeIndem
         {
-            get 
+            get
             {
                 int b = 0;
                 if (classeChar != null)
@@ -304,7 +326,7 @@ namespace Calculateur_Backend
                     }
                 }
 
-                return Endurance+GetTalent("Endurance").Level*5+b;
+                return Endurance + GetTalent("Endurance").Level * 5 + b;
             }
         }
 
@@ -333,30 +355,33 @@ namespace Calculateur_Backend
                         b = GetBonusStatValue("PM");
                     }
                 }
-                return _manaStore.Value + RacialRessources[Ressource.PM]+b; 
+                return _manaStore.Value + RacialRessources[Ressource.PM] + b;
             }
         }
 
         public void RecalculateRacialRessources()
         {
-            if (_race== null) return;
+            if (_race == null)
+                return;
             string[] toparse = _race.bonusRaciaux.Split(',');
             string towork;
             foreach (string st in toparse)
             {
                 if (st.StartsWith("#"))
                 {
-                    towork=st.Remove(0, 1);
+                    towork = st.Remove(0, 1);
                     if (Enum.GetNames(typeof(Ressource)).Contains(towork.Split(' ').First().Trim()))
                     {
                         Ressource target = Ressource.NONE;
 
                         foreach (Ressource item in Enum.GetValues(typeof(Ressource)))
                         {
-                            if (towork.Split(' ').First() == item.ToString()) target = item;
+                            if (towork.Split(' ').First() == item.ToString())
+                                target = item;
                         }
 
-                        if (target == Ressource.NONE) return;
+                        if (target == Ressource.NONE)
+                            return;
                         RacialRessources[target] = Convert.ToInt32(towork.Split(' ').Last());
                         //if (st.Split(' ').Last().Contains('+')) RacialRessources[target] = Convert.ToInt32(st.Split(' ').Last());
                         //if (st.Split(' ').Last().Contains('-')) RacialRessources[target] = Convert.ToInt32(st.Split(' ').Last());
@@ -375,9 +400,11 @@ namespace Calculateur_Backend
             {
                 switch (classeChar.StatBonus.IndexOf(name))
                 {
-                    case 1: b = Convert.ToInt32(Math.Truncate((double)(5 + GetLevel()) / 2));
+                    case 1:
+                        b = Convert.ToInt32(Math.Truncate((double)(5 + GetLevel()) / 2));
                         break;
-                    case 2: b = Convert.ToInt32(Math.Truncate((double)(4 + GetLevel()) / 2));
+                    case 2:
+                        b = Convert.ToInt32(Math.Truncate((double)(4 + GetLevel()) / 2));
                         break;
                 }
             }
@@ -385,11 +412,14 @@ namespace Calculateur_Backend
             {
                 switch (classeChar.StatBonus.IndexOf(name))
                 {
-                    case 1: b = Convert.ToInt32(Math.Truncate((double)(6 + GetLevel()) / 3));
+                    case 1:
+                        b = Convert.ToInt32(Math.Truncate((double)(6 + GetLevel()) / 3));
                         break;
-                    case 2: b = Convert.ToInt32(Math.Truncate((double)(5 + GetLevel()) / 3));
+                    case 2:
+                        b = Convert.ToInt32(Math.Truncate((double)(5 + GetLevel()) / 3));
                         break;
-                    case 3: b = Convert.ToInt32(Math.Truncate((double)(4 + GetLevel()) / 3));
+                    case 3:
+                        b = Convert.ToInt32(Math.Truncate((double)(4 + GetLevel()) / 3));
                         break;
                 }
             }
@@ -397,13 +427,17 @@ namespace Calculateur_Backend
             {
                 switch (classeChar.StatBonus.IndexOf(name))
                 {
-                    case 1: b = Convert.ToInt32(Math.Truncate((double)(7 + GetLevel()) / 4));
+                    case 1:
+                        b = Convert.ToInt32(Math.Truncate((double)(7 + GetLevel()) / 4));
                         break;
-                    case 2: b = Convert.ToInt32(Math.Truncate((double)(6 + GetLevel()) / 4));
+                    case 2:
+                        b = Convert.ToInt32(Math.Truncate((double)(6 + GetLevel()) / 4));
                         break;
-                    case 3: b = Convert.ToInt32(Math.Truncate((double)(5 + GetLevel()) / 4));
+                    case 3:
+                        b = Convert.ToInt32(Math.Truncate((double)(5 + GetLevel()) / 4));
                         break;
-                    case 4: b = Convert.ToInt32(Math.Truncate((double)(4 + GetLevel()) / 4));
+                    case 4:
+                        b = Convert.ToInt32(Math.Truncate((double)(4 + GetLevel()) / 4));
                         break;
                 }
             }
@@ -487,8 +521,9 @@ namespace Calculateur_Backend
             {
                 if (Aspect.None == talent.SecondaryAspect)
                 {
-                    if (Aspect.None != talent.PrimaryAspect) _aspectPoint[talent.PrimaryAspect] += talent.XPCost;
-                    
+                    if (Aspect.None != talent.PrimaryAspect)
+                        _aspectPoint[talent.PrimaryAspect] += talent.XPCost;
+
                 }
                 else
                 {
@@ -496,12 +531,12 @@ namespace Calculateur_Backend
                     _aspectPoint[talent.SecondaryAspect] += talent.XPCost / 2;
                 }
             }
-         
+
             OnPAchanged();
         }
 
 
-         
+
         //public string ExitTxt(View.Form1 Caller)
         //{
         //    string fiche = "";
@@ -556,7 +591,7 @@ namespace Calculateur_Backend
         //    fiche += "Impultion de mot : " +  (6-penPoid).ToString() + Environment.NewLine;
         //    fiche += "Déplacement : " + (GetAspectValue(Aspect.Vent) - penPoid).ToString() + Environment.NewLine;
         //    fiche += "Base Initiative : " + (Math.Max(2, 3 + GetAspectValue(Aspect.Vent)/3) -penPoid).ToString() + Environment.NewLine;
-            
+
         //    fiche += Environment.NewLine + "---------------------------------------------------------"
         //             + Environment.NewLine;
         //    fiche += "Inventaire : " + Environment.NewLine;
@@ -624,7 +659,7 @@ namespace Calculateur_Backend
                 _bonusAspect = _race.AspectBonus;
             penPoid = serializableCharacter.penPoid;
             RecomputePA();
-            
+
         }
 
         public SerializableCharacter GetSerializableCharacter()
@@ -638,8 +673,8 @@ namespace Calculateur_Backend
                 Race = _race.Id,
                 Experience = ExperienceAvailable,
                 Classe = classeChar != null ? classeChar.Nom : "",
-                Inventaire=Inventaire,
-                penPoid=penPoid,
+                Inventaire = Inventaire,
+                penPoid = penPoid,
             };
         }
         public void SetClasse(Classe def)
@@ -664,7 +699,8 @@ namespace Calculateur_Backend
 
         public bool haveBonus()
         {
-            if (_aspectBonus.Count > 0) return true;
+            if (_aspectBonus.Count > 0)
+                return true;
             return false;
         }
         public List<Aspect> getBonusAspect()
@@ -677,6 +713,6 @@ namespace Calculateur_Backend
         }
         #endregion Serialization
 
-    
+
     }
 }
