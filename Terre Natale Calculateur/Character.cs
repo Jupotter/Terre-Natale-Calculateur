@@ -133,11 +133,11 @@ namespace Calculateur_Backend
 
         public int GetLevel()
         {
-            for (int i = 0; i < 15; i++)
+            for (int i = 1; i < 15; i++)
             {
 
-                if ((15 * (i - 1) * i) > ExperienceAvailable + 20)
-                    return i - 1;
+                if ((10 * (i - 1) * i) > ExperienceAvailable)
+                    return i - 2;
 
             }
             return 15;
