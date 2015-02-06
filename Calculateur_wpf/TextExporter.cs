@@ -42,14 +42,16 @@ namespace Calculateur
 
             fiche.Add(separator);
             Classe classe = character.getClasse();
-            fiche.Add("Récupération:");
-            fiche.Add(String.Format("PE: {0}", classe.RPE));
-            fiche.Add(String.Format("PF: {0}", classe.RPF));
-            fiche.Add(String.Format("PC: {0}", classe.RPC));
-            fiche.Add(String.Format("PM: {0}", classe.RPM));
+            if (classe != null)
+            {
+                fiche.Add("Récupération:");
+                fiche.Add(String.Format("PE: {0}", classe.RPE));
+                fiche.Add(String.Format("PF: {0}", classe.RPF));
+                fiche.Add(String.Format("PC: {0}", classe.RPC));
+                fiche.Add(String.Format("PM: {0}", classe.RPM));
 
-            fiche.Add(separator);
-
+                fiche.Add(separator);
+            }
             fiche.Add("Sauvegardes:");
             fiche.Add(String.Format("Reflexe: {0}", character.Reflex));
             fiche.Add(String.Format("Robustesse: {0}", character.Robustesse));
