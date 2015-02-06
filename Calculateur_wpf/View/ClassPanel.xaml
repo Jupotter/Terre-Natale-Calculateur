@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <ComboBox Grid.Row="0" ItemsSource="{Binding classes}" 
                   SelectedItem="{Binding SelectedClasse}" 
-                  IsEnabled="{Binding CanChangeClass, Mode=OneWay}"/>
+                  IsEnabled="{Binding CanChangeClass, Mode=OneWay}" Width="300" HorizontalAlignment="Center"/>
         <StackPanel Grid.Row="1"
                    Orientation="Vertical">
             <TextBlock Text="Modificateurs de récupération" FontWeight="Bold" />
@@ -33,6 +33,10 @@
             <TextBlock Text="{Binding Sauvegardes}" />
             <TextBlock Text="Maitrise de Base" FontWeight="Bold" />
             <TextBlock Text="{Binding MaitriseBase}" />
+            <TextBlock Text="Maitrise Spéciale" FontWeight="Bold" />
+            <TextBlock Text="{Binding MaitriseSpeciale}" />
+            <TextBlock Text="Points de compétence" FontWeight="Bold" />
+            <TextBlock Text="{Binding Competences}" />
         </StackPanel>
     </Grid>
 </UserControl>

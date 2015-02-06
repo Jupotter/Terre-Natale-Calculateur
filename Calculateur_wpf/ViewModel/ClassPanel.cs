@@ -1,7 +1,7 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
+﻿using Calculateur_Backend;
+using Microsoft.Practices.Prism.Mvvm;
 using System.Collections.Generic;
 using System.Text;
-using Calculateur_Backend;
 
 namespace Calculateur.ViewModel
 {
@@ -129,6 +129,18 @@ namespace Calculateur.ViewModel
                 Classe classe = SelectedClasse;
 
                 return classe.MaitriseSpecial;
+            }
+        }
+
+        public int Competences
+        {
+            get
+            {
+                if (character == null)
+                    return 0;
+                return character.GetTalent("Apprentissage").Level
+                    + character.GetTalent("Maitrise").Level
+                    + character.GetLevel()/2;
             }
         }
 
