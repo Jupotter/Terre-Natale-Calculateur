@@ -130,7 +130,7 @@ namespace Calculateur_Backend
             for (int i = 0; i < 15; i++)
             {
 
-                if ((15 * (i - 1) * i) > ExperienceAvailable) return i - 1;
+                if ((15 * (i - 1) * i) > ExperienceAvailable + 20) return i - 1;
 
             }
             return 15;
