@@ -97,6 +97,7 @@
     <Compile Include="Arme.cs" />
     <Compile Include="Armure.cs" />
     <Compile Include="Aspect.cs" />
+    <Compile Include="Bijouxmanager.cs" />
     <Compile Include="Interfaces\IClassManager.cs" />
     <Compile Include="Interfaces\IRacesManager.cs" />
     <Compile Include="Interfaces\ITalentsManager.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Equipement.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="LogToFile.cs" />
+    <Compile Include="MatiereBijoux.cs" />
     <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Race.cs" />

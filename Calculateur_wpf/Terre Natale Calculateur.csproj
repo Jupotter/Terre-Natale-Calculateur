@@ -128,6 +128,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Bijoux.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ClassPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +179,7 @@
     <Compile Include="StringToNullableIntConverter.cs" />
     <Compile Include="TextExporter.cs" />
     <Compile Include="ViewModel\AspectBonusForm.cs" />
+    <Compile Include="ViewModel\Bijoux.cs" />
     <Compile Include="ViewModel\ClassPanel.cs" />
     <Compile Include="ViewModel\ExportViewWindow.cs" />
     <Compile Include="ViewModel\MainStats.cs" />
@@ -186,6 +191,9 @@
     <Compile Include="ViewModel\TalentsPanel.cs" />
     <Compile Include="View\AspectBonusForm.xaml.cs">
       <DependentUpon>AspectBonusForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Bijoux.xaml.cs">
+      <DependentUpon>Bijoux.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ClassPanel.xaml.cs">
       <DependentUpon>ClassPanel.xaml</DependentUpon>
