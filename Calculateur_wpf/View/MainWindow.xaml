@@ -81,16 +81,14 @@
                 <TabItem Header="Classe">
                     <local:ClassPanel VerticalAlignment="Top" />
                 </TabItem>
-                <TabItem Header="Inventaire" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="64" Margin="0">
-                    <Grid Background="#FFE5E5E5">
+                <TabItem Header="Inventaire">
+                    <Grid>
                         <TabControl>
                             <TabItem Header="TabItem">
-                                <Grid Background="#FFE5E5E5"/>
+                                <Grid/>
                             </TabItem>
-                            <TabItem Header="TabItem">
-                                <Grid Background="#FFE5E5E5">
-                                    <View:Bijoux/>
-                                </Grid>
+                            <TabItem Header="Colifichets">
+                                <View:Bijoux HorizontalAlignment="Center" VerticalAlignment="Top"/>
                             </TabItem>
                         </TabControl>
                     </Grid>

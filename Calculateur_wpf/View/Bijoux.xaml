@@ -9,6 +9,20 @@
     <UserControl.DataContext>
         <ViewModel:Bijoux/>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style x:Key="LocalStyle">
+            <Setter Property="Control.Margin" Value="5" />
+            <Setter Property="Control.HorizontalAlignment" Value="Center" />
+            <Setter Property="Control.VerticalAlignment" Value="Top" />
+            <Setter Property="Control.Width" Value="113"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource LocalStyle}">
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource LocalStyle}" />
+        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource LocalStyle}" />
+        <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource LocalStyle}" />
+    </UserControl.Resources>
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -20,21 +34,64 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Content="Anneau :" HorizontalAlignment="Left" Margin="35,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.482,-1.154"/>
-        <Label Content="Anneau :" HorizontalAlignment="Left" Margin="34,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.482,-1.154" Grid.Column="2"/>
-        <Label Content="Amulette :" Grid.Column="1" HorizontalAlignment="Left" Margin="34,2,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.594,-1.462"/>
-        <ComboBox HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="-0.1,-0.727" ItemsSource="{Binding materials}" Text="{Binding ActualA1}"/>
-        <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="-0.225,-0.909" ItemsSource="{Binding materials}" Text="{Binding ActualA2}"/>
-        <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="11,33,0,0" Grid.Row="1" VerticalAlignment="Top" Width="114" ItemsSource="{Binding materials}" Text="{Binding ActualAm}"/>
-        <ListBox HorizontalAlignment="Left" Height="114" Margin="10,2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="113" ItemsSource="{Binding BonusAnneau1}"/>
-        <ListBox HorizontalAlignment="Left" Height="114" Margin="11,0,0,0" Grid.Row="2" VerticalAlignment="Top" Width="113" Grid.Column="1" ItemsSource="{Binding BonusAmulette}"/>
-        <ListBox HorizontalAlignment="Left" Height="114" Margin="10,2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="113" Grid.Column="2" ItemsSource="{Binding BonusAnneau2}"/>
-        <Slider x:Name="SliderAnneau1" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="113" Maximum="5" ToolTip="Qualité" SmallChange="1" Interval="5" Delay="1" IsSnapToTickEnabled="True" Value="{Binding Qtea1}"/>
-        <Slider x:Name="SliderAnneau2" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="113" Maximum="5" ToolTip="Qualité" Grid.Column="2" IsSnapToTickEnabled="True" Value="{Binding Qtea2}"/>
-        <Slider x:Name="SliderAmulette" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" Width="113" Maximum="5" ToolTip="Qualité" Grid.Column="1" Grid.Row="1" IsSnapToTickEnabled="True" Value="{Binding Qteam}"/>
-        <TextBlock Text="{Binding Value, ElementName=SliderAnneau1, Mode=OneWay, StringFormat=Qualité : \{0\}}" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.737,0.385"/>
-        <TextBlock Text="{Binding Value, ElementName=SliderAmulette, StringFormat=Qualité : \{0\}}" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.737,0.385" Grid.Column="1" Grid.Row="1"/>
-        <TextBlock Text="{Binding Value, ElementName=SliderAnneau2, Mode=OneWay, StringFormat=Qualité : \{0\}}" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.737,0.385" Grid.Column="2"/>
+        <StackPanel Grid.RowSpan="2">
+            <TextBlock Text="Anneau :"
+                       FontWeight="Bold"/>
+            <ComboBox
+                ItemsSource="{Binding materials}" 
+                Text="{Binding ActualA1}"/>
+            <TextBlock Text="{Binding Value, ElementName=SliderAnneau1, Mode=OneWay, StringFormat=Qualité : \{0\}}" />
+            <Slider 
+                x:Name="SliderAnneau1"
+                Maximum="5" 
+                ToolTip="Qualité" 
+                SmallChange="1" 
+                Interval="5" 
+                Delay="1" 
+                IsSnapToTickEnabled="True" 
+                Value="{Binding Qtea1}"/>
+            <ListBox 
+                Height="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource Self}}"
+                ItemsSource="{Binding BonusAnneau1}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2"
+                    Grid.Row="0"
+                    Grid.RowSpan="2">
+            <TextBlock Text="Anneau :"
+                       FontWeight="Bold"/>
+            <ComboBox
+                ItemsSource="{Binding materials}" 
+                Text="{Binding ActualA2}"/>
+            <TextBlock Text="{Binding Value, ElementName=SliderAnneau2, Mode=OneWay, StringFormat=Qualité : \{0\}}"/>
+            <Slider 
+                x:Name="SliderAnneau2"
+                Maximum="5" 
+                ToolTip="Qualité"
+                IsSnapToTickEnabled="True" 
+                Value="{Binding Qtea2}"/>
+            <ListBox 
+                Height="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource Self}}"
+                ItemsSource="{Binding BonusAnneau2}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
+                    Grid.RowSpan="2">
+            <TextBlock Text="Amulette :"
+                       FontWeight="Bold" />
+            <ComboBox
+                ItemsSource="{Binding materials}" 
+                Text="{Binding ActualAm}"/>
+            <TextBlock Text="{Binding Value, ElementName=SliderAmulette, Mode=OneWay, StringFormat=Qualité : \{0\}}"/>
+            <Slider 
+                x:Name="SliderAmulette"
+                Maximum="5" 
+                ToolTip="Qualité"
+                IsSnapToTickEnabled="True" 
+                Value="{Binding Qteam}"/>
+            <ListBox 
+                Height="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource Self}}"
+                ItemsSource="{Binding BonusAmulette}"/>
+        </StackPanel>
 
     </Grid>
 </UserControl>
