@@ -131,6 +131,9 @@
     <None Include="Classes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="MatiereBijoux.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\TalentsManager.datasource" />
     <None Include="Properties\Settings.settings">

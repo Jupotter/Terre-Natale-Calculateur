@@ -201,7 +201,16 @@ namespace Calculateur_wpf.ViewModel
                 return result;
             }
         }
+        public Bijoux()
+        {
+            CharacterManager.CharacterChanged += OnCharacterChanged;
+        }
 
+        private void OnCharacterChanged(Character caller)
+        {
+            OnPropertyChanged(null);
+        }
+        
         public List<string>BonusAmulette
         {
             get

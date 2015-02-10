@@ -15,6 +15,7 @@ namespace Calculateur
             TalentsManager.Instance.Initialize();
             RacesManager.Instance.Initialize();
             ClassManager.Instance.Initialize();
+            Bijouxmanager.Instance.Initialize();
             if (e.Args.Length != 0)
                 CharacterManager.Instance.Load(e.Args[0]);
             window.Show();
