@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Calculateur_Backend;
-using Terre_Natale_Calculateur;
+
 
 namespace Calculateur_wpf.ViewModel
 {
@@ -33,6 +33,7 @@ namespace Calculateur_wpf.ViewModel
             {
                 qtea1=value;
                 OnPropertyChanged(() => BonusAnneau1);
+                bijUpdated();
             }
         }
        public int Qtea2
@@ -45,6 +46,7 @@ namespace Calculateur_wpf.ViewModel
             {
                 qtea2 = value;
                 OnPropertyChanged(() => BonusAnneau2);
+                bijUpdated();
             }
         }
        public int Qteam
@@ -56,6 +58,7 @@ namespace Calculateur_wpf.ViewModel
             set
             {
                 qteam=value;
+                bijUpdated();
             }
         }
 
@@ -70,6 +73,7 @@ namespace Calculateur_wpf.ViewModel
            {
                actualA1 = value;
                OnPropertyChanged(() => BonusAnneau1);
+               bijUpdated();
            }
        }
 
@@ -83,6 +87,7 @@ namespace Calculateur_wpf.ViewModel
             {
                 actualA2 = value;
                 OnPropertyChanged(() => BonusAnneau2);
+                bijUpdated();
             }
         }
 
@@ -95,6 +100,7 @@ namespace Calculateur_wpf.ViewModel
             set
             {
                 actualAm = value;
+                bijUpdated();
             }
         }
         #endregion
@@ -192,6 +198,15 @@ namespace Calculateur_wpf.ViewModel
                 return result;
             }
         }
-         
+
+        
+        public void bijUpdated()
+        {
+            Bijouxmanager bm = Bijouxmanager.Instance;
+            CharacterManager.Current.jewelchange(bm.getFromName(actualA1), qtea1, bm.getFromName(actualA2), qtea2, bm.getFromName(actualAm), qteam);
+        }        
     }
+
+ 
+   
 }

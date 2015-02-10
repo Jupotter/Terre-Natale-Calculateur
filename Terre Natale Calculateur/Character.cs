@@ -18,6 +18,16 @@ namespace Calculateur_Backend
         private Classe classeChar;
 
         private Dictionary<Ressource, int> RacialRessources = new Dictionary<Ressource, int>();
+
+        #region variable des bijoux
+
+        MatiereBijoux anneau1 = new MatiereBijoux();
+        MatiereBijoux anneau2 = new MatiereBijoux();
+        MatiereBijoux amulette = new MatiereBijoux();
+        int qualityA1;
+        int qualityA2;
+        int qualityAm;
+        #endregion
         public Character(string name, ITalentsManager talentsManager)
         {
             foreach (Ressource item in Enum.GetValues(typeof(Ressource)))
@@ -174,7 +184,7 @@ namespace Calculateur_Backend
             return _aspectPoint[aspect];
         }
 
-        public int GetAspectValue(Aspect aspect)
+        public int GetAspectValue(Aspect aspect,bool rawValue=false)
         {
             int n = 0;
             int value = 10;
@@ -197,6 +207,17 @@ namespace Calculateur_Backend
                     .Count();
 
                 value += count/(10 - aspects);
+            }
+            if (rawValue == false)
+            {
+                if (anneau1 != null && qualityA1 > 0)
+                {
+                    if (anneau1.HaveBonusOn(aspect, qualityA1)) value++;
+                }
+                if (anneau2 != null && qualityA2 > 0 && anneau1.name != anneau2.name)
+                {
+                    if (anneau2.HaveBonusOn(aspect, qualityA2)) value++;
+                }
             }
             return value;
         }
@@ -535,7 +556,23 @@ namespace Calculateur_Backend
             OnPAchanged();
         }
 
+        public void jewelchange(MatiereBijoux a1 , int q1 ,MatiereBijoux a2 , int q2 ,MatiereBijoux am , int q3  )
+        {
+            anneau1 = a1;
+            qualityA1 = q1;
+            anneau2 = a2;
+            qualityA2 = q2;
+            amulette = am;
+            qualityAm = q3;
 
+
+            _chiStore = null;
+            _enduranceStore = null;
+            _fatigueStore = null;
+            _manaStore = null;
+
+            OnPAchanged();
+        }
 
         //public string ExitTxt(View.Form1 Caller)
         //{
