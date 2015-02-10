@@ -292,7 +292,16 @@ namespace Calculateur_Backend
                         b = GetBonusStatValue("PC");
                     }
                 }
-                return _chiStore.Value + RacialRessources[Ressource.PC] + b;
+
+                int bbijoux = 0;
+                if (amulette != null)
+                {
+
+                    bbijoux = amulette.havebonusOnRessource("PC", qualityAm);
+
+                }
+
+                return _chiStore.Value + RacialRessources[Ressource.PC] + b + bbijoux;
             }
         }
 
@@ -330,7 +339,16 @@ namespace Calculateur_Backend
                         b = GetBonusStatValue("PF");
                     }
                 }
-                return _fatigueStore.Value + RacialRessources[Ressource.PF] + b;
+
+                int bbijoux = 0;
+                if (amulette != null)
+                {
+
+                    bbijoux = amulette.havebonusOnRessource("PF", qualityAm);
+
+                }
+
+                return _fatigueStore.Value + RacialRessources[Ressource.PF] + b + bbijoux;
             }
         }
 
@@ -346,8 +364,15 @@ namespace Calculateur_Backend
                         b = GetBonusStatValue("PE");
                     }
                 }
+                int bbijoux = 0;
+                if (amulette != null)
+                {
 
-                return Endurance + GetTalent("Endurance").Level * 5 + b;
+                    bbijoux = amulette.havebonusOnRessource("PE", qualityAm);
+
+                }
+
+                return Endurance + GetTalent("Endurance").Level * 5 + b + bbijoux;
             }
         }
 
@@ -376,7 +401,14 @@ namespace Calculateur_Backend
                         b = GetBonusStatValue("PM");
                     }
                 }
-                return _manaStore.Value + RacialRessources[Ressource.PM] + b;
+                int bbijoux = 0;
+                if( amulette != null)
+                {
+
+                    bbijoux = amulette.havebonusOnRessource("PM", qualityAm);
+
+                }
+                return _manaStore.Value + RacialRessources[Ressource.PM] + b+bbijoux;
             }
         }
 

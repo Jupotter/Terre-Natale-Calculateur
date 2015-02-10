@@ -17,6 +17,41 @@ namespace Calculateur_Backend
        public String stat2;
        public String effetSpecial;
 
+       public List<bonusRessource> getRessourceBonus(int quality)
+       {
+           List<bonusRessource> result = new List<bonusRessource>();
+
+           if (stat2 == null || stat2 == "")
+           {
+               if (stat1 == "PE" || stat1 == "PM")
+               {
+                   result.Add(new bonusRessource() { nom = stat1, value = quality * 3 });
+               }
+               else
+               {
+                   result.Add(new bonusRessource() { nom = stat1, value = (int)Math.Floor(quality*1.5) });
+               }
+           }
+           else
+           {
+               if (stat1 == "PE" || stat1 == "PM")
+               {
+                   result.Add(new bonusRessource() { nom = stat1, value = quality * 2 }); 
+               }
+               else { 
+                   result.Add(new bonusRessource() { nom = stat1, value = quality }); 
+               }
+               if (stat2 == "PE" || stat2 == "PM")
+               { 
+                   result.Add(new bonusRessource() { nom = stat1, value = quality * 2 });
+               }
+               else
+               { 
+                   result.Add(new bonusRessource() { nom = stat1, value = quality }); 
+               }
+           }
+           return result;
+       }
        public List<bonusAspect> getBonusAspect(int quality)
        {
            List<bonusAspect> result = new List<bonusAspect>();
@@ -60,10 +95,25 @@ namespace Calculateur_Backend
            }
            return false;
        }
+        public int havebonusOnRessource(string ressource,int quality)
+        {
+            int r = 0;
+            List<bonusRessource> br = getRessourceBonus(quality);
+
+            if (stat1 == ressource) r = br[0].value;
+            if (stat2 == ressource) r = br[1].value;
+
+            return r;
+        }
     }
     public struct bonusAspect
     {
         public Aspect nom;
+        public int value;
+    }
+    public struct bonusRessource
+    {
+        public string nom;
         public int value;
     }
 }

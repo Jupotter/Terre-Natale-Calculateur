@@ -50,7 +50,7 @@ namespace Calculateur.ViewModel
 
         public int EnduranceIndemne
         {
-            get { return character == null ? 0 : character.Endurance + 5 * character.GetTalent("Endurance").Level; }
+            get { return character == null ? 0 : character.PeIndem; }
         }
 
         public int Endurance

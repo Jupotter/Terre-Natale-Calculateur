@@ -58,6 +58,7 @@ namespace Calculateur_wpf.ViewModel
             set
             {
                 qteam=value;
+                OnPropertyChanged(() => BonusAmulette);
                 bijUpdated();
             }
         }
@@ -96,10 +97,12 @@ namespace Calculateur_wpf.ViewModel
             get
             {
                 return actualAm;
+               
             }
             set
             {
                 actualAm = value;
+                OnPropertyChanged(() => BonusAmulette);
                 bijUpdated();
             }
         }
@@ -199,7 +202,44 @@ namespace Calculateur_wpf.ViewModel
             }
         }
 
-        
+        public List<string>BonusAmulette
+        {
+            get
+            {
+                MatiereBijoux actu = Bijouxmanager.Instance.getFromName(actualAm);
+                List<string> result = new List<string>();
+                if (actu == null) return result;
+                if ((actu.stat1 == "PE" || actu.stat1 == "PM") && (actu.stat2 == "" || actu.stat2 == null))
+                {
+                    result.Add(actu.stat1 + " : " + qteam * 3);
+                }
+                else if (actu.stat2 == "" || actu.stat2 == null)
+                {
+                    result.Add(actu.stat1 + " : " + (int)(qteam * 1.5));
+                }
+                else if ((actu.stat1 == "PE" || actu.stat1 == "PM"))
+                {
+                    result.Add(actu.stat1 + " : " + qteam * 2);
+                }
+                else
+                {
+                    result.Add(actu.stat1 + " : " + qteam);
+                }
+
+
+                if ((actu.stat2 == "PE" || actu.stat2 == "PM"))
+                {
+                    result.Add(actu.stat2 + " : " + qteam * 2);
+                }
+                else
+                {
+                    result.Add(actu.stat2 + " : " + qteam);
+                }
+                    
+
+                return result;
+            }
+        }
         public void bijUpdated()
         {
             Bijouxmanager bm = Bijouxmanager.Instance;
