@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Calculateur_Backend
+namespace Calculateur.Backend
 {
     public class ClassManager : IClassManager
     {

@@ -1,7 +1,7 @@
-﻿using System;
-using Calculateur_Backend;
+﻿using Calculateur.Backend;
+using System;
 
-namespace Calculateur_Tests
+namespace Calculateur.Tests
 {
     class MockClassManager : IClassManager
     {

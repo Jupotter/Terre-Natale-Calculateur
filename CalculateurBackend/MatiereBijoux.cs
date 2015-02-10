@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Calculateur_Backend;
-namespace Calculateur_Backend
+using Calculateur.Backend;
+namespace Calculateur.Backend
 {
     public class MatiereBijoux
     {

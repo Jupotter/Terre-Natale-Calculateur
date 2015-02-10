@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using Calculateur_Backend;
+﻿using Calculateur.Backend;
+using System.Collections.Generic;
 using Xunit;
 
-namespace Calculateur_Tests
+namespace Calculateur.Tests
 {
     
     public class CharacterTest

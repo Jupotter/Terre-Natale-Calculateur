@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Calculateur_Backend
+namespace Calculateur.Backend
 {
     public class LogToFile
     {

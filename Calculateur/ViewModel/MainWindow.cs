@@ -1,4 +1,4 @@
-﻿using Calculateur_Backend;
+﻿using Calculateur.Backend;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
 using Microsoft.Win32;

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-namespace Calculateur_Backend
+namespace Calculateur.Backend
 {
     public class Race
     {

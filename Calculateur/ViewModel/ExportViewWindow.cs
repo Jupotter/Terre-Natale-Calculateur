@@ -1,5 +1,5 @@
 ﻿using Calculateur;
-using Calculateur_Backend;
+using Calculateur.Backend;
 using Microsoft.Practices.Prism.Mvvm;
 
 namespace Calculateur_wpf.ViewModel

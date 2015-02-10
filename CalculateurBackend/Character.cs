@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Calculateur_Backend
+namespace Calculateur.Backend
 {
     public enum Ressource { PS, PE, PM, PC, PF, PK, NONE }
     public sealed class Character

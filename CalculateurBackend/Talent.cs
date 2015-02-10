@@ -2,7 +2,7 @@
 using System;
 using Terre_Natale_Calculateur.Annotations;
 
-namespace Calculateur_Backend
+namespace Calculateur.Backend
 {
     public class Talent : ICloneable
     {

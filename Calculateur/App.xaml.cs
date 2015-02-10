@@ -1,6 +1,6 @@
 ﻿using Calculateur.View;
 using System.Windows;
-using Calculateur_Backend;
+using Calculateur.Backend;
 
 namespace Calculateur
 {

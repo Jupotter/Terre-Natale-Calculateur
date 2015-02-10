@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Calculateur.Backend;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Calculateur_Backend;
 using Xunit;
 
-namespace Calculateur_Tests
+namespace Calculateur.Tests
 {
     public class TalentTests
     {

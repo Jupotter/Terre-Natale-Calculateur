@@ -1,4 +1,4 @@
-﻿namespace Calculateur_Backend
+﻿namespace Calculateur.Backend
 {
     public enum Aspect
     {

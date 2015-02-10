@@ -1,6 +1,6 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
-using Calculateur_Backend;
+using Calculateur.Backend;
 
 namespace Calculateur.ViewModel
 {

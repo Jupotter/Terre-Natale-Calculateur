@@ -1,13 +1,8 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
-using System;
+﻿using Calculateur.Backend;
+using Microsoft.Practices.Prism.Mvvm;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Calculateur_Backend;
 
-
-namespace Calculateur_wpf.ViewModel
+namespace Calculateur.ViewModel
 {
     class Bijoux : BindableBase
     {

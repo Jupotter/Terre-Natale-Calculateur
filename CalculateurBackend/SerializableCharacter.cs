@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Calculateur_Backend
+namespace Calculateur.Backend
 {
     public struct SerializableCharacter
     {

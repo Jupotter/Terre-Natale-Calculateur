@@ -7,7 +7,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Calculateur_Backend
+namespace Calculateur.Backend
 {
    public class Bijouxmanager
     {

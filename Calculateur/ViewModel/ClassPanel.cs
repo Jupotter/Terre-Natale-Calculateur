@@ -1,4 +1,4 @@
-﻿using Calculateur_Backend;
+﻿using Calculateur.Backend;
 using Microsoft.Practices.Prism.Mvvm;
 using System.Collections.Generic;
 using System.Text;

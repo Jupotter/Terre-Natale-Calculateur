@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B16A36
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{628E624B-672F-4400-A058-42C31D742146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terre Natale Calculateur", "Calculateur_wpf\Terre Natale Calculateur.csproj", "{FBA5E31D-5FE1-41A6-85D8-AC0F5B422910}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terre Natale Calculateur", "Calculateur\Terre Natale Calculateur.csproj", "{FBA5E31D-5FE1-41A6-85D8-AC0F5B422910}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

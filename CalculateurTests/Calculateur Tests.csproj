@@ -8,7 +8,7 @@
     <ProjectGuid>{200E1935-B170-4D47-B4C1-02A291DAFCAB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Calculateur_Tests</RootNamespace>
+    <RootNamespace>Calculateur.Tests</RootNamespace>
     <AssemblyName>Calculateur Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

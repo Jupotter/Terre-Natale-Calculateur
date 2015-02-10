@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Data;
 
-namespace Calculateur_Backend
+namespace Calculateur.Backend
 {
     public interface ITalentsManager
     {

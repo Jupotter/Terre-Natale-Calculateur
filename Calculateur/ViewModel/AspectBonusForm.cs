@@ -2,7 +2,7 @@
 using Microsoft.Practices.Prism.Mvvm;
 using System;
 using System.Collections.Generic;
-using Calculateur_Backend;
+using Calculateur.Backend;
 
 namespace Calculateur.ViewModel
 {
