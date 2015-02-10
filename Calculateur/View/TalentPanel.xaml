@@ -1,0 +1,96 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewModel="clr-namespace:Calculateur.ViewModel"
+             xmlns:view="clr-namespace:Calculateur.View"
+             x:Class="Calculateur.View.TalentPanel" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <viewModel:TalentsPanel/>
+    </UserControl.DataContext>
+    <TabControl>
+        <TabItem Header="Généraux">
+            <ScrollViewer VerticalAlignment="Top" VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding TalentsGeneraux}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid ScrollViewer.VerticalScrollBarVisibility="Auto" Columns="2" VerticalAlignment="Top" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <view:TalentGroupBox />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Multiples">
+            <ScrollViewer VerticalAlignment="Top" VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding TalentsMultiple}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid ScrollViewer.VerticalScrollBarVisibility="Auto" Columns="2" VerticalAlignment="Top" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <view:TalentGroupBox />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Martiaux">
+            <ScrollViewer VerticalAlignment="Top" VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding TalentsMartial}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid ScrollViewer.VerticalScrollBarVisibility="Auto" Columns="2" VerticalAlignment="Top" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <view:TalentGroupBox />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Aptitude">
+            <ScrollViewer VerticalAlignment="Top" VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding TalentsAptitude}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid ScrollViewer.VerticalScrollBarVisibility="Auto" Columns="2" VerticalAlignment="Top" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <view:TalentGroupBox />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Prouesse">
+            <ScrollViewer VerticalAlignment="Top" VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding TalentsProuesse}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid ScrollViewer.VerticalScrollBarVisibility="Auto" Columns="2" VerticalAlignment="Top" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <view:TalentGroupBox />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </TabItem>
+    </TabControl>
+</UserControl>
