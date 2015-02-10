@@ -606,72 +606,6 @@ namespace Calculateur_Backend
             OnPAchanged();
         }
 
-        //public string ExitTxt(View.Form1 Caller)
-        //{
-        //    string fiche = "";
-        //    fiche += "Nom : " + Name + Environment.NewLine ;
-        //    fiche += "Race : " + Race.Name + Environment.NewLine;
-        //    fiche += "Classe : " + classeChar.Nom + Environment.NewLine;
-        //    fiche += "Niveau : " + GetLevel().ToString() + Environment.NewLine;
-        //    fiche +=  Environment.NewLine+"---------------------------------------------------------" 
-        //              + Environment.NewLine;
-
-        //    foreach (Aspect item in Enum.GetValues(typeof(Aspect)))
-        //    {
-        //      if(Aspect.None != item)  fiche += item.ToString() + " : " + GetAspectValue(item) + Environment.NewLine;
-        //    }
-        //    fiche += Environment.NewLine + "---------------------------------------------------------"
-        //              + Environment.NewLine;
-
-        //    fiche += "Ps : " + Ps.ToString() + Environment.NewLine;
-        //    fiche += "Pe (Indemne) : " + Caller.GetPrincipalStats().getPeI()+ Environment.NewLine;
-        //    fiche += "Pe : " + Caller.GetPrincipalStats().getEndurance() + Environment.NewLine;
-        //    fiche += "Pe (Agonie) : " + Caller.GetPrincipalStats().getPeA() + Environment.NewLine;
-        //    fiche += "Pf : " + Caller.GetPrincipalStats().getFatigue() + Environment.NewLine;
-        //    fiche += "Pc : " + Caller.GetPrincipalStats().getChi() + Environment.NewLine;
-        //    fiche += "Pm : " + Caller.GetPrincipalStats().getMana() + Environment.NewLine;
-        //    fiche += "Pk : " + Karma().ToString() + Environment.NewLine;
-
-        //    fiche += Environment.NewLine + "---------------------------------------------------------"
-        //               + Environment.NewLine;
-        //    fiche += "Talents : " + Environment.NewLine;
-        //    foreach (Talent item in Talents)
-        //    {
-        //        if (item.Level > 0 || item.HaveBonus) fiche += item.Name+" niveau : " + item.Level.ToString() + Environment.NewLine;
-        //    }
-
-        //    fiche += Environment.NewLine + "---------------------------------------------------------"
-        //             + Environment.NewLine;
-        //    fiche += "Sauvegarde : " + Environment.NewLine;
-        //    fiche += "Robustesse : " + Robustesse + Environment.NewLine;
-        //    fiche += "Reflex : " + Reflex + Environment.NewLine;
-        //    fiche += "Volonté : " + Willpower + Environment.NewLine;
-        //    fiche += Environment.NewLine + "---------------------------------------------------------"
-        //             + Environment.NewLine;
-        //    fiche += "Recupération : " + Environment.NewLine;
-        //    fiche += "RPE -> " + (4 + classeChar.RPE).ToString() + Environment.NewLine;
-        //    fiche += "RPF -> " + (4 + classeChar.RPF).ToString() + Environment.NewLine;
-        //    fiche += "RPC -> " + (4 + classeChar.RPC).ToString() + Environment.NewLine;
-        //    fiche += "RPM -> " + (4 + classeChar.RPM).ToString() + Environment.NewLine;
-        //    fiche += Environment.NewLine + "---------------------------------------------------------"
-        //             + Environment.NewLine;
-        //    fiche += "Stats Secondaire : " + Environment.NewLine;
-        //    fiche += "Penalité de poid : " + penPoid.ToString() + Environment.NewLine;
-        //    fiche += "Impultion de mot : " +  (6-penPoid).ToString() + Environment.NewLine;
-        //    fiche += "Déplacement : " + (GetAspectValue(Aspect.Vent) - penPoid).ToString() + Environment.NewLine;
-        //    fiche += "Base Initiative : " + (Math.Max(2, 3 + GetAspectValue(Aspect.Vent)/3) -penPoid).ToString() + Environment.NewLine;
-
-        //    fiche += Environment.NewLine + "---------------------------------------------------------"
-        //             + Environment.NewLine;
-        //    fiche += "Inventaire : " + Environment.NewLine;
-        //    foreach (string item in Inventaire)
-        //    {
-        //        fiche += item + Environment.NewLine;
-        //    }
-
-        //    return fiche;
-        //}
-
         #region Serialization
 
         public Character(SerializableCharacter serializableCharacter)
@@ -727,6 +661,9 @@ namespace Calculateur_Backend
             if (_race != null)
                 _bonusAspect = _race.AspectBonus;
             penPoid = serializableCharacter.penPoid;
+            anneau1 = serializableCharacter.Anneau1 ?? new MatiereBijoux();
+            anneau2 = serializableCharacter.Anneau2 ?? new MatiereBijoux();
+            amulette = serializableCharacter.Amulette ?? new MatiereBijoux();
             RecomputePA();
 
         }
@@ -744,6 +681,9 @@ namespace Calculateur_Backend
                 Classe = classeChar != null ? classeChar.Nom : "",
                 Inventaire = Inventaire,
                 penPoid = penPoid,
+                Anneau1 = anneau1,
+                Anneau2 = anneau2,
+                Amulette = amulette,
             };
         }
         public void SetClasse(Classe def)
