@@ -1,0 +1,242 @@
+[
+  {
+    "name": "Aigue-Marine",
+    "primaire": 1,
+    "secondaire": 3,
+    "element": "Eau",
+    "talent": "Plagia",
+    "stat1": "PE",
+    "stat2": "PC",
+    "effetSpecial": "?"
+  },
+    {
+        "name": "Alexandrite",
+        "primaire": 4,
+        "secondaire": 2,
+        "element": "Terre & Feu",
+        "talent": "Perception",
+        "stat1": "PC",
+        "stat2": "",
+        "effetSpecial": "?"
+    }
+    ,
+    {
+        "name": "Amethyste",
+        "primaire": 4,
+        "secondaire": 6,
+        "element": "Terre",
+        "talent": "Parade",
+        "stat1": "PF",
+        "stat2": "PE",
+        "effetSpecial": "+1 contre ivresse"
+    }
+     ,
+  {
+    "name": "Ambre",
+    "primaire": 5,
+    "secondaire": 4,
+    "element": "Terre",
+    "talent": "Dressage",
+    "stat1": "PF",
+    "stat2": "PC",
+    "effetSpecial": "+1 Odorat"
+  } ,
+    {
+        "name": "Citrine",
+        "primaire": 5,
+        "secondaire": 3,
+        "element": "Esprit",
+        "talent": "Sabotage",
+        "stat1": "PF",
+        "stat2": "PE",
+        "effetSpecial": "?"
+    }
+     ,
+    {
+        "name": "Diamant",
+        "primaire": 6,
+        "secondaire": 5,
+        "element": "Magie",
+        "talent": "Endurance",
+        "stat1": "PF",
+        "stat2": "PE",
+        "effetSpecial": "Emeraude"
+    }
+     ,
+    {
+        "name": "Emeraude",
+        "primaire": 4,
+        "secondaire": 5,
+        "element": "Terre",
+        "talent": "Artisanat",
+        "stat1": "PM",
+        "stat2": "PE",
+        "effetSpecial": "+1 contre Empoisonnement"
+    }
+     ,
+    {
+        "name": "Grenat",
+        "primaire": 2,
+        "secondaire": 3,
+        "element": "Feu & Vent",
+        "talent": "Provocation",
+        "stat1": "PF",
+        "stat2": "PC",
+        "effetSpecial": "?"
+    },
+    {
+        "name": "Jade",
+        "primaire": 3,
+        "secondaire": 5,
+        "element": "Vent",
+        "talent": "Medecine",
+        "stat1": "PE",
+        "stat2": "",
+        "effetSpecial": "+1 contre maladie"
+    },
+    {
+        "name": "Lapis-Lazuli",
+        "primaire": 1,
+        "secondaire": 4,
+        "element": "Eau",
+        "talent": "Empathie",
+        "stat1": "PM",
+        "stat2": "PF",
+        "effetSpecial": "+1 contre peur ou manipulation social"
+    },
+    {
+        "name": "Nacre",
+        "primaire": 2,
+        "secondaire": 4,
+        "element": "Loi",
+        "talent": "Escalade",
+        "stat1": "PE",
+        "stat2": "PM",
+        "effetSpecial": "?"
+    },
+    {
+        "name": "Onyx",
+        "primaire": 2,
+        "secondaire": 1,
+        "element": "Ombre",
+        "talent": "Intimidation",
+        "stat1": "PM",
+        "stat2": "PC",
+        "effetSpecial": "?"
+    }
+    ,
+    {
+        "name": "Opale",
+        "primaire": 6,
+        "secondaire": 2,
+        "element": "Feu",
+        "talent": "Musculation",
+        "stat1": "PE",
+        "stat2": "PF",
+        "effetSpecial": "?"
+    }
+    ,
+    {
+        "name": "Peridot",
+        "primaire": 3,
+        "secondaire": 2,
+        "element": "Vent",
+        "talent": "Acrobatie",
+        "stat1": "PM",
+        "stat2": "PC",
+        "effetSpecial": "+1 contre entrave"
+    }
+    ,
+    {
+        "name": "Perle",
+        "primaire": 6,
+        "secondaire": 4,
+        "element": "Loi & Ombre",
+        "talent": "Survie",
+        "stat1": "PM",
+        "stat2": "",
+        "effetSpecial": "?"
+    }
+    ,
+    {
+        "name": "Perle de Lune",
+        "primaire": 5,
+        "secondaire": 6,
+        "element": "Esprit",
+        "talent": "Savoir",
+        "stat1": "PM",
+        "stat2": "PF",
+        "effetSpecial": "?"
+    },
+    {
+        "name": "Quartz",
+        "primaire": 4,
+        "secondaire": 3,
+        "element": "Terre",
+        "talent": "Conduite",
+        "stat1": "PE",
+        "stat2": "PC",
+        "effetSpecial": "+1 pour l'orientation"
+    },
+    {
+        "name": "Rubis",
+        "primaire": 2,
+        "secondaire": 6,
+        "element": "Feu",
+        "talent": "Volonte",
+        "stat1": "PE",
+        "stat2": "PM",
+        "effetSpecial": "?"
+    },
+    {
+        "name": "Saphir",
+        "primaire": 1,
+        "secondaire": 6,
+        "element": "Eau",
+        "talent": "Discretion",
+        "stat1": "PC",
+        "stat2": "PF",
+        "effetSpecial": "?"
+    },
+    {
+        "name": "Spinelle",
+        "primaire": 3,
+        "secondaire": 1,
+        "element": "Vent",
+        "talent": "Eloquence",
+        "stat1": "PE",
+        "stat2": "PC",
+        "effetSpecial": "+1 pour la vue"
+    },
+    {
+        "name": "Turquoise",
+        "primaire": 1,
+        "secondaire": 5,
+        "element": "Eau",
+        "talent": "Alchimie",
+        "stat1": "PM",
+        "stat2": "PC",
+        "effetSpecial": "?"
+    }
+    ,
+    {
+        "name": "Zircon",
+        "primaire": 6,
+        "secondaire": 3,
+        "element": "Distance",
+        "talent": "Art",
+        "stat1": "PC",
+        "stat2": "",
+        "effetSpecial": "?"
+    },
+    {
+        "name": "Topaze",
+        "primaire": 3,
+        "secondaire": 6,
+        "element": "Vent",
+        "talent": "Esquive",
+        "stat1": "PC",
+        "stat2": "PF",
+        "effetSpecial": "?"
+    }
+]

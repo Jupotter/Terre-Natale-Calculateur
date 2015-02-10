@@ -1,0 +1,42 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ViewModel="clr-namespace:Calculateur.ViewModel" x:Class="Calculateur.View.ClassPanel" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <ViewModel:ClassPanel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ComboBox Grid.Row="0" ItemsSource="{Binding classes}" 
+                  SelectedItem="{Binding SelectedClasse}" 
+                  IsEnabled="{Binding CanChangeClass, Mode=OneWay}" Width="300" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1"
+                   Orientation="Vertical">
+            <TextBlock Text="Modificateurs de récupération" FontWeight="Bold" />
+            <TextBlock Text="{Binding Recuperations}" />
+            <TextBlock Text="Ressources Améliorées" FontWeight="Bold" />
+            <TextBlock Text="{Binding Ressources}" />
+            <TextBlock Text="Sauvegardes Améliorées" FontWeight="Bold" />
+            <TextBlock Text="{Binding Sauvegardes}" />
+            <TextBlock Text="Maitrise de Base" FontWeight="Bold" />
+            <TextBlock Text="{Binding MaitriseBase}" />
+            <TextBlock Text="Maitrise Spéciale" FontWeight="Bold" />
+            <TextBlock Text="{Binding MaitriseSpeciale}" />
+            <TextBlock Text="Points de compétence" FontWeight="Bold" />
+            <TextBlock Text="{Binding Competences}" />
+        </StackPanel>
+    </Grid>
+</UserControl>
