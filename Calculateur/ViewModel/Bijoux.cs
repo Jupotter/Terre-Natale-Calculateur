@@ -190,35 +190,37 @@ namespace Calculateur.ViewModel
                 MatiereBijoux actu = inventory.Pendant.Material;
                 List<string> result = new List<string>();
                 int qteam = inventory.Pendant.Quality;
+                if (qteam == 0)
+                    return null;
 
                 if (actu == null) return result;
                 if ((actu.stat1 == "PE" || actu.stat1 == "PM") && string.IsNullOrEmpty(actu.stat2))
                 {
-                    result.Add(actu.stat1 + " : " + qteam * 3);
+                    result.Add(string.Format("{0} : {1}", actu.stat1, qteam*3));
                 }
                 else if (string.IsNullOrEmpty(actu.stat2))
                 {
-                    result.Add(actu.stat1 + " : " + (int)(qteam * 1.5));
+                    result.Add(string.Format("{0} : {1}", actu.stat1, (int) (qteam*1.5)));
                 }
                 else if ((actu.stat1 == "PE" || actu.stat1 == "PM"))
                 {
-                    result.Add(actu.stat1 + " : " + qteam * 2);
+                    result.Add(string.Format("{0} : {1}", actu.stat1, qteam*2));
                 }
                 else
                 {
-                    result.Add(actu.stat1 + " : " + qteam);
+                    result.Add(string.Format("{0} : {1}", actu.stat1, qteam));
                 }
 
 
                 if ((actu.stat2 == "PE" || actu.stat2 == "PM"))
                 {
-                    result.Add(actu.stat2 + " : " + qteam * 2);
+                    result.Add(string.Format("{0} : {1}", actu.stat2, qteam*2));
                 }
                 else
                 {
-                    result.Add(actu.stat2 + " : " + qteam);
+                    result.Add(string.Format("{0} : {1}", actu.stat2, qteam));
                 }
-                    
+
 
                 return result;
             }
