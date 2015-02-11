@@ -1,9 +1,9 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
+﻿using Calculateur.Backend;
+using Microsoft.Practices.Prism.Mvvm;
 using System.Collections.Generic;
-using Terre_Natale_Calculateur;
-using ArmorType = Calculateur_Backend.ArmorPiece.ArmorType;
+using ArmorType = Calculateur.Backend.ArmorPiece.ArmorType;
 
-namespace Calculateur_wpf.ViewModel
+namespace Calculateur.ViewModel
 {
     class ArmorPanel : BindableBase
     {

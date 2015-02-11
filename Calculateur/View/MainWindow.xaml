@@ -84,7 +84,7 @@
                     <Grid>
                         <TabControl>
                             <TabItem Header="Armure">
-                                 <view:ArmorPanel VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                                 <local:ArmorPanel VerticalAlignment="Top" HorizontalAlignment="Center"/>
                             </TabItem>
                             <TabItem Header="Colifichets">
                                 <local:Bijoux HorizontalAlignment="Center" VerticalAlignment="Top"/>

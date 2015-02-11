@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using Calculateur.Backend.Annotations;
+using Newtonsoft.Json;
 using System;
-using Terre_Natale_Calculateur.Annotations;
 
 namespace Calculateur.Backend
 {

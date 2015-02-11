@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Calculateur_Backend
+namespace Calculateur.Backend
 {
     public class ArmorPiece
     {

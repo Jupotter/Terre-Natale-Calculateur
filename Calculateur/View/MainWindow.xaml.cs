@@ -1,5 +1,4 @@
-﻿using Calculateur_wpf.View;
-using Microsoft.Practices.Prism.Commands;
+﻿using Microsoft.Practices.Prism.Commands;
 using System.Windows;
 
 namespace Calculateur.View
@@ -32,11 +31,6 @@ namespace Calculateur.View
         private void ExitOnClick(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Close();
-        }
-
-        private void ExportOnClick(object sender, RoutedEventArgs e)
-        {
-            new ExportViewWindow().ShowDialog();
         }
     }
 }

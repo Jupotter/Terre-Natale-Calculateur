@@ -1,7 +1,5 @@
 ﻿
-using Calculateur_Backend;
-
-namespace Terre_Natale_Calculateur
+namespace Calculateur.Backend
 {
     public class ArmorSet
     {
