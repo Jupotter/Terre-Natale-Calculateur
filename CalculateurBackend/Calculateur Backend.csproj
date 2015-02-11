@@ -96,7 +96,8 @@
   <ItemGroup>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Arme.cs" />
-    <Compile Include="Armure.cs" />
+    <Compile Include="ArmorPiece.cs" />
+    <Compile Include="ArmorSet.cs" />
     <Compile Include="Aspect.cs" />
     <Compile Include="Bijouxmanager.cs" />
     <Compile Include="Interfaces\IClassManager.cs" />

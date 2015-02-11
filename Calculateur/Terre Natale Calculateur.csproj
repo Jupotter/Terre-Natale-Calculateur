@@ -124,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\ArmorPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AspectBonusForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,7 +177,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="StringToNullableIntConverter.cs" />
+    <Compile Include="SumConverter.cs" />
     <Compile Include="TextExporter.cs" />
+    <Compile Include="ViewModel\ArmorPanel.cs" />
     <Compile Include="ViewModel\AspectBonusForm.cs" />
     <Compile Include="ViewModel\Bijoux.cs" />
     <Compile Include="ViewModel\ClassPanel.cs" />
@@ -184,6 +190,9 @@
     <Compile Include="ViewModel\TalentBox.cs" />
     <Compile Include="ViewModel\TalentGroupBox.cs" />
     <Compile Include="ViewModel\TalentsPanel.cs" />
+    <Compile Include="View\ArmorPanel.xaml.cs">
+      <DependentUpon>ArmorPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AspectBonusForm.xaml.cs">
       <DependentUpon>AspectBonusForm.xaml</DependentUpon>
     </Compile>

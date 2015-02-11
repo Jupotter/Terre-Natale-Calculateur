@@ -19,6 +19,8 @@ namespace Calculateur.Backend
 
         private Dictionary<Ressource, int> RacialRessources = new Dictionary<Ressource, int>();
 
+        private readonly ArmorSet armor = new ArmorSet();
+
         #region variable des bijoux
 
         MatiereBijoux anneau1 = new MatiereBijoux();
@@ -525,6 +527,11 @@ namespace Calculateur.Backend
             }
         }
 
+        public ArmorSet Armor
+        {
+            get { return armor; }
+        }
+
         #endregion
 
         private void RecomputePA()
@@ -664,6 +671,7 @@ namespace Calculateur.Backend
             anneau1 = serializableCharacter.Anneau1 ?? new MatiereBijoux();
             anneau2 = serializableCharacter.Anneau2 ?? new MatiereBijoux();
             amulette = serializableCharacter.Amulette ?? new MatiereBijoux();
+            armor = serializableCharacter.Armor ?? new ArmorSet();
             RecomputePA();
 
         }
@@ -684,6 +692,7 @@ namespace Calculateur.Backend
                 Anneau1 = anneau1,
                 Anneau2 = anneau2,
                 Amulette = amulette,
+                Armor = armor,
             };
         }
         public void SetClasse(Classe def)

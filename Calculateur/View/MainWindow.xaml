@@ -83,8 +83,8 @@
                 <TabItem Header="Inventaire">
                     <Grid>
                         <TabControl>
-                            <TabItem Header="TabItem">
-                                <Grid/>
+                            <TabItem Header="Armure">
+                                 <local:ArmorPanel VerticalAlignment="Top" HorizontalAlignment="Center"/>
                             </TabItem>
                             <TabItem Header="Colifichets">
                                 <local:Bijoux HorizontalAlignment="Center" VerticalAlignment="Top"/>
