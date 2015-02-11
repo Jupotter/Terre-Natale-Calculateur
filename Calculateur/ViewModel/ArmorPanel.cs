@@ -1,5 +1,6 @@
 ﻿using Calculateur.Backend;
 using Microsoft.Practices.Prism.Mvvm;
+using System;
 using System.Collections.Generic;
 using ArmorType = Calculateur.Backend.ArmorPiece.ArmorType;
 
@@ -27,6 +28,7 @@ namespace Calculateur.ViewModel
         }
 
         private ArmorSet armorSet = new ArmorSet();
+        private Talent talent;
 
         public double ChestArmorTotal
         {
@@ -126,6 +128,42 @@ namespace Calculateur.ViewModel
                 armorSet.Head.Quality = value; 
                 OnPropertyChanged(() => HeadArmorTotal);
             }
+        }
+
+        public double CharacterTalent
+        {
+            get
+            {
+                if (talent == null)
+                    return 0;
+                return talent.Level;
+            }
+        }
+
+        public ArmorPanel()
+        {
+            CharacterManager.CharacterChanged += OnCharacterChanged;
+        }
+
+        private void OnCharacterChanged(Character caller)
+        {
+            if (caller != null)
+            {
+                armorSet = caller.Armor;
+                talent = caller.GetTalent("Constitution");
+                talent.LevelChanged += OnTalentChanged;
+            }
+            else
+            {
+                armorSet = new ArmorSet();
+                talent = null;
+            }
+            OnPropertyChanged(null);
+        }
+
+        private void OnTalentChanged(object sender, EventArgs eventArgs)
+        {
+            OnPropertyChanged(() => CharacterTalent);
         }
     }
 }

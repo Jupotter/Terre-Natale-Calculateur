@@ -17,5 +17,6 @@ namespace Calculateur.Backend
         public MatiereBijoux Anneau1;
         public MatiereBijoux Anneau2;
         public MatiereBijoux Amulette;
+        public ArmorSet Armor;
     }
 }
