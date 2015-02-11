@@ -21,7 +21,12 @@
             <Setter Property="TextAlignment" Value="Center"></Setter>
         </Style>
         <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource LocalStyle}" />
-        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource LocalStyle}" />
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Width" Value="113"></Setter>
+        </Style>
         <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource LocalStyle}" />
     </UserControl.Resources>
     <Grid Margin="0,0,0,0">
@@ -38,9 +43,8 @@
         <StackPanel Grid.RowSpan="2">
             <TextBlock Text="Anneau :"
                        FontWeight="Bold"/>
-            <ComboBox
-                ItemsSource="{Binding materials}" 
-                Text="{Binding ActualA1}"/>
+            <ComboBox ItemsSource="{Binding Materials}" 
+                SelectedItem="{Binding ActualA1}"/>
             <TextBlock Text="{Binding Value, ElementName=SliderAnneau1, Mode=OneWay, StringFormat=Qualité : \{0\}}" />
             <Slider 
                 x:Name="SliderAnneau1"
@@ -61,8 +65,8 @@
             <TextBlock Text="Anneau :"
                        FontWeight="Bold"/>
             <ComboBox
-                ItemsSource="{Binding materials}" 
-                Text="{Binding ActualA2}"/>
+                ItemsSource="{Binding Materials}" 
+                SelectedItem="{Binding ActualA2}"/>
             <TextBlock Text="{Binding Value, ElementName=SliderAnneau2, Mode=OneWay, StringFormat=Qualité : \{0\}}"/>
             <Slider 
                 x:Name="SliderAnneau2"
@@ -80,8 +84,8 @@
             <TextBlock Text="Amulette :"
                        FontWeight="Bold" />
             <ComboBox
-                ItemsSource="{Binding materials}" 
-                Text="{Binding ActualAm}"/>
+                ItemsSource="{Binding Materials}" 
+                SelectedItem="{Binding ActualAm}"/>
             <TextBlock Text="{Binding Value, ElementName=SliderAmulette, Mode=OneWay, StringFormat=Qualité : \{0\}}"/>
             <Slider 
                 x:Name="SliderAmulette"

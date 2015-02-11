@@ -22,7 +22,9 @@
         </Grid.RowDefinitions>
         <ComboBox Grid.Row="0" ItemsSource="{Binding classes}" 
                   SelectedItem="{Binding SelectedClasse}" 
-                  IsEnabled="{Binding CanChangeClass, Mode=OneWay}" Width="300" HorizontalAlignment="Center"/>
+                  IsEnabled="{Binding CanChangeClass, Mode=OneWay}" 
+                  Width="300" 
+                  HorizontalAlignment="Center"/>
         <StackPanel Grid.Row="1"
                    Orientation="Vertical">
             <TextBlock Text="Modificateurs de récupération" FontWeight="Bold" />

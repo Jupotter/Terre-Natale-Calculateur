@@ -14,9 +14,6 @@ namespace Calculateur.Backend
         public string Classe;
         public List<string> Inventaire;
         public int penPoid;
-        public MatiereBijoux Anneau1;
-        public MatiereBijoux Anneau2;
-        public MatiereBijoux Amulette;
-        public ArmorSet Armor;
+        public Inventory Inventory;
     }
 }

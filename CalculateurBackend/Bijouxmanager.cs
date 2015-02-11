@@ -24,8 +24,8 @@ namespace Calculateur.Backend
         }
         public void baseMat()
         {
-            lmat.Add(new MatiereBijoux() { name = "Aigue-Marine", primaire = Aspect.Eau, secondaire = Aspect.Vent, element = "Eau", talent = "Plagia", stat1 = "PE", stat2 = "PC", effetSpecial = "?" });
-            lmat.Add(new MatiereBijoux() { name = "Alexandrite", primaire = Aspect.Terre, secondaire = Aspect.Feu, element = "Terre & Feu", talent = "Perception", stat1 = "PC", stat2 = "", effetSpecial = "?" });
+            lmat.Add(new MatiereBijoux() { name = "Aigue-Marine", Primaire = Aspect.Eau, secondaire = Aspect.Vent, element = "Eau", talent = "Plagia", stat1 = "PE", stat2 = "PC", effetSpecial = "?" });
+            lmat.Add(new MatiereBijoux() { name = "Alexandrite", Primaire = Aspect.Terre, secondaire = Aspect.Feu, element = "Terre & Feu", talent = "Perception", stat1 = "PC", stat2 = "", effetSpecial = "?" });
             dumpjson();
         }
        public void dumpjson()

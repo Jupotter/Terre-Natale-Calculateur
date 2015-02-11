@@ -149,7 +149,7 @@ namespace Calculateur.ViewModel
         {
             if (caller != null)
             {
-                armorSet = caller.Armor;
+                armorSet = caller.Inventory.Armor;
                 talent = caller.GetTalent("Constitution");
                 talent.LevelChanged += OnTalentChanged;
             }

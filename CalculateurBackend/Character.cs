@@ -19,17 +19,8 @@ namespace Calculateur.Backend
 
         private Dictionary<Ressource, int> RacialRessources = new Dictionary<Ressource, int>();
 
-        private readonly ArmorSet armor = new ArmorSet();
+        private readonly Inventory inventory = new Inventory();
 
-        #region variable des bijoux
-
-        MatiereBijoux anneau1 = new MatiereBijoux();
-        MatiereBijoux anneau2 = new MatiereBijoux();
-        MatiereBijoux amulette = new MatiereBijoux();
-        int qualityA1;
-        int qualityA2;
-        int qualityAm;
-        #endregion
         public Character(string name, ITalentsManager talentsManager)
         {
             foreach (Ressource item in Enum.GetValues(typeof(Ressource)))
@@ -63,6 +54,8 @@ namespace Calculateur.Backend
                 {Aspect.Vent, 30},
                 {Aspect.Equilibre,30},
             };
+
+            inventory.TrinketChanged += InventoryOnTrinketChanged;
         }
 
         #region Events
@@ -95,6 +88,18 @@ namespace Calculateur.Backend
             if (handler != null)
                 handler(this);
         }
+
+
+        private void InventoryOnTrinketChanged()
+        {
+            _chiStore = null;
+            _enduranceStore = null;
+            _fatigueStore = null;
+            _manaStore = null;
+
+            OnPAchanged();
+        }
+
         #endregion Events
 
         public int Karma()
@@ -212,13 +217,23 @@ namespace Calculateur.Backend
             }
             if (rawValue == false)
             {
-                if (anneau1 != null && qualityA1 > 0)
+                if (inventory.Ring1 != null)
                 {
-                    if (anneau1.HaveBonusOn(aspect, qualityA1)) value++;
+                    Trinket ring = inventory.Ring1;
+                    if (ring.Quality > 0)
+                    {
+                        if (ring.Material.HaveBonusOn(aspect, ring.Quality))
+                            value++;
+                    }
                 }
-                if (anneau2 != null && qualityA2 > 0 && anneau1.name != anneau2.name)
+                if (inventory.Ring2 != null)
                 {
-                    if (anneau2.HaveBonusOn(aspect, qualityA2)) value++;
+                    Trinket ring = inventory.Ring2;
+                    if (ring.Quality > 0)
+                    {
+                        if (ring.Material.HaveBonusOn(aspect, ring.Quality))
+                            value++;
+                    }
                 }
             }
             return value;
@@ -296,10 +311,10 @@ namespace Calculateur.Backend
                 }
 
                 int bbijoux = 0;
-                if (amulette != null)
+                if (inventory.Pendant != null)
                 {
-
-                    bbijoux = amulette.havebonusOnRessource("PC", qualityAm);
+                    var pendant = inventory.Pendant;
+                    bbijoux = pendant.Material.havebonusOnRessource("PC", pendant.Quality);
 
                 }
 
@@ -343,10 +358,10 @@ namespace Calculateur.Backend
                 }
 
                 int bbijoux = 0;
-                if (amulette != null)
+                if (inventory.Pendant != null)
                 {
-
-                    bbijoux = amulette.havebonusOnRessource("PF", qualityAm);
+                    var pendant = inventory.Pendant;
+                    bbijoux = pendant.Material.havebonusOnRessource("PC", pendant.Quality);
 
                 }
 
@@ -367,10 +382,10 @@ namespace Calculateur.Backend
                     }
                 }
                 int bbijoux = 0;
-                if (amulette != null)
+                if (inventory.Pendant != null)
                 {
-
-                    bbijoux = amulette.havebonusOnRessource("PE", qualityAm);
+                    var pendant = inventory.Pendant;
+                    bbijoux = pendant.Material.havebonusOnRessource("PC", pendant.Quality);
 
                 }
 
@@ -404,10 +419,10 @@ namespace Calculateur.Backend
                     }
                 }
                 int bbijoux = 0;
-                if( amulette != null)
+                if (inventory.Pendant != null)
                 {
-
-                    bbijoux = amulette.havebonusOnRessource("PM", qualityAm);
+                    var pendant = inventory.Pendant;
+                    bbijoux = pendant.Material.havebonusOnRessource("PC", pendant.Quality);
 
                 }
                 return _manaStore.Value + RacialRessources[Ressource.PM] + b+bbijoux;
@@ -527,9 +542,9 @@ namespace Calculateur.Backend
             }
         }
 
-        public ArmorSet Armor
+        public Inventory Inventory
         {
-            get { return armor; }
+            get { return inventory; }
         }
 
         #endregion
@@ -595,24 +610,6 @@ namespace Calculateur.Backend
             OnPAchanged();
         }
 
-        public void jewelchange(MatiereBijoux a1 , int q1 ,MatiereBijoux a2 , int q2 ,MatiereBijoux am , int q3  )
-        {
-            anneau1 = a1;
-            qualityA1 = q1;
-            anneau2 = a2;
-            qualityA2 = q2;
-            amulette = am;
-            qualityAm = q3;
-
-
-            _chiStore = null;
-            _enduranceStore = null;
-            _fatigueStore = null;
-            _manaStore = null;
-
-            OnPAchanged();
-        }
-
         #region Serialization
 
         public Character(SerializableCharacter serializableCharacter)
@@ -668,10 +665,7 @@ namespace Calculateur.Backend
             if (_race != null)
                 _bonusAspect = _race.AspectBonus;
             penPoid = serializableCharacter.penPoid;
-            anneau1 = serializableCharacter.Anneau1 ?? new MatiereBijoux();
-            anneau2 = serializableCharacter.Anneau2 ?? new MatiereBijoux();
-            amulette = serializableCharacter.Amulette ?? new MatiereBijoux();
-            armor = serializableCharacter.Armor ?? new ArmorSet();
+            inventory = serializableCharacter.Inventory ?? new Inventory();
             RecomputePA();
 
         }
@@ -689,10 +683,7 @@ namespace Calculateur.Backend
                 Classe = classeChar != null ? classeChar.Nom : "",
                 Inventaire = Inventaire,
                 penPoid = penPoid,
-                Anneau1 = anneau1,
-                Anneau2 = anneau2,
-                Amulette = amulette,
-                Armor = armor,
+                Inventory = inventory,
             };
         }
         public void SetClasse(Classe def)

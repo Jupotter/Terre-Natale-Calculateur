@@ -107,7 +107,7 @@
     <Compile Include="CharacterManager.cs" />
     <Compile Include="Classe.cs" />
     <Compile Include="ClassManager.cs" />
-    <Compile Include="Equipement.cs" />
+    <Compile Include="Inventory.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="LogToFile.cs" />
     <Compile Include="MatiereBijoux.cs" />
@@ -119,6 +119,7 @@
     <Compile Include="Talent.cs" />
     <Compile Include="TalentsManager.cs" />
     <Compile Include="TalentType.cs" />
+    <Compile Include="Trinket.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -6,15 +6,7 @@ namespace Calculateur.ViewModel
 {
     class Bijoux : BindableBase
     {
-
-
-        int qtea1;
-        int qtea2;
-        int qteam;
-        string actualA1;
-        string actualA2;
-        string actualAm;
-
+        private Inventory inventory = new Inventory();
 
         #region Gestion
 
@@ -22,98 +14,81 @@ namespace Calculateur.ViewModel
         {
            get
             {
-                return qtea1;
+                return inventory.Ring1.Quality;
             }
             set
             {
-                qtea1=value;
+                inventory.Ring1.Quality = value;
                 OnPropertyChanged(() => BonusAnneau1);
-                bijUpdated();
             }
         }
        public int Qtea2
         {
             get
             {
-                return qtea2;
+                return inventory.Ring2.Quality;
             }
             set
             {
-                qtea2 = value;
+                inventory.Ring1.Quality = value;
                 OnPropertyChanged(() => BonusAnneau2);
-                bijUpdated();
             }
         }
        public int Qteam
         {
             get
             {
-                return qteam;
+                return inventory.Pendant.Quality;
             }
             set
             {
-                qteam=value;
+                inventory.Pendant.Quality = value;
                 OnPropertyChanged(() => BonusAmulette);
-                bijUpdated();
             }
         }
 
 
-        public string ActualA1
-       {
-           get
-           {
-               return actualA1;
-           }
-           set
-           {
-               actualA1 = value;
-               OnPropertyChanged(() => BonusAnneau1);
-               bijUpdated();
-           }
-       }
-
-        public string ActualA2
+        public MatiereBijoux ActualA1
         {
-            get
-            {
-                return actualA2;
-            }
+            get { return inventory.Ring1.Material; }
             set
             {
-                actualA2 = value;
-                OnPropertyChanged(() => BonusAnneau2);
-                bijUpdated();
+                inventory.Ring1.Material = value;
+                OnPropertyChanged(() => BonusAnneau1);
             }
         }
 
-        public string ActualAm
+        public MatiereBijoux ActualA2
+        {
+            get { return inventory.Ring2.Material; }
+            set
+            {
+                inventory.Ring2.Material = value;
+                OnPropertyChanged(() => BonusAnneau2);
+            }
+        }
+
+        public MatiereBijoux ActualAm
         {
             get
             {
-                return actualAm;
+                return inventory.Pendant.Material;
                
             }
             set
             {
-                actualAm = value;
+                inventory.Pendant.Material = value;
                 OnPropertyChanged(() => BonusAmulette);
-                bijUpdated();
             }
         }
         #endregion
 
-       public List<string> materials
+        public IEnumerable<MatiereBijoux> Materials
         {
             get
             {
-                List<string> result = new List<string>();
                 List<MatiereBijoux>lm= Bijouxmanager.Instance.getMat();
-                foreach (MatiereBijoux item in lm)
-                {
-                    result.Add(item.name);
-                }
-                return result;
+                return lm;
                 
             }
         }
@@ -122,29 +97,29 @@ namespace Calculateur.ViewModel
         {
             get
             {
-                List<string> result = new List<string>();
-                MatiereBijoux actu = Bijouxmanager.Instance.getFromName(actualA1);
+                var result = new List<string>();
+                MatiereBijoux actu = inventory.Ring1.Material;
 
                 if (actu == null) return result;
-                switch (qtea1)
+                switch (inventory.Ring1.Quality)
                 {
 
-                    case 1: result.Add("+1" + actu.primaire.ToString() + " si < 4");
+                    case 1: result.Add("+1" + actu.Primaire.ToString() + " si < 4");
                         result.Add("+2 resistance " + actu.element);
                         break;
-                    case 2: result.Add("+1" + actu.primaire.ToString() + " si < 6");
+                    case 2: result.Add("+1" + actu.Primaire.ToString() + " si < 6");
                         result.Add("+1" + actu.secondaire.ToString() + " si < 2");
                         result.Add("+4 resistance " + actu.element);
                         break;
-                    case 3: result.Add("+1" + actu.primaire.ToString() );
+                    case 3: result.Add("+1" + actu.Primaire.ToString() );
                         result.Add("+1" + actu.secondaire.ToString() + " si < 4");
                         result.Add("+6 resistance " + actu.element);
                         break;
-                    case 4: result.Add("+1" + actu.primaire.ToString());
+                    case 4: result.Add("+1" + actu.Primaire.ToString());
                         result.Add("+1" + actu.secondaire.ToString() + " si < 6");
                         result.Add("+8 resistance " + actu.element);
                         break;
-                    case 5: result.Add("+1" + actu.primaire.ToString());
+                    case 5: result.Add("+1" + actu.Primaire.ToString());
                         result.Add("+1" + actu.secondaire.ToString() );
                         result.Add("+10 resistance " + actu.element); ;
                         break;
@@ -162,28 +137,28 @@ namespace Calculateur.ViewModel
             get
             {
                 List<string> result = new List<string>();
-                MatiereBijoux actu = Bijouxmanager.Instance.getFromName(actualA2);
+                MatiereBijoux actu = inventory.Ring2.Material;
 
                 if (actu == null) return result;
-                switch (qtea2)
+                switch (inventory.Ring2.Quality)
                 {
 
-                    case 1: result.Add("+1" + actu.primaire.ToString() + " si < 4");
+                    case 1: result.Add("+1" + actu.Primaire.ToString() + " si < 4");
                         result.Add("+2 resistance " + actu.element);
                         break;
-                    case 2: result.Add("+1" + actu.primaire.ToString() + " si < 6");
+                    case 2: result.Add("+1" + actu.Primaire.ToString() + " si < 6");
                         result.Add("+1" + actu.secondaire.ToString() + " si < 2");
                         result.Add("+4 resistance " + actu.element);
                         break;
-                    case 3: result.Add("+1" + actu.primaire.ToString());
+                    case 3: result.Add("+1" + actu.Primaire.ToString());
                         result.Add("+1" + actu.secondaire.ToString() + " si < 4");
                         result.Add("+6 resistance " + actu.element);
                         break;
-                    case 4: result.Add("+1" + actu.primaire.ToString());
+                    case 4: result.Add("+1" + actu.Primaire.ToString());
                         result.Add("+1" + actu.secondaire.ToString() + " si < 6");
                         result.Add("+8 resistance " + actu.element);
                         break;
-                    case 5: result.Add("+1" + actu.primaire.ToString());
+                    case 5: result.Add("+1" + actu.Primaire.ToString());
                         result.Add("+1" + actu.secondaire.ToString());
                         result.Add("+10 resistance " + actu.element); ;
                         break;
@@ -203,6 +178,8 @@ namespace Calculateur.ViewModel
 
         private void OnCharacterChanged(Character caller)
         {
+            inventory = caller.Inventory;
+            inventory.TrinketChanged += () => OnPropertyChanged(null);
             OnPropertyChanged(null);
         }
         
@@ -210,14 +187,16 @@ namespace Calculateur.ViewModel
         {
             get
             {
-                MatiereBijoux actu = Bijouxmanager.Instance.getFromName(actualAm);
+                MatiereBijoux actu = inventory.Pendant.Material;
                 List<string> result = new List<string>();
+                int qteam = inventory.Pendant.Quality;
+
                 if (actu == null) return result;
-                if ((actu.stat1 == "PE" || actu.stat1 == "PM") && (actu.stat2 == "" || actu.stat2 == null))
+                if ((actu.stat1 == "PE" || actu.stat1 == "PM") && string.IsNullOrEmpty(actu.stat2))
                 {
                     result.Add(actu.stat1 + " : " + qteam * 3);
                 }
-                else if (actu.stat2 == "" || actu.stat2 == null)
+                else if (string.IsNullOrEmpty(actu.stat2))
                 {
                     result.Add(actu.stat1 + " : " + (int)(qteam * 1.5));
                 }
@@ -243,12 +222,7 @@ namespace Calculateur.ViewModel
 
                 return result;
             }
-        }
-        public void bijUpdated()
-        {
-            Bijouxmanager bm = Bijouxmanager.Instance;
-            CharacterManager.Current.jewelchange(bm.getFromName(actualA1), qtea1, bm.getFromName(actualA2), qtea2, bm.getFromName(actualAm), qteam);
-        }        
+        }  
     }
 
  
