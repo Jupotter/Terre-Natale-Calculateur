@@ -1,7 +1,7 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
+﻿using Calculateur.Backend;
+using Microsoft.Practices.Prism.Mvvm;
 using System;
 using System.Collections.Generic;
-using Calculateur.Backend;
 
 namespace Calculateur.ViewModel
 {
@@ -100,15 +100,29 @@ namespace Calculateur.ViewModel
                 if (character == null)
                     return null;
 
+                const Aspect local = Aspect.Arcane;
                 var ret = new List<TalentGroupBox>();
-                foreach (var aspect in new[] { Aspect.Arcane })
-                {
-                    var box = new TalentGroupBox(character);
-                    var local = aspect;
-                    box.SetTalentsOption(talent => talent.PrimaryAspect == local && talent.Savoir);
-                    box.Name = String.Format("Prouesse de {0}", aspect);
-                    ret.Add(box);
-                }
+                var box = new TalentGroupBox(character);
+                box.SetTalentsOption(talent => talent.PrimaryAspect == local 
+                    && talent.Savoir 
+                    && talent.Name.Contains("Savoir"));
+                box.Name = "Savoirs";
+                ret.Add(box);
+
+                box = new TalentGroupBox(character);
+                box.SetTalentsOption(
+                    talent => talent.PrimaryAspect == local 
+                        && talent.Savoir
+                        && talent.Name.Contains("Artisanat"));
+                box.Name = "Artisanat";
+                ret.Add(box);
+                box = new TalentGroupBox(character);
+                box.SetTalentsOption(
+                    talent => talent.PrimaryAspect == local
+                        && talent.Savoir
+                        && talent.Name.Contains("Alchimie"));
+                box.Name = "Alchimie";
+                ret.Add(box);
                 return ret;
             }
         }
