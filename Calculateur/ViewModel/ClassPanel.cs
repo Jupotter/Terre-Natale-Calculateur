@@ -152,6 +152,8 @@ namespace Calculateur.ViewModel
         private void CharacterManager_OnCharacterChanged(Character caller)
         {
             character = caller;
+            character.GetTalent("Apprentissage").LevelChanged += (sender, args) => OnPropertyChanged(() => Competences);
+            character.GetTalent("Maitrise").LevelChanged += (sender, args) => OnPropertyChanged(() => Competences);
             SelectedClasse = character.getClasse();
             OnPropertyChanged(null);
         }
