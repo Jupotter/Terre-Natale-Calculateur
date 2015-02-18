@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 
@@ -326,9 +327,19 @@ namespace Calculateur.Backend
         {
             get
             {
-                if (!_enduranceStore.HasValue)
-                    _enduranceStore = GetAspectValue(Aspect.Acier) + GetAspectValue(Aspect.Equilibre) + 5;
-                return _enduranceStore.Value + RacialRessources[Ressource.PE];
+                if (_enduranceStore.HasValue) return _enduranceStore.Value;
+
+                _enduranceStore = GetAspectValue(Aspect.Acier) + GetAspectValue(Aspect.Equilibre) + 5;
+                if (classeChar != null)
+                {
+                    if (classeChar.StatBonus.Contains("PE"))
+                    {
+                        _enduranceStore += GetBonusStatValue("PE");
+                    }
+                }
+                _enduranceStore += RacialRessources[Ressource.PE];
+                Debug.Assert(_enduranceStore != null, "_enduranceStore != null");
+                return _enduranceStore.Value;
             }
         }
 
@@ -373,14 +384,6 @@ namespace Calculateur.Backend
         {
             get
             {
-                int b = 0;
-                if (classeChar != null)
-                {
-                    if (classeChar.StatBonus.Contains("PE"))
-                    {
-                        b = GetBonusStatValue("PE");
-                    }
-                }
                 int bbijoux = 0;
                 if (inventory.Pendant != null)
                 {
@@ -389,7 +392,7 @@ namespace Calculateur.Backend
 
                 }
 
-                return Endurance + GetTalent("Endurance").Level * 5 + b + bbijoux;
+                return Endurance + GetTalent("Endurance").Level * 5 + bbijoux;
             }
         }
 
