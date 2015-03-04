@@ -13,6 +13,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -30,18 +31,26 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" Content="Pénalité de poid:" Margin="0" HorizontalContentAlignment="Right"/>
-                <xctk:IntegerUpDown Grid.Column="1" Grid.Row="0" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBlock Grid.Column="0" Grid.Row="0"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Pénalité de poid:"/>
+                <xctk:IntegerUpDown Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
                                     TextAlignment="Center" Minimum="0" Maximum="30" Value="{Binding WeightPenalty}" />
-                <Label Grid.Column="0" Grid.Row="1" Content="Déplacement:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBlock Grid.Column="0" Grid.Row="1"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Déplacement:"/>
+                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding Speed, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
-                <Label Grid.Column="0" Grid.Row="2" Content="Base d'Initiative:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBlock Grid.Column="0" Grid.Row="2"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Base d'Initiative:"/>
+                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding Initiative, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
-                <Label Grid.Column="0" Grid.Row="3" Content="Réunion de Mana:" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-                         Text="{Binding ManaImpulsion, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
+                <TextBlock Grid.Column="0" Grid.Row="3"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Initiative maximum:"/>
+                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding MaxInitiative, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
             </Grid>
         </GroupBox>
         <GroupBox Grid.Column="1" Grid.Row="0" Header="Récuperations">
@@ -56,17 +65,25 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" Content="Chi:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBlock Grid.Column="0" Grid.Row="0"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Chi:"/>
+                <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding RecoverPC, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
-                <Label Grid.Column="0" Grid.Row="1" Content="Fatigue:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBlock Grid.Column="0" Grid.Row="1"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Fatigue:"/>
+                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding RecoverPF, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
-                <Label Grid.Column="0" Grid.Row="2" Content="Mana:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBlock Grid.Column="0" Grid.Row="2"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Mana:"/>
+                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding RecoverPM, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
-                <Label Grid.Column="0" Grid.Row="3" Content="Endurance:" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBlock Grid.Column="0" Grid.Row="3"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Endurance:"/>
+                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding RecoverPE, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
             </Grid>
         </GroupBox>
@@ -83,22 +100,30 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Label Grid.Column="1" Grid.Row="0" Content="Valeur"/>
-                <Label Grid.Column="2" Grid.Row="0" Content="Ajust."/>
-                <Label Grid.Column="0" Grid.Row="1" Content="Volonté:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBlock Grid.Column="1" Grid.Row="0" Text="Valeur"
+                           Style="{StaticResource NumberBoxLabel}"/>
+                <TextBlock Grid.Column="2" Grid.Row="0" Text="Ajust."
+                           Style="{StaticResource NumberBoxLabel}"/>
+                <TextBlock Grid.Column="0" Grid.Row="1"
+                           Text="Volonté:"
+                           Style="{StaticResource NumberBoxLabel}"/>
+                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding Willpower, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
-                <TextBox Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBox Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding WillAjust, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
-                <Label Grid.Column="0" Grid.Row="2" Content="Robustesse" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBlock Grid.Column="0" Grid.Row="2"
+                           Text="Robustesse:"
+                           Style="{StaticResource NumberBoxLabel}"/>
+                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding Robustesse, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
-                <TextBox Grid.Column="2" Grid.Row="2" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBox Grid.Column="2" Grid.Row="2" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding RobustAjust, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
-                <Label Grid.Column="0" Grid.Row="3" Content="Reflexe:" Margin="0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBlock Grid.Column="0" Grid.Row="3"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Reflexe:"/>
+                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding Reflex, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
-                <TextBox Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBox Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding ReflexAjust, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
 
             </Grid>
@@ -114,20 +139,19 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" 
-                       Content="Martial:" Margin="0" 
-                       HorizontalContentAlignment="Right"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" 
+                           Text="Martial:"
+                           Style="{StaticResource NumberBoxLabel}" />
                 <TextBox Grid.Column="1" Grid.Row="0" 
                          TextWrapping="Wrap" 
-                         Margin="0" 
+                         
                          HorizontalAlignment="Center" 
                          VerticalAlignment="Center"
         			     Text="{Binding MartialMemory, Mode=OneWay}" 
                          Style="{StaticResource NumberBox}"/>
-                <Label Grid.Column="0" Grid.Row="1"
-                       Content="Sorts:"
-                       Margin="0"
-                       HorizontalContentAlignment="Right"/>
+                <TextBlock Grid.Column="0" Grid.Row="1"
+                           Text="Sorts:"
+                           Style="{StaticResource NumberBoxLabel}"/>
                 <TextBox Grid.Column="1" Grid.Row="1"
                          TextWrapping="Wrap"
                          Margin="0"
@@ -136,6 +160,62 @@
         			     Text="{Binding SpellMemory, Mode=OneWay}"
                          Style="{StaticResource NumberBox}"/>
 
+            </Grid>
+        </GroupBox>
+        <GroupBox
+            Grid.Column="2" Grid.Row="0"
+            Header="Magie"
+            DataContext="{Binding MagicStats, Mode=OneWay}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Réunion de Mana:"/>
+                <TextBox Grid.Column="1" Grid.Row="0"
+                         TextWrapping="Wrap"
+                         Margin="0"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Text="{Binding Incantation, Mode=OneWay}"
+                         Style="{StaticResource NumberBox}"/>
+                <TextBlock Grid.Column="0" Grid.Row="1"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Impulsion de mots:"/>
+                <TextBox Grid.Column="1" Grid.Row="1"
+                         TextWrapping="Wrap"
+                         Margin="0"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Text="{Binding ManaImpulsion, Mode=OneWay}"
+                         Style="{StaticResource NumberBox}"/>
+                <TextBlock Grid.Column="0" Grid.Row="2"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Concentration:"/>
+                <TextBox Grid.Column="1" Grid.Row="2"
+                         TextWrapping="Wrap"
+                         Margin="0"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Text="{Binding Concentration, Mode=OneWay}"
+                         Style="{StaticResource NumberBox}"/>
+                <TextBlock Grid.Column="0" Grid.Row="3"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Intelligence:"/>
+                <TextBox Grid.Column="1" Grid.Row="3"
+                         TextWrapping="Wrap"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Text="{Binding Intelligence, Mode=OneWay}"
+                         Style="{StaticResource NumberBox}"/>
             </Grid>
         </GroupBox>
     </Grid>

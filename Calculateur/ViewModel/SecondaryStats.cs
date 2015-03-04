@@ -124,13 +124,13 @@ namespace Calculateur.ViewModel
             }
         }
 
-        public int ManaImpulsion
+        public int MaxInitiative
         {
             get
             {
                 if (character == null)
                     return 0;
-                return 6 - character.penPoid;
+                return Initiative + 15;
             }
         }
 
@@ -149,7 +149,8 @@ namespace Calculateur.ViewModel
                 character.penPoid = value;
                 OnPropertyChanged(() => Speed);
                 OnPropertyChanged(() => Initiative);
-                OnPropertyChanged(() => ManaImpulsion);
+                OnPropertyChanged(() => MaxInitiative);
+                OnPropertyChanged(() => MagicStats);
             }
         }
 
@@ -176,6 +177,14 @@ namespace Calculateur.ViewModel
                     .Where(talent => talent.Type == TalentType.Aptitude && talent.PrimaryAspect == Aspect.Arcane)
                     .Sum(talent => talent.Level);
                 return character.GetAspectValue(Aspect.Terre)*2 + character.GetAspectValue(Aspect.Arcane)*4 + spell*4;
+            }
+        }
+
+        public SecondaryStatsMagic MagicStats
+        {
+            get
+            {
+                return new SecondaryStatsMagic(character);
             }
         }
 
