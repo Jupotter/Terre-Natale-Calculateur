@@ -186,6 +186,7 @@
     <Compile Include="ViewModel\MainStats.cs" />
     <Compile Include="ViewModel\MainWindow.cs" />
     <Compile Include="ViewModel\NewCharacter.cs" />
+    <Compile Include="ViewModel\SavingThrow.cs" />
     <Compile Include="ViewModel\SecondaryStats.cs" />
     <Compile Include="ViewModel\SecondaryStatsMagic.cs" />
     <Compile Include="ViewModel\TalentBox.cs" />

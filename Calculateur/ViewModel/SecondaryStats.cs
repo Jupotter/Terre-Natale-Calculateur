@@ -9,59 +9,6 @@ namespace Calculateur.ViewModel
     {
         private Character character;
 
-        public int Willpower 
-        {
-            get
-            {
-                return character == null ? 0 : character.Willpower + 1;
-            }
-        }
-
-        public int Robustesse
-        {
-            get
-            {
-                return character == null ? 0 : character.Robustesse + 1;
-            }
-        }
-
-        public int Reflex
-        {
-            get
-            {
-                return character == null ? 0 : character.Reflex + 1;
-            }
-        }
-
-        public int WillAjust
-        {
-            get
-            {
-                if (character == null)
-                    return 0;
-                return  Math.Max(character.GetAspectValue(Aspect.Arcane), character.GetAspectValue(Aspect.Feu));
-            }
-        }
-
-        public int ReflexAjust
-        {
-            get
-            {
-                if (character == null)
-                    return 0;
-                return Math.Max(character.GetAspectValue(Aspect.Eau), character.GetAspectValue(Aspect.Vent));
-            }
-        }
-
-        public int RobustAjust
-        {
-            get
-            {
-                if (character == null)
-                    return 0;
-                return  Math.Max(character.GetAspectValue(Aspect.Acier), character.GetAspectValue(Aspect.Terre));
-            }
-        }
 
         public int RecoverPC
         {

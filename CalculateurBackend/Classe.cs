@@ -103,5 +103,23 @@ namespace Calculateur.Backend
         {
             return _nom;
         }
+
+        public int GetSaveBonus(int level, string sauvegarde)
+        {
+            switch (sauvBonus.FindIndex(val => val.Equals(sauvegarde)))
+            {
+                case 0:
+                    return (level + 1) / 2;
+                    break;
+                case 1:
+                    return (level + 1) / 4;
+                    break;
+                case 2:
+                    return (level + 1) / 5;
+                    break;
+                default:
+                    return 0;
+            }
+        }
     }
 }
