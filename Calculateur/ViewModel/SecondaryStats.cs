@@ -109,8 +109,8 @@ namespace Calculateur.ViewModel
             {
                 if (character == null)
                     return 0;
-                var val = 3 + character.GetAspectValue(Aspect.Vent)/3 - character.penPoid;
-                return Math.Max(2, val);
+                var val = 5 + character.GetAspectValue(Aspect.Vent)/3 - character.penPoid/3;
+                return Math.Max(4, val);
             }
         }
 
