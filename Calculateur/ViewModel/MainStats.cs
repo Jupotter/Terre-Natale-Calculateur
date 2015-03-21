@@ -107,6 +107,7 @@ namespace Calculateur.ViewModel
         {
             character = caller;
             character.PAChanged += caller1 => OnPropertyChanged(null);
+            character.Inventory.TrinketChanged += () => OnPropertyChanged(null);
             OnPropertyChanged(null);
         }
         public  Dictionary<Aspect,int> AspectPoint
