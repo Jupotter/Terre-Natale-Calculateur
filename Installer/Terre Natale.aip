@@ -9,10 +9,10 @@
     <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/Jupotter/Terre-Natale-Calculateur/releases/latest"/>
     <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="Manufacturer" Value="Trahaum"/>
-    <ROW Property="ProductCode" Value="1033:{44835D5F-547A-49FF-A07C-C83A38469A9B} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{CCFCC1B1-339F-48A9-852D-7D5755702A55} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Terre Natale"/>
-    <ROW Property="ProductVersion" Value="2.1.0" Type="32"/>
+    <ROW Property="ProductVersion" Value="2.2.0" Type="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{232CE13C-5ED8-4FB4-8B69-61DC11F32789}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
