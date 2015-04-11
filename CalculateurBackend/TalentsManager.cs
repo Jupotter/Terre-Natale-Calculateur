@@ -113,9 +113,10 @@ namespace Calculateur.Backend
        
         public Talent GetTalent(int id)
         {
-            
-                return _talents[id];
-            
+            Talent talent;
+            if (!_talents.TryGetValue(id, out talent))
+                return null;
+            return talent;
         }
 
         public IEnumerable<Talent> GetAllSavoir()
