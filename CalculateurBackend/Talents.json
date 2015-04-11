@@ -10,7 +10,7 @@
 ** 7 = Equilibre
 */
 /*
-** Id Max : 95
+** Id Max : 97
 */
 [
     /*
@@ -36,7 +36,7 @@
         "Id": 2,
     },
     {
-        "Name": "Eloquence",
+        "Name": "Charisme",
         "PrimaryAspect": 1,
         "SecondaryAspect": 0,
         "Type": 0,
@@ -50,7 +50,7 @@
         "Id": 4,
     },
     {
-        "Name": "Intimidation",
+        "Name": "Bravoure",
         "PrimaryAspect": 2,
         "SecondaryAspect": 0,
         "Type": 0,
@@ -62,13 +62,6 @@
         "SecondaryAspect": 0,
         "Type": 0,
         "Id": 6,
-    },
-    {
-        "Name": "Provocation",
-        "PrimaryAspect": 2,
-        "SecondaryAspect": 0,
-        "Type": 0,
-        "Id": 7,
     },
     {
         "Name": "Parade",
@@ -141,14 +134,14 @@
         "Id": 17,
     },
     {
-        "Name": "Musculation",
+        "Name": "Force",
         "PrimaryAspect": 6,
         "SecondaryAspect": 0,
         "Type": 0,
         "Id": 18,
     },
     {
-        "Name": "Constitution",
+        "Name": "Resistance",
         "PrimaryAspect": 6,
         "SecondaryAspect": 0,
         "Type": 0,
@@ -695,4 +688,12 @@
         "Id": 95,
         "Savoir": true,
     },
+    
+    {
+        "Name": "Vigueur",
+        "PrimaryAspect": 2,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 97,
+    }
 ]
