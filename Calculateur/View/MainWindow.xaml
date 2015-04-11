@@ -61,6 +61,9 @@
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
+                <MenuItem Header="_Aide">
+                    <MenuItem Header="_A Propos" Click="AboutOnClick"/>
+                </MenuItem>
             </Menu>
             <local:Header Height="Auto" VerticalAlignment="Top" DockPanel.Dock="Top"/>
             <TabControl DockPanel.Dock="Top">
