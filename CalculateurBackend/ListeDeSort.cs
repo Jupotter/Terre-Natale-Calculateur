@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Calculateur.Backend
 {
-    class Liste_de_sort
+    public class ListeDeSort
     {
-        List<Sort> grimo = new List<Sort>();
+        public List<Sort> grimo = new List<Sort>();
         Character proprio;
     }
 }

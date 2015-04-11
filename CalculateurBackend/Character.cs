@@ -17,10 +17,15 @@ namespace Calculateur.Backend
         private int _experienceAvailable;
         private Race _race;
         private Classe classeChar;
-
+        private ListeDeSort _Grimoire = new ListeDeSort();
         private Dictionary<Ressource, int> RacialRessources = new Dictionary<Ressource, int>();
 
         private readonly Inventory inventory = new Inventory();
+
+        public ListeDeSort Grimoire()
+        {
+            return _Grimoire;
+        }
 
         public Character(string name, ITalentsManager talentsManager)
         {

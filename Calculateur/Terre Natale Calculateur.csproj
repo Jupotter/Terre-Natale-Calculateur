@@ -187,6 +187,7 @@
     <Compile Include="ViewModel\AspectBonusForm.cs" />
     <Compile Include="ViewModel\Bijoux.cs" />
     <Compile Include="ViewModel\ClassPanel.cs" />
+    <Compile Include="ViewModel\ListeDeSort.cs" />
     <Compile Include="ViewModel\MainStats.cs" />
     <Compile Include="ViewModel\MainWindow.cs" />
     <Compile Include="ViewModel\NewCharacter.cs" />

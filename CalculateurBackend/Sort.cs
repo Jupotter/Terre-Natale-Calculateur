@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Calculateur.Backend
 {
-    class Sort
+   public class Sort
     {
-        List<Composante> effet;
+        List<SpellComposant> effet;
         List<int> ip;
 
     }

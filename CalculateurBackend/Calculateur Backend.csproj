@@ -94,8 +94,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Composante.cs" />
-    <Compile Include="Liste de sort.cs" />
+    <Compile Include="SpellComposant.cs" />
+    <Compile Include="ListeDeSort.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Arme.cs" />
     <Compile Include="ArmorPiece.cs" />
@@ -119,6 +119,7 @@
     <Compile Include="SerialisableTalent.cs" />
     <Compile Include="SerializableCharacter.cs" />
     <Compile Include="Sort.cs" />
+    <Compile Include="spellcomposantManager.cs" />
     <Compile Include="Talent.cs" />
     <Compile Include="TalentsManager.cs" />
     <Compile Include="TalentType.cs" />
@@ -134,6 +135,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Classes.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Composant.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MatiereBijoux.json">

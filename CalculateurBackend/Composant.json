@@ -1,0 +1,30 @@
+/*
+
+
+    Les ratios son toujours en % : 130 = 130%
+    TypeComposante : Effet = 0 ; Bonus = 1; Condition = 2 
+    typeIp indique si l'effet donne ou reçoi des Ip 0=donne , 1=reçoi
+    Elem indique les elements requis : Arcane = 0, Eau = 1, Feu = 2, Terre = 3, Vent = 4, Loi = 5, Chaos = 6, Tous = 7
+    ecole indique l'ecole requise pour l'effet : 
+    Alteration = 0, Guerison = 1, Convocation = 2, Illusion = 3, Enchantement = 4, Abjuration = 5, Destruction = 6, Necromancie = 7, Evocation = 8, Metamorphose = 9 
+    */
+
+
+[
+    {
+        "typeCompo": 0,
+        "descritption": "Dégat de feu %ip%, dégat de base : %ip2% + Cataliseur",
+        "ratioIp": 130,
+        "ratioIp2": 30,
+        "ecole": 6,
+        "elem": [
+            2
+        ],
+        "ipBonus": 0,
+        "typeIp": 1,
+        "PmMin": 0,
+        "PmMax": 1,
+        "inc": 4,
+        "Place": 1
+    }
+]
