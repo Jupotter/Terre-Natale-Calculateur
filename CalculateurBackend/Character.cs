@@ -304,7 +304,10 @@ namespace Calculateur.Backend
         {
             get
             {
-                int ps = 2*5 + 5*GetTalent("Resistance").Level + 2*GetAspectValue(Aspect.Acier);
+                int ps = 2*(5 + GetLevel()) 
+                    + 5*GetTalent("Resistance").Level 
+                    + 2*GetAspectValue(Aspect.Acier) 
+                    + GetAspectValue(Aspect.Equilibre)*2;
                 return ps;
             }
         }
@@ -320,7 +323,7 @@ namespace Calculateur.Backend
                                            select item.Level).ToList();
                     maxTalent.Sort();
                     _chiStore = Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent))
-                           + GetAspectValue(Aspect.Equilibre)
+                           + GetAspectValue(Aspect.Equilibre)*2
                            + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2
                            + GetTalent("Discipline").Level;
                 }
@@ -351,7 +354,9 @@ namespace Calculateur.Backend
             {
                 if (_enduranceStore.HasValue) return _enduranceStore.Value;
 
-                _enduranceStore = 5*GetAspectValue(Aspect.Acier) + 5*GetAspectValue(Aspect.Equilibre) + 5*5;
+                _enduranceStore = 5*GetAspectValue(Aspect.Acier) 
+                    + 5*GetAspectValue(Aspect.Equilibre)
+                    + 5*(5 + GetLevel());
                 _enduranceStore += GetTalent("Endurance").Level*10;
                 if (classeChar != null)
                 {
@@ -375,7 +380,7 @@ namespace Calculateur.Backend
 
                     maxTalent.Sort();
                     _fatigueStore = Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Acier))
-                                    + GetAspectValue(Aspect.Equilibre)
+                                    + GetAspectValue(Aspect.Equilibre)*2
                                     + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
                 }
 
@@ -424,12 +429,11 @@ namespace Calculateur.Backend
                 {
                     List<int> maxTalent = (from item in _talents.Values
                                            where
-                                               item.Type == TalentType.Aptitude ||
-                                               item.Type == TalentType.Martial && item.PrimaryAspect == Aspect.Arcane
+                                               item.Type == TalentType.Aptitude && item.PrimaryAspect == Aspect.Arcane
                                            select item.Level).ToList();
                     maxTalent.Sort();
-                    _manaStore = Math.Max(GetAspectValue(Aspect.Arcane), GetAspectValue(Aspect.Terre))
-                                 + GetAspectValue(Aspect.Equilibre)
+                    _manaStore = Math.Max(GetAspectValue(Aspect.Arcane), GetAspectValue(Aspect.Terre))*2
+                                 + GetAspectValue(Aspect.Equilibre)*2
                                  + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*4
                                  + GetTalent("Meditation").Level*4;
                 }

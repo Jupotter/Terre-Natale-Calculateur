@@ -32,5 +32,10 @@ namespace Calculateur.View
         {
             Application.Current.MainWindow.Close();
         }
+
+        private void AboutOnClick(object sender, RoutedEventArgs e)
+        {
+            new AboutDialog().ShowDialog();
+        }
     }
 }

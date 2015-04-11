@@ -1,0 +1,39 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ViewModel="clr-namespace:Calculateur.ViewModel" x:Class="Calculateur.View.AboutDialog"
+        Title="A Propos" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="OkButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="MinWidth" Value="75" />
+            <Setter Property="Margin" Value="0,5" />
+            <Setter Property="DockPanel.Dock" Value="Right" />
+            <Setter Property="IsDefault" Value="True" />
+            <Setter Property="IsCancel" Value="True" />
+        </Style>
+    </Window.Resources>
+    <Window.DataContext>
+        <ViewModel:AboutDialog/>
+    </Window.DataContext>
+    <StackPanel x:Name="stackPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid>
+            <StackPanel Margin="10,10,10,5">
+                <TextBlock Text="{Binding AppName, Mode=OneWay}" FontSize="18"/>
+                <TextBlock Text="{Binding AppVersion, Mode=OneWay, StringFormat=Version {0}}" />
+                <TextBlock Text="{Binding AppPublisher, Mode=OneWay, StringFormat=© {0} 2015}" />
+                <Label>
+                    <Hyperlink NavigateUri="{Binding UpdateUri}"
+                                   RequestNavigate="Hyperlink_OnRequestNavigate">
+                        <TextBlock Text="Mise à jours" />
+                    </Hyperlink>
+                </Label>
+            </StackPanel>
+        </Grid>
+        <Grid DockPanel.Dock="Bottom">
+            <Button Content="Ok"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource OkButtonStyle}"/>
+        </Grid>
+    </StackPanel>
+</Window>
