@@ -18,7 +18,8 @@
             "Robustesse",
             "Réflexe",
             "Volonté"
-        ]
+        ],
+        "EnduranceRatio": 5
     },
     {
         "Id": 10,
@@ -62,7 +63,8 @@
             "Volonté",
             "Réflexe"
 
-        ]
+        ],
+        "EnduranceRatio": 5
     },
     {
         "Id": 30,
@@ -116,7 +118,8 @@
             "Réflexe",
             "Robustesse",
             "Volonté"
-        ]
+        ],
+        "EnduranceRatio": 3
     },
     {
         "Id": 60,
@@ -457,7 +460,8 @@
             "Réflexe",
             "Robustesse"
 
-        ]
+        ],
+        "EnduranceRatio": 3
     },
     {
         "Id": 220,
@@ -478,7 +482,8 @@
             "Volonté",
             "Robustesse",
             "Réflexe"
-        ]
+        ],
+        "EnduranceRatio": 3
     },
     {
         "Id": 230,
@@ -744,7 +749,9 @@
             "PC"
         ],
         "SauvBonus": [
-            "Volonté","Réflexe","Robustesse"
+            "Volonté",
+            "Réflexe",
+            "Robustesse"
         ]
     },
     {

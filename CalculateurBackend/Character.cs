@@ -57,6 +57,8 @@ namespace Calculateur.Backend
             };
 
             inventory.TrinketChanged += InventoryOnTrinketChanged;
+
+            ClassChanged += caller => EmptyRessourceStores();
         }
 
         #region Events
@@ -68,6 +70,14 @@ namespace Calculateur.Backend
         public event CharacterEventHandler PAChanged;
 
         public event CharacterEventHandler CharacterLoad;
+
+        public event CharacterEventHandler ClassChanged;
+
+        private void OnClassChanged(Character caller)
+        {
+            CharacterEventHandler handler = ClassChanged;
+            if (handler != null) handler(caller);
+        }
 
         private void OnExperienceChanged()
         {
@@ -556,7 +566,7 @@ namespace Calculateur.Backend
 
         #endregion
 
-        private void RecomputePA()
+        private void EmptyRessourceStores()
         {
             _chiStore = null;
             _enduranceStore = null;
@@ -564,6 +574,11 @@ namespace Calculateur.Backend
             _karmaStore = null;
             _manaStore = null;
             _totalXpStore = null;
+        }
+
+        private void RecomputePA()
+        {
+            EmptyRessourceStores();
 
             _aspectPoint = new Dictionary<Aspect, int>(6)
             {
@@ -696,7 +711,9 @@ namespace Calculateur.Backend
         public void SetClasse(Classe def)
         {
             classeChar = def;
+            OnClassChanged(this);
         }
+
         public Classe getClasse()
         {
             return classeChar;
