@@ -286,7 +286,13 @@ namespace Calculateur.Backend
         private int? _totalXpStore;
 
         public int Ps
-        { get { return 4 + RacialRessources[Ressource.PS]; } }
+        {
+            get
+            {
+                int ps = 2*5 + 5*GetTalent("Resistance").Level + 2*GetAspectValue(Aspect.Acier);
+                return ps;
+            }
+        }
 
         public int Chi
         {
@@ -300,7 +306,8 @@ namespace Calculateur.Backend
                     maxTalent.Sort();
                     _chiStore = Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent))
                            + GetAspectValue(Aspect.Equilibre)
-                           + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
+                           + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2
+                           + GetTalent("Discipline").Level;
                 }
                 int b = 0;
                 if (classeChar != null)
@@ -329,13 +336,11 @@ namespace Calculateur.Backend
             {
                 if (_enduranceStore.HasValue) return _enduranceStore.Value;
 
-                _enduranceStore = GetAspectValue(Aspect.Acier) + GetAspectValue(Aspect.Equilibre) + 5;
+                _enduranceStore = 5*GetAspectValue(Aspect.Acier) + 5*GetAspectValue(Aspect.Equilibre) + 5*5;
+                _enduranceStore += GetTalent("Endurance").Level*10;
                 if (classeChar != null)
                 {
-                    if (classeChar.StatBonus.Contains("PE"))
-                    {
-                        _enduranceStore += GetBonusStatValue("PE");
-                    }
+                    _enduranceStore += classeChar.EnduranceRatio*GetLevel();
                 }
                 _enduranceStore += RacialRessources[Ressource.PE];
                 Debug.Assert(_enduranceStore != null, "_enduranceStore != null");
@@ -408,10 +413,9 @@ namespace Calculateur.Backend
                                                item.Type == TalentType.Martial && item.PrimaryAspect == Aspect.Arcane
                                            select item.Level).ToList();
                     maxTalent.Sort();
-                    _manaStore = Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Terre)) +
-                                 GetAspectValue(Aspect.Arcane)
+                    _manaStore = Math.Max(GetAspectValue(Aspect.Arcane), GetAspectValue(Aspect.Terre))
                                  + GetAspectValue(Aspect.Equilibre)
-                                 + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
+                                 + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*4;
                 }
                 int b = 0;
                 if (classeChar != null)

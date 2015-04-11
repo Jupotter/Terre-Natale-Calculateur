@@ -18,6 +18,8 @@ namespace Calculateur.Backend
         String _TalentBonus;
         String _MaitriseSpecial;
 
+        private int enduranceRatio = 4;
+
 
         public Classe(string name, int id, int RPE, int RPF, int RPC, int RPM,List<string>statb,List<string>sauvb, String Maitrisedebase,
         String TalentBonus, String MaitriseSpecial)
@@ -97,6 +99,12 @@ namespace Calculateur.Backend
         {
             get { return _MaitriseSpecial; }
             set { _MaitriseSpecial = value; }
+        }
+
+        public int EnduranceRatio
+        {
+            get { return enduranceRatio; }
+            set { enduranceRatio = value; }
         }
 
         public override string ToString()

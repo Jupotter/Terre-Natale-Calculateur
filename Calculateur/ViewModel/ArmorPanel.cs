@@ -150,7 +150,7 @@ namespace Calculateur.ViewModel
             if (caller != null)
             {
                 armorSet = caller.Inventory.Armor;
-                talent = caller.GetTalent("Constitution");
+                talent = caller.GetTalent("Resistance");
                 talent.LevelChanged += OnTalentChanged;
             }
             else
