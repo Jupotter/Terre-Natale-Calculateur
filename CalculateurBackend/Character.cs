@@ -419,11 +419,10 @@ namespace Calculateur.Backend
                 {
                     List<int> maxTalent = (from item in _talents.Values
                                            where
-                                               item.Type == TalentType.Aptitude ||
-                                               item.Type == TalentType.Martial && item.PrimaryAspect == Aspect.Arcane
+                                               item.Type == TalentType.Aptitude && item.PrimaryAspect == Aspect.Arcane
                                            select item.Level).ToList();
                     maxTalent.Sort();
-                    _manaStore = Math.Max(GetAspectValue(Aspect.Arcane), GetAspectValue(Aspect.Terre))
+                    _manaStore = Math.Max(GetAspectValue(Aspect.Arcane), GetAspectValue(Aspect.Terre))*2
                                  + GetAspectValue(Aspect.Equilibre)
                                  + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*4
                                  + GetTalent("Meditation").Level*4;
