@@ -425,7 +425,8 @@ namespace Calculateur.Backend
                     maxTalent.Sort();
                     _manaStore = Math.Max(GetAspectValue(Aspect.Arcane), GetAspectValue(Aspect.Terre))
                                  + GetAspectValue(Aspect.Equilibre)
-                                 + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*4;
+                                 + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*4
+                                 + GetTalent("Meditation").Level*4;
                 }
                 int b = 0;
                 if (classeChar != null)

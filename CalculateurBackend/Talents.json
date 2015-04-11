@@ -10,7 +10,7 @@
 ** 7 = Equilibre
 */
 /*
-** Id Max : 97
+** Id Max : 98
 */
 [
     /*
@@ -168,6 +168,13 @@
         "SecondaryAspect": 0,
         "Type": 0,
         "Id": 22,
+    },
+    {
+        "Name": "Meditation",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 98,
     },
     {
         "Name": "Profession",
