@@ -295,14 +295,18 @@ namespace Calculateur.Backend
         private int? _manaStore;
         private int? _totalXpStore;
 
+        private int mass
+        {
+            get { return 5 + GetLevel(); }
+        }
+
         public int Ps
         {
             get
             {
-                int ps = 2*(5 + GetLevel()) 
-                    + 5*GetTalent("Resistance").Level 
-                    + 2*GetAspectValue(Aspect.Acier) 
-                    + GetAspectValue(Aspect.Equilibre)*2;
+                int ps = 2*(mass)
+                         + 5*GetTalent("Resistance").Level
+                         + 2*GetAspectValue(Aspect.Acier);
                 return ps;
             }
         }
@@ -318,9 +322,9 @@ namespace Calculateur.Backend
                                            select item.Level).ToList();
                     maxTalent.Sort();
                     _chiStore = Math.Max(GetAspectValue(Aspect.Eau), GetAspectValue(Aspect.Vent))
-                           + GetAspectValue(Aspect.Equilibre)*2
-                           + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2
-                           + GetTalent("Discipline").Level;
+                                + GetAspectValue(Aspect.Equilibre)
+                                + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*2
+                                + GetTalent("Discipline").Level*2;
                 }
                 int b = 0;
                 if (classeChar != null)
@@ -351,11 +355,18 @@ namespace Calculateur.Backend
 
                 _enduranceStore = 5*GetAspectValue(Aspect.Acier) 
                     + 5*GetAspectValue(Aspect.Equilibre)
-                    + 5*(5 + GetLevel());
+                    + 5*mass;
                 _enduranceStore += GetTalent("Endurance").Level*10;
                 if (classeChar != null)
                 {
                     _enduranceStore += classeChar.EnduranceRatio*GetLevel();
+                }
+                if (classeChar != null)
+                {
+                    if (classeChar.StatBonus.Contains("PE"))
+                    {
+                        _enduranceStore += GetBonusStatValue("PE");
+                    }
                 }
                 _enduranceStore += RacialRessources[Ressource.PE];
                 Debug.Assert(_enduranceStore != null, "_enduranceStore != null");
@@ -375,8 +386,9 @@ namespace Calculateur.Backend
 
                     maxTalent.Sort();
                     _fatigueStore = Math.Max(GetAspectValue(Aspect.Feu), GetAspectValue(Aspect.Acier))
-                                    + GetAspectValue(Aspect.Equilibre)*2
-                                    + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]) * 2;
+                                    + GetAspectValue(Aspect.Equilibre)
+                                    + 2*GetTalent("Vigueur").Level
+                                    + 2*(maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2]);
                 }
 
                 int b = 0;
@@ -400,6 +412,7 @@ namespace Calculateur.Backend
             }
         }
 
+        [Obsolete]
         public int PeIndem
         {
             get
@@ -428,9 +441,9 @@ namespace Calculateur.Backend
                                            select item.Level).ToList();
                     maxTalent.Sort();
                     _manaStore = Math.Max(GetAspectValue(Aspect.Arcane), GetAspectValue(Aspect.Terre))*2
-                                 + GetAspectValue(Aspect.Equilibre)*2
-                                 + (maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])*4
-                                 + GetTalent("Meditation").Level*4;
+                                 + 2*GetAspectValue(Aspect.Equilibre)
+                                 + 4*(maxTalent[maxTalent.Count - 1] + maxTalent[maxTalent.Count - 2])
+                                 + 4*GetTalent("Meditation").Level;
                 }
                 int b = 0;
                 if (classeChar != null)
@@ -492,10 +505,10 @@ namespace Calculateur.Backend
             {
                 switch (classeChar.StatBonus.IndexOf(name))
                 {
-                    case 1:
+                    case 0:
                         b = Convert.ToInt32(Math.Truncate((double)(5 + GetLevel()) / 2));
                         break;
-                    case 2:
+                    case 1:
                         b = Convert.ToInt32(Math.Truncate((double)(4 + GetLevel()) / 2));
                         break;
                 }
@@ -504,13 +517,13 @@ namespace Calculateur.Backend
             {
                 switch (classeChar.StatBonus.IndexOf(name))
                 {
-                    case 1:
+                    case 0:
                         b = Convert.ToInt32(Math.Truncate((double)(6 + GetLevel()) / 3));
                         break;
-                    case 2:
+                    case 1:
                         b = Convert.ToInt32(Math.Truncate((double)(5 + GetLevel()) / 3));
                         break;
-                    case 3:
+                    case 2:
                         b = Convert.ToInt32(Math.Truncate((double)(4 + GetLevel()) / 3));
                         break;
                 }
@@ -519,16 +532,16 @@ namespace Calculateur.Backend
             {
                 switch (classeChar.StatBonus.IndexOf(name))
                 {
-                    case 1:
+                    case 0:
                         b = Convert.ToInt32(Math.Truncate((double)(7 + GetLevel()) / 4));
                         break;
-                    case 2:
+                    case 1:
                         b = Convert.ToInt32(Math.Truncate((double)(6 + GetLevel()) / 4));
                         break;
-                    case 3:
+                    case 2:
                         b = Convert.ToInt32(Math.Truncate((double)(5 + GetLevel()) / 4));
                         break;
-                    case 4:
+                    case 3:
                         b = Convert.ToInt32(Math.Truncate((double)(4 + GetLevel()) / 4));
                         break;
                 }
