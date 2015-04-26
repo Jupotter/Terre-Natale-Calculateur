@@ -50,6 +50,11 @@ namespace Calculateur.ViewModel
             get { return character == null ? 0 : character.Karma(); }
         }
 
+        public int Speed
+        {
+            get { return character == null ? 0 : 10 + character.GetTalent("Rapidité").Level; }
+        }
+
         public string RacialBonuses
         {
             get
