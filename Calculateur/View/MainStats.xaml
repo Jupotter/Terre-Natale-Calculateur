@@ -36,7 +36,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Content="Arcane" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                    <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Arcane, Mode=OneWay}" VerticalAlignment="Top"
+                    <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Aspects.Arcane, Mode=OneWay}" VerticalAlignment="Top"
                              Grid.Row="1" Style="{StaticResource NumberBox}"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0">
@@ -45,7 +45,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Eau" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                    <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Eau, Mode=OneWay}" VerticalAlignment="Top" IsReadOnly="True" Grid.Row="1"
+                    <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Aspects.Eau, Mode=OneWay}" VerticalAlignment="Top" IsReadOnly="True" Grid.Row="1"
                              Style="{Binding Mode=OneWay, Source={StaticResource NumberBox}}"/>
                 </Grid>
                 <Grid Grid.Column="0" Grid.Row="1">
@@ -54,7 +54,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Vent" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                    <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Vent, Mode=OneWay}" VerticalAlignment="Top"
+                    <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Aspects.Vent, Mode=OneWay}" VerticalAlignment="Top"
                              Grid.Row="1" Style="{StaticResource NumberBox}"/>
                 </Grid>
                 <Grid Grid.Column="2" Grid.Row="1">
@@ -63,7 +63,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Terre" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="0"/>
-                    <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Terre, Mode=OneWay}" VerticalAlignment="Top"
+                    <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Aspects.Terre, Mode=OneWay}" VerticalAlignment="Top"
                              Grid.Row="1" Style="{StaticResource NumberBox}"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="2">
@@ -72,7 +72,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Feu" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                    <TextBox Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Feu, Mode=OneWay}" VerticalAlignment="Top"
+                    <TextBox Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Aspects.Feu, Mode=OneWay}" VerticalAlignment="Top"
                              Style="{StaticResource NumberBox}"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="1">
@@ -81,7 +81,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Équilibre" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="58.63"/>
-                    <TextBox Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Equilibre, Mode=OneWay}" VerticalAlignment="Top"
+                    <TextBox Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Aspects.Equilibre, Mode=OneWay}" VerticalAlignment="Top"
                              Style="{StaticResource NumberBox}"/>
                 </Grid>
                 <Grid Grid.Column="2" Grid.Row="2">
@@ -90,7 +90,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Acier" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                    <TextBox Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Acier, Mode=OneWay}" VerticalAlignment="Top"
+                    <TextBox Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Aspects.Acier, Mode=OneWay}" VerticalAlignment="Top"
                              Style="{StaticResource NumberBox}"/>
                 </Grid>
                 <Button Grid.Row="0" Grid.Column="2" 
@@ -101,7 +101,7 @@
                         IsEnabled="{Binding CanSetAspectBonus, Mode=OneWay}"/>
             </Grid>
         </GroupBox>
-        <GroupBox Grid.Column="1" Grid.Row="0"  Header="Statistiques">
+        <GroupBox Grid.Column="1" Grid.Row="0"  Header="Ressources">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -140,6 +140,10 @@
                 <Label Grid.Column="0" Content="Karma:" HorizontalContentAlignment="Right" Margin="0" Grid.Row="5"/>
                 <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Karma, Mode=OneWay}" Margin="0"
                          Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Style="{StaticResource NumberBox}"/>
+                <Label Grid.Column="0" Content="Actions:" HorizontalContentAlignment="Right" Margin="0" Grid.Row="6"/>
+                <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Karma, Mode=OneWay}" Margin="0"
+                         Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Style="{StaticResource NumberBox}"/>
             </Grid>
         </GroupBox>

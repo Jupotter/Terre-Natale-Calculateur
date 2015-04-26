@@ -193,6 +193,7 @@
     <Compile Include="ViewModel\Bijoux.cs" />
     <Compile Include="ViewModel\ClassPanel.cs" />
     <Compile Include="ViewModel\MainStats.cs" />
+    <Compile Include="ViewModel\MainStatsAspects.cs" />
     <Compile Include="ViewModel\MainWindow.cs" />
     <Compile Include="ViewModel\NewCharacter.cs" />
     <Compile Include="ViewModel\SavingThrow.cs" />
