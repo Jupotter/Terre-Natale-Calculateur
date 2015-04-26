@@ -13,7 +13,11 @@ namespace Calculateur.ViewModel
         {
             get
             {
-                return character == null ? 0 : character.Willpower + 1;
+                if (character == null) 
+                    return 0;
+                return 2
+                       + character.GetTalent("Volonté").Level
+                       + Math.Max(character.GetAspectValue(Aspect.Arcane), character.GetAspectValue(Aspect.Feu))/2;
             }
         }
 
@@ -21,7 +25,11 @@ namespace Calculateur.ViewModel
         {
             get
             {
-                return character == null ? 0 : character.Robustesse + 1;
+                if (character == null)
+                    return 0;
+                return 2
+                       + character.GetTalent("Endurance").Level
+                       + Math.Max(character.GetAspectValue(Aspect.Acier), character.GetAspectValue(Aspect.Terre)) / 2;
             }
         }
 
@@ -29,8 +37,17 @@ namespace Calculateur.ViewModel
         {
             get
             {
-                return character == null ? 0 : character.Reflex + 1;
+                if (character == null)
+                    return 0;
+                return 2
+                       + character.GetTalent("Esquive").Level
+                       + Math.Max(character.GetAspectValue(Aspect.Eau), character.GetAspectValue(Aspect.Vent)) / 2;
             }
+        }
+
+        public int WillpowerAjust
+        {
+            get { return WillpowerAjustBase + WillpowerAjustBonus; }
         }
 
         public int WillpowerAjustBase
@@ -39,7 +56,8 @@ namespace Calculateur.ViewModel
             {
                 if (character == null)
                     return 0;
-                return Math.Max(character.GetAspectValue(Aspect.Arcane), character.GetAspectValue(Aspect.Feu));
+                return (Math.Max(character.GetAspectValue(Aspect.Arcane), character.GetAspectValue(Aspect.Feu))
+                        + 1)/2;
             }
         }
 
@@ -56,13 +74,19 @@ namespace Calculateur.ViewModel
             }
         }
 
+        public int ReflexeAjust
+        {
+            get { return ReflexeAjustBase + ReflexeAjustBonus; }
+        }
+
         public int ReflexeAjustBase
         {
             get
             {
                 if (character == null)
                     return 0;
-                return Math.Max(character.GetAspectValue(Aspect.Eau), character.GetAspectValue(Aspect.Vent));
+                return (Math.Max(character.GetAspectValue(Aspect.Eau), character.GetAspectValue(Aspect.Vent))
+                    +1)/2;
             }
         }
 
@@ -79,13 +103,19 @@ namespace Calculateur.ViewModel
             }
         }
 
+        public int RobustAjust
+        {
+            get { return RobustAjustBase + RobustAjustBonus; }
+        }
+
         public int RobustAjustBase
         {
             get
             {
                 if (character == null)
                     return 0;
-                return Math.Max(character.GetAspectValue(Aspect.Acier), character.GetAspectValue(Aspect.Terre));
+                return (Math.Max(character.GetAspectValue(Aspect.Acier), character.GetAspectValue(Aspect.Terre))
+                    +1)/2;
             }
         }
 

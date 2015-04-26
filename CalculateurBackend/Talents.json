@@ -10,7 +10,7 @@
 ** 7 = Equilibre
 */
 /*
-** Id Max : 98
+** Id Max : 100
 */
 [
     /*
@@ -160,6 +160,22 @@
         "SecondaryAspect": 0,
         "Type": 0,
         "Id": 21,
+        "Savoir": true,
+    },
+    {
+        "Name": "Intelligence",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 99,
+        "Savoir": true,
+    },
+    {
+        "Name": "Méditation",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 100,
         "Savoir": true,
     },
     {
