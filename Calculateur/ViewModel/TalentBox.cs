@@ -2,6 +2,7 @@
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
 using Calculateur.Backend;
+using Xceed.Wpf.DataGrid.Converters;
 
 namespace Calculateur.ViewModel
 {
@@ -12,12 +13,22 @@ namespace Calculateur.ViewModel
 
         public int Level
         {
-            get { return talent.Level; }
+            get
+            {
+                if (talent == null)
+                    return 3;
+                return talent.Level;
+            }
         }
 
         public string Name
         {
-            get { return talent.Name; }
+            get
+            {
+                if (talent == null)
+                    return "Talent name";
+                return talent.Name;
+            }
         }
 
         public DelegateCommand AddLevelCommand
@@ -30,8 +41,16 @@ namespace Calculateur.ViewModel
             get { return new DelegateCommand(RemoveLevel, () => CanLevelDown);}
         }
 
+        public TalentBox()
+            : this(null, null)
+        {
+
+        }
+
         public TalentBox(Talent talent, Character character)
         {
+            if (character == null)
+                return;
             this.talent = talent;
             this.character = character;
             character.ExperienceChanged += CharacterOnExperienceChanged;
@@ -57,13 +76,20 @@ namespace Calculateur.ViewModel
 
         private bool CanLevelUp
         {
-            get { return talent.Level <= 5 && character.ExperienceRemaining >= (talent.GetXpNeeded() - talent.XPCost); }
+            get
+            {
+                if (talent == null)
+                    return false;
+                return talent.Level <= 5 && character.ExperienceRemaining >= (talent.GetXpNeeded() - talent.XPCost);
+            }
         }
 
         private bool CanLevelDown
         {
             get
             {
+                if (talent == null)
+                    return false;
                 if ((talent.Level > 1 && talent.HaveBonus))
                 {
                     return true;

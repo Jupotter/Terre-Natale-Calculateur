@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModel="clr-namespace:Calculateur.ViewModel"
-             mc:Ignorable="d" Height="27" Width="Auto"
+             mc:Ignorable="d" Width="Auto"
              d:DataContext="{d:DesignInstance viewModel:TalentBox}">
     <Grid Margin="0" FlowDirection="LeftToRight">
         <Grid.ColumnDefinitions>
@@ -12,11 +12,49 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="0" Content="{Binding Name, FallbackValue=Talent Name}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Button Content="-" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" Command="{Binding RemoveLevelCommand}"/>
-            <ProgressBar Width="100" Margin="2" Maximum="5" Value="{Binding Level, Mode=OneWay}" />
-            <Button Content="+" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" Command="{Binding AddLevelCommand}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" 
+                   Text="Talent Name"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top"
+                   Margin="5"/>
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="2"
+            Orientation="Horizontal"
+            FlowDirection="LeftToRight"
+            VerticalAlignment="Center">
+            <TextBlock Text="Jet:"
+                       Style="{StaticResource NumberBoxLabel}"/>
+            <TextBox Style="{StaticResource NumberBox}" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="0"
+            Orientation="Horizontal"
+            FlowDirection="LeftToRight"
+            VerticalAlignment="Center">
+            <ToggleButton Content="Spécialisation" VerticalAlignment="Center"
+                          Margin="2"
+                          Width="90"
+                          Height="23"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1"  Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button Content="-" 
+                    Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" 
+                    Command="{Binding RemoveLevelCommand}"
+                    Margin="2"/>
+            <ProgressBar Width="100" 
+                         Margin="2" 
+                         Maximum="5" 
+                         Value="{Binding Level, Mode=OneWay}" />
+            <Button Content="+" 
+                    Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" 
+                    Command="{Binding AddLevelCommand}"
+                    Margin="2"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -10,12 +10,27 @@
              d:DesignHeight="300" d:DesignWidth="300"
     d:DataContext ="{d:DesignInstance viewModel:TalentGroupBox}">
     <GroupBox Header="{Binding Name}">
-        <ItemsControl ItemsSource="{Binding Talents}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <view:TalentBox />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel
+                FlowDirection="LeftToRight"
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource NumberBoxLabel}"
+                       Text="Ajustement:" />
+                <TextBox Style="{StaticResource NumberBox}"
+                       Text="0" 
+                         Margin="0,2"/>
+            </StackPanel>
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding Talents}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <view:TalentBox />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
     </GroupBox>
 </UserControl>
