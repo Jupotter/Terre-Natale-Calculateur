@@ -246,7 +246,8 @@
       "Acier": 1,
       "Equilibre": 0
     },
-    "bonusRaciaux": "#PS max +1, Infravision, PE (agonie) +2 +2xVolonté"
+    "bonusRaciaux": "#PS max +1, Infravision, PE (agonie) +2 +2xVolonté",
+    "Mass": 6
   },
   {
     "Id": 11,
@@ -270,7 +271,8 @@
       "Acier": 0,
       "Equilibre": 0
     },
-    "bonusRaciaux": "#PS max +1, Altération +1 contre Robustesse adverse, Spécialisation Attaque ou Défense (au choix)"
+    "bonusRaciaux": "#PS max +1, Altération +1 contre Robustesse adverse, Spécialisation Attaque ou Défense (au choix)",
+    "Mass": 6
   },
   {
     "Id": 12,
@@ -295,7 +297,8 @@
       "Acier": 0,
       "Equilibre": 1
     },
-    "bonusRaciaux": "#PS max +1,Spécialisation Savoir / Artisanats / Alchimie (au choix), Mémoire : Peut sociliter une aide quant à une information passé"
+    "bonusRaciaux": "#PS max +1,Spécialisation Savoir / Artisanats / Alchimie (au choix), Mémoire : Peut sociliter une aide quant à une information passé",
+    "Mass": 6
   },
   {
     "Id": 13,

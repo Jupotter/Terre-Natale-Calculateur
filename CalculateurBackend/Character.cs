@@ -297,7 +297,7 @@ namespace Calculateur.Backend
 
         private int mass
         {
-            get { return 5 + GetLevel(); }
+            get { return Race == null ? 5 : Race.Mass + GetLevel(); }
         }
 
         public int Ps

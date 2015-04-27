@@ -8,6 +8,9 @@ namespace Calculateur.Backend
         public readonly List<int> Talents = new List<int>();
         public readonly Dictionary<Aspect, int> AspectBonus = new Dictionary<Aspect,int>();
         public string bonusRaciaux="";
+
+        public int Mass { get; set; }
+
         public Race(string name)
         {
             Name = name;
