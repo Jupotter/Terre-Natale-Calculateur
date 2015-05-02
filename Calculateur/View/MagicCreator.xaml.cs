@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Calculateur.View
 {
     /// <summary>
-    /// Logique d'interaction pour ListeDeSort.xaml
+    /// Logique d'interaction pour MaicCreator.xaml
     /// </summary>
-    public partial class ListeDeSort : UserControl
+    public partial class MaicCreator : Window
     {
-        public ListeDeSort()
+        public MaicCreator()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

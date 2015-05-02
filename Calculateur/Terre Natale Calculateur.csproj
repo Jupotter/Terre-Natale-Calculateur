@@ -148,6 +148,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\MagicCreator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\NewCharacter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -219,6 +223,9 @@
     </Compile>
     <Compile Include="View\ListeDeSort.xaml.cs">
       <DependentUpon>ListeDeSort.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MagicCreator.xaml.cs">
+      <DependentUpon>MagicCreator.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\NewCharacter.xaml.cs">
       <DependentUpon>NewCharacter.xaml</DependentUpon>

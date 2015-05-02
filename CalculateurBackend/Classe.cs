@@ -17,7 +17,6 @@ namespace Calculateur.Backend
         String _Maitrise_de_base;
         String _TalentBonus;
         String _MaitriseSpecial;
-
         private int enduranceRatio = 4;
 
 
