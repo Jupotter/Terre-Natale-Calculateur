@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" 
-                   Text="Talent Name"
+                   Text="{Binding Name, Mode=OneWay}"
                    HorizontalAlignment="Left" 
                    VerticalAlignment="Top"
                    Margin="5"/>
@@ -29,7 +29,8 @@
             VerticalAlignment="Center">
             <TextBlock Text="Jet:"
                        Style="{StaticResource NumberBoxLabel}"/>
-            <TextBox Style="{StaticResource NumberBox}" />
+            <TextBox Style="{StaticResource NumberBox}" 
+                     Text="{Binding Throw, Mode=OneWay}"/>
         </StackPanel>
         <StackPanel
             Grid.Row="1"
@@ -37,10 +38,10 @@
             Orientation="Horizontal"
             FlowDirection="LeftToRight"
             VerticalAlignment="Center">
-            <ToggleButton Content="Spécialisation" VerticalAlignment="Center"
+            <!--<ToggleButton Content="Spécialisation" VerticalAlignment="Center"
                           Margin="2"
                           Width="90"
-                          Height="23"/>
+                          Height="23"/>-->
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="1"  Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right" VerticalAlignment="Center">
             <Button Content="-" 

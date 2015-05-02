@@ -31,6 +31,19 @@ namespace Calculateur.ViewModel
             }
         }
 
+        public int Throw
+        {
+            get
+            {
+                if (talent == null)
+                    return 0;
+                return 2
+                       + Level
+                       + character.GetAspectValue(talent.PrimaryAspect)/2;
+            }
+
+        }
+
         public DelegateCommand AddLevelCommand
         {
             get { return new DelegateCommand(AddLevel, () => CanLevelUp); }

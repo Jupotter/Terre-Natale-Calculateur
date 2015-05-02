@@ -8,7 +8,8 @@
              x:Class="Calculateur.View.TalentGroupBox"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-    d:DataContext ="{d:DesignInstance viewModel:TalentGroupBox}">
+    d:DataContext ="{d:DesignInstance viewModel:TalentGroupBox}"
+    DataContextChanged="OnContextChanged">
     <GroupBox Header="{Binding Name}">
         <Grid>
             <Grid.RowDefinitions>
@@ -17,11 +18,11 @@
             </Grid.RowDefinitions>
             <StackPanel
                 FlowDirection="LeftToRight"
-                Orientation="Horizontal">
+                Orientation="Horizontal" Name="AjustmentPanel">
                 <TextBlock Style="{StaticResource NumberBoxLabel}"
                        Text="Ajustement:" />
                 <TextBox Style="{StaticResource NumberBox}"
-                       Text="0" 
+                       Text="{Binding Ajustement, Mode=OneWay}"
                          Margin="0,2"/>
             </StackPanel>
             <ItemsControl Grid.Row="1" ItemsSource="{Binding Talents}">
