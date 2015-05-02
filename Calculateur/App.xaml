@@ -17,6 +17,21 @@
             <Setter Property="HorizontalAlignment" Value="Right" />
             <Setter Property="Margin" Value="4" />
         </Style>
+        <BitmapImage x:Key="Loi" UriSource="Images/Loi.png"/>
+        <BitmapImage x:Key="LoiA" UriSource="Images/LoiA.png"/>
+        <BitmapImage x:Key="Chaos" UriSource="Images/Chaos.png"/>
+        <BitmapImage x:Key="ChaosA" UriSource="Images/ChaosA.png"/>
+        <BitmapImage x:Key="Arcane" UriSource="Images/Arcane.png"/>
+        <BitmapImage x:Key="ArcaneA" UriSource="Images/ArcaneA.png"/>
+        <BitmapImage x:Key="Terre" UriSource="Images/Terre.png"/>
+        <BitmapImage x:Key="TerreA" UriSource="Images/TerreA.png"/>
+        <BitmapImage x:Key="Vent" UriSource="Images/Vent.png"/>
+        <BitmapImage x:Key="VentA" UriSource="Images/VentA.png"/>
+        <BitmapImage x:Key="Feu" UriSource="Images/Feu.png"/>
+        <BitmapImage x:Key="FeuA" UriSource="Images/FeuA.png"/>
+        <BitmapImage x:Key="Eau" UriSource="Images/Eau.png"/>
+        <BitmapImage x:Key="EauA" UriSource="Images/EauA.png"/>
+
     </Application.Resources>
 
 </Application>
