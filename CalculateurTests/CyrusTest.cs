@@ -52,7 +52,7 @@ namespace Calculateur.Tests
                     new SerialisableTalent()
                     {
                         id = 3,
-                        level = 3,
+                        level = 2,
                         bonus = true,
                     },
                     new SerialisableTalent()
@@ -113,7 +113,7 @@ namespace Calculateur.Tests
                     {
                         id = 22,
                         level = 1,
-                        bonus = false,
+                        bonus = true,
                     },
                     new SerialisableTalent()
                     {
@@ -136,6 +136,12 @@ namespace Calculateur.Tests
                     new SerialisableTalent()
                     {
                         id = 46,
+                        level = 1,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 51,
                         level = 1,
                         bonus = false,
                     },
@@ -172,8 +178,10 @@ namespace Calculateur.Tests
             TalentsManager.Instance.Initialize();
             ClassManager.Instance.Initialize();
             RacesManager.Instance.Initialize();
+            Bijouxmanager.Instance.Initialize();
 
             character = new Character(source);
+            CharacterManager.Current = character;
 
             character.SetBonus(
                 RacesManager.Instance.GetRace(1).AspectBonus,
@@ -184,7 +192,9 @@ namespace Calculateur.Tests
                 },
                 RacesManager.Instance.GetRace(1)
                 );
-
+            character.Inventory.Ring1.Material = Bijouxmanager.Instance.getFromName("Spinelle");
+            character.Inventory.Ring1.Quality = 3;
+            
         }
 
         [Fact]
@@ -197,6 +207,12 @@ namespace Calculateur.Tests
             Assert.Equal(6, character.GetAspectValue(Aspect.Vent));
             Assert.Equal(1, character.GetAspectValue(Aspect.Terre));
             Assert.Equal(6, character.GetAspectValue(Aspect.Equilibre));
+        }
+
+        [Fact]
+        public void ExperienceTest()
+        {
+            Assert.Equal(0, character.ExperienceRemaining);
         }
 
         [Fact]

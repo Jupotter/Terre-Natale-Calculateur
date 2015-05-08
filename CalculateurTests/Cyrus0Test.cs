@@ -71,7 +71,7 @@ namespace Calculateur.Tests
         [Fact]
         public void PMTest()
         {
-            Assert.Equal(10, character.Chi);
+            Assert.Equal(10, character.Mana);
         }
 
         [Fact]
