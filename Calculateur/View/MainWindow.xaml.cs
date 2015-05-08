@@ -37,5 +37,10 @@ namespace Calculateur.View
         {
             new AboutDialog().ShowDialog();
         }
+
+        private void OpenMagic(object sender, RoutedEventArgs e)
+        {
+            new MagicCreator().Show();
+        }
     }
 }

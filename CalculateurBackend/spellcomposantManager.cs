@@ -37,7 +37,9 @@ namespace Calculateur.Backend
             }
             if(_spellCompo.Count==0)
             {
-                _spellCompo.Add(new SpellComposant(typeComposant.Effet,
+                _spellCompo.Add(new SpellComposant(0,
+                    "Flamme",
+                    typeComposant.Effet,
                     "Dégat de feu %ip%, dégat de base : %ip2% + Cataliseur",
                     130,
                     30,

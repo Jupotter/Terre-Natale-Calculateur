@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace Calculateur.View
 {
     /// <summary>
-    /// Logique d'interaction pour ListeDeSort.xaml
+    /// Logique d'interaction pour EffetIP.xaml
     /// </summary>
-    public partial class ListeDeSort : UserControl
+    public partial class EffetIP : UserControl
     {
-        public ListeDeSort()
+        public EffetIP()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            new CreatorSort().Show();
         }
     }
 }

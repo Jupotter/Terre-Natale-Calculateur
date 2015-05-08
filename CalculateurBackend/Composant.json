@@ -12,6 +12,8 @@
 
 [
     {
+        "ID": 0,
+        "Nom": "Flamme",
         "typeCompo": 0,
         "descritption": "Dégat de feu %ip%, dégat de base : %ip2% + Cataliseur",
         "ratioIp": 130,

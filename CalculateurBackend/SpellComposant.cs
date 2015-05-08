@@ -8,10 +8,12 @@ namespace Calculateur.Backend
 {
     public enum typeComposant { Effet, Bonus, Condition, Base }
     public enum TypeIp { Giver, Getter }
-    public enum Ecole { Alteration, Guerison, Convocation, Illusion, Enchantement, Abjuration, Destruction, Necromancie, Evocation, Metamorphose }
+    public enum Ecole { Creation, Guérison, Convocation, Illusion, Enchantement, Abjuration, Destruction}
     public enum Element { Arcane, Eau, Feu, Terre, Vent, Loi, Chaos, Tous }
     public class SpellComposant
     {
+        public int ID;
+        public string Nom;
         public typeComposant typeCompo;
         public string descritption;
         public int ratioIp;
@@ -24,10 +26,27 @@ namespace Calculateur.Backend
         public int PmMax;
         public int inc;
         public int Place;
-        public SpellComposant(typeComposant typeC,string desc,int ratioip,int ratioip2,Ecole school, List<Element> elems, int ipbn,TypeIp tip,int PmMini,int PmMaxi,int Incantation,int plRequ)
+
+        public string GetName
+        {
+            get
+            {
+                return Nom;
+            }
+        }
+        public TypeIp GetType
+        {
+            get
+            {
+                return typeIp;
+            }
+        }
+        
+        public SpellComposant(int IDCcomp,string nom,typeComposant typeC,string desc,int ratioip,int ratioip2,Ecole school, List<Element> elems, int ipbn,TypeIp tip,int PmMini,int PmMaxi,int Incantation,int plRequ)
         : this()
         {
-
+            ID = IDCcomp;
+            Nom = nom;
              typeCompo=typeC;
              descritption=desc;
              ratioIp=ratioip;

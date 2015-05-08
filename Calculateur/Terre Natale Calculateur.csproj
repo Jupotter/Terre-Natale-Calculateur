@@ -145,6 +145,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\EffetIP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ListeDeSort.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,11 +161,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\RepartirIP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\SecondaryStats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Sort.xaml">
+    <Page Include="View\CreatorSort.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -201,10 +209,14 @@
     <Compile Include="ViewModel\AspectBonusForm.cs" />
     <Compile Include="ViewModel\Bijoux.cs" />
     <Compile Include="ViewModel\ClassPanel.cs" />
+    <Compile Include="ViewModel\CreatorSort.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="ViewModel\ListeDeSort.cs" />
     <Compile Include="ViewModel\MainStats.cs" />
     <Compile Include="ViewModel\MainWindow.cs" />
     <Compile Include="ViewModel\NewCharacter.cs" />
+    <Compile Include="ViewModel\RepartirIP.cs" />
     <Compile Include="ViewModel\SavingThrow.cs" />
     <Compile Include="ViewModel\SecondaryStats.cs" />
     <Compile Include="ViewModel\SecondaryStatsMagic.cs" />
@@ -226,6 +238,9 @@
     <Compile Include="View\ClassPanel.xaml.cs">
       <DependentUpon>ClassPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EffetIP.xaml.cs">
+      <DependentUpon>EffetIP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ListeDeSort.xaml.cs">
       <DependentUpon>ListeDeSort.xaml</DependentUpon>
     </Compile>
@@ -235,11 +250,14 @@
     <Compile Include="View\NewCharacter.xaml.cs">
       <DependentUpon>NewCharacter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RepartirIP.xaml.cs">
+      <DependentUpon>RepartirIP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SecondaryStats.xaml.cs">
       <DependentUpon>SecondaryStats.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Sort.xaml.cs">
-      <DependentUpon>Sort.xaml</DependentUpon>
+    <Compile Include="View\CreatorSort.xaml.cs">
+      <DependentUpon>CreatorSort.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TalentBox.xaml.cs">
       <DependentUpon>TalentBox.xaml</DependentUpon>

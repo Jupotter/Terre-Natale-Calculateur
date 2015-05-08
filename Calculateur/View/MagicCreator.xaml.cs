@@ -17,9 +17,9 @@ namespace Calculateur.View
     /// <summary>
     /// Logique d'interaction pour MaicCreator.xaml
     /// </summary>
-    public partial class MaicCreator : Window
+    public partial class MagicCreator : Window
     {
-        public MaicCreator()
+        public MagicCreator()
         {
             InitializeComponent();
         }

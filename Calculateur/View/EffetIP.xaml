@@ -1,0 +1,25 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:Backend="clr-namespace:Calculateur.Backend;assembly=TerreNatale" x:Class="Calculateur.View.EffetIP" 
+             mc:Ignorable="d"
+             d:DesignHeight="23" d:DesignWidth="262">
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="EffetName" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="{Binding GetName}" VerticalAlignment="Top" Width="177" >
+            <TextBlock.DataContext>
+                <Backend:SpellComposant/>
+            </TextBlock.DataContext>
+        </TextBlock>
+        <xctk:IntegerUpDown x:Name="IpInvest" Grid.Column="1" />
+    </Grid>
+</UserControl>
