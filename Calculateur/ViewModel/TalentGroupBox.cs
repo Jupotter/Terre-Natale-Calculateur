@@ -12,6 +12,7 @@ namespace Calculateur.ViewModel
 
         private Character character;
         private TalentTest talentTest;
+        private Aspect aspect = Aspect.None;
 
         private TalentGroupBox()
         {
@@ -37,8 +38,23 @@ namespace Calculateur.ViewModel
 
         public String Name { get; set; }
 
-        public void SetTalentsOption(TalentTest test)
+        public int Ajustement {
+            get
+            {
+                if (Aspect.None == Aspect)
+                    return 0;
+                return (character.GetAspectValue(Aspect) + 1)/2;
+            } 
+        }
+
+        public Aspect Aspect
         {
+            get { return aspect; }
+        }
+
+        public void SetTalentsOption(TalentTest test, Aspect aspect = Aspect.None)
+        {
+            this.aspect = aspect;
             talentTest = test;
         }
 

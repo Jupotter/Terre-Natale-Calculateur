@@ -20,7 +20,7 @@ namespace Calculateur.ViewModel
                 {
                     var box = new TalentGroupBox(character);
                     var local = aspect;
-                    box.SetTalentsOption(talent => talent.PrimaryAspect == local && talent.SecondaryAspect == Aspect.None && !talent.Savoir);
+                    box.SetTalentsOption(talent => talent.PrimaryAspect == local && talent.SecondaryAspect == Aspect.None && !talent.Savoir, local);
                     box.Name = String.Format("Talents de {0}", aspect);
                     ret.Add(box);
                 }

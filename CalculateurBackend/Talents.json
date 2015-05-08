@@ -10,7 +10,7 @@
 ** 7 = Equilibre
 */
 /*
-** Id Max : 98
+** Id Max : 100
 */
 [
     /*
@@ -163,6 +163,22 @@
         "Savoir": true,
     },
     {
+        "Name": "Intelligence",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 99,
+        "Savoir": true,
+    },
+    {
+        "Name": "Méditation",
+        "PrimaryAspect": 5,
+        "SecondaryAspect": 0,
+        "Type": 0,
+        "Id": 100,
+        "Savoir": true,
+    },
+    {
         "Name": "Médecine",
         "PrimaryAspect": 5,
         "SecondaryAspect": 0,
@@ -187,56 +203,56 @@
         "Name": "Destruction",
         "PrimaryAspect": 5,
         "SecondaryAspect": 2,
-        "Type": 1,
+        "Type": 2,
         "Id": 25,
     },
     {
         "Name": "Maléfice",
         "PrimaryAspect": 5,
         "SecondaryAspect": 3,
-        "Type": 1,
+        "Type": 2,
         "Id": 26,
     },
     {
         "Name": "Guérison",
         "PrimaryAspect": 5,
         "SecondaryAspect": 1,
-        "Type": 1,
+        "Type": 2,
         "Id": 27,
     },
     {
         "Name": "Enchantement",
         "PrimaryAspect": 5,
         "SecondaryAspect": 4,
-        "Type": 1,
+        "Type": 2,
         "Id": 28,
     },
     {
         "Name": "Convocation",
         "PrimaryAspect": 5,
         "SecondaryAspect": 4,
-        "Type": 1,
+        "Type": 2,
         "Id": 29,
     },
     {
         "Name": "Creation",
         "PrimaryAspect": 5,
         "SecondaryAspect": 3,
-        "Type": 1,
+        "Type": 2,
         "Id": 30,
     },
     {
         "Name": "Abjuration",
         "PrimaryAspect": 5,
         "SecondaryAspect": 2,
-        "Type": 1,
+        "Type": 2,
         "Id": 31,
     },
     {
         "Name": "Illusion",
         "PrimaryAspect": 5,
         "SecondaryAspect": 1,
-        "Type": 1,
+        "Type": 2,
         "Id": 32,
     },
     {
@@ -334,49 +350,49 @@
         "Name": "Feu",
         "PrimaryAspect": 5,
         "SecondaryAspect": 2,
-        "Type": 2,
+        "Type": 1,
         "Id": 49,
     },
     {
         "Name": "Terre",
         "PrimaryAspect": 5,
         "SecondaryAspect": 4,
-        "Type": 2,
+        "Type": 1,
         "Id": 50,
     },
     {
         "Name": "Eau",
         "PrimaryAspect": 5,
         "SecondaryAspect": 1,
-        "Type": 2,
+        "Type": 1,
         "Id": 51,
     },
     {
         "Name": "Vent",
         "PrimaryAspect": 5,
         "SecondaryAspect": 3,
-        "Type": 2,
+        "Type": 1,
         "Id": 52,
     },
     {
         "Name": "Arcane",
         "PrimaryAspect": 5,
         "SecondaryAspect": 5,
-        "Type": 2,
+        "Type": 1,
         "Id": 53,
     },
     {
         "Name": "Chaos",
         "PrimaryAspect": 5,
         "SecondaryAspect": 5,
-        "Type": 2,
+        "Type": 1,
         "Id": 54,
     },
     {
         "Name": "Loi",
         "PrimaryAspect": 5,
         "SecondaryAspect": 5,
-        "Type": 2,
+        "Type": 1,
         "Id": 55,
     },
     {

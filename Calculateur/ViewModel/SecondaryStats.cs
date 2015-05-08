@@ -26,6 +26,16 @@ namespace Calculateur.ViewModel
             {
                 if (character == null || character.getClasse() == null)
                     return 0;
+                return (int) Math.Floor((4 + character.getClasse().RPE)*1.5);
+            }
+        }
+
+        public int RecoverPS
+        {
+            get
+            {
+                if (character == null || character.getClasse() == null)
+                    return 0;
                 return 4 + character.getClasse().RPE;
             }
         }
@@ -56,8 +66,11 @@ namespace Calculateur.ViewModel
             {
                 if (character == null)
                     return 0;
-                var val = 5 + character.GetAspectValue(Aspect.Vent)/3 - character.penPoid/3;
-                return Math.Max(4, val);
+                var val = 4
+                          + (character.GetTalent("Athléthisme").Level
+                             + character.GetAspectValue(Aspect.Vent)
+                             - character.penPoid)/3;
+                return Math.Max(3, val);
             }
         }
 
@@ -67,7 +80,9 @@ namespace Calculateur.ViewModel
             {
                 if (character == null)
                     return 0;
-                return character.GetAspectValue(Aspect.Vent) - character.penPoid;
+                return character.GetAspectValue(Aspect.Vent)
+                    + character.GetTalent("Rapidité").Level
+                    - character.penPoid;
             }
         }
 
@@ -110,7 +125,10 @@ namespace Calculateur.ViewModel
                 int martial = character.Talents
                     .Where(talent => talent.Type == TalentType.Aptitude && talent.PrimaryAspect == Aspect.Acier)
                     .Sum(talent => talent.Level);
-                return character.GetAspectValue(Aspect.Acier) + character.GetAspectValue(Aspect.Arcane) + martial*2;
+                return character.GetAspectValue(Aspect.Acier) 
+                    + character.GetAspectValue(Aspect.Arcane)
+                    + 2*character.GetTalent("Intelligence").Level
+                    + 2*martial;
             }
         }
 
@@ -123,7 +141,10 @@ namespace Calculateur.ViewModel
                 int spell = character.Talents
                     .Where(talent => talent.Type == TalentType.Aptitude && talent.PrimaryAspect == Aspect.Arcane)
                     .Sum(talent => talent.Level);
-                return character.GetAspectValue(Aspect.Terre)*2 + character.GetAspectValue(Aspect.Arcane)*4 + spell*4;
+                return character.GetAspectValue(Aspect.Terre)*2
+                       + character.GetAspectValue(Aspect.Arcane)*4
+                       + character.GetTalent("Intelligence").Level*4
+                       + spell*4;
             }
         }
 

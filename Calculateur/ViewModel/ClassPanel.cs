@@ -139,8 +139,7 @@ namespace Calculateur.ViewModel
                 if (character == null)
                     return 0;
                 return character.GetTalent("Apprentissage").Level
-                    + character.GetTalent("Maitrise").Level
-                    + character.GetLevel()/2;
+                    + character.GetLevel();
             }
         }
 

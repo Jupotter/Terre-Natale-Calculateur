@@ -24,7 +24,7 @@ namespace Calculateur.ViewModel
             {
                 if (character == null)
                     return 0;
-                return 5 + character.GetAspectValue(Aspect.Vent) + character.GetTalent("Rapidité").Level;
+                return 4 + character.GetAspectValue(Aspect.Vent) + character.GetTalent("Rapidité").Level;
             }
         }
 
@@ -34,17 +34,33 @@ namespace Calculateur.ViewModel
             {
                 if (character == null)
                     return 0;
-                return 4 * character.GetAspectValue(Aspect.Arcane) + character.GetAspectValue(Aspect.Eau);
+                return 2*character.GetAspectValue(Aspect.Arcane)
+                       + 4*character.GetAspectValue(Aspect.Eau)
+                       + character.GetTalent("Méditation").Level;
             }
         }
 
-        public int Intelligence
+        public double Amplification
         {
             get
             {
                 if (character == null)
                     return 0;
-                return character.GetAspectValue(Aspect.Arcane) + character.GetAspectValue(Aspect.Feu);
+                return Math.Floor(0.25*character.GetAspectValue(Aspect.Arcane) 
+                    + 0.5*character.GetAspectValue(Aspect.Feu)
+                    + 0.5*character.GetTalent("Intelligence").Level);
+            }
+        }
+
+        public double Focus
+        {
+            get
+            {
+                if (character == null)
+                    return 0;
+                return Math.Floor(0.5 * character.GetAspectValue(Aspect.Arcane)
+                    + 0.5 * character.GetAspectValue(Aspect.Terre)
+                    + 0.5 * character.GetTalent("Méditation").Level);
             }
         }
 

@@ -23,7 +23,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Column="0" Grid.Row="0" Header="Vitesse">
+        <GroupBox Grid.Column="0" Grid.Row="0" Header="Vitesse"
+                  VerticalAlignment="Top">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -68,6 +69,7 @@
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Column="0" Grid.Row="0"
                            Style="{StaticResource NumberBoxLabel}"
@@ -89,6 +91,11 @@
                            Text="Endurance:"/>
                 <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
                          Text="{Binding RecoverPE, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
+                <TextBlock Grid.Column="0" Grid.Row="4"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Santé:"/>
+                <TextBox Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding RecoverPS, Mode=OneWay}" Style="{StaticResource NumberBox}"/>
             </Grid>
         </GroupBox>
         <GroupBox Grid.Column="0" Grid.Row="1" Header="Sauvegardes">
@@ -117,15 +124,10 @@
                 <TextBox Grid.Column="1" Grid.Row="1"
                          Text="{Binding Willpower, Mode=OneWay}"
                          Style="{StaticResource NumberBox}"
-                         ToolTip="Nombre de dés maximum"/>
+                         ToolTip="Nombre de dés"/>
                 <TextBox Grid.Column="2" Grid.Row="1"
-                         Style="{StaticResource NumberBox}">
-                    <TextBox.Text>
-                        <MultiBinding Converter="{StaticResource SumConverter}" Mode="OneWay">
-                            <Binding Path="WillpowerAjustBase" />
-                            <Binding Path="WillpowerAjustBonus" />
-                        </MultiBinding>
-                    </TextBox.Text>
+                         Style="{StaticResource NumberBox}"
+                         Text="{Binding WillpowerAjust, Mode=OneWay}">
                     <TextBox.ToolTip>
                         <TextBlock>
                             <Run Text="Ajustement Total" /> <LineBreak/>
@@ -140,15 +142,10 @@
                 <TextBox Grid.Column="1" Grid.Row="2"
                          Text="{Binding Robustesse, Mode=OneWay}"
                          Style="{StaticResource NumberBox}"
-                         ToolTip="Nombre de dés maximum"/>
+                         ToolTip="Nombre de dés"/>
                 <TextBox Grid.Column="2" Grid.Row="2"
-                         Style="{StaticResource NumberBox}">
-                    <TextBox.Text>
-                        <MultiBinding Converter="{StaticResource SumConverter}" Mode="OneWay">
-                            <Binding Path="RobustAjustBase" />
-                            <Binding Path="RobustAjustBonus" />
-                        </MultiBinding>
-                    </TextBox.Text>
+                         Style="{StaticResource NumberBox}"
+                         Text="{Binding RobustAjust, Mode=OneWay}">
                     <TextBox.ToolTip>
                         <TextBlock>
                             <Run Text="Ajustement Total" /> <LineBreak/>
@@ -163,15 +160,10 @@
                 <TextBox Grid.Column="1" Grid.Row="3"
                          Text="{Binding Reflex, Mode=OneWay}"
                          Style="{StaticResource NumberBox}"
-                         ToolTip="Nombre de dés maximum"/>
+                         ToolTip="Nombre de dés"/>
                 <TextBox Grid.Column="2" Grid.Row="3"
-                         Style="{StaticResource NumberBox}">
-                    <TextBox.Text>
-                        <MultiBinding Converter="{StaticResource SumConverter}" Mode="OneWay">
-                            <Binding Path="ReflexeAjustBase" />
-                            <Binding Path="ReflexeAjustBonus" />
-                        </MultiBinding>
-                    </TextBox.Text>
+                         Style="{StaticResource NumberBox}"
+                         Text="{Binding ReflexeAjust, Mode=OneWay}">
                     <TextBox.ToolTip>
                         <TextBlock>
                             <Run Text="Ajustement Total" /> <LineBreak/>
@@ -218,19 +210,22 @@
             </Grid>
         </GroupBox>
         <GroupBox
-            Grid.Column="2" Grid.Row="0"
+            Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"
             Header="Magie"
-            DataContext="{Binding MagicStats, Mode=OneWay}">
+            DataContext="{Binding MagicStats, Mode=OneWay}"
+            VerticalAlignment="Top">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Column="0" Grid.Row="0"
                            Style="{StaticResource NumberBoxLabel}"
@@ -254,22 +249,31 @@
                          Style="{StaticResource NumberBox}"/>
                 <TextBlock Grid.Column="0" Grid.Row="2"
                            Style="{StaticResource NumberBoxLabel}"
-                           Text="Concentration:"/>
+                           Text="Amplification:"/>
                 <TextBox Grid.Column="1" Grid.Row="2"
                          TextWrapping="Wrap"
                          Margin="0"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center"
-                         Text="{Binding Concentration, Mode=OneWay}"
+                         Text="{Binding Amplification, Mode=OneWay}"
                          Style="{StaticResource NumberBox}"/>
                 <TextBlock Grid.Column="0" Grid.Row="3"
                            Style="{StaticResource NumberBoxLabel}"
-                           Text="Intelligence:"/>
+                           Text="Concentration:"/>
                 <TextBox Grid.Column="1" Grid.Row="3"
                          TextWrapping="Wrap"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center"
-                         Text="{Binding Intelligence, Mode=OneWay}"
+                         Text="{Binding Concentration, Mode=OneWay}"
+                         Style="{StaticResource NumberBox}"/>
+                <TextBlock Grid.Column="0" Grid.Row="4"
+                           Style="{StaticResource NumberBoxLabel}"
+                           Text="Focus:"/>
+                <TextBox Grid.Column="1" Grid.Row="4"
+                         TextWrapping="Wrap"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Text="{Binding Focus, Mode=OneWay}"
                          Style="{StaticResource NumberBox}"/>
             </Grid>
         </GroupBox>

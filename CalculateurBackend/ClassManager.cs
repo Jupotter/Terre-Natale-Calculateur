@@ -28,7 +28,7 @@ namespace Calculateur.Backend
         }
         public void Initialize()
         {
-            using (var sr = new StreamReader(String.Format("{0}/Classes.json", Application.StartupPath)))
+            using (var sr = new StreamReader(String.Format("{0}/Classes.json", AppDomain.CurrentDomain.BaseDirectory)))
             {
                 var list = JsonConvert.DeserializeObject<List<Classe>>(sr.ReadToEnd());
 

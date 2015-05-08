@@ -8,14 +8,30 @@
              x:Class="Calculateur.View.TalentGroupBox"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-    d:DataContext ="{d:DesignInstance viewModel:TalentGroupBox}">
+    d:DataContext ="{d:DesignInstance viewModel:TalentGroupBox}"
+    DataContextChanged="OnContextChanged">
     <GroupBox Header="{Binding Name}">
-        <ItemsControl ItemsSource="{Binding Talents}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <view:TalentBox />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel
+                FlowDirection="LeftToRight"
+                Orientation="Horizontal" Name="AjustmentPanel">
+                <TextBlock Style="{StaticResource NumberBoxLabel}"
+                       Text="Ajustement:" />
+                <TextBox Style="{StaticResource NumberBox}"
+                       Text="{Binding Ajustement, Mode=OneWay}"
+                         Margin="0,2"/>
+            </StackPanel>
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding Talents}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <view:TalentBox />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
     </GroupBox>
 </UserControl>

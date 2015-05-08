@@ -8,40 +8,7 @@ namespace Calculateur.ViewModel
     {
         private Character character;
 
-        public int Arcane
-        {
-            get { return character == null ? 0 : character.GetAspectValue(Aspect.Arcane); }
-        }
-
-        public int Acier
-        {
-            get { return character == null ? 0 : character.GetAspectValue(Aspect.Acier); }
-        }
-
-        public int Eau
-        {
-            get { return character == null ? 0 : character.GetAspectValue(Aspect.Eau); }
-        }
-
-        public int Feu
-        {
-            get { return character == null ? 0 : character.GetAspectValue(Aspect.Feu); }
-        }
-
-        public int Vent
-        {
-            get { return character == null ? 0 : character.GetAspectValue(Aspect.Vent); }
-        }
-
-        public int Terre
-        {
-            get { return character == null ? 0 : character.GetAspectValue(Aspect.Terre); }
-        }
-
-        public int Equilibre
-        {
-            get { return character == null ? 0 : character.GetAspectValue(Aspect.Equilibre); }
-        }
+        private MainStatsAspects mainStatsAspects;
 
         public int Health
         {
@@ -83,6 +50,11 @@ namespace Calculateur.ViewModel
             get { return character == null ? 0 : character.Karma(); }
         }
 
+        public int Speed
+        {
+            get { return character == null ? 0 : 10 + character.GetTalent("Rapidité").Level; }
+        }
+
         public string RacialBonuses
         {
             get
@@ -106,12 +78,13 @@ namespace Calculateur.ViewModel
         private void CharacterManager_OnCharacterChanged(Character caller)
         {
             character = caller;
+            mainStatsAspects = new MainStatsAspects(character);
             character.PAChanged += caller1 => OnPropertyChanged(null);
             character.Inventory.TrinketChanged += () => OnPropertyChanged(null);
             character.ClassChanged += (var) => OnPropertyChanged(null);
             OnPropertyChanged(null);
         }
-        public  Dictionary<Aspect,int> AspectPoint
+        public Dictionary<Aspect,int> AspectPoint
         {
             get
             {
@@ -123,5 +96,9 @@ namespace Calculateur.ViewModel
             }
         }
 
+        public MainStatsAspects Aspects
+        {
+            get { return mainStatsAspects; }
+        }
     }
 }
