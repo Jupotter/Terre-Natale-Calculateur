@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq.Expressions;
+
 namespace Calculateur.Backend
 {
     public class Race
@@ -9,7 +11,8 @@ namespace Calculateur.Backend
         public readonly Dictionary<Aspect, int> AspectBonus = new Dictionary<Aspect,int>();
         public string bonusRaciaux="";
 
-        public int Mass { get; set; }
+        public int Mass = 2;
+        public int Vitality = 5;
 
         public Race(string name)
         {

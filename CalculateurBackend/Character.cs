@@ -297,16 +297,23 @@ namespace Calculateur.Backend
 
         private int mass
         {
-            get { return Race == null ? 5 : Race.Mass + GetLevel(); }
+            get { return Race == null ? 2 : Race.Mass; }
+        }
+
+        private int vitality
+        {
+            get { return Race == null ? 5 : Race.Vitality; }
         }
 
         public int Ps
         {
             get
             {
-                int ps = 2*(mass)
-                         + 5*GetTalent("Resistance").Level
-                         + 2*GetAspectValue(Aspect.Acier);
+                int ps = mass*(GetAspectValue(Aspect.Acier)
+                               + GetAspectValue(Aspect.Equilibre)
+                               + GetLevel()
+                               + 3)
+                         + 5*GetTalent("Resistance").Level;
                 return ps;
             }
         }
@@ -353,13 +360,14 @@ namespace Calculateur.Backend
             {
                 if (_enduranceStore.HasValue) return _enduranceStore.Value;
 
-                _enduranceStore = 5*GetAspectValue(Aspect.Acier) 
-                    + 5*GetAspectValue(Aspect.Equilibre)
-                    + 5*mass;
+                _enduranceStore = vitality*(GetAspectValue(Aspect.Acier)
+                                            + GetAspectValue(Aspect.Equilibre)
+                                            + GetLevel()
+                                            + 3);
                 _enduranceStore += GetTalent("Endurance").Level*10;
                 if (classeChar != null)
                 {
-                    _enduranceStore += classeChar.EnduranceRatio*GetLevel();
+                    _enduranceStore += classeChar.EnduranceRatio*vitality;
                 }
                 if (classeChar != null)
                 {

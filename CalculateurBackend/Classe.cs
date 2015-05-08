@@ -18,7 +18,7 @@ namespace Calculateur.Backend
         String _TalentBonus;
         String _MaitriseSpecial;
 
-        private int enduranceRatio = 4;
+        private int enduranceRatio = 2;
 
 
         public Classe(string name, int id, int RPE, int RPF, int RPC, int RPM,List<string>statb,List<string>sauvb, String Maitrisedebase,

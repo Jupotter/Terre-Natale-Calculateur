@@ -19,7 +19,7 @@
             "Réflexe",
             "Volonté"
         ],
-        "EnduranceRatio": 5
+        "EnduranceRatio": 3
     },
     {
         "Id": 10,
@@ -272,7 +272,8 @@
             "Robustesse",
             "Volonté"
 
-        ]
+        ],
+        "EnduranceRatio": 3
     },
     {
         "Id": 130,
@@ -461,7 +462,7 @@
             "Robustesse"
 
         ],
-        "EnduranceRatio": 3
+        "EnduranceRatio": 1
     },
     {
         "Id": 220,
@@ -483,7 +484,7 @@
             "Robustesse",
             "Réflexe"
         ],
-        "EnduranceRatio": 3
+        "EnduranceRatio": 1
     },
     {
         "Id": 230,
