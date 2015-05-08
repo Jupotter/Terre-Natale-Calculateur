@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharacterTest.cs" />
+    <Compile Include="Cyrus0Test.cs" />
     <Compile Include="CyrusTest.cs" />
     <Compile Include="MockClassManager.cs" />
     <Compile Include="MockTalentManager.cs" />

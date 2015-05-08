@@ -269,7 +269,7 @@ namespace Calculateur.Backend
             }
             _race = r;
             _bonusAspect = bonAspect;
-            PAChanged(this);
+            OnPAchanged();
             OnExperienceChanged();
         }
 

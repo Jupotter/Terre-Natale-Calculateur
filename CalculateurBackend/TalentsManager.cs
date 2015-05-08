@@ -43,7 +43,7 @@ namespace Calculateur.Backend
 
         public void Initialize()
         {
-            using (var sr = new StreamReader(String.Format("{0}/Talents.json", Application.StartupPath)))
+            using (var sr = new StreamReader(String.Format("{0}/Talents.json", AppDomain.CurrentDomain.BaseDirectory)))
             {
                 var list = JsonConvert.DeserializeObject<List<Talent>>(sr.ReadToEnd());
                 if (_talents != null && _talents.Count > 0) _talents.Clear();

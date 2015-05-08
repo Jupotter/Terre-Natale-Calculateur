@@ -41,7 +41,7 @@ namespace Calculateur.Backend
 
         public void Initialize()
         {
-            using (var sr = new StreamReader(String.Format("{0}/Races.json", Application.StartupPath)))
+            using (var sr = new StreamReader(String.Format("{0}/Races.json", AppDomain.CurrentDomain.BaseDirectory)))
             {
                 var list = JsonConvert.DeserializeObject<List<Race>>(sr.ReadToEnd(), _serializerSettings);
 

@@ -8,9 +8,164 @@ using Xunit;
 
 namespace Calculateur.Tests
 {
-    class CyrusTest
+    public class CyrusTest
     {
-        private Character character;
+        private readonly Character character;
+
+        #region Source
+        private readonly SerializableCharacter source = 
+            new SerializableCharacter()
+            {
+                AspectBonus = new List<Aspect>(new[] { Aspect.Eau, Aspect.Vent }),
+                AspectMalus = new List<Aspect>(new[] { Aspect.Terre, Aspect.Feu }),
+                Classe = "Spadassin",
+                Experience = 450,
+                Inventaire =  new List<string>(),
+                Inventory = new Inventory() { 
+                    Armor = new ArmorSet() { 
+                        Arms = new ArmorPiece()
+                        {
+                            Quality = 2, 
+                            Type = ArmorPiece.ArmorType.Leger
+                        },
+                        Chest = new ArmorPiece()
+                        {
+                            Quality = 2,
+                            Type = ArmorPiece.ArmorType.Leger
+                        },
+                        Head = new ArmorPiece()
+                        {
+                            Quality = 2,
+                            Type = ArmorPiece.ArmorType.Leger
+                        },
+                        Legs = new ArmorPiece()
+                        {
+                            Quality = 2,
+                            Type = ArmorPiece.ArmorType.Leger
+                        }, 
+                    },
+                },
+                Race = 1,
+                penPoid = 4,
+                Talents = new[]
+                {
+                    new SerialisableTalent()
+                    {
+                        id = 3,
+                        level = 3,
+                        bonus = true,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 4,
+                        level = 2,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 6,
+                        level = 1,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 10,
+                        level = 1,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 14,
+                        level = 2,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 15,
+                        level = 1,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 16,
+                        level = 2,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 17,
+                        level = 1,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 19,
+                        level = 1,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 20,
+                        level = 1,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 22,
+                        level = 1,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 27,
+                        level = 1,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 36,
+                        level = 3,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 42,
+                        level = 3,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 46,
+                        level = 1,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 56,
+                        level = 2,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 57,
+                        level = 3,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 74,
+                        level = 2,
+                        bonus = false,
+                    },
+                    new SerialisableTalent()
+                    {
+                        id = 75,
+                        level = 1,
+                        bonus = false,
+                    },
+                }
+            };
+#endregion
 
         public CyrusTest()
         {
@@ -18,12 +173,8 @@ namespace Calculateur.Tests
             ClassManager.Instance.Initialize();
             RacesManager.Instance.Initialize();
 
-            character = CharacterManager.Instance.Create("Cyrus");
-        }
+            character = new Character(source);
 
-        [Fact]
-        public void RaceTest()
-        {
             character.SetBonus(
                 RacesManager.Instance.GetRace(1).AspectBonus,
                 new[]
@@ -34,14 +185,55 @@ namespace Calculateur.Tests
                 RacesManager.Instance.GetRace(1)
                 );
 
-            Assert.Equal(2, character.GetAspectValue(Aspect.Acier));
-            Assert.Equal(2, character.GetAspectValue(Aspect.Arcane));
-            Assert.Equal(2, character.GetAspectValue(Aspect.Feu));
-            Assert.Equal(2, character.GetAspectValue(Aspect.Eau));
-            Assert.Equal(2, character.GetAspectValue(Aspect.Vent));
-            Assert.Equal(2, character.GetAspectValue(Aspect.Terre));
         }
 
+        [Fact]
+        public void AspectTest()
+        {
+            Assert.Equal(5, character.GetAspectValue(Aspect.Acier));
+            Assert.Equal(2, character.GetAspectValue(Aspect.Arcane));
+            Assert.Equal(1, character.GetAspectValue(Aspect.Feu));
+            Assert.Equal(4, character.GetAspectValue(Aspect.Eau));
+            Assert.Equal(6, character.GetAspectValue(Aspect.Vent));
+            Assert.Equal(1, character.GetAspectValue(Aspect.Terre));
+            Assert.Equal(6, character.GetAspectValue(Aspect.Equilibre));
+        }
+
+        [Fact]
+        public void PSTest()
+        {
+            Assert.Equal(45, character.Ps);
+        }
+
+        [Fact]
+        public void PETest()
+        {
+            Assert.Equal(128, character.Endurance);
+        }
+
+        [Fact]
+        public void PCTest()
+        {
+            Assert.Equal(30, character.Chi);
+        }
+
+        [Fact]
+        public void PFTest()
+        {
+            Assert.Equal(22, character.Fatigue);
+        }
+
+        [Fact]
+        public void PMTest()
+        {
+            Assert.Equal(20, character.Mana);
+        }
+
+        [Fact]
+        public void PKTest()
+        {
+            Assert.Equal(15, character.Karma());
+        }
 
     }
 }
