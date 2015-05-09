@@ -59,7 +59,7 @@ namespace Calculateur.Backend
                 _talents = list.ToDictionary(talent => talent.Id);
                 foreach (var talent in _talents)
                 {
-                    talent.Value.reset();
+                    talent.Value.Reset();
                 }
             }
             OnTalentsLoaded();

@@ -12,5 +12,6 @@ namespace Calculateur.Backend
       public int level;
       public bool bonus;
       public bool savoir;
+       public int speLevel;
     }
 }

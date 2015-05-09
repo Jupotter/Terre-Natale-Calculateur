@@ -1,4 +1,5 @@
-﻿using Calculateur.Backend.Annotations;
+﻿using System.Diagnostics;
+using Calculateur.Backend.Annotations;
 using Newtonsoft.Json;
 using System;
 
@@ -71,6 +72,16 @@ namespace Calculateur.Backend
             }
         }
 
+        public int SpeLevel
+        {
+            get { return speLevel; }
+            set
+            {
+                speLevel = value;
+                OnLevelChanged();
+            }
+        }
+
         public string Name
         {
             get { return _name; }
@@ -97,6 +108,7 @@ namespace Calculateur.Backend
         #region Experience
 
         private int? _xpStore;
+        private int speLevel;
 
         [JsonIgnore]
         public int XPCost
@@ -109,7 +121,12 @@ namespace Calculateur.Backend
                     for (int i = 1; i <= Level; i++)
                         ret += 10 * i;
                     _xpStore = ret;
+                    ret = 0;
+                    for (int i = 1; i <= SpeLevel; i++)
+                        ret += 5 * i;
+                    _xpStore += ret;
                 }
+                Debug.Assert(_xpStore != null, "_xpStore != null");
                 return _xpStore.Value;
             }
         }
@@ -118,6 +135,14 @@ namespace Calculateur.Backend
         {
             int ret = 0;
             for (int i = 1; i <= Level + 1; i++)
+                ret += 10 * i;
+            return ret;
+        }
+
+        public int SpeGetXpNeeded()
+        {
+            int ret = 0;
+            for (int i = 1; i <= SpeLevel + 1; i++)
                 ret += 10 * i;
             return ret;
         }
@@ -137,16 +162,25 @@ namespace Calculateur.Backend
             };
         }
 
-        public int Decrement(int number = 1)
+        public int Decrement(int number = 1, bool Spe = false)
         {
-            return Increment(-number);
+            return Increment(-number, Spe);
         }
 
-        public int Increment(int number = 1)
+        public int Increment(int number = 1, bool spe = false)
         {
-            if (Level + number >= (_haveBonus ? 1 : 0)
-                && Level + number <= 5)
-                Level += number;
+            if (spe)
+            {
+                if (SpeLevel + number >= 0
+                    && SpeLevel + number <= 5)
+                    SpeLevel += number;
+            }
+            else
+            {
+                if (Level + number >= (_haveBonus ? 1 : 0)
+                    && Level + number <= 5)
+                    Level += number;
+            }
             return XPCost;
         }
 
@@ -157,9 +191,11 @@ namespace Calculateur.Backend
             if (handler != null)
                 handler(this, EventArgs.Empty);
         }
-        public void reset()
+
+        public void Reset()
         {
             _level = 0;
+            speLevel = 0;
             _haveBonus = false;
         }
 

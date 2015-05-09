@@ -753,6 +753,7 @@ namespace Calculateur.Backend
                         id = tal.Id,
                         level = tal.Level,
                         bonus = tal.HaveBonus,
+                        speLevel = tal.SpeLevel
                     }).ToList();
         }
 
