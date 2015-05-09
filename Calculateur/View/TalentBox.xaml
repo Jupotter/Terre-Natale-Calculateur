@@ -38,24 +38,58 @@
             Orientation="Horizontal"
             FlowDirection="LeftToRight"
             VerticalAlignment="Center">
-            <!--<ToggleButton Content="Spécialisation" VerticalAlignment="Center"
+            <ToggleButton Content="Spécialisation" VerticalAlignment="Center"
+                          x:Name="SpeButton"
                           Margin="2"
                           Width="90"
-                          Height="23"/>-->
+                          Height="23"/>
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="1"  Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Button Content="-" 
+            <Button Content="-"
+                    x:Name="MinusButton"
                     Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" 
-                    Command="{Binding RemoveLevelCommand}"
-                    Margin="2"/>
-            <ProgressBar Width="100" 
+                    Margin="2">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Command" Value="{Binding RemoveLevelCommand}" />
+                        <Style.Triggers>
+                            <DataTrigger  Value="true" Binding="{Binding IsChecked, ElementName=SpeButton}">
+                                <Setter Property="Command"  Value="{Binding RemoveSpeLevelCommand}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <ProgressBar Width="100"
+                         x:Name="LevelBar"
                          Margin="2" 
-                         Maximum="5" 
-                         Value="{Binding Level, Mode=OneWay}" />
-            <Button Content="+" 
-                    Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" 
-                    Command="{Binding AddLevelCommand}"
-                    Margin="2"/>
+                         Maximum="5">
+                <ProgressBar.Style>
+                    <Style TargetType="ProgressBar">
+                        <Setter Property="Value" Value="{Binding Level, Mode=OneWay}" />
+                        <Style.Triggers>
+                            <DataTrigger  Value="true" Binding="{Binding IsChecked, ElementName=SpeButton}">
+                                <Setter Property="Value"  Value="{Binding SpeLevel, Mode=OneWay}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ProgressBar.Style>
+            </ProgressBar>
+            <Button Content="+"
+                    x:Name="PlusButton"
+                    Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}"
+                    Margin="2">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Command" Value="{Binding AddLevelCommand}" />
+                        <Style.Triggers>
+                            <DataTrigger  Value="true" Binding="{Binding IsChecked, ElementName=SpeButton}">
+                                <Setter Property="Command"  Value="{Binding AddSpeLevelCommand}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </StackPanel>
     </Grid>
 </UserControl>

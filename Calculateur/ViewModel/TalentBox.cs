@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Media.Media3D;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
 using Calculateur.Backend;
@@ -11,6 +12,13 @@ namespace Calculateur.ViewModel
         private readonly Talent talent;
         private readonly Character character;
 
+        private bool editSpe = false;
+
+        public bool EditSpe {
+            get { return editSpe; }
+            set { SetProperty(ref editSpe, value); }
+        }
+
         public int Level
         {
             get
@@ -18,6 +26,16 @@ namespace Calculateur.ViewModel
                 if (talent == null)
                     return 3;
                 return talent.Level;
+            }
+        }
+
+        public int SpeLevel
+        {
+            get
+            {
+                if (talent == null)
+                    return 0;
+                return talent.SpeLevel;
             }
         }
 
@@ -42,6 +60,38 @@ namespace Calculateur.ViewModel
                        + character.GetAspectValue(talent.PrimaryAspect)/2;
             }
 
+        }
+
+        public DelegateCommand AddSpeLevelCommand
+        {
+            get { return new DelegateCommand(AddSpeLevel, () => CanSpeLevelUp); }
+        }
+
+        public DelegateCommand RemoveSpeLevelCommand
+        {
+            get { return new DelegateCommand(RemoveSpeLevel, () => CanLevelDown); }
+        }
+
+        private void AddSpeLevel()
+        {
+            talent.Increment(spe: true);
+            OnPropertyChanged(null);
+        }
+
+        private void RemoveSpeLevel()
+        {
+            talent.Decrement(Spe: true);
+            OnPropertyChanged(null);
+        }
+
+        private bool CanSpeLevelUp
+        {
+            get
+            {
+                if (talent == null)
+                    return false;
+                return talent.Level <= 5 && character.ExperienceRemaining >= (talent.SpeGetXpNeeded() - talent.XPCost) && character.ExperienceRemaining > 0;
+            }
         }
 
         public DelegateCommand AddLevelCommand
