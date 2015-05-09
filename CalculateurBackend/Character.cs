@@ -694,6 +694,7 @@ namespace Calculateur.Backend
                             talent.Increment(item.level);
                         }
                         talent.HaveBonus = item.bonus;
+                        talent.SpeLevel = item.speLevel;
                     }
                     catch
                     {
@@ -747,7 +748,7 @@ namespace Calculateur.Backend
         private IEnumerable<SerialisableTalent> GetSerialisableListTalent()
         {
             return (from tal in _talents.Values
-                    where tal.Level > 0
+                    where tal.Level > 0 || tal.SpeLevel >= 0
                     select new SerialisableTalent
                     {
                         id = tal.Id,
