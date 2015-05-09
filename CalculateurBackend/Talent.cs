@@ -136,14 +136,18 @@ namespace Calculateur.Backend
             int ret = 0;
             for (int i = 1; i <= Level + 1; i++)
                 ret += 10 * i;
+            for (int i = 1; i <= SpeLevel; i++)
+                ret += 5 * i;
             return ret;
         }
 
         public int SpeGetXpNeeded()
         {
             int ret = 0;
-            for (int i = 1; i <= SpeLevel + 1; i++)
+            for (int i = 1; i <= Level; i++)
                 ret += 10 * i;
+            for (int i = 1; i <= SpeLevel + 1; i++)
+                ret += 5 * i;
             return ret;
         }
 
