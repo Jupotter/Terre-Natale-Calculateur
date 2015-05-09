@@ -247,7 +247,8 @@
       "Equilibre": 0
     },
     "bonusRaciaux": "#PS max +1, Infravision, PE (agonie) +2 +2xVolonté",
-    "Mass": 3
+    "Mass": 3,
+    "Vitality": 5
   },
   {
     "Id": 11,
@@ -272,6 +273,7 @@
       "Equilibre": 0
     },
     "bonusRaciaux": "#PS max +1, Altération +1 contre Robustesse adverse, Spécialisation Attaque ou Défense (au choix)",
+    "Vitality": 5
   },
   {
     "Id": 12,
@@ -297,7 +299,8 @@
       "Equilibre": 1
     },
     "bonusRaciaux": "#PS max +1,Spécialisation Savoir / Artisanats / Alchimie (au choix), Mémoire : Peut sociliter une aide quant à une information passé",
-    "Mass": 2
+    "Mass": 2,
+    "Vitality": 5
   },
   {
     "Id": 13,
