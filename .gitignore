@@ -199,7 +199,6 @@ FakesAssemblies/
 
 
 ### Linux ###
-*~
 *.userprefs
 *.orig
 
@@ -208,3 +207,4 @@ FakesAssemblies/
 # Advanced Installer files
 Terre Natale-cache/
 mirlite_setup.msi
+/.vs/
